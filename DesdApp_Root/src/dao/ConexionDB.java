@@ -31,7 +31,7 @@ public class ConexionDB {
                     System.out.println("Desconecion se realizo con exito");
                 }
             } catch (SQLException e) {
-                System.out.println("NO de desconectar de la base de datos, error: " + e);
+                System.out.println("NO de desconectar de la base de datos, error: " + e);                
             }
         }
     }
