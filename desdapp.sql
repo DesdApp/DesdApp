@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-07-2019 a las 20:49:03
--- Versión del servidor: 10.1.30-MariaDB
--- Versión de PHP: 7.0.27
+-- Tiempo de generación: 18-07-2019 a las 17:37:32
+-- Versión del servidor: 10.1.28-MariaDB
+-- Versión de PHP: 5.6.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `nueva_desdapp`
+-- Base de datos: `desdapp`
 --
 
 -- --------------------------------------------------------
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bienes_inmuebles` (
-  `id_inmueble` int(11) NOT NULL,
+  `inmueble_id` int(11) NOT NULL,
   `direccion` varchar(150) NOT NULL,
   `zona` smallint(2) NOT NULL,
-  `municipio_id` int(11) NOT NULL,
+  `muni_id` int(11) NOT NULL,
   `metros_cuadrados` varchar(50) NOT NULL,
   `descripcion` varchar(150) NOT NULL,
   `precio_metro_cuadrado` decimal(10,2) NOT NULL,
@@ -51,8 +51,8 @@ CREATE TABLE `bienes_inmuebles` (
 --
 
 CREATE TABLE `clientes` (
-  `id_cliente` int(11) NOT NULL,
-  `id_clasificacion` tinyint(4) NOT NULL
+  `cliente_id` int(11) NOT NULL,
+  `clasificacion_id` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -62,16 +62,16 @@ CREATE TABLE `clientes` (
 --
 
 CREATE TABLE `departamentos` (
-  `cod_depto` int(2) NOT NULL,
+  `depto_id` int(2) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `cod_region` int(2) DEFAULT NULL
+  `region_id` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `departamentos`
 --
 
-INSERT INTO `departamentos` (`cod_depto`, `nombre`, `cod_region`) VALUES
+INSERT INTO `departamentos` (`depto_id`, `nombre`, `region_id`) VALUES
 (1, 'Guatemala', 1),
 (2, 'El Progreso', 3),
 (3, 'Sacatepéquez', 5),
@@ -104,7 +104,7 @@ INSERT INTO `departamentos` (`cod_depto`, `nombre`, `cod_region`) VALUES
 CREATE TABLE `detalles_compras_ventas` (
   `negocio_id` int(11) NOT NULL,
   `fecha_establecida_venta` date NOT NULL,
-  `observaciones` varchar(150) NOT NULL
+  `observacion` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -126,13 +126,13 @@ CREATE TABLE `detalles_ventas` (
 --
 
 CREATE TABLE `empleados` (
-  `id_persona` int(11) NOT NULL,
-  `codigo_empleado` int(11) NOT NULL,
+  `persona_id` int(11) NOT NULL,
+  `empleado_id` int(11) NOT NULL,
   `puesto` varchar(45) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_finalizacion` date NOT NULL,
   `sueldo` decimal(8,2) NOT NULL,
-  `login` varchar(30) NOT NULL,
+  `user` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
   `tipo_usuario_id` tinyint(1) NOT NULL,
   `estado_empleado_id` tinyint(1) NOT NULL
@@ -141,19 +141,19 @@ CREATE TABLE `empleados` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estado_empleados`
+-- Estructura de tabla para la tabla `estados_empleados`
 --
 
-CREATE TABLE `estado_empleados` (
+CREATE TABLE `estados_empleados` (
   `estado_empleado_id` tinyint(1) NOT NULL,
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `estado_empleados`
+-- Volcado de datos para la tabla `estados_empleados`
 --
 
-INSERT INTO `estado_empleados` (`estado_empleado_id`, `nombre`) VALUES
+INSERT INTO `estados_empleados` (`estado_empleado_id`, `nombre`) VALUES
 (1, 'Activo'),
 (2, 'Suspendido'),
 (3, 'Dado de baja');
@@ -161,19 +161,19 @@ INSERT INTO `estado_empleados` (`estado_empleado_id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estado_pagos`
+-- Estructura de tabla para la tabla `estados_pagos`
 --
 
-CREATE TABLE `estado_pagos` (
+CREATE TABLE `estados_pagos` (
   `estado_pago_id` tinyint(1) NOT NULL,
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `estado_pagos`
+-- Volcado de datos para la tabla `estados_pagos`
 --
 
-INSERT INTO `estado_pagos` (`estado_pago_id`, `nombre`) VALUES
+INSERT INTO `estados_pagos` (`estado_pago_id`, `nombre`) VALUES
 (1, 'Realizado'),
 (2, 'Pendinte'),
 (3, 'No realizado');
@@ -181,19 +181,19 @@ INSERT INTO `estado_pagos` (`estado_pago_id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estado_propiedades`
+-- Estructura de tabla para la tabla `estados_propiedades`
 --
 
-CREATE TABLE `estado_propiedades` (
+CREATE TABLE `estados_propiedades` (
   `estado_propiedad_id` tinyint(1) NOT NULL,
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `estado_propiedades`
+-- Volcado de datos para la tabla `estados_propiedades`
 --
 
-INSERT INTO `estado_propiedades` (`estado_propiedad_id`, `nombre`) VALUES
+INSERT INTO `estados_propiedades` (`estado_propiedad_id`, `nombre`) VALUES
 (1, 'Disponible'),
 (2, 'En proceso'),
 (3, 'Vendido'),
@@ -206,16 +206,16 @@ INSERT INTO `estado_propiedades` (`estado_propiedad_id`, `nombre`) VALUES
 --
 
 CREATE TABLE `municipios` (
-  `cod_muni` int(4) NOT NULL,
+  `muni_id` int(4) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `cod_depto` int(2) DEFAULT NULL
+  `depto_id` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `municipios`
 --
 
-INSERT INTO `municipios` (`cod_muni`, `nombre`, `cod_depto`) VALUES
+INSERT INTO `municipios` (`muni_id`, `nombre`, `depto_id`) VALUES
 (101, 'Guatemala', 1),
 (102, 'Santa Catarina Pinula', 1),
 (103, 'San José Pinula', 1),
@@ -560,7 +560,7 @@ CREATE TABLE `negocios` (
   `tipo_transaccion_id` int(11) NOT NULL,
   `asesor_id` int(11) NOT NULL,
   `precio_venta_propiedad` decimal(10,2) NOT NULL,
-  `comision_empresa` decimal(10,2) NOT NULL,
+  `comision` decimal(10,2) NOT NULL,
   `fecha` date NOT NULL,
   `estado_pago_id` tinyint(1) NOT NULL,
   `cliente_id` int(11) NOT NULL
@@ -576,7 +576,7 @@ CREATE TABLE `pagos_propiedades` (
   `pago_propiedad_id` int(11) NOT NULL,
   `venta_id` int(11) NOT NULL,
   `tipo_pago_id` int(11) NOT NULL,
-  `no_transaccion` int(11) NOT NULL,
+  `transaccion_no` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `monto_pagado` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -595,7 +595,7 @@ CREATE TABLE `personas` (
   `telefono` int(8) NOT NULL,
   `correo` varchar(100) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
-  `doc_identificacion` int(11) NOT NULL,
+  `dpi` int(11) NOT NULL,
   `nit` int(10) NOT NULL,
   `tipo_usario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -608,8 +608,8 @@ CREATE TABLE `personas` (
 
 CREATE TABLE `propietarios` (
   `propietario_id` int(11) NOT NULL,
-  `nombre_pago` varchar(150) NOT NULL,
-  `login` varchar(50) NOT NULL,
+  `acreedor` varchar(150) NOT NULL,
+  `user` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -620,7 +620,7 @@ CREATE TABLE `propietarios` (
 --
 
 CREATE TABLE `regiones` (
-  `cod_region` int(2) NOT NULL,
+  `region_id` int(2) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `descripcion` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -629,7 +629,7 @@ CREATE TABLE `regiones` (
 -- Volcado de datos para la tabla `regiones`
 --
 
-INSERT INTO `regiones` (`cod_region`, `nombre`, `descripcion`) VALUES
+INSERT INTO `regiones` (`region_id`, `nombre`, `descripcion`) VALUES
 (1, 'Metropolitana', 'Región I'),
 (2, 'Norte', 'Región II'),
 (3, 'NorOriental', 'Región III'),
@@ -646,7 +646,7 @@ INSERT INTO `regiones` (`cod_region`, `nombre`, `descripcion`) VALUES
 --
 
 CREATE TABLE `tipos_clientes` (
-  `id_tipocliente` tinyint(4) NOT NULL,
+  `tipo_cliente_id` tinyint(4) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -655,7 +655,7 @@ CREATE TABLE `tipos_clientes` (
 -- Volcado de datos para la tabla `tipos_clientes`
 --
 
-INSERT INTO `tipos_clientes` (`id_tipocliente`, `nombre`, `descripcion`) VALUES
+INSERT INTO `tipos_clientes` (`tipo_cliente_id`, `nombre`, `descripcion`) VALUES
 (1, 'A', 'pendiente'),
 (2, 'B', 'pendiente'),
 (3, 'C', 'pendiente'),
@@ -664,19 +664,19 @@ INSERT INTO `tipos_clientes` (`id_tipocliente`, `nombre`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipos_facturacion`
+-- Estructura de tabla para la tabla `tipos_facturaciones`
 --
 
-CREATE TABLE `tipos_facturacion` (
+CREATE TABLE `tipos_facturaciones` (
   `tipo_id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `tipos_facturacion`
+-- Volcado de datos para la tabla `tipos_facturaciones`
 --
 
-INSERT INTO `tipos_facturacion` (`tipo_id`, `nombre`) VALUES
+INSERT INTO `tipos_facturaciones` (`tipo_id`, `nombre`) VALUES
 (1, 'Comision'),
 (2, 'Venta');
 
@@ -699,6 +699,17 @@ INSERT INTO `tipos_pagos` (`tipo_pago_id`, `nombre`) VALUES
 (1, 'Contado'),
 (2, 'Renta'),
 (3, 'Cambio');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipos_propiedades`
+--
+
+CREATE TABLE `tipos_propiedades` (
+  `tipo_propiedad_id` tinyint(1) NOT NULL,
+  `nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -746,17 +757,6 @@ INSERT INTO `tipos_usuarios` (`tipo_usuario_id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo_propiedades`
---
-
-CREATE TABLE `tipo_propiedades` (
-  `tipo_propiedad_id` tinyint(1) NOT NULL,
-  `nombre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `ventas`
 --
 
@@ -780,9 +780,9 @@ CREATE TABLE `ventas` (
 -- Indices de la tabla `bienes_inmuebles`
 --
 ALTER TABLE `bienes_inmuebles`
-  ADD PRIMARY KEY (`id_inmueble`),
+  ADD PRIMARY KEY (`inmueble_id`),
   ADD KEY `persona_id` (`persona_id`),
-  ADD KEY `municipio_id` (`municipio_id`,`propietario_id`),
+  ADD KEY `municipio_id` (`muni_id`,`propietario_id`),
   ADD KEY `propietario_id` (`propietario_id`),
   ADD KEY `estado_propiedad_id` (`estado_propiedad_id`),
   ADD KEY `tipo_propiedad_id` (`tipo_propiedad_id`);
@@ -791,15 +791,15 @@ ALTER TABLE `bienes_inmuebles`
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`id_cliente`),
-  ADD KEY `id_clasificacion` (`id_clasificacion`);
+  ADD PRIMARY KEY (`cliente_id`),
+  ADD KEY `id_clasificacion` (`clasificacion_id`);
 
 --
 -- Indices de la tabla `departamentos`
 --
 ALTER TABLE `departamentos`
-  ADD PRIMARY KEY (`cod_depto`),
-  ADD KEY `cod_region` (`cod_region`);
+  ADD PRIMARY KEY (`depto_id`),
+  ADD KEY `cod_region` (`region_id`);
 
 --
 -- Indices de la tabla `detalles_compras_ventas`
@@ -819,36 +819,36 @@ ALTER TABLE `detalles_ventas`
 -- Indices de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  ADD PRIMARY KEY (`id_persona`),
-  ADD UNIQUE KEY `codigo_empleado` (`codigo_empleado`,`login`),
-  ADD UNIQUE KEY `login` (`login`),
+  ADD PRIMARY KEY (`persona_id`),
+  ADD UNIQUE KEY `codigo_empleado` (`empleado_id`,`user`),
+  ADD UNIQUE KEY `login` (`user`),
   ADD KEY `tipo_usuario_id` (`tipo_usuario_id`,`estado_empleado_id`),
   ADD KEY `estado_empleado_id` (`estado_empleado_id`);
 
 --
--- Indices de la tabla `estado_empleados`
+-- Indices de la tabla `estados_empleados`
 --
-ALTER TABLE `estado_empleados`
+ALTER TABLE `estados_empleados`
   ADD PRIMARY KEY (`estado_empleado_id`);
 
 --
--- Indices de la tabla `estado_pagos`
+-- Indices de la tabla `estados_pagos`
 --
-ALTER TABLE `estado_pagos`
+ALTER TABLE `estados_pagos`
   ADD PRIMARY KEY (`estado_pago_id`);
 
 --
--- Indices de la tabla `estado_propiedades`
+-- Indices de la tabla `estados_propiedades`
 --
-ALTER TABLE `estado_propiedades`
+ALTER TABLE `estados_propiedades`
   ADD PRIMARY KEY (`estado_propiedad_id`);
 
 --
 -- Indices de la tabla `municipios`
 --
 ALTER TABLE `municipios`
-  ADD PRIMARY KEY (`cod_muni`),
-  ADD KEY `cod_depto` (`cod_depto`);
+  ADD PRIMARY KEY (`muni_id`),
+  ADD KEY `cod_depto` (`depto_id`);
 
 --
 -- Indices de la tabla `negocios`
@@ -886,18 +886,18 @@ ALTER TABLE `propietarios`
 -- Indices de la tabla `regiones`
 --
 ALTER TABLE `regiones`
-  ADD PRIMARY KEY (`cod_region`);
+  ADD PRIMARY KEY (`region_id`);
 
 --
 -- Indices de la tabla `tipos_clientes`
 --
 ALTER TABLE `tipos_clientes`
-  ADD PRIMARY KEY (`id_tipocliente`);
+  ADD PRIMARY KEY (`tipo_cliente_id`);
 
 --
--- Indices de la tabla `tipos_facturacion`
+-- Indices de la tabla `tipos_facturaciones`
 --
-ALTER TABLE `tipos_facturacion`
+ALTER TABLE `tipos_facturaciones`
   ADD PRIMARY KEY (`tipo_id`);
 
 --
@@ -905,6 +905,12 @@ ALTER TABLE `tipos_facturacion`
 --
 ALTER TABLE `tipos_pagos`
   ADD PRIMARY KEY (`tipo_pago_id`);
+
+--
+-- Indices de la tabla `tipos_propiedades`
+--
+ALTER TABLE `tipos_propiedades`
+  ADD PRIMARY KEY (`tipo_propiedad_id`);
 
 --
 -- Indices de la tabla `tipos_transacciones`
@@ -919,12 +925,6 @@ ALTER TABLE `tipos_usuarios`
   ADD PRIMARY KEY (`tipo_usuario_id`);
 
 --
--- Indices de la tabla `tipo_propiedades`
---
-ALTER TABLE `tipo_propiedades`
-  ADD PRIMARY KEY (`tipo_propiedad_id`);
-
---
 -- Indices de la tabla `ventas`
 --
 ALTER TABLE `ventas`
@@ -936,9 +936,9 @@ ALTER TABLE `ventas`
 --
 
 --
--- AUTO_INCREMENT de la tabla `estado_propiedades`
+-- AUTO_INCREMENT de la tabla `estados_propiedades`
 --
-ALTER TABLE `estado_propiedades`
+ALTER TABLE `estados_propiedades`
   MODIFY `estado_propiedad_id` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -961,24 +961,24 @@ ALTER TABLE `tipos_usuarios`
 -- Filtros para la tabla `bienes_inmuebles`
 --
 ALTER TABLE `bienes_inmuebles`
-  ADD CONSTRAINT `bienes_inmuebles_ibfk_1` FOREIGN KEY (`municipio_id`) REFERENCES `municipios` (`cod_muni`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bienes_inmuebles_ibfk_1` FOREIGN KEY (`muni_id`) REFERENCES `municipios` (`muni_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bienes_inmuebles_ibfk_3` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bienes_inmuebles_ibfk_4` FOREIGN KEY (`propietario_id`) REFERENCES `propietarios` (`propietario_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `bienes_inmuebles_ibfk_5` FOREIGN KEY (`estado_propiedad_id`) REFERENCES `estado_propiedades` (`estado_propiedad_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `bienes_inmuebles_ibfk_6` FOREIGN KEY (`tipo_propiedad_id`) REFERENCES `tipo_propiedades` (`tipo_propiedad_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `bienes_inmuebles_ibfk_5` FOREIGN KEY (`estado_propiedad_id`) REFERENCES `estados_propiedades` (`estado_propiedad_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bienes_inmuebles_ibfk_6` FOREIGN KEY (`tipo_propiedad_id`) REFERENCES `tipos_propiedades` (`tipo_propiedad_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`id_clasificacion`) REFERENCES `tipos_clientes` (`id_tipocliente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `clientes_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`clasificacion_id`) REFERENCES `tipos_clientes` (`tipo_cliente_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `clientes_ibfk_2` FOREIGN KEY (`cliente_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `departamentos`
 --
 ALTER TABLE `departamentos`
-  ADD CONSTRAINT `departamentos_ibfk_1` FOREIGN KEY (`cod_region`) REFERENCES `regiones` (`cod_region`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `departamentos_ibfk_1` FOREIGN KEY (`region_id`) REFERENCES `regiones` (`region_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `detalles_compras_ventas`
@@ -997,25 +997,25 @@ ALTER TABLE `detalles_ventas`
 -- Filtros para la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  ADD CONSTRAINT `empleados_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `empleados_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `empleados_ibfk_2` FOREIGN KEY (`tipo_usuario_id`) REFERENCES `tipos_usuarios` (`tipo_usuario_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `empleados_ibfk_3` FOREIGN KEY (`estado_empleado_id`) REFERENCES `estado_empleados` (`estado_empleado_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `empleados_ibfk_3` FOREIGN KEY (`estado_empleado_id`) REFERENCES `estados_empleados` (`estado_empleado_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `municipios`
 --
 ALTER TABLE `municipios`
-  ADD CONSTRAINT `municipios_ibfk_1` FOREIGN KEY (`cod_depto`) REFERENCES `departamentos` (`cod_depto`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `municipios_ibfk_1` FOREIGN KEY (`depto_id`) REFERENCES `departamentos` (`depto_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `negocios`
 --
 ALTER TABLE `negocios`
   ADD CONSTRAINT `negocios_ibfk_1` FOREIGN KEY (`tipo_transaccion_id`) REFERENCES `tipos_transacciones` (`tipo_transaccion_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `negocios_ibfk_2` FOREIGN KEY (`asesor_id`) REFERENCES `empleados` (`id_persona`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `negocios_ibfk_3` FOREIGN KEY (`bien_inmueble_id`) REFERENCES `bienes_inmuebles` (`id_inmueble`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `negocios_ibfk_4` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `negocios_ibfk_5` FOREIGN KEY (`estado_pago_id`) REFERENCES `estado_pagos` (`estado_pago_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `negocios_ibfk_2` FOREIGN KEY (`asesor_id`) REFERENCES `empleados` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `negocios_ibfk_3` FOREIGN KEY (`bien_inmueble_id`) REFERENCES `bienes_inmuebles` (`inmueble_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `negocios_ibfk_4` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`cliente_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `negocios_ibfk_5` FOREIGN KEY (`estado_pago_id`) REFERENCES `estados_pagos` (`estado_pago_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `pagos_propiedades`
@@ -1034,7 +1034,7 @@ ALTER TABLE `propietarios`
 -- Filtros para la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  ADD CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`tipo_id`) REFERENCES `tipos_facturacion` (`tipo_id`);
+  ADD CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`tipo_id`) REFERENCES `tipos_facturaciones` (`tipo_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
