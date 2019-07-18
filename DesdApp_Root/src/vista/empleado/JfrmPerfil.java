@@ -43,7 +43,6 @@ public class JfrmPerfil extends javax.swing.JFrame {
         jLblCod = new javax.swing.JLabel();
         jLblTelefono = new javax.swing.JLabel();
         jLblCorreo = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         jMenuItem1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
         jMenuItem1.setText("Cartera");
@@ -131,8 +130,6 @@ public class JfrmPerfil extends javax.swing.JFrame {
         jLblCorreo.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
         jLblCorreo.setText("Correo ");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imgEditRaquel/Graphic Design Blog_files/21294788_465296417186408_6285957179140734976_n.jpg"))); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -148,31 +145,24 @@ public class JfrmPerfil extends javax.swing.JFrame {
                     .addComponent(jLblFechaNac)
                     .addComponent(jLblCod)
                     .addComponent(jLblTelefono))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(400, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jLblNombre)
-                        .addGap(47, 47, 47)
-                        .addComponent(jLblApellido)
-                        .addGap(47, 47, 47)
-                        .addComponent(jLblFechaNac)
-                        .addGap(43, 43, 43)
-                        .addComponent(jLblDpi)
-                        .addGap(48, 48, 48)
-                        .addComponent(jLblCod)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLblTelefono))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23)
+                .addGap(59, 59, 59)
+                .addComponent(jLblNombre)
+                .addGap(47, 47, 47)
+                .addComponent(jLblApellido)
+                .addGap(47, 47, 47)
+                .addComponent(jLblFechaNac)
+                .addGap(43, 43, 43)
+                .addComponent(jLblDpi)
+                .addGap(48, 48, 48)
+                .addComponent(jLblCod)
+                .addGap(40, 40, 40)
+                .addComponent(jLblTelefono)
+                .addGap(55, 55, 55)
                 .addComponent(jLblCorreo)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -206,7 +196,7 @@ public class JfrmPerfil extends javax.swing.JFrame {
                         .addComponent(jLblImgPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLblCodigoLayout.createSequentialGroup()
-                .addGap(0, 111, Short.MAX_VALUE)
+                .addGap(0, 138, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85))
         );
@@ -217,17 +207,14 @@ public class JfrmPerfil extends javax.swing.JFrame {
         JDesktop.setLayout(JDesktopLayout);
         JDesktopLayout.setHorizontalGroup(
             JDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JDesktopLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(JDesktopLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addComponent(jLblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         JDesktopLayout.setVerticalGroup(
             JDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JDesktopLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLblCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+            .addComponent(jLblCodigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -291,7 +278,6 @@ public class JfrmPerfil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBtnClose;
     private javax.swing.JDesktopPane JDesktop;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLblApellido;
     private javax.swing.JLabel jLblCod;
     private javax.swing.JPanel jLblCodigo;
