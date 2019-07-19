@@ -17,7 +17,7 @@ import modelo.Departamentos;
 *contDepto// verificar las sentencias if de cada metodo.
 */
 
-
+//implementacion de los metodos abstractos de la interfaz Departamento
 public class DaoDepartamentos implements InterfaceDepartamento{
     private ConexionDB cn= new ConexionDB();
     private String sql="";
@@ -105,6 +105,7 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             cn.conectar();
             sql="select * from departamentos where depto_id=?";
             ejecutar=cn.getconexionDB().prepareStatement(sql);
+            ejecutar.setInt(1, depto.getDeptoId());
             resul= ejecutar.executeQuery();
             
             while (resul.next()) {                

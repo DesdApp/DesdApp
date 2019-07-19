@@ -15,7 +15,7 @@ import modelo.Persona;
 *datoPerosona// Objeto de la clase Persona
 */
 
-
+//Implementacion de los metodos abstractos de la interfaz Persona
 public class DaoPersona implements InterfacePersona{
     private ConexionDB cn=new ConexionDB();
     private String sql="";

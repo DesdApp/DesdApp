@@ -14,6 +14,7 @@ import modelo.Regiones;
 *ejecutar// instancia de la ejecucion que contiene la base de datos
 *datoRegion// Objeto de la clase Region
  */
+//implementacion de los Metodos Abastractos de la interfaz Regione
 public class DaoRegion implements InterfaceRegion {
 
     private ConexionDB cn = new ConexionDB();
