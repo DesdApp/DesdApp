@@ -107,6 +107,7 @@ private Neg datosneg;
         try {
             cn.conectar();
             sql = "select * from negocios";
+            jc = cn.getconexionDB().prepareStatement(sql);
             rs = jc.executeQuery();
             while (rs.next()) {   
                 ng = new Neg();
