@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
-
 import java.sql.Date;
 
 public class Venta {
-
+//Se declaran los atributos que componen en la base de datos a la tabla de "ventas"
     private int venta_id;
     private int numero_factura;
     private String serie;
@@ -19,7 +13,7 @@ public class Venta {
     private double total;
     private int tipo_id;
 
-    
+//Métodos Setter/Getter para llamar y dar los datos correspondientes
     //<editor-fold defaultstate="collapsed" desc="Setters and Getters">
     public int getVenta_id() {
         return venta_id;
