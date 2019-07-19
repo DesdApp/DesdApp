@@ -56,6 +56,7 @@ public class DaoPersona implements InterfacePersona{
         return datoPersona;
     }
 
+    //insertar persona
     @Override
     public String insertPersona(Persona per) {
         try {
@@ -80,7 +81,7 @@ public class DaoPersona implements InterfacePersona{
                 mensaje="Registro Agregado Con Exito"; 
             }
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje="Error al Agregar el Registro: "+e;
         }finally{
             cn.desconectar();
@@ -88,6 +89,7 @@ public class DaoPersona implements InterfacePersona{
         return mensaje;
          }
 
+    //Modificar Persona
     @Override
     public String updatePersona(Persona per) {
         try {
@@ -121,6 +123,8 @@ public class DaoPersona implements InterfacePersona{
         }
         return mensaje;
          }
+    
+    //Eliminar Persona
 
     @Override
     public String deletPersona(Persona per) {
@@ -142,6 +146,8 @@ public class DaoPersona implements InterfacePersona{
         }
         return mensaje;
          }
+    
+    //listar Personas por pedio de un ArrayList.
 
     @Override
     public ArrayList<Persona> listPersona() {
