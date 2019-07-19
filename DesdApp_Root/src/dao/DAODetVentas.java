@@ -107,7 +107,7 @@ public class DAODetVentas implements InterfazDetVentas{
         
         while(result.next()){
             v.setDetalle_id(result.getInt("detalle_id"));
-            v.setNegocio_id(result.getInt("negocio:id"));
+            v.setNegocio_id(result.getInt("negocio_id"));
             v.setVenta_id(result.getInt("venta_id"));
             lista.add(v);
         }
