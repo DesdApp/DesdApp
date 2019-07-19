@@ -36,7 +36,7 @@ public class DaoRegion implements InterfaceRegion {
             ejecutar.setString(3, region.getDescripcion());
             contRegion = ejecutar.executeUpdate();
 
-            if (contRegion == 0) {
+            if (contRegion == 0) {  
                 mensaje = "No se a podigo Insertar el Registro";
             } else {
                 mensaje = "Regisgro Ingresado con Exito";
@@ -67,7 +67,7 @@ public class DaoRegion implements InterfaceRegion {
                 mensaje = "Registro modificado con Exito";
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Error al modificar Region: " + e;
         } finally {
             cn.desconectar();
@@ -114,7 +114,7 @@ public class DaoRegion implements InterfaceRegion {
                 datoRegion.setDescripcion(result.getString("descripcion"));
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error al Selecionar Registro" + e);
         } finally {
             cn.desconectar();
