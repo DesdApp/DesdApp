@@ -1,6 +1,6 @@
-/*  
-* String msg es usado para mostrar un mensaje de como se realizo una consulta  
-* String sql se utiliza para escribir la consulta SQL
+/*
+ * String msg es usado para mostrar un mensaje de como se realizo una consulta  
+ * String sql se utiliza para escribir la consulta SQL
  */
 package dao;
 
@@ -46,7 +46,7 @@ public class DAOBienes implements interfaces.InterfazBienes {
         } catch (SQLException e) {
             msg = "Error al almacenar el registro"; // Escribimos un mensaje de error
             /*
-        * .getMessage() se utiliza para obtener un mensaje detallado del objeto Throwable    
+             * .getMessage() se utiliza para obtener un mensaje detallado del objeto Throwable    
              */
             System.out.println("Error en DAOBienes INSERT: " + e.getMessage()); // Mostramos un mensaje de error
         } finally {
@@ -66,7 +66,7 @@ public class DAOBienes implements interfaces.InterfazBienes {
             sql = "DELETE FROM bienes_inmuebles WHERE inmueble_id = ?";
             execute = cx.getconexionDB().prepareStatement(sql);
             execute.setInt(1, codigo);
-            byte contDel = (byte) execute.executeUpdate(); // La variable contDel es utilizada para verificar que el registro existe y se elimino
+            byte contDel = (byte) execute.executeUpdate(); // La variable contDel verifica que el registro existe
             if (contDel == 0) { // Verificamos si el registro existe
                 msg = "El registro no existe";  // escribimos un ensaje de que el registro no existe
             } else {
@@ -117,17 +117,83 @@ public class DAOBienes implements interfaces.InterfazBienes {
     }
 
     @Override
+    /**
+     * @return el registro que se selecciono
+     */
     public void selectBien(int codigo) {
-            Bienes bien = new Bienes();
-            try {
+        /*
+        * Se realiza la consulta para seleccionar un registro
+        */
+        Bienes bien = new Bienes(); // Se crea un nuevo objeto Bienes para almacenar el resultado de la busqueda
+        try {
+            cx.conectar();
+            sql = "SELECT * FROM bienes_inmuebles WHERE inmueble_id = ?";
+            execute = cx.getconexionDB().prepareStatement(sql);
+            execute.setInt(1, codigo);
             
-        } catch (Exception e) {
+            rs = execute.executeQuery();   /*
+                                            * Se utiliza el ExecuteQuery para obtener los resultados de la consulta
+                                            * y los asigna al ResutSet para luego acceder a ellos
+                                            */
+            
+            rs.next();  // Se pasa al  siguiente registro. En este caso el primero
+            bien.setInmuebleId(rs.getInt("inmueble_id"));   // Se obtienen los valores de los campos y se le asignan al objeto bien
+            bien.setDireccion(rs.getString("direccion"));
+            bien.setZona(rs.getByte("zona"));
+            bien.setMuniId(rs.getInt("muni_id"));
+            bien.setMetrosCuadrados(rs.getString("metros_cuadrados"));
+            bien.setDescripcion(rs.getString("descripcion"));
+            bien.setPrecioMetroCuadrado(rs.getFloat("precio_metro_cuadrado"));
+            bien.setTipoPropiedadId(rs.getByte("tipo_propiedad_id"));
+            bien.setEstadoPropiedadId(rs.getByte("estado_propiedad_id"));
+            bien.setPropietarioId(rs.getInt("propietario_id"));
+            bien.setPrecio(rs.getFloat("precio"));
+            bien.setPrecioMinVenta(rs.getFloat("precio_min_venta"));
+            bien.setPersonaId(rs.getInt("persona_id"));
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println("Error en DAOBienes SELECT: " + e.getMessage());
+        } finally {
+            cx.desconectar();
         }
     }
 
     @Override
+    /**
+    * @return los registros de la tabla
+    */
     public ArrayList<Bienes> listBienes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Bienes> list = new ArrayList<>(); // Utilizamos un ArrayList para obtener todos los registros y almacenarlos
+        Bienes bien;
+        try {
+            cx.conectar();
+            sql = "SELECT * FROM bienes_inmuebles";
+            execute = cx.getconexionDB().prepareStatement(sql);
+            rs = execute.executeQuery();
+            while (rs.next()) { // Verifica que hayan mas registros
+                bien = new Bienes();    // Cada vez que pase a un registro nuevo crea un objeto Bienes
+                bien.setInmuebleId(rs.getInt("inmueble_id"));
+                bien.setDireccion(rs.getString("direccion"));
+                bien.setZona(rs.getByte("zona"));
+                bien.setMuniId(rs.getInt("muni_id"));
+                bien.setMetrosCuadrados(rs.getString("metros_cuadrados"));
+                bien.setDescripcion(rs.getString("descripcion"));
+                bien.setPrecioMetroCuadrado(rs.getFloat("precio_metro_cuadrado"));
+                bien.setTipoPropiedadId(rs.getByte("tipo_propiedad_id"));
+                bien.setEstadoPropiedadId(rs.getByte("estado_propiedad_id"));
+                bien.setPropietarioId(rs.getInt("propietario_id"));
+                bien.setPrecio(rs.getFloat("precio"));
+                bien.setPrecioMinVenta(rs.getFloat("precio_min_venta"));
+                bien.setPersonaId(rs.getInt("persona_id"));
+                rs.close();
+                list.add(bien); // Se agregan los registros al ArrayList
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en DAOBienes LIST: " + e.getMessage());
+        } finally {
+            cx.desconectar();
+        }
+        return list;
     }
 
 }
