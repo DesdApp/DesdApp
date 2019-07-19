@@ -22,7 +22,10 @@ public class DAOBienes implements interfaces.InterfazBienes {
     String sql;
 
     @Override
-    public void insertBien(Bienes bien) {
+    public String insertBien(Bienes bien) {
+        /*
+        * Se realiza la consulta para agregar un registro a la tabla
+        */
         try {
             cx.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO bienes_inmuebles VALUES(?, ?, ?, ?, ?, ?, ?, ?, "
@@ -52,10 +55,11 @@ public class DAOBienes implements interfaces.InterfazBienes {
         } finally {
             cx.desconectar();   // Nos desconectamos de la base de datos
         }
+        return msg;
     }
 
     @Override
-    public void deleteBien(int codigo) {
+    public String deleteBien(int codigo) {
         /*
         * Se realiza la consulta para borrar un registro de la tabla
         * Nos conectamos a la base de datos, asignamos la consulta al PreparedStatement, asignamos los valores a la consulta
@@ -78,10 +82,12 @@ public class DAOBienes implements interfaces.InterfazBienes {
         } finally {
             cx.desconectar();
         }
+        return msg;
+
     }
 
     @Override
-    public void updateBien(Bienes bien) {
+    public String updateBien(Bienes bien) {
         /*
         * Se realiza la consulta para actualizar un registro 
          */
@@ -114,28 +120,31 @@ public class DAOBienes implements interfaces.InterfazBienes {
         } finally {
             cx.desconectar();
         }
+        return msg;
+
     }
 
     @Override
     /**
      * @return el registro que se selecciono
      */
-    public void selectBien(int codigo) {
+    public Bienes selectBien(int codigo) {
         /*
         * Se realiza la consulta para seleccionar un registro
-        */
+         */
         Bienes bien = new Bienes(); // Se crea un nuevo objeto Bienes para almacenar el resultado de la busqueda
         try {
             cx.conectar();
             sql = "SELECT * FROM bienes_inmuebles WHERE inmueble_id = ?";
             execute = cx.getconexionDB().prepareStatement(sql);
             execute.setInt(1, codigo);
-            
-            rs = execute.executeQuery();   /*
-                                            * Se utiliza el ExecuteQuery para obtener los resultados de la consulta
-                                            * y los asigna al ResutSet para luego acceder a ellos
-                                            */
-            
+            /*
+            * Se utiliza el ExecuteQuery para obtener los resultados de la consulta
+            * y los asigna al ResutSet para luego acceder a ellos
+             */
+
+            rs = execute.executeQuery();
+
             rs.next();  // Se pasa al  siguiente registro. En este caso el primero
             bien.setInmuebleId(rs.getInt("inmueble_id"));   // Se obtienen los valores de los campos y se le asignan al objeto bien
             bien.setDireccion(rs.getString("direccion"));
@@ -156,12 +165,13 @@ public class DAOBienes implements interfaces.InterfazBienes {
         } finally {
             cx.desconectar();
         }
+        return bien;
     }
 
     @Override
     /**
-    * @return los registros de la tabla
-    */
+     * @return los registros de la tabla
+     */
     public ArrayList<Bienes> listBienes() {
         ArrayList<Bienes> list = new ArrayList<>(); // Utilizamos un ArrayList para obtener todos los registros y almacenarlos
         Bienes bien;
