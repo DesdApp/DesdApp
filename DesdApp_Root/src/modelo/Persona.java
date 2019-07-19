@@ -2,8 +2,8 @@
 package modelo;
 
 import java.sql.Date;
-//Modelo Clase ModeloPersona
-public class ModeloPersona {
+//Modelo Clase Persona
+public class Persona {
     //Atributos Clase persona
     private int personaId;
     private String nombre;
@@ -16,13 +16,13 @@ public class ModeloPersona {
     private int nit;
     private int tipoUsuarioId;
 
-    //Constructor vacio ModeloPersona
-    public ModeloPersona() {
+    //Constructor vacio Persona
+    public Persona() {
     }
     
 
-    //Constructor Con paramentros ModeloPersona
-    public ModeloPersona(int personaId, String nombre, String apellido, String direccion, int telefono, String correo, Date fechaNac, int dpi, int nit, int tipoUsuarioId) {
+    //Constructor Con paramentros Persona
+    public Persona(int personaId, String nombre, String apellido, String direccion, int telefono, String correo, Date fechaNac, int dpi, int nit, int tipoUsuarioId) {
         this.personaId = personaId;
         this.nombre = nombre;
         this.apellido = apellido;
