@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * cn //  conexión a base de datos
+ * result // resultado de metadatos de ResultSet
+ * run // instancia de la ejecución
+ * dv // Objeto de la clase DetVentas
  */
 package dao;
 
@@ -14,14 +15,12 @@ import modelo.DetVentas;
 
 public class DAODetVentas implements InterfazDetVentas{
     ConexionDB cn = new ConexionDB();
-    private String mensaje="";
     private String sql="";
     private ResultSet result;
     private PreparedStatement run;
-    private DetVentas dv = new DetVentas();   //Se inicializó
+    private DetVentas dv = new DetVentas();  
     
-    
-    // Método abstracto para ver los datos de un detalle de ventas
+
     @Override
     public DetVentas read(DetVentas ventas) {
         cn.conectar();
@@ -41,7 +40,6 @@ public class DAODetVentas implements InterfazDetVentas{
         return dv;
     }
 
-    //Método para agregar registros de detalles de ventas
     @Override
     public void creat(DetVentas ventas) {
         cn.conectar();
@@ -53,13 +51,13 @@ public class DAODetVentas implements InterfazDetVentas{
             run.setInt(3, dv.getVenta_id()); 
             run.executeUpdate();
         } catch (Exception e) {
-            mensaje = "Error en crear detalle de venta en: " + e;
+            System.out.println("Error en crear detalle de venta en: " + e);
         }finally{
             cn.desconectar();
         }
     }
 
-    //Método para actualizar por medio de el id de detalle
+
     @Override
     public void upd(DetVentas ventas) {
     cn.conectar();
@@ -72,12 +70,12 @@ public class DAODetVentas implements InterfazDetVentas{
             run.setInt(3, dv.getDetalle_id());
             run.executeUpdate();
         } catch (Exception e) {
-            mensaje = "Error en actualizar detalles de venta: " + e;
+            System.out.println("Error en actualizar detalles de venta: " + e);
         }finally{
             cn.desconectar();
         }
     }
- //Método para eliminar registro
+
     @Override
     public void del(DetVentas ventas) {
     cn.conectar();
@@ -93,7 +91,6 @@ public class DAODetVentas implements InterfazDetVentas{
         }
     }
     
-// listar 
     @Override
     public List<DetVentas> listar() {
         ArrayList<DetVentas> lista = new ArrayList();

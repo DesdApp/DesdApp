@@ -19,6 +19,8 @@ public class Venta {
     private double total;
     private int tipo_id;
 
+    
+    //<editor-fold defaultstate="collapsed" desc="Setters and Getters">
     public int getVenta_id() {
         return venta_id;
     }
@@ -90,6 +92,8 @@ public class Venta {
     public void setTipo_id(int tipo_id) {
         this.tipo_id = tipo_id;
     }
+    
+//</editor-fold>
     
     
     
