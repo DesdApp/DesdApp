@@ -41,7 +41,7 @@ public class DAODetVentas implements InterfazDetVentas{
     }
 
     @Override
-    public void creat(DetVentas ventas) {
+    public void create(DetVentas ventas) {
         cn.conectar();
         sql="insert into detalles_ventas values(?,?,?)";
         try {
