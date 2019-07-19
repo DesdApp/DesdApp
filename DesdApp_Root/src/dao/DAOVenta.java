@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * cn // conexion a la base de datos
+ * result // resultado de metadatos de ResultSet
+ * run // instancia de la ejecución
+ * v // Objeto de la clase Venta
  */
 package dao;
 
@@ -14,7 +15,6 @@ import modelo.Venta;
 
 public class DAOVenta implements interfazVenta{
     ConexionDB cn = new ConexionDB();
-    private String mensaje="";
     private String sql="";
     private ResultSet result;
     private PreparedStatement run;
@@ -53,18 +53,18 @@ public class DAOVenta implements interfazVenta{
     
         try {
             run = cn.getconexionDB().prepareStatement(sql);
-            run.setInt(1, v.getVenta_id());
-            run.setInt(2, v.getNumero_factura());
-            run.setString(3, v.getSerie());
-            run.setInt(4, v.getNit());
-            run.setString(5, v.getNombre());
-            run.setString(6, v.getDireccion());
-            run.setDate(7, v.getFecha());
-            run.setDouble(8, v.getTotal());
-            run.setInt(9, v.getTipo_id()); 
+            run.setInt(1, v.getNumero_factura());
+            run.setString(2, v.getSerie());
+            run.setInt(3, v.getNit());
+            run.setString(4, v.getNombre());
+            run.setString(5, v.getDireccion());
+            run.setDate(6, v.getFecha());
+            run.setDouble(7, v.getTotal());
+            run.setInt(8, v.getTipo_id()); 
+            run.setInt(9, v.getVenta_id());
             run.executeUpdate();
         } catch (Exception e) {
-            mensaje = "Error en actualizar detalles de venta: " + e;
+            System.out.println("Error en actualizar detalles de venta: " + e);
         }finally{
             cn.desconectar();
         }    
@@ -103,7 +103,7 @@ public class DAOVenta implements interfazVenta{
             run.setInt(9, v.getTipo_id());  
             run.executeUpdate();
         } catch (Exception e) {
-            mensaje = "Error en crear detalle de venta en: " + e;
+            System.out.println("Error en crear detalle de venta en: " + e);
         }finally{
             cn.desconectar();
         }
