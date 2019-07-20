@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2019 a las 17:37:32
--- Versión del servidor: 10.1.28-MariaDB
--- Versión de PHP: 5.6.32
+-- Tiempo de generación: 19-07-2019 a las 20:40:19
+-- Versión del servidor: 10.3.16-MariaDB
+-- Versión de PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -130,13 +130,24 @@ CREATE TABLE `empleados` (
   `empleado_id` int(11) NOT NULL,
   `puesto` varchar(45) NOT NULL,
   `fecha_inicio` date NOT NULL,
-  `fecha_finalizacion` date NOT NULL,
+  `fecha_finalizacion` date DEFAULT NULL,
   `sueldo` decimal(8,2) NOT NULL,
   `user` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
   `tipo_usuario_id` tinyint(1) NOT NULL,
   `estado_empleado_id` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `empleados`
+--
+
+INSERT INTO `empleados` (`persona_id`, `empleado_id`, `puesto`, `fecha_inicio`, `fecha_finalizacion`, `sueldo`, `user`, `password`, `tipo_usuario_id`, `estado_empleado_id`) VALUES
+(1, 1, 'secretaria', '2014-03-20', '0000-00-00', '7300.00', 'ssosad1', '123', 2, 1),
+(2, 2, 'reportes', '2015-09-03', '0000-00-00', '5900.00', 'ptejadav1', '123', 4, 1),
+(3, 3, 'admin', '2010-01-06', '0000-00-00', '8500.00', 'czepedad1', '123', 1, 1),
+(4, 4, 'corredor', '2018-11-29', '0000-00-00', '5900.00', 'eriosk1', '123', 3, 1),
+(5, 5, 'corredor', '2016-02-09', '0000-00-00', '5900.00', 'evelasquez1', '123', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -593,12 +604,47 @@ CREATE TABLE `personas` (
   `apellido` varchar(100) NOT NULL,
   `direccion` varchar(150) NOT NULL,
   `telefono` int(8) NOT NULL,
+  `celular` int(8) NOT NULL,
   `correo` varchar(100) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
-  `dpi` int(11) NOT NULL,
-  `nit` int(10) NOT NULL,
-  `tipo_usario_id` int(11) NOT NULL
+  `dpi` bigint(11) NOT NULL,
+  `nit` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `personas`
+--
+
+INSERT INTO `personas` (`persona_id`, `nombre`, `apellido`, `direccion`, `telefono`, `celular`, `correo`, `fecha_nacimiento`, `dpi`, `nit`) VALUES
+(1, 'Raquel Pamela', 'Tejada Vega', 'Zona 18 Colonia \"San Maria\" calle 12-23', 50570814, 50570814, 'raquelvegajava12@gmail.com', '2002-08-20', 2150364920101, 74145261),
+(2, 'Stephanie Maria Gabriela', 'Sosa De Leon', '3 calle casa #5 Resideciales \"Las Palmas\", Sanarate', 34480816, 34480816, 'stephaniemaria2401@gmail.com', '2001-09-24', 2150364920102, 74145262),
+(3, 'Carlos Estuardo', 'Zepeda Diaz', 'Villa Nueva', 32355494, 32355494, 'carloszepeda1392@gmail.com', '1992-09-13', 2150364920103, 74145263),
+(4, 'Estela Carolina', 'Velasquez', 'San José Pinula', 42282440, 42282440, 'ekarol1994@gmail.com', '1994-07-24', 2150364920104, 74145264),
+(5, 'Esteban Adrian', 'Rios Kirste', 'Zona 18 colonia Kennedy 7 calle 7-55', 10101010, 10101010, 'erioskirste@gmail.com', '2003-09-14', 2150364920105, 74145265),
+(6, 'Fernanda Violeta', 'Gohg', 'Zona 18 colonia Kennedy 7 calle 7-56', 34764324, 34764324, 'fgogh4354@mail.com', '1992-12-21', 2151364921116, 74145266),
+(7, 'Maria Alejandra', 'Castillo Lopez', 'Zona 18 colonia Kennedy 7 calle 7-57', 24052345, 24052345, 'maricas@mail.com', '2000-03-02', 2150364920107, 74145267),
+(8, 'Jose Santiago', 'Arriaza Aldana', 'Zona 18 colonia Kennedy 7 calle 7-58', 34255647, 34255647, 'jarriazaa1443@mail.com', '1998-12-21', 2151364921118, 74145268),
+(9, 'Daniela Elizabeth', 'Diaz Cabrera', 'Villa Nueva', 23562466, 23562466, 'ddiaz2374@mail.com', '1970-10-07', 2151364921119, 74145269),
+(10, 'Marco Gonzalo', 'Ruiz Pelaez', '3 calle casa #5 Resideciales \"Las Palmas\", Sanarate', 34527689, 34527689, 'mruizp2334@mail.com', '1985-02-25', 21503649201010, 74145270),
+(11, 'Jeronimo Jorge', 'Burgos Idarraga', '4 calle casa #5 Resideciales \"Las Palmas\", Sanarate', 31053976, 31053976, 'Jburgos2335@mail.com', '2002-08-20', 21503649201011, 74145271),
+(12, 'Estefania Alejandra', 'Villegas Aguirre', '5 calle casa #5 Resideciales \"Las Palmas\", Sanarate', 31189997, 31189997, 'Evillegas2336@mail.com', '2001-09-24', 21503649201012, 74145272),
+(13, 'Guillermo Alejandro', 'Fernandez Carmona', '31 calle 14-14 zona 14', 31326018, 31326018, 'gfernandez2337@mail.com', '1992-09-13', 21503649201013, 74145273),
+(14, 'Eliana Marisol', 'Ramirez Ospina', 'San José Pinula', 31462039, 31462039, 'Eramirez2338@mail.com', '1994-07-24', 21503649201014, 74145274),
+(15, 'Jose Raul', 'Carmona Pérez', 'San José Pinula', 31598060, 31598060, 'jcarmona2339@mail.com', '2003-09-14', 21503649201015, 74145275),
+(16, 'Marcela Sofia', 'De santis Cifuentes', '20 calle 14-14 zona 14', 31734081, 31734081, 'mcifuentes2340@mail.com', '1992-12-21', 21513649211116, 74145276),
+(17, 'Daniela Elizabeth', 'Franco Zapeta', 'Zona 18 colonia Kennedy 7 calle 7-58', 31870102, 31870102, 'dfranco2341@mail.com', '2000-03-02', 21503649201017, 74145277),
+(18, 'Rafael Felipe', 'Cortes Miramar', 'Zona 18 colonia Kennedy 7 calle 7-59', 32006123, 32006123, 'rcortes2342@mail.com', '1998-12-21', 21513649211118, 74145278),
+(19, 'Camilo Sebastian', 'Berrio Escobar', 'San José Pinula', 32142144, 32142144, 'cberrio2343@mail.com', '1970-10-07', 21513649211119, 74145279),
+(20, 'Francisco Tomas', 'Arias Martinez', 'Zona 18 colonia Kennedy 7 calle 7-61', 32278165, 32278165, 'farias2344@mail.com', '1985-02-25', 21503649201020, 74145280),
+(21, 'Antonio Eliseo', 'Merizalde Zetino', '25 calle 14-14 zona 14', 32414186, 32414186, 'amerizaldez2345@mail.com', '2002-08-20', 21503649201021, 74145281),
+(22, 'Karen Andrea', 'Restrepo Borja', '26 calle 14-14 zona 14', 32550207, 32550207, 'krestrepob2346@mail.com', '2001-09-24', 21503649201022, 74145282),
+(23, 'David Saul', 'Lemus Vino', 'Zona 18 Colonia \"San Maria\" calle 12-23', 35686228, 35686228, 'dlemusv2347@mail.com', '1992-09-13', 21503649201023, 74145283),
+(24, 'Javier Danilo', 'Santana Benitez', 'Zona 18 Colonia \"San Maria\" calle 12-24', 32822249, 32822249, 'jsantanab2348@mail.com', '1994-07-24', 21503649201024, 74145284),
+(25, 'Virginia Fatima', 'Saldarriaga Espinoza', 'San José Pinula', 32958270, 32958270, 'rgiraldoa23@mail.com', '2003-09-14', 21503649201025, 74145285),
+(26, 'Sergio Manuel', 'Posada Santos', 'Zona 18 Colonia \"San Maria\" calle 12-26', 33094291, 33094291, 'sposadas2350@mail.com', '1992-12-21', 21513649211126, 74145286),
+(27, 'Jorge Agustin', 'Zea Flores', '31 calle 14-14 zona 14', 43230312, 43230312, 'jzeaf2351@mail.com', '2000-03-02', 21503649201027, 74145287),
+(28, 'Mariana Cristina', 'Diaz Gutierrez', '32 calle 14-14 zona 14', 33366333, 33366333, 'mriazg@mail.com', '1998-12-21', 21513649211128, 74145288),
+(29, 'Roberto Jimenez', 'Giraldo Ayala', '33 calle 14-14 zona 14', 33502354, 33502354, 'rgiraldoa6413@mail.com', '1970-10-07', 21513649211129, 74145289);
 
 -- --------------------------------------------------------
 
@@ -610,7 +656,8 @@ CREATE TABLE `propietarios` (
   `propietario_id` int(11) NOT NULL,
   `acreedor` varchar(150) NOT NULL,
   `user` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(50) NOT NULL,
+  `persona_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -710,6 +757,20 @@ CREATE TABLE `tipos_propiedades` (
   `tipo_propiedad_id` tinyint(1) NOT NULL,
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tipos_propiedades`
+--
+
+INSERT INTO `tipos_propiedades` (`tipo_propiedad_id`, `nombre`) VALUES
+(1, 'Apartamentos'),
+(2, 'Bodegas'),
+(3, 'Casas'),
+(4, 'Edificios'),
+(5, 'Fincas'),
+(6, 'Locales Comerciales'),
+(7, 'Oficinas'),
+(8, 'Terrenos');
 
 -- --------------------------------------------------------
 
@@ -874,13 +935,14 @@ ALTER TABLE `pagos_propiedades`
 --
 ALTER TABLE `personas`
   ADD PRIMARY KEY (`persona_id`),
-  ADD KEY `tipo_usario_id` (`tipo_usario_id`);
+  ADD UNIQUE KEY `dpi` (`dpi`,`nit`);
 
 --
 -- Indices de la tabla `propietarios`
 --
 ALTER TABLE `propietarios`
-  ADD PRIMARY KEY (`propietario_id`);
+  ADD PRIMARY KEY (`propietario_id`),
+  ADD KEY `persona_id` (`persona_id`);
 
 --
 -- Indices de la tabla `regiones`
@@ -945,7 +1007,7 @@ ALTER TABLE `estados_propiedades`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `persona_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `persona_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_usuarios`
@@ -1028,7 +1090,8 @@ ALTER TABLE `pagos_propiedades`
 -- Filtros para la tabla `propietarios`
 --
 ALTER TABLE `propietarios`
-  ADD CONSTRAINT `propietarios_ibfk_1` FOREIGN KEY (`propietario_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `propietarios_ibfk_1` FOREIGN KEY (`propietario_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `propietarios_ibfk_2` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `ventas`
