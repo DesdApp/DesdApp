@@ -10,11 +10,12 @@ public class Persona {
     private String apellido;
     private String direccion;
     private int telefono;
+    private int celular;
     private String correo;
     private Date fechaNac;
     private int dpi;
     private int nit;
-    private int tipoUsuarioId;
+   
 
     //Constructor vacio Persona
     public Persona() {
@@ -22,7 +23,7 @@ public class Persona {
     
 
     //Constructor Con paramentros Persona
-    public Persona(int personaId, String nombre, String apellido, String direccion, int telefono, String correo, Date fechaNac, int dpi, int nit, int tipoUsuarioId) {
+    public Persona(int personaId, String nombre, String apellido, String direccion, int telefono, String correo, Date fechaNac, int dpi, int nit, int celular) {
         this.personaId = personaId;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -32,7 +33,7 @@ public class Persona {
         this.fechaNac = fechaNac;
         this.dpi = dpi;
         this.nit = nit;
-        this.tipoUsuarioId = tipoUsuarioId;
+        this.celular = celular;
     }
     
     
@@ -108,17 +109,19 @@ public class Persona {
     public void setNit(int nit) {
         this.nit = nit;
     }
-
-    public int getTipoUsuarioId() {
-        return tipoUsuarioId;
+ public int getCelular() {
+        return celular;
     }
 
-    public void setTipoUsuarioId(int tipoUsuarioId) {
-        this.tipoUsuarioId = tipoUsuarioId;
+    public void setCelular(int celular) {
+        this.celular = celular;
     }
+    
     
     
 //</editor-fold>
+
+   
             
    
 }
