@@ -54,8 +54,8 @@ public class DAOEstPropiedades implements interfaces.InterfazEstadosProp {
     @Override
     public String deleteEstado(byte codigo) {
         /**
-         * Se realiza la consulta para borrar un registro de la tabla 
-         * Nos conectamos a la base de datos, asignamos la consulta al
+         * Se realiza la consulta para borrar un registro de la tabla Nos
+         * conectamos a la base de datos, asignamos la consulta al
          * PreparedStatement, asignamos los valores a la consulta y realizamos
          * la consulta. Luego cerramos la conexion
          */
@@ -84,16 +84,62 @@ public class DAOEstPropiedades implements interfaces.InterfazEstadosProp {
         /**
          * Se realiza la consulta para actualizar un registro de la tabla
          */
+        try {
+            cx.conectar();
+            sql = "UPDATE estados_propiedades SET nombre = ? WHERE estado_proiedad_id = ?";
+            execute.setByte(2, estado.getEstadoPropiedadId());
+            execute.setString(1, estado.getNombre());
+            execute.executeUpdate();
+            msg = "Registro actualizado con exito";
+        } catch (SQLException e) {
+            msg = "Error al actualizar el registro";
+            System.out.println("Error en DAOEstPropiedades UPDATE: " + e.getMessage());
+        } finally {
+            cx.desconectar();
+        }
+        return msg;
     }
 
     @Override
-    public EstadosPropiedades selectEstado(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public EstadosPropiedades selectEstado(byte codigo) {
+        EstadosPropiedades estado = new EstadosPropiedades();
+        try {
+            cx.conectar();
+            sql = "SELECT * FROM estados_propiedades WHERE estado_propiedad_id = ?";
+            execute = cx.getconexionDB().prepareStatement(sql);
+            execute.setByte(1, codigo);
+            rs = execute.executeQuery();
+            estado.setEstadoPropiedadId(rs.getByte("estado_propiedad_id"));
+            estado.setNombre(rs.getString("nombre"));
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println("Error en DAOEstPropiedades SELECT: " + e.getMessage());
+        } finally {
+            cx.desconectar();
+        }
+        return estado;
     }
 
     @Override
     public ArrayList<EstadosPropiedades> listEstados() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        EstadosPropiedades estados;
+        ArrayList<EstadosPropiedades> list = new ArrayList<>();
+        try {
+            cx.conectar();
+            sql = "SELECT * FROM estados_propiedades";
+            execute = cx.getconexionDB().prepareStatement(sql);
+            rs = execute.executeQuery();
+            while (rs.next()) {
+                estados = new EstadosPropiedades();
+                estados.setEstadoPropiedadId(rs.getByte("estado_propiedad_id"));
+                estados.setNombre(rs.getString("nombre"));
+                list.add(estados);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en DAOEstPropiedades LIST: " + e.getMessage());
+        } finally {
+            cx.desconectar();
+        }
+        return list;
 
-}
+    }

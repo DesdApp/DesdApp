@@ -11,7 +11,7 @@ public interface InterfazEstadosProp {
             
     public String updateEstado(EstadosPropiedades estado);
             
-    public EstadosPropiedades selectEstado(int codigo);
+    public EstadosPropiedades selectEstado(byte codigo);
     
     public ArrayList<EstadosPropiedades> listEstados();
             
