@@ -7,7 +7,6 @@
 package dao;
 
 import modelo.TiposPagos;
-import interfaces.InterfazTipPagos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
