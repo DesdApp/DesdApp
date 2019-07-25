@@ -143,4 +143,6 @@ public class DAOEstPropiedades implements interfaces.InterfazEstadosProp {
         return list;
 
     }
+    
+}
 
