@@ -1,10 +1,8 @@
 package modelo;
-
 import java.sql.Date;
 
-public class Ventas {
+public class Venta {
 //Se declaran los atributos que componen en la base de datos a la tabla de "ventas"
-
     private int venta_id;
     private int numero_factura;
     private String serie;
@@ -88,6 +86,9 @@ public class Ventas {
     public void setTipo_id(int tipo_id) {
         this.tipo_id = tipo_id;
     }
-
+    
 //</editor-fold>
+    
+    
+    
 }

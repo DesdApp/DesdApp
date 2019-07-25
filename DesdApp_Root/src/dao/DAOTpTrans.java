@@ -11,7 +11,7 @@ import java.util.List;
 import modelo.TpTrans;
 
 //Se implementa la interface de mi clase TpTrans = InterfaceTpTrans
-public class DaoTpTrans implements InterfaceTpTrans{
+public class DAOTpTrans implements InterfaceTpTrans{
 
 //Instanciamos clases
 private ConexionDB cn = new ConexionDB();//cn = objeto para  hacer conexion con la Base de Datos
@@ -30,7 +30,7 @@ private String sql = "";
     public void insertTpTrans(TpTrans tp) {
         try {
             cn.conectar();//Realizamos la conexion con la base de datos
-            sql = "insert into tipos_transacciones values(?,?)";//Asignamos la consulta al sql
+            sql = "INSERT INTO tipos_transacciones VALUES(?,?)";//Asignamos la consulta al sql
             
             jc = cn.getconexionDB().prepareStatement(sql);//Asignamos la consulta al PreparedStatement
             jc.setInt(1,tp.getTpTransId());//Asignamos valores a la consulta 
@@ -53,7 +53,7 @@ private String sql = "";
     public void updateTpTrans(TpTrans tp) {
         try {
             cn.conectar();
-            sql= "update tipos_transacciones set nombre=? where tipo_transaccion_id=?";
+            sql= "UPDATE tipos_transacciones SET nombre=? WHERE tipo_transaccion_id=?";
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setString(1,tp.getName());
             jc.setInt(2,tp.getTpTransId());
@@ -76,7 +76,7 @@ private String sql = "";
     public void deleteTpTrans(TpTrans tp) {
         try {
             cn.conectar();
-            sql = "delete from tipos_transacciones where tipo_transaccion_id=?";
+            sql = "DELETE FROM tipos_transacciones WHERE tipo_transaccion_id=?";
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setInt(1,tp.getTpTransId());
             jc.executeUpdate();
@@ -104,7 +104,7 @@ private String sql = "";
         
         try {
             cn.conectar();
-            sql = "select * from tipos_transacciones";
+            sql = "SELECT * FROM tipos_transacciones";
             jc = cn.getconexionDB().prepareStatement(sql);
             rs = jc.executeQuery();//Se utiliza el executeQuery para obtener los resultados de la consulta y posteriormente los asigna al resultSet para luego acceder a ellos
             
@@ -137,6 +137,7 @@ private String sql = "";
     public TpTrans selecTpTrans(TpTrans tp) {
         try {
             cn.conectar();
+             sql = "SELECT * FROM tipos_transacciones WHERE tipo_transaccion_id=?";
             jc = cn.getconexionDB().prepareStatement(sql);
             rs = jc.executeQuery();
             

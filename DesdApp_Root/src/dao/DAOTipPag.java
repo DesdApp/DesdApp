@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAOTipPag implements InterfazTipPagos{  //Implementamos la clase interface para los métodos abstractos
+public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos la clase interface para los métodos abstractos
 
     ConexionDB cn = new ConexionDB();
     private String sql="";

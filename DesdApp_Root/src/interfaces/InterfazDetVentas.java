@@ -1,12 +1,12 @@
 package interfaces;
 
-import java.util.ArrayList;
+import java.util.List;
 import modelo.DetVentas;
 
 public interface InterfazDetVentas {
-    public DetVentas select(DetVentas ventas);
-    public void insert(DetVentas ventas);
-    public void update(DetVentas ventas);
-    public void delete(DetVentas ventas);
-    public ArrayList<DetVentas> listar();
+    public DetVentas read(DetVentas ventas);
+    public void create(DetVentas ventas);
+    public void upd(DetVentas ventas);
+    public void del(DetVentas ventas);
+    public List<DetVentas> listar();
 }

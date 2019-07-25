@@ -14,6 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DAOPagPropi implements InterfazPagPro {    //Implementamos la clase interface para los métodos abstractos
+import java.util.List;
+
+public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamos la clase interface para los métodos abstractos
 
     // Instancias de clases
     ConexionDB cn = new ConexionDB();
