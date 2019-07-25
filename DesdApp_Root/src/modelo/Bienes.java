@@ -16,6 +16,28 @@ public class Bienes {
     private float precio;
     private float precioMinVenta;
     private int personaId;
+    
+    //Constructor
+
+    public Bienes(int inmuebleId, String direccion, byte zona, int muniId, String metrosCuadrados, String descripcion, float precioMetroCuadrado, byte tipoPropiedadId, byte estadoPropiedadId, int propietarioId, float precio, float precioMinVenta, int personaId) {
+        this.inmuebleId = inmuebleId;
+        this.direccion = direccion;
+        this.zona = zona;
+        this.muniId = muniId;
+        this.metrosCuadrados = metrosCuadrados;
+        this.descripcion = descripcion;
+        this.precioMetroCuadrado = precioMetroCuadrado;
+        this.tipoPropiedadId = tipoPropiedadId;
+        this.estadoPropiedadId = estadoPropiedadId;
+        this.propietarioId = propietarioId;
+        this.precio = precio;
+        this.precioMinVenta = precioMinVenta;
+        this.personaId = personaId;
+    }
+    
+    public Bienes(){
+        
+    }
 
     //<editor-fold defaultstate="collapsed" desc="Metodos Set y Get">
     public int getInmuebleId() {
