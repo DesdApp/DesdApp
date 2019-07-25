@@ -5,15 +5,14 @@
  * v // Objeto de la clase Venta
  */
 package dao;
-
-import interfaces.interfazVenta;
+import modelo.Venta;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Venta;
 
-public class DAOVenta implements interfazVenta{  //Implementamos la clase interface para los métodos abstractos
+
+public class DAOVenta implements interfaces.interfazVenta{  //Implementamos la clase interface para los métodos abstractos
     ConexionDB cn = new ConexionDB();
     private String sql="";
     private ResultSet result;

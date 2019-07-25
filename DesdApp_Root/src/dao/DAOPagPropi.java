@@ -6,14 +6,13 @@
  */
 package dao;
 
-import interfaces.InterfazPagPro;
+import modelo.PagosPropiedades;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.PagosPropiedades;
 
-public class DAOPagPropi implements InterfazPagPro{    //Implementamos la clase interface para los métodos abstractos
+public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamos la clase interface para los métodos abstractos
 
     ConexionDB cn = new ConexionDB();
     private String sql="";

@@ -1,13 +1,12 @@
 package dao;
-
-import interfaces.InterfazDetVentas;
+import modelo.DetVentas;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.DetVentas;
 
-public class DAODetVentas implements InterfazDetVentas{  //Se implementa la clase de interface para llamar los métodos abstractos
+
+public class DAODetVentas implements interfaces.InterfazDetVentas{  //Se implementa la clase de interface para llamar los métodos abstractos
     ConexionDB cn = new ConexionDB();  //Se crea un objeto para la conexion a la base de datos
     private String sql="";   //Se crea variable para la consulta de mysql 
     private ResultSet result;  //Resutados de una consulta sql

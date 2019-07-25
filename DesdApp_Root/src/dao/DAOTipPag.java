@@ -6,14 +6,14 @@
  */
 package dao;
 
-import interfaces.InterfazTipPagos;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.TiposPagos;
 
-public class DAOTipPag implements InterfazTipPagos{  //Implementamos la clase interface para los métodos abstractos
+public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos la clase interface para los métodos abstractos
 
     ConexionDB cn = new ConexionDB();
     private String sql="";
