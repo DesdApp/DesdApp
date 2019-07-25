@@ -17,7 +17,7 @@ public class DAODetVentas implements interfaces.InterfazDetVentas{  //Se impleme
     @Override
     public DetVentas read(DetVentas ventas) {    //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         cn.conectar();  //Abre
-        sql="select * from detalles_ventas where detalle_id=?";  //Se crea consulta sql para retornar los datos correspondientes al método
+        sql="SELECT * FROM detalles_ventas WHERE detalle_id=?";  //Se crea consulta sql para retornar los datos correspondientes al método
         try {
             run = cn.getconexionDB().prepareStatement(sql); //Después de ser verificada la conexion, se obtiene la consulta
             result = run.executeQuery();  //Ejecuta la consulta y la almacena
@@ -36,7 +36,7 @@ public class DAODetVentas implements interfaces.InterfazDetVentas{  //Se impleme
     @Override
     public void create(DetVentas ventas) {   //Se realiza la consulta de insert para agregar un registro
         cn.conectar();
-        sql="insert into detalles_ventas values(?,?,?)";  //Se crea consulta sql para retornar los datos correspondientes al método
+        sql="INSERT INTO detalles_ventas VALUES(?,?,?)";  //Se crea consulta sql para retornar los datos correspondientes al método
         try {
             run = cn.getconexionDB().prepareStatement(sql);
             run.setInt(1, dv.getDetalle_id());
@@ -54,7 +54,7 @@ public class DAODetVentas implements interfaces.InterfazDetVentas{  //Se impleme
     @Override
     public void upd(DetVentas ventas) {  //Se realiza la consulta de update para actualizar algún registro
     cn.conectar();
-    sql="update detalles_ventas set venta_id, negocio_id where detalle_id=?";  //Se crea una consulta sql para retornar los nuevos datos
+    sql="UPDATE detalles_ventas SET venta_id, negocio_id WHERE detalle_id=?";  //Se crea una consulta sql para retornar los nuevos datos
     
         try {
             run = cn.getconexionDB().prepareStatement(sql);
@@ -72,7 +72,7 @@ public class DAODetVentas implements interfaces.InterfazDetVentas{  //Se impleme
     @Override
     public void del(DetVentas ventas) {  //Se realiza consulta de delete para eliminar un registro
     cn.conectar();
-    sql = "delete from detalles_ventas where detalle_id=?";  //Se crea consulta sql para retornar la confirmación de la eliminación
+    sql = "DELETE FROM detalles_ventas WHERE detalle_id=?";  //Se crea consulta sql para retornar la confirmación de la eliminación
         try {
             run = cn.getconexionDB().prepareStatement(sql);
             run.setInt(1, dv.getDetalle_id());
@@ -91,7 +91,7 @@ public class DAODetVentas implements interfaces.InterfazDetVentas{  //Se impleme
     
         try {
         cn.conectar();
-        sql ="select * from detalles_ventas";  //Se crea consulta de sql para retornar la lista de datos
+        sql ="SELECT * FROM detalles_ventas";  //Se crea consulta de sql para retornar la lista de datos
         run = cn.getconexionDB().prepareStatement(sql);
         result = run.executeQuery();
         

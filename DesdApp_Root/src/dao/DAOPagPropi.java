@@ -123,7 +123,7 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
 
         try {
             cn.conectar();
-            sql = "select * from pagos_propiedades"; //Se crea consulta de sql para retornar la lista de datos
+            sql = "SELECT * FROM pagos_propiedades"; //Se crea consulta de sql para retornar la lista de datos
             run = cn.getconexionDB().prepareStatement(sql);
             r = run.executeQuery();
 
