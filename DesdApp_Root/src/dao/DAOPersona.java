@@ -1,12 +1,11 @@
-
 package dao;
 
-import interfaces.InterfacePersona;
+import modelo.Persona;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.Persona;
+
 /*
 *cn // Objeto de la Conexion a la Base de datos
 *sql // sentencia sql
@@ -15,8 +14,8 @@ import modelo.Persona;
 *datoPerosona// Objeto de la clase Persona
 */
 
-//Implementacion de los metodos abstractos de la interfaz Persona
-public class DaoPersona implements InterfacePersona{
+
+public class DAOPersona implements interfaces.InterfacePersona{
     private ConexionDB cn=new ConexionDB();
     private String sql="";
     private ResultSet result;
@@ -29,11 +28,11 @@ public class DaoPersona implements InterfacePersona{
     //Selecionar Persona.
     public Persona selectPersona(Persona per) {
         try {
-            cn.conectar();//conecta a la base de datos
-            sql="select * from personas where persona_id=?";//Se envia la consulta a la base de Datos
-            ejecutar=cn.getconexionDB().prepareStatement(sql); //prepara la consulta en la base de datos
-            ejecutar.setInt(1, per.getPersonaId());//ejecuta la consulta
-            result=ejecutar.executeQuery();//visualiza los metadatos de la consulta
+            cn.conectar();
+            sql="SELECT * FROM personas WHERE persona_id=?";//Se envia la consulta a la base de Datos
+            ejecutar=cn.getconexionDB().prepareStatement(sql); 
+            ejecutar.setInt(1, per.getPersonaId());
+            result=ejecutar.executeQuery();
             
             //while recorre la consulta en la base de datos  y visualiza los datos de la consulta
             while(result.next()){
@@ -51,7 +50,7 @@ public class DaoPersona implements InterfacePersona{
             }
             
         } catch (SQLException e) {
-            System.out.println("Error al Seleccionar Persona: "+e);//expecion de error se muestra en consola
+            System.out.println("Error al Seleccionar Persona: "+e.getMessage());
         }finally{
             cn.desconectar();//cesconecta la base de datos
         }
@@ -62,10 +61,9 @@ public class DaoPersona implements InterfacePersona{
     @Override
     public String insertPersona(Persona per) {
         try {
-            cn.conectar();//Establece conexion a la base de Datos
-            sql="insert into personas values(?,?,?,?,?,?,?,?,?,?)"; //Se envia la consulta a la base de datos
-            ejecutar=cn.getconexionDB().prepareStatement(sql); //Se parapara la consulta en la base de datos
-            //Ejecuta la consulta en la base de datos
+            cn.conectar();
+            sql="INSERT INTO personas VALUES(?,?,?,?,?,?,?,?,?,?)";
+            ejecutar=cn.getconexionDB().prepareStatement(sql);
             ejecutar.setInt(1, per.getPersonaId());
             ejecutar.setString(2, per.getNombre());
             ejecutar.setString(3, per.getApellido());
@@ -80,15 +78,15 @@ public class DaoPersona implements InterfacePersona{
             ////Realizamos la consulta y actualizamos la base de datos
             contPer=ejecutar.executeUpdate();
             
-            //Condiciona la sentencia SQL
-            if (contPer==0) { //entrara a esta parte de la condicion de la sentencia si no inserta 
-                mensaje="No Se a podido agregar el Registro"; 
-            }else{ //Entrara a esta parte de la condicion si la sentencia se inserta
-                mensaje="Registro Agregado Con Exito"; 
+            if (contPer==0) {
+                mensaje="No Se a podido agregar el registro";
+            }else{
+                mensaje="Registro agregado con éxito"; 
             }
             
         } catch (SQLException e) {
-            mensaje="Error al Agregar el Registro: "+e; // Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
+            mensaje="Error al ingresar registro";
+            System.out.println("Error en DAOPersona INSERT: "+e.getMessage());
         }finally{
             cn.desconectar(); //Desconecta la base de datos
         }
@@ -99,10 +97,10 @@ public class DaoPersona implements InterfacePersona{
     @Override
     public String updatePersona(Persona per) {
         try {
-            cn.conectar(); //conecta a la base de datos
-            sql="update personas set persona_id=?, nombre=?, apellido=?, direccion=?, telefono=?, celular=? ,correo=?, fecha_nacimiento=?,"
-                    + "dpi=?, nit=? where persona_id=?";   //Envia la consulta a la base de Datos
-            ejecutar=cn.getconexionDB().prepareStatement(sql); //Prepara la consulta en la base de Datos
+            cn.conectar();
+            sql="UPDATE personas SET persona_id=?, nombre=?, apellido=?, direccion=?, telefono=?, correo=?, fecha_nacimiento=?,"
+                    + "dpi=?, nit=?, tipo_usuario_id=?  WHERE persona_id=?";
+            ejecutar=cn.getconexionDB().prepareStatement(sql);
             
             //Ejecuta la consulta en la base de datos
             ejecutar.setString(1, per.getNombre());
@@ -120,13 +118,14 @@ public class DaoPersona implements InterfacePersona{
             
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if(contPer==0){
-                mensaje="No se a podido Modificar El Registro";
+                mensaje="No se modificó el registro";
             }else{
-                mensaje="Registro modificado Con Exito";
+                mensaje="Registro modificado con éxito";
             }
             
-        } catch (SQLException e) {
-            mensaje="Error al Modificar: "+e; // Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
+        } catch (Exception e) {
+            mensaje="Error al modificar registro";
+            System.out.println("Error en DAOPersona UPDATE: " + e.getMessage());
         }finally{
             cn.desconectar();// Nos desconectamos de la base de Datos
         }
@@ -138,22 +137,21 @@ public class DaoPersona implements InterfacePersona{
     @Override
     public String deletPersona(Persona per) {
         try {
-            cn.conectar(); //Se Conecta a la base de Datos
-            sql="delete from personas where persona_id=?"; //Envia la consulta a la base de Datos
-            ejecutar=cn.getconexionDB().prepareStatement(sql);//Prepara Nestra consulta a la base de Datos
-            
-            //Ejecuta la consulta en la base de datos
+            cn.conectar();
+            sql="DELETE FROM personas WHERE persona_id=?";
+            ejecutar=cn.getconexionDB().prepareStatement(sql);
             ejecutar.setInt(1, per.getDpi());
             //Realiza la consulta y actualiza la base de datos
             contPer=ejecutar.executeUpdate();
             //Si la consulta es verdadera no elimina nuestro registro pero si es falsa Eliminara el registro con exito.
             if (contPer==0) {
-                mensaje="No se a podido Eliminar El Registro";
+                mensaje="No existe el registro";
             } else {
-                mensaje="Registro Eliminado con Exito";
+                mensaje="Registro eliminado con éxito";
             }
         } catch (SQLException e) {
-            mensaje="Error al eliminar Persona: "+e; // Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
+            mensaje="Error al eliminar registro";
+            System.out.println("Error en DAOPersona DELETE: " + e.getMessage());
         }finally{
             cn.desconectar();// Se desconecta de la base de datos
         }
@@ -168,11 +166,11 @@ public class DaoPersona implements InterfacePersona{
         Persona perso; //Creamos un objeto tipo Persona
         lista=new ArrayList(); //Inicializamos nuestro Objeto de Tipo ArrayList
         try {
-            cn.conectar(); //conecta la base de datos
-            sql="Select * from personas";//Envia la consulta a la base de datos
-            ejecutar=cn.getconexionDB().prepareStatement(sql); //prepara la cosulta en la base de datos
-            result=ejecutar.executeQuery();//Realiza la consulta y muestra los datos de la base de datos
-            //Visualiza los datos de la consulta
+            cn.conectar();
+            sql="SELECT * FROM personas";
+            ejecutar=cn.getconexionDB().prepareStatement(sql);
+            result=ejecutar.executeQuery();
+            
             while(result.next()){
                 perso=new Persona();//Cada vez que pase a un registro nuevo crea un objeto Perosona
                 
@@ -192,7 +190,7 @@ public class DaoPersona implements InterfacePersona{
                 
             }
         } catch (SQLException e) {
-            System.out.println("Error al mostrar lista personas: "+e);//Mensaje por consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
+            System.out.println("Error al mostrar lista personas: "+e.getMessage());
         }finally{
             cn.desconectar();//desconecta la base de datos
         }

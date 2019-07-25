@@ -1,12 +1,10 @@
 package dao;
 
-import interfaces.InterfaceRegion;
+import modelo.Regiones;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.Regiones;
-
 /*
 *cn // Objeto de la Conexion a la Base de datos
 *sql // sentencia sql
@@ -14,8 +12,7 @@ import modelo.Regiones;
 *ejecutar// instancia de la ejecucion que contiene la base de datos
 *datoRegion// Objeto de la clase Region
  */
-//implementacion de los Metodos Abastractos de la interfaz Regiones
-public class DaoRegion implements InterfaceRegion {
+public class DAORegion implements interfaces.InterfaceRegion {
 
     private ConexionDB cn = new ConexionDB();
     private String sql = "";
@@ -29,26 +26,22 @@ public class DaoRegion implements InterfaceRegion {
     @Override
     public String insertRegion(Regiones region) {
         try {
-            cn.conectar();//conecta a la base de datos
-            sql = "insert into regiones values(?,?,?)"; //Se envia la consulta a la base de datos
-            ejecutar = cn.getconexionDB().prepareStatement(sql); //Prepara la consulta en la base de datos
-            //ejecuta la consulta en la base de datos
+            cn.conectar();
+            sql = "INSERT INTO regiones VALUES(?,?,?)";
+            ejecutar = cn.getconexionDB().prepareStatement(sql);
             ejecutar.setInt(1, region.getRegionId());
             ejecutar.setString(2, region.getNombre());
             ejecutar.setString(3, region.getDescripcion());
             //Realiza la consulta y actualiza la base de datos
             contRegion = ejecutar.executeUpdate();
 
-            //Condiciona la consulta SQL
-            //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
-            if (contRegion == 0) {  
-                mensaje = "No se a podigo Insertar el Registro";
+            if (contRegion == 0) {
+                mensaje = "No se ingreso el registro";
             } else {
-                mensaje = "Regisgro Ingresado con Exito";
+                mensaje = "Se ha ingresado correctamente el registro";
             }
         } catch (SQLException e) {
-            //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje="Erro al Ingresar Regiones: "+e;
+            System.out.println("Error en DAORegion INSERT: " + e.getMessage());
         } finally {
             //Se desconecta de la base de Datos
             cn.desconectar();
@@ -63,9 +56,7 @@ public class DaoRegion implements InterfaceRegion {
         try {
             //Se conecta a la base de datos
             cn.conectar();
-            //Envia la consulta a la base de datos
-            sql = "update regiones set nombre=?, descripcion=? where region_id=?";
-            //Prepara la consulta en la base de Datos
+            sql = "UPDATE regiones SET nombre=?, descripcion=? WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de Datos
             ejecutar.setString(1, region.getNombre());
@@ -78,14 +69,13 @@ public class DaoRegion implements InterfaceRegion {
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (contRegion == 0) {
 
-                mensaje = "El registro no se pudo modificar";
+                mensaje = "No se actualizó el registro";
             } else {
-                mensaje = "Registro modificado con Exito";
+                mensaje = "Se ha actualizado el registro";
             }
 
-        } catch (SQLException e) {
-            //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje = "Error al modificar Region: " + e;
+        } catch (Exception e) {
+            System.out.println("Error en DAORegion UPDATE: " + e.getMessage());
         } finally {
             //Se desconecta de la base de Datos
             cn.desconectar();
@@ -100,9 +90,7 @@ public class DaoRegion implements InterfaceRegion {
         try {
             //se conecta a la base de datos
             cn.conectar();
-            //Envia la consulta a la base de datos
-            sql = "delete from regiones where region_id=?";
-            //Prepara la consulta en la base de Datos
+            sql = "DELETE FROM regiones WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
             ejecutar.setInt(1, region.getRegionId());
@@ -117,8 +105,7 @@ public class DaoRegion implements InterfaceRegion {
             }
 
         } catch (SQLException e) {
-            //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje = "Error al eliminar Regiones: " + e;
+            System.out.println("Error en DAORegion DELETE: " + e.getMessage());
         } finally {
             //Se desconecta de la base de Datos
             cn.desconectar();
@@ -132,9 +119,7 @@ public class DaoRegion implements InterfaceRegion {
         try {
             //Conecta a la base de datos
             cn.conectar();
-            //Envia la consulta a la base de datos
-            sql = "select * from regiones where region_id=?";
-            //Prepara la consulta en la base de datos
+            sql = "SELECT * FROM regiones WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la bae de Datos
             ejecutar.setInt(1, region.getRegionId());
@@ -147,9 +132,8 @@ public class DaoRegion implements InterfaceRegion {
                 datoRegion.setDescripcion(result.getString("descripcion"));
             }
 
-        } catch (SQLException e) {
-            //Mensaje por consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            System.out.println("Error al Selecionar Registro" + e);
+        } catch (Exception e) {
+            System.out.println("Error al selecionar registro" + e.getMessage());
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -170,9 +154,7 @@ public class DaoRegion implements InterfaceRegion {
         try {
             //Conectamos la base de datos
             cn.conectar();
-            //Se envia la consulta a la base de datos
-            sql="select * from regiones";
-            //Prepara la consulta en la base de datos
+            sql="SELECT * FROM regiones";
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             //Realiza la consulta y Muestra los datos 
             result=ejecutar.executeQuery();
@@ -188,8 +170,7 @@ public class DaoRegion implements InterfaceRegion {
                 
             }
         } catch (SQLException e) {
-            //Mensaje Por consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            System.out.println("Error al seleccionar lista de Regiones: "+e);
+            System.out.println("Error al seleccionar lista de Regiones: "+e.getMessage());
         }
         finally{
             //Se desconecta de la base de datos
