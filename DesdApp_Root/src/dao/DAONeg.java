@@ -11,7 +11,7 @@ import java.util.List;
 import modelo.Neg;
 
 //Se implemeta la interface de mi clase Neg = InterfaceNeg
-public class DaoNeg implements InterfaceNeg{
+public class DAONeg implements InterfaceNeg{
 
 //Instaciamos clases
 private ConexionDB cn = new ConexionDB();//cn = Objeto de conexion con la Base de Datos
@@ -30,7 +30,7 @@ private String sql="";
     public void insertNeg(Neg neg) {
         try {
             cn.conectar();//Realizamos la conexion con la base de datos
-            sql = "insert into negocios values(?,?,?,?,?,?,?,?,?)";//Asignamos la consulta al sql
+            sql = "INSERT INTO negocios VALUES(?,?,?,?,?,?,?,?,?)";//Asignamos la consulta al sql
             
             jc = cn.getconexionDB().prepareStatement(sql);//Asignamos la consulta al PreparedStatement
             jc.setInt(1,neg.getNegocionId());//Asignamos valores a la consulta 
@@ -61,7 +61,7 @@ private String sql="";
     public void updateNeg(Neg neg) {
         try {
             cn.conectar();
-            sql = "update negocios set bien_inmueble_id=?,tipo_transaccion_id=?,asesor_id=?,precio_venta_propiedad=?,comision_empresa=?,fecha=?,estado_pago_id=?,cliente_id=? where negocio_id=?";
+            sql = "UPDATE negocios SET bien_inmueble_id=?,tipo_transaccion_id=?,asesor_id=?,precio_venta_propiedad=?,comision_empresa=?,fecha=?,estado_pago_id=?,cliente_id=? WHERE negocio_id=?";
             
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setInt(1,neg.getBienImbId());
@@ -93,7 +93,7 @@ private String sql="";
     public void deleteNeg(Neg neg) {
             try {
             cn.conectar();
-            sql = "delete from negocios where negocio_id=?";
+            sql = "DELETE FROM negocios WHERE negocio_id=?";
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setInt(1,neg.getNegocionId());
             jc.executeUpdate();
@@ -122,7 +122,7 @@ private String sql="";
         
         try {
             cn.conectar();
-            sql = "select * from negocios";
+            sql = "SELECT * FROM negocios";
             jc = cn.getconexionDB().prepareStatement(sql);
             rs = jc.executeQuery();//Se utiliza el executeQuery para obtener los resultados de la consulta y posteriormente los asigna al resultSet para luego acceder a ellos
 
@@ -163,7 +163,7 @@ private String sql="";
     public Neg selectNeg(Neg neg) {
           try {
             cn.conectar();
-            sql = "select * from negocios where negocio_id=?";
+            sql = "SELECT * FROM negocios where negocio_id=?";
             
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setInt(1,neg.getNegocionId());
