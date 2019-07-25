@@ -23,7 +23,7 @@ public class DAOVenta implements interfaces.interfazVenta{  //Implementamos la c
     @Override
     public Venta read(Venta venta) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         cn.conectar();
-        sql="select * from ventas where venta_id=?"; //Se crea consulta sql para retornar los datos correspondientes al método
+        sql="SELECT * FROM ventas WHERE venta_id=?"; //Se crea consulta sql para retornar los datos correspondientes al método
         try {
             run = cn.getconexionDB().prepareStatement(sql);  //Después de ser verificada la conexion, se obtiene la consulta
             result = run.executeQuery();   //Ejecuta la consulta y la almacena
@@ -48,7 +48,7 @@ public class DAOVenta implements interfaces.interfazVenta{  //Implementamos la c
     @Override
     public void upd(Venta venta) { //Se realiza la consulta de update para actualizar algún registro
         cn.conectar();
-        sql="update ventas set numero_factura, serie, nit, nombre, direccion, fecha, total, tipo_id where venta_id=?"; //Se crea consulta sql para actualizar datos
+        sql="UPDATE ventas SET numero_factura, serie, nit, nombre, direccion, fecha, total, tipo_id WHERE venta_id=?"; //Se crea consulta sql para actualizar datos
     
         try {
             run = cn.getconexionDB().prepareStatement(sql);
@@ -72,7 +72,7 @@ public class DAOVenta implements interfaces.interfazVenta{  //Implementamos la c
     @Override
     public void del(Venta venta) {  //Se realiza consulta de delete para eliminar un registro
         cn.conectar();
-    sql = "delete from ventas where venta_id=?";  //Se crea consulta sql para eliminar algún registro
+    sql = "DELETE FROM ventas WHERE venta_id=?";  //Se crea consulta sql para eliminar algún registro
         try {
             run = cn.getconexionDB().prepareStatement(sql);
             run.setInt(1, v.getVenta_id());
@@ -88,7 +88,7 @@ public class DAOVenta implements interfaces.interfazVenta{  //Implementamos la c
     @Override
     public void create(Venta venta) {  //Se realiza la consulta de insert para agregar un registro
             cn.conectar();
-        sql="insert into ventas values(?,?,?,?,?,?,?,?,?)";  //Se crea la consulta sql para insertar datos de pagos de una propiedad
+        sql="INSERT INTO ventas VALUES(?,?,?,?,?,?,?,?,?)";  //Se crea la consulta sql para insertar datos de pagos de una propiedad
         try {
             run = cn.getconexionDB().prepareStatement(sql);
             run.setInt(1, v.getVenta_id());
@@ -115,7 +115,7 @@ public class DAOVenta implements interfaces.interfazVenta{  //Implementamos la c
     
         try {
         cn.conectar();
-        sql ="select * from ventas"; //Se crea consulta de sql para retornar la lista de datos
+        sql ="SELECT * FROM ventas"; //Se crea consulta de sql para retornar la lista de datos
         run = cn.getconexionDB().prepareStatement(sql);
         result = run.executeQuery();
         

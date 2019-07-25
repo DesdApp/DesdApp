@@ -1,12 +1,11 @@
-
 package dao;
 
-import interfaces.InterfacePersona;
+import modelo.Persona;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.Persona;
+
 /*
 *cn // Objeto de la Conexion a la Base de datos
 *sql // sentencia sql
@@ -16,7 +15,7 @@ import modelo.Persona;
 */
 
 
-public class DaoPersona implements InterfacePersona{
+public class DAOPersona implements interfaces.InterfacePersona{
     private ConexionDB cn=new ConexionDB();
     private String sql="";
     private ResultSet result;
@@ -30,7 +29,7 @@ public class DaoPersona implements InterfacePersona{
     public Persona selectPersona(Persona per) {
         try {
             cn.conectar();
-            sql="select * from personas where persona_id=?";//Se envia la consulta a la base de Datos
+            sql="SELECT * FROM personas WHERE persona_id=?";//Se envia la consulta a la base de Datos
             ejecutar=cn.getconexionDB().prepareStatement(sql); 
             ejecutar.setInt(1, per.getPersonaId());
             result=ejecutar.executeQuery();
@@ -49,7 +48,7 @@ public class DaoPersona implements InterfacePersona{
             }
             
         } catch (SQLException e) {
-            System.out.println("Error al Seleccionar Persona: "+e);
+            System.out.println("Error al Seleccionar Persona: "+e.getMessage());
         }finally{
             cn.desconectar();
         }
@@ -61,7 +60,7 @@ public class DaoPersona implements InterfacePersona{
     public String insertPersona(Persona per) {
         try {
             cn.conectar();
-            sql="insert into personas values(?,?,?,?,?,?,?,?,?,?)";
+            sql="INSERT INTO personas VALUES(?,?,?,?,?,?,?,?,?,?)";
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             ejecutar.setInt(1, per.getPersonaId());
             ejecutar.setString(2, per.getNombre());
@@ -76,13 +75,14 @@ public class DaoPersona implements InterfacePersona{
             contPer=ejecutar.executeUpdate();
             
             if (contPer==0) {
-                mensaje="No Se a podido agregar el Registro";
+                mensaje="No Se a podido agregar el registro";
             }else{
-                mensaje="Registro Agregado Con Exito"; 
+                mensaje="Registro agregado con éxito"; 
             }
             
         } catch (SQLException e) {
-            mensaje="Error al Agregar el Registro: "+e;
+            mensaje="Error al ingresar registro";
+            System.out.println("Error en DAOPersona INSERT: "+e.getMessage());
         }finally{
             cn.desconectar();
         }
@@ -94,8 +94,8 @@ public class DaoPersona implements InterfacePersona{
     public String updatePersona(Persona per) {
         try {
             cn.conectar();
-            sql="update personas set persona_id=?, nombre=?, apellido=?, direccion=?, telefono=?, correo=?, fecha_nacimiento=?,"
-                    + "dpi=?, nit=?, tipo_usuario_id=?  where persona_id=?";
+            sql="UPDATE personas SET persona_id=?, nombre=?, apellido=?, direccion=?, telefono=?, correo=?, fecha_nacimiento=?,"
+                    + "dpi=?, nit=?, tipo_usuario_id=?  WHERE persona_id=?";
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             
             ejecutar.setString(1, per.getNombre());
@@ -111,13 +111,14 @@ public class DaoPersona implements InterfacePersona{
             contPer=ejecutar.executeUpdate();
             
             if(contPer==0){
-                mensaje="No se a podido Modificar El Registro";
+                mensaje="No se modificó el registro";
             }else{
-                mensaje="Registro modificado Con Exito";
+                mensaje="Registro modificado con éxito";
             }
             
         } catch (Exception e) {
-            mensaje="Error al Modificar: "+e;
+            mensaje="Error al modificar registro";
+            System.out.println("Error en DAOPersona UPDATE: " + e.getMessage());
         }finally{
             cn.desconectar();
         }
@@ -130,17 +131,18 @@ public class DaoPersona implements InterfacePersona{
     public String deletPersona(Persona per) {
         try {
             cn.conectar();
-            sql="delete from personas where persona_id=?";
+            sql="DELETE FROM personas WHERE persona_id=?";
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             ejecutar.setInt(1, per.getDpi());
             contPer=ejecutar.executeUpdate();
             if (contPer==0) {
-                mensaje="No se a podido Eliminar El Registro";
+                mensaje="No existe el registro";
             } else {
-                mensaje="Registro Eliminado con Exito";
+                mensaje="Registro eliminado con éxito";
             }
         } catch (SQLException e) {
-            mensaje="Error al eliminar Persona: "+e;
+            mensaje="Error al eliminar registro";
+            System.out.println("Error en DAOPersona DELETE: " + e.getMessage());
         }finally{
             cn.desconectar();
         }
@@ -156,7 +158,7 @@ public class DaoPersona implements InterfacePersona{
         lista=new ArrayList();
         try {
             cn.conectar();
-            sql="Select * from personas";
+            sql="SELECT * FROM personas";
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             result=ejecutar.executeQuery();
             
@@ -178,7 +180,7 @@ public class DaoPersona implements InterfacePersona{
                 
             }
         } catch (SQLException e) {
-            System.out.println("Error al mostrar lista personas: "+e);
+            System.out.println("Error al mostrar lista personas: "+e.getMessage());
         }finally{
             cn.desconectar();
         }

@@ -1,12 +1,10 @@
 package dao;
 
-import interfaces.InterfaceRegion;
+import modelo.Regiones;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.Regiones;
-
 /*
 *cn // Objeto de la Conexion a la Base de datos
 *sql // sentencia sql
@@ -14,7 +12,7 @@ import modelo.Regiones;
 *ejecutar// instancia de la ejecucion que contiene la base de datos
 *datoRegion// Objeto de la clase Region
  */
-public class DaoRegion implements InterfaceRegion {
+public class DAORegion implements interfaces.InterfaceRegion {
 
     private ConexionDB cn = new ConexionDB();
     private String sql = "";
@@ -29,7 +27,7 @@ public class DaoRegion implements InterfaceRegion {
     public String insertRegion(Regiones region) {
         try {
             cn.conectar();
-            sql = "insert into regiones values(?,?,?)";
+            sql = "INSERT INTO regiones VALUES(?,?,?)";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             ejecutar.setInt(1, region.getRegionId());
             ejecutar.setString(2, region.getNombre());
@@ -37,11 +35,12 @@ public class DaoRegion implements InterfaceRegion {
             contRegion = ejecutar.executeUpdate();
 
             if (contRegion == 0) {
-                mensaje = "No se a podigo Insertar el Registro";
+                mensaje = "No se ingreso el registro";
             } else {
-                mensaje = "Regisgro Ingresado con Exito";
+                mensaje = "Se ha ingresado correctamente el registro";
             }
         } catch (SQLException e) {
+            System.out.println("Error en DAORegion INSERT: " + e.getMessage());
         } finally {
             cn.desconectar();
         }
@@ -53,7 +52,7 @@ public class DaoRegion implements InterfaceRegion {
     public String updateRegion(Regiones region) {
         try {
             cn.conectar();
-            sql = "update regiones set nombre=?, descripcion=? where region_id=?";
+            sql = "UPDATE regiones SET nombre=?, descripcion=? WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             ejecutar.setString(1, region.getNombre());
             ejecutar.setString(2, region.getDescripcion());
@@ -62,13 +61,13 @@ public class DaoRegion implements InterfaceRegion {
 
             if (contRegion == 0) {
 
-                mensaje = "El registro no se pudo modificar";
+                mensaje = "No se actualizó el registro";
             } else {
-                mensaje = "Registro modificado con Exito";
+                mensaje = "Se ha actualizado el registro";
             }
 
         } catch (Exception e) {
-            mensaje = "Error al modificar Region: " + e;
+            System.out.println("Error en DAORegion UPDATE: " + e.getMessage());
         } finally {
             cn.desconectar();
         }
@@ -80,7 +79,7 @@ public class DaoRegion implements InterfaceRegion {
     public String deleteRegion(Regiones region) {
         try {
             cn.conectar();
-            sql = "delete from regiones where region_id=?";
+            sql = "DELETE FROM regiones WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             ejecutar.setInt(1, region.getRegionId());
             contRegion = ejecutar.executeUpdate();
@@ -91,7 +90,7 @@ public class DaoRegion implements InterfaceRegion {
             }
 
         } catch (SQLException e) {
-            mensaje = "Error al eliminar Regiones: " + e;
+            System.out.println("Error en DAORegion DELETE: " + e.getMessage());
         } finally {
             cn.desconectar();
         }
@@ -103,7 +102,7 @@ public class DaoRegion implements InterfaceRegion {
     public Regiones selectRegion(Regiones region) {
         try {
             cn.conectar();
-            sql = "select * from regiones where region_id=?";
+            sql = "SELECT * FROM regiones WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             ejecutar.setInt(1, region.getRegionId());
             result = ejecutar.executeQuery();
@@ -115,7 +114,7 @@ public class DaoRegion implements InterfaceRegion {
             }
 
         } catch (Exception e) {
-            System.out.println("Error al Selecionar Registro" + e);
+            System.out.println("Error al selecionar registro" + e.getMessage());
         } finally {
             cn.desconectar();
         }
@@ -130,7 +129,7 @@ public class DaoRegion implements InterfaceRegion {
         list=new ArrayList();   
         try {
             cn.conectar();
-            sql="select * from regiones";
+            sql="SELECT * FROM regiones";
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             result=ejecutar.executeQuery();
             
@@ -143,7 +142,7 @@ public class DaoRegion implements InterfaceRegion {
                 
             }
         } catch (SQLException e) {
-            System.out.println("Error al seleccionar lista de Regiones: "+e);
+            System.out.println("Error al seleccionar lista de Regiones: "+e.getMessage());
         }
         finally{
             cn.desconectar();

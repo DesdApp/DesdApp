@@ -24,7 +24,7 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
     @Override
     public PagosPropiedades read(PagosPropiedades papo) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
     cn.conectar();
-    sql = "select * from pagos_propiedades where pago_propiedad_id=?"; //Se crea consulta sql para retornar los datos correspondientes al método
+    sql = "SELECT * FROM pagos_propiedades WHERE pago_propiedad_id=?"; //Se crea consulta sql para retornar los datos correspondientes al método
         try {
             run = cn.getconexionDB().prepareStatement(sql);   //Después de ser verificada la conexion, se obtiene la consulta
             r = run.executeQuery();  //Ejecuta la consulta y la almacena
@@ -46,7 +46,7 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
     @Override
     public void upd(PagosPropiedades papo) {   //Se realiza la consulta de update para actualizar algún registro
             cn.conectar();
-        sql="update pagos_propiedades set venta_id, tipo_pago_id, transaccion_no, fecha, monto_pagado where pago_propiedad_id=?";   //Se crea consulta sql para actualizar datos
+        sql="UPDATE pagos_propiedades SET venta_id, tipo_pago_id, transaccion_no, fecha, monto_pagado WHERE pago_propiedad_id=?";   //Se crea consulta sql para actualizar datos
     
         try {
             run = cn.getconexionDB().prepareStatement(sql);
@@ -67,7 +67,7 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
     @Override
     public void del(PagosPropiedades papo) {  //Se realiza consulta de delete para eliminar un registro
     cn.conectar();
-    sql = "delete from pagos_propiedades where pago_propiedad_id=?"; //Se crea consulta sql para eliminar algún registro
+    sql = "DELETE FROM pagos_propiedades WHERE pago_propiedad_id=?"; //Se crea consulta sql para eliminar algún registro
         try {
             run = cn.getconexionDB().prepareStatement(sql);
             run.setInt(1, p.getPago_prop_id());
@@ -82,7 +82,7 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
     @Override
     public void create(PagosPropiedades papo) {   //Se realiza la consulta de insert para agregar un registro
     cn.conectar();
-    sql = "insert into pagos_propiedades values(?,?,?,?,?,?)"; //Se crea la consulta sql para insertar datos de pagos de una propiedad
+    sql = "INSERT INTO pagos_propiedades VALUES(?,?,?,?,?,?)"; //Se crea la consulta sql para insertar datos de pagos de una propiedad
         try {
             run = cn.getconexionDB().prepareStatement(sql);
             run.setInt(1, p.getPago_prop_id());
@@ -106,7 +106,7 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
     
         try {
             cn.conectar();
-            sql = "select * from pagos_propiedades"; //Se crea consulta de sql para retornar la lista de datos
+            sql = "SELECT * FROM pagos_propiedades"; //Se crea consulta de sql para retornar la lista de datos
             run = cn.getconexionDB().prepareStatement(sql);
             r = run.executeQuery();
             

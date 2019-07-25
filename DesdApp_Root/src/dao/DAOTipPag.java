@@ -25,7 +25,7 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
     @Override
     public TiposPagos read(TiposPagos tp){ //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         cn.conectar();
-        sql = "select * from tipos_pagos where tipo_pago_id=?"; //Se crea consulta sql para retornar los datos correspondientes al método
+        sql = "SELECT * FROM tipos_pagos WHERE tipo_pago_id=?"; //Se crea consulta sql para retornar los datos correspondientes al método
         try {
             run = cn.getconexionDB().prepareStatement(sql);  //Después de ser verificada la conexion, se obtiene la consulta
             r = run.executeQuery(); //Ejecuta la consulta y la almacena
@@ -43,7 +43,7 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
     @Override
     public void create(TiposPagos tp) {  //Se realiza la consulta de insert para agregar un registro
     cn.conectar();
-    sql = "insert into tipos_pagos values(?,?)";  //Se crea la consulta sql para insertar datos de pagos de una propiedad
+    sql = "INSERT INTO tipos_pagos VALUES(?,?)";  //Se crea la consulta sql para insertar datos de pagos de una propiedad
     
         try {
             run = cn.getconexionDB().prepareStatement(sql);
@@ -60,7 +60,7 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
     @Override
     public void upd(TiposPagos tp) { //Se realiza la consulta de update para actualizar algún registro
     cn.conectar();
-    sql = "update tipos_pagos set nombre where tipo_pago_id=?";  //Se crea consulta sql para actualizar datos
+    sql = "UPDATE tipos_pagos SET nombre WHERE tipo_pago_id=?";  //Se crea consulta sql para actualizar datos
     
         try {
             run = cn.getconexionDB().prepareStatement(sql);
@@ -77,7 +77,7 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
     @Override
     public void del(TiposPagos tp) { //Se realiza consulta de delete para eliminar un registro
     cn.conectar();
-    sql = "delete from tipos_pagos where tipo_pago_id=?"; //Se crea consulta sql para eliminar algún registro
+    sql = "DELETE FROM tipos_pagos WHERE tipo_pago_id=?"; //Se crea consulta sql para eliminar algún registro
     
         try {
             run = cn.getconexionDB().prepareStatement(sql);
@@ -97,7 +97,7 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
         
         try {
             cn.conectar();
-            sql = "select * from tipos_pagos"; //Se crea consulta de sql para retornar la lista de datos
+            sql = "SELECT * FROM tipos_pagos"; //Se crea consulta de sql para retornar la lista de datos
             run = cn.getconexionDB().prepareStatement(sql);
             r = run.executeQuery();
             
