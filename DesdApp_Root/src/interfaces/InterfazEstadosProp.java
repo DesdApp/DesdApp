@@ -3,9 +3,8 @@ package interfaces;
 import java.util.ArrayList;
 import modelo.EstadosPropiedades;
 
-public interface InterfaceEstadosProp {
+public interface InterfazEstadosProp {
     
-    //Metodos Absstractos
     public String insertEstado(EstadosPropiedades estado);
             
     public String deleteEstado(byte codigo);

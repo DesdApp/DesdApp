@@ -3,7 +3,7 @@ package interfaces;
 import modelo.TipoUsuario;
 import java.util.ArrayList;
 
-public interface InterfaceTipoUsuario {
+public interface InterfazTipoUsuario {
 
     public void insertTipoUsario(TipoUsuario tipo);
 

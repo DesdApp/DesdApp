@@ -2,24 +2,16 @@ package modelo;
 
 public class TipoUsuario {
 
-    private byte tipoUsuarioId;
+    private int tipo_usario_id;
     private String nombre;
 
-    public TipoUsuario(byte tipoUsuarioId, String nombre) {
-        this.tipoUsuarioId = tipoUsuarioId;
-        this.nombre = nombre;
+    //Setter & Getter
+    public int getTipo_usario_id() {
+        return tipo_usario_id;
     }
 
-    public TipoUsuario() {
-    }
-    
-       //Setter & Getter
-    public byte getTipoUsuarioId() {
-        return tipoUsuarioId;
-    }
-
-    public void setTipoUsuarioId(byte tipoUsuarioId) {
-        this.tipoUsuarioId = tipoUsuarioId;
+    public void setTipo_usario_id(int tipo_usario_id) {
+        this.tipo_usario_id = tipo_usario_id;
     }
 
     public String getNombre() {
@@ -30,7 +22,4 @@ public class TipoUsuario {
         this.nombre = nombre;
     }
 
-   
-    
-    
 }

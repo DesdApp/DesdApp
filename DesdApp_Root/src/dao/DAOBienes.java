@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Bienes;
 
-public class DAOBienes implements interfaces.InterfaceBienes {
+public class DAOBienes implements interfaces.InterfazBienes {
 
     // Instanciamos las clases
     ConexionDB cx = new ConexionDB();   // Objeto usado para establecer la conexion con la base de datos
