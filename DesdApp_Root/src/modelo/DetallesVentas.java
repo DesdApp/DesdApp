@@ -1,5 +1,5 @@
 package modelo;
-public class DetVentas {
+public class DetallesVentas {
 
 //Se declaran los atributos que componen la tabla "detalles_ventas" en la base de datos
     
@@ -7,6 +7,17 @@ public class DetVentas {
     private int venta_id;
     private int negocio_id;            
 
+    public DetallesVentas(int detalle_id, int venta_id, int negocio_id) {
+        this.detalle_id = detalle_id;
+        this.venta_id = venta_id;
+        this.negocio_id = negocio_id;
+    }
+
+    public DetallesVentas() {
+    }
+
+    
+    
 //Métodos Setter/Getter para llamar y dar los datos correspondientes    
     //<editor-fold defaultstate="collapsed" desc="Setters and Getters">
 
