@@ -6,14 +6,13 @@
  */
 package dao;
 
-import interfaces.InterfazPagPro;
+import modelo.PagosPropiedades;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.PagosPropiedades;
 
-public class DAOPagPropi implements InterfazPagPro{
+public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamos la clase interface para los métodos abstractos
 
     ConexionDB cn = new ConexionDB();
     private String sql="";
@@ -23,31 +22,31 @@ public class DAOPagPropi implements InterfazPagPro{
     
     
     @Override
-    public PagosPropiedades read(PagosPropiedades papo) {
+    public PagosPropiedades read(PagosPropiedades papo) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
     cn.conectar();
-    sql = "select * from pagos_propiedades where pago_propiedad_id=?";
+    sql = "select * from pagos_propiedades where pago_propiedad_id=?"; //Se crea consulta sql para retornar los datos correspondientes al método
         try {
-            run = cn.getconexionDB().prepareStatement(sql);
-            r = run.executeQuery();
-            p.setPago_prop_id(r.getInt("pago_propiedad_id"));
-            p.setVenta_id(r.getInt("venta_id"));
-            p.setTipo_pago_id(r.getInt("tipo_pago_id"));
-            p.setNo_tran(r.getInt("no_transaccion"));
-            p.setFecha(r.getDate("fecha"));
-            p.setMonto_pagado(r.getDouble("monto_pagado"));
+            run = cn.getconexionDB().prepareStatement(sql);   //Después de ser verificada la conexion, se obtiene la consulta
+            r = run.executeQuery();  //Ejecuta la consulta y la almacena
+            p.setPago_prop_id(r.getInt("pago_propiedad_id"));//Se asigna el valor específico a la variable
+            p.setVenta_id(r.getInt("venta_id"));  //Se asigna el valor específico a la variable
+            p.setTipo_pago_id(r.getInt("tipo_pago_id")); //Se asigna el valor específico a la variable
+            p.setNo_tran(r.getInt("transaccion_no"));  //Se asigna el valor específico a la variable
+            p.setFecha(r.getDate("fecha"));  //Se asigna el valor específico a la variable
+            p.setMonto_pagado(r.getDouble("monto_pagado"));  //Se asigna el valor específico a la variable
             r.close();
         } catch (Exception e) {
-            System.out.println("Error en: " + e);
+            System.out.println("Error en: " + e);  //Comentario para mostrar un error
         }finally{
             cn.desconectar();
         }
-        return p;
+        return p;  //retornamos los datos de la tabla
     }
 
     @Override
-    public void upd(PagosPropiedades papo) {
+    public void upd(PagosPropiedades papo) {   //Se realiza la consulta de update para actualizar algún registro
             cn.conectar();
-        sql="update pagos_propiedades set venta_id, tipo_pago_id, no_transaccion, fecha, monto_pagado where pago_propiedad_id=?";
+        sql="update pagos_propiedades set venta_id, tipo_pago_id, transaccion_no, fecha, monto_pagado where pago_propiedad_id=?";   //Se crea consulta sql para actualizar datos
     
         try {
             run = cn.getconexionDB().prepareStatement(sql);
@@ -66,24 +65,24 @@ public class DAOPagPropi implements InterfazPagPro{
     }
 
     @Override
-    public void del(PagosPropiedades papo) {
+    public void del(PagosPropiedades papo) {  //Se realiza consulta de delete para eliminar un registro
     cn.conectar();
-    sql = "delete from pagos_propiedades where pago_propiedad_id=?";
+    sql = "delete from pagos_propiedades where pago_propiedad_id=?"; //Se crea consulta sql para eliminar algún registro
         try {
             run = cn.getconexionDB().prepareStatement(sql);
             run.setInt(1, p.getPago_prop_id());
             run.executeUpdate();
         } catch (Exception e) {
-            System.out.println("Error en eliminar: " + e);
+            System.out.println("Error en eliminar: " + e); //Comentario en caso de error 
         }finally{
             cn.desconectar();
         }
     }
 
     @Override
-    public void create(PagosPropiedades papo) {
+    public void create(PagosPropiedades papo) {   //Se realiza la consulta de insert para agregar un registro
     cn.conectar();
-    sql = "insert into pagos_propiedades values(?,?,?,?,?,?)";
+    sql = "insert into pagos_propiedades values(?,?,?,?,?,?)"; //Se crea la consulta sql para insertar datos de pagos de una propiedad
         try {
             run = cn.getconexionDB().prepareStatement(sql);
             run.setInt(1, p.getPago_prop_id());
@@ -94,20 +93,20 @@ public class DAOPagPropi implements InterfazPagPro{
             run.setDouble(6, p.getMonto_pagado());
             run.executeUpdate();
         } catch (Exception e) {
-            System.out.println("Error en agregar: " + e);
+            System.out.println("Error en agregar: " + e); //Comentario que se mostrará en caso de tener un error
         }finally{
             cn.desconectar();
         }
     }
 
     @Override
-    public List<PagosPropiedades> listas() {
+    public List<PagosPropiedades> listas() {   //Se realiza consulta de listar para listar los datos que se solicitan
     ArrayList<PagosPropiedades> list = new ArrayList();
     PagosPropiedades p = null;
     
         try {
             cn.conectar();
-            sql = "select * from pagos_propiedades";
+            sql = "select * from pagos_propiedades"; //Se crea consulta de sql para retornar la lista de datos
             run = cn.getconexionDB().prepareStatement(sql);
             r = run.executeQuery();
             
@@ -115,18 +114,19 @@ public class DAOPagPropi implements InterfazPagPro{
                 p.setPago_prop_id(r.getInt("pago_propiedad_id"));
                 p.setVenta_id(r.getInt("venta_id"));
                 p.setTipo_pago_id(r.getInt("tipo_pago_id"));
-                p.setNo_tran(r.getInt("no_transaccion"));
+                p.setNo_tran(r.getInt("transaccion_no"));
                 p.setFecha(r.getDate("fecha"));
                 p.setMonto_pagado(r.getDouble("monto_pagado"));
                 list.add(p);
             }
             r.close();
         } catch (Exception e) {
-            System.out.println("Error al listar en: " + e);
+            System.out.println("Error al listar en: " + e);  //Comentario para marcar un error en caso de inconveniente
         }finally{
             cn.desconectar();
         }
-        return list;
+        return list;  //retornamos la lista
+
     }
 
 

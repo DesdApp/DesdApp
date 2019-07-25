@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 public class TiposPagos {
+    
+//Se declaran los atributos que componen a la tabla de "tipos_pagos" en la base de datos
     private int tipo_pago_id;
     private String nombre;
     
-    
+//Métodos de Setter/Getter para llamar y dar los datos correspondientes
     //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
 
 

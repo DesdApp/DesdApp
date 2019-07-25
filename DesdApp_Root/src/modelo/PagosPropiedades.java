@@ -1,10 +1,9 @@
 package modelo;
-
 import java.sql.Date;
 
 public class PagosPropiedades {
 
-
+//Declaración de atributos que componen a la tabla "pagos_propiedades" en la base de datos
     private int pago_prop_id;
     private int venta_id;
     private int tipo_pago_id;
@@ -12,7 +11,7 @@ public class PagosPropiedades {
     private Date fecha;
     private Double monto_pagado;
     
-    
+ //Métodos Getter/Setter para llamar y dar los datos correspondientes
     //<editor-fold defaultstate="collapsed" desc="Setters and Getters">
     public int getPago_prop_id() {
         return pago_prop_id;

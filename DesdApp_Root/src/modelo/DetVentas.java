@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 public class DetVentas {
 
-//Atributos
+//Se declaran los atributos que componen la tabla "detalles_ventas" en la base de datos
     
     private int detalle_id;
     private int venta_id;
     private int negocio_id;            
 
-    
+//Métodos Setter/Getter para llamar y dar los datos correspondientes    
     //<editor-fold defaultstate="collapsed" desc="Setters and Getters">
 
 //Métodos    
