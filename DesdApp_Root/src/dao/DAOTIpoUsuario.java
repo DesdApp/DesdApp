@@ -80,7 +80,7 @@ public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
         TipoUsuario tipo = new TipoUsuario();
         try {
             cn.conectar();
-            sql = "SELECT * FROM tipos_usuarios WHERE tipo_usario_id=?";
+            sql = "SELECT * FROM tipos_usuarios WHERE tipo_usuario_id=?";
             execute = cn.getconexionDB().prepareStatement(sql);
             execute.setInt(1, codigo);
             rs = execute.executeQuery();
