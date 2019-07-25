@@ -11,7 +11,7 @@ import java.util.List;
 import modelo.DtComVent;
 
 //Implementamos la interface de la clase DtComVent = InterfaceDtComVent
-public class DaoDtComVent implements InterfaceDtComVent{
+public class DAODtComVent implements InterfaceDtComVent{
 
 //Instanciamos clases
 private ConexionDB cn = new ConexionDB();//cn = Objeto de conexion con la Base de Datos
@@ -26,7 +26,7 @@ private String sql = "";
     public void insertDtComVent(DtComVent dcv) {
         try {
             cn.conectar();//Realizamos la conexion con la base de datos
-            sql = "insert into detalles_compras_ventas values (?,?,?)";//Asignamos la consulta al sql
+            sql = "INSERT INTO detalles_compras_ventas VALUES(?,?,?)";//Asignamos la consulta al sql
             
             jc = cn.getconexionDB().prepareStatement(sql);//Asignamos la consulta al PreparedStatement
             jc.setInt(1, dcv.getNegId());//Asignamos valores a la consulta 
@@ -51,7 +51,7 @@ private String sql = "";
     public void updateDtComVent(DtComVent dcv) {
         try {
             cn.conectar();
-            sql = "update detalles_compras_ventas set fecha_establecida_venta=?,observaciones=? where negocio_id=?";
+            sql = "UPDATE detalles_compras_ventas SET fecha_establecida_venta=?,observaciones=? WHERE negocio_id=?";
             
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setDate(1, dcv.getDateEstVenta());
@@ -74,7 +74,7 @@ private String sql = "";
     public void deleteDtComVent(DtComVent dcv) {
         try {
             cn.conectar();
-            sql = "delete from detalles_compras_ventas where negocio_id=?";
+            sql = "DELETE FROM detalles_compras_ventas WHERE negocio_id=?";
             
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setInt(1, dcv.getNegId());
@@ -105,7 +105,7 @@ private String sql = "";
      
         try {
             cn.conectar();
-            sql = "select * from detalles_compras_ventas";
+            sql = "SELECT * FROM detalles_compras_ventas";
             
             jc = cn.getconexionDB().prepareStatement(sql);
             rs = jc.executeQuery();//Se utiliza el executeQuery para obtener los resultados de la consulta y posteriormente los asigna al resultSet para luego acceder a ellos
@@ -141,7 +141,7 @@ private String sql = "";
     public DtComVent selectDtComVent(DtComVent dcv) {
         try {
          cn.conectar();
-         sql = "select * from detalles_compras_ventas where negocio_id=?";
+         sql = "SELECT * FROM detalles_compras_ventas WHERE negocio_id=?";
          
          jc = cn.getconexionDB().prepareStatement(sql);
          rs = jc.executeQuery();

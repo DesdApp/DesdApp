@@ -12,7 +12,7 @@ import modelo.StPago;
 
 
 //Se implementa la Interface de la clase StPago= InterfaceStPago
-public class DaoStPago  implements InterfaceStPago {
+public class DAOStPago  implements InterfaceStPago {
 
 //Instanciamos las clases
 private ConexionDB cn = new ConexionDB();//cn = objeto para  hacer conexion con la Base de Datos
@@ -31,7 +31,7 @@ private String sql = "";
     public void insertStPago(StPago pag) {
         try {
             cn.conectar();//Realizamos la conexion con la base de datos
-            sql = "insert into estado_pagos values (?,?)";//Asignamos la consulta al sql
+            sql = "INSERT INTO estado_pagos VALUES (?,?)";//Asignamos la consulta al sql
             
             jc = cn.getconexionDB().prepareStatement(sql);//Asignamos la consulta al PreparedStatement
             jc.setByte(1,pag.getStPagoId());//Asignamos valores a la consulta 
@@ -55,7 +55,7 @@ private String sql = "";
     public void updateStPago(StPago pag) {
         try {
             cn.conectar();
-            sql = "update estado_pagos set nombre=? where estado_pago_id=?";
+            sql = "UPDATE estado_pagos SET nombre=? WHERE estado_pago_id=?";
             jc  = cn.getconexionDB().prepareStatement(sql);
             jc.setString(1,pag.getName());
             jc.setByte(2,pag.getStPagoId());
@@ -79,7 +79,7 @@ private String sql = "";
     public void deleteStPago(StPago pag) {
         try {
             cn.conectar();
-            sql = "delete from estado_pagos where estado_pago_id=?";
+            sql = "DELETE FROM estado_pagos WHERE estado_pago_id=?";
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setByte(1,pag.getStPagoId());
             jc.executeUpdate();
@@ -108,7 +108,7 @@ private String sql = "";
         
         try {
             cn.conectar();
-            sql = "select * from estado_pagos ";
+            sql = "SELECT * FROM estado_pagos ";
             jc = cn.getconexionDB().prepareStatement(sql);
             rs = jc.executeQuery();//Se utiliza el executeQuery para obtener los resultados de la consulta y posteriormente los asigna al resultSet para luego acceder a ellos
             
@@ -142,7 +142,7 @@ private String sql = "";
     public StPago selectStPago(StPago pag) {
         try {
             cn.conectar();
-            sql = "select * from estado_pagos where estado_pago_id=?";
+            sql = "SELECT * FROM estado_pagos WHERE estado_pago_id=?";
             jc = cn.getconexionDB().prepareStatement(sql);
             rs = jc.executeQuery();
             
