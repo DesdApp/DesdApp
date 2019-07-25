@@ -5,6 +5,7 @@ import modelo.TiposPropiedades;
 
 public interface InterfaceTpPropiedades {
     
+    //Metodos Abstractos
     public String insertTipo(TiposPropiedades tipo);
     public String deleteTipo(byte codigo);
     public String updateTipo(TiposPropiedades tipo);
