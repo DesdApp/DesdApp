@@ -11,7 +11,7 @@ public interface InterfaceTipoFac {
     public String insertTipoFac(TipoFacturacion tipo);
     public String updateTipoFac(TipoFacturacion tipo);
     public String deletTipoFac(TipoFacturacion tipo);
-    public TipoFacturacion selectTipoFac(TipoFacturacion tipo);
+    public TipoFacturacion selectTipoFac(TipoFacturacion tipo_id);
     public ArrayList<TipoFacturacion>listTipoFac();
     
     
