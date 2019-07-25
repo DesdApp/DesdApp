@@ -1,7 +1,7 @@
 package modelo;
 import java.sql.Date;
 
-public class Venta {
+public class Ventas {
 //Se declaran los atributos que componen en la base de datos a la tabla de "ventas"
     private int venta_id;
     private int numero_factura;
@@ -13,6 +13,23 @@ public class Venta {
     private double total;
     private int tipo_id;
 
+    public Ventas(int venta_id, int numero_factura, String serie, int nit, String nombre, String direccion, Date fecha, double total, int tipo_id) {
+        this.venta_id = venta_id;
+        this.numero_factura = numero_factura;
+        this.serie = serie;
+        this.nit = nit;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.fecha = fecha;
+        this.total = total;
+        this.tipo_id = tipo_id;
+    }
+
+    public Ventas() {
+    }
+
+    
+    
 //Métodos Setter/Getter para llamar y dar los datos correspondientes
     //<editor-fold defaultstate="collapsed" desc="Setters and Getters">
     public int getVenta_id() {

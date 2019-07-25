@@ -1,12 +1,9 @@
 package dao;
-
-import interfaces.InterfaceTipoFac;
+import modelo.TipoFacturacion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.TipoFacturacion;
-
 /*
 *cn // Objeto de la Conexion a la Base de datos
 *sql // sentencia sql
@@ -15,7 +12,7 @@ import modelo.TipoFacturacion;
 *datoTipo// Objeto de la clase TipoFacturacion
  */
 //implementacion de los Metodos Abastractos de la interfaz Tipo Facturacion
-public class DaoTipoFacturacion implements InterfaceTipoFac {
+public class DaoTipoFacturacion implements interfaces.InterfaceTipoFac {
 
     public ConexionDB cn = new ConexionDB();
     public String sql = "";
@@ -32,7 +29,7 @@ public class DaoTipoFacturacion implements InterfaceTipoFac {
             //Se conecta a la base de Datos
             cn.conectar();
             //Envia la consulta a la base de datos
-            sql = "insert into tipos_facturaciones values(?,?,?)";
+            sql = "INSERT INTO tipos_facturacion VALUES(?,?,?)";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -43,13 +40,14 @@ public class DaoTipoFacturacion implements InterfaceTipoFac {
             //Condiciona la consulta SQL
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (contTipo == 0) {
-                mensaje = "No se a podido Agregar El Registro";
+                mensaje = "No se ingreso el registro";
             } else {
-                mensaje = "Registro Agregado Con Exito";
+                mensaje = "Se ha ingresado el registro correctamente";
             }
         } catch (SQLException e) {
             //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje = "Error al ingresar Tipo Facturacion: " + e;
+            mensaje = "Error al ingresar registro";
+            System.out.println("Error en DAOTipoFacturacion INSERT: " + e.getMessage());
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -65,7 +63,7 @@ public class DaoTipoFacturacion implements InterfaceTipoFac {
             //Se conecta a la base de Datos
             cn.conectar();
             //Envia la consulta a la base de datos
-            sql = "update tipos_facturaciones set nombre=? where tipo_id=?";
+            sql = "UPDATE tipos_facturacion SET nombre=? WHERE tipo_id=?";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -76,13 +74,14 @@ public class DaoTipoFacturacion implements InterfaceTipoFac {
             //Condiciona la consulta SQL
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (contTipo == 0) {
-                mensaje = "El Registro no se a podido Modificar";
+                mensaje = "No se actualizó el registro";
             } else {
-                mensaje = "Registro Modificado Con Exito";
+                mensaje = "Se ha actualizado el registro";
             }
         } catch (SQLException e) {
             //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje = "Error al Modificar Tipo Factura: " + e;
+            mensaje = "Error al actualizar";
+            System.out.println("Error en DAOTipoFactura UPDATE: "+ e.getMessage());
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -98,7 +97,7 @@ public class DaoTipoFacturacion implements InterfaceTipoFac {
             //Se conecta a la base de Datos
             cn.conectar();
             //Envia la consulta a la base de datos
-            sql = "delete from tipos_facturaciones where tipo_id=?";
+            sql = "DELETE FROM tipos_facturacion WHERE tipo_id=?";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -108,13 +107,14 @@ public class DaoTipoFacturacion implements InterfaceTipoFac {
             //Condiciona la consulta SQL
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (contTipo == 0) {
-                mensaje = "No se a podido Eliminar el Registro";
+                mensaje = "No se encontró registro";
             } else {
-                mensaje = "Registro Eliminado con Exito";
+                mensaje = "Se ha eliminado el registro";
             }
         } catch (SQLException e) {
             //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje = "Error al Eliminar Tipo Factura: " + e;
+            mensaje = "Error al eliminar Tipo Factura";
+            System.out.println("Error el DAOTipoFacturacion DELETE: " + e.getMessage());
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -138,7 +138,7 @@ public class DaoTipoFacturacion implements InterfaceTipoFac {
             //Se conecta a la base de Datos
             cn.conectar();
             //Envia la consulta a la base de datos
-            sql = "select * from tipos_facturaciones where tipo_id=?";
+            sql = "SELECT * FROM tipos_facturacion WHERE tipo_id=?";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -152,7 +152,7 @@ public class DaoTipoFacturacion implements InterfaceTipoFac {
             }
         } catch (SQLException e) {
             //Mensaje por consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            System.out.println("Error al Seleccionar Tipo Factura: " + e);
+            System.out.println("Error al bucar Tipo Factura: " + e.getMessage());
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -182,7 +182,7 @@ public class DaoTipoFacturacion implements InterfaceTipoFac {
             //Se conecta a la base de Datos
             cn.conectar();
             //Envia la consulta a la base de datos
-            sql = "select * from tipos_facturaciones";
+            sql = "SELECT * FROM tipos_facturacion";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Realiza la consulta y muestra los datos de la base de datos
@@ -202,7 +202,7 @@ public class DaoTipoFacturacion implements InterfaceTipoFac {
             }
         } catch (SQLException e) {
             //Mensaje por consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            System.out.println("Error al listar Tipo Factura: \n" + e);
+            System.out.println("Error en DAOTipoFacturacion ArrayList: \n" + e.getMessage());
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();

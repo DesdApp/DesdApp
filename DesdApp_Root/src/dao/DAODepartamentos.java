@@ -1,13 +1,9 @@
-
 package dao;
-
-import interfaces.InterfaceDepartamento;
+import modelo.Departamentos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.Departamentos;
-
 /*
 *cn // Objeto de la Conexion a la Base de datos
 *sql // sentencia sql
@@ -18,7 +14,7 @@ import modelo.Departamentos;
 */
 
 //implementacion de los metodos abstractos de la interfaz Departamento
-public class DaoDepartamentos implements InterfaceDepartamento{
+public class DAODepartamentos implements interfaces.InterfaceDepartamento{
     private ConexionDB cn= new ConexionDB();
     private String sql="";
     private String mensaje="";
@@ -34,7 +30,7 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             //Conecta a la base de Datos
             cn.conectar();
             //Envia la consulta a la base de Datos
-            sql="insert into departamentos values(?,?,?)";
+            sql="INSERT INTO departamentos VALUES(?,?,?)";
             //Prepara la consulta en la base de datos
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de Datos
@@ -46,13 +42,14 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             //Condiciona la consulta SQL
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (conDepto==0) {
-                mensaje="No se a podido insertar El Registro";
+                mensaje="No se ingresó el registro";
             }else{
-                mensaje="Registro Almacenado con exito";
+                mensaje="Se ha ingresado el registro con éxito";
             }
         } catch (Exception e) {
             //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje="Erro al insertar un Deprtamento"+e;
+            mensaje="Erro al insertar un Deprtamento";
+            System.out.println("Error en DAODepartamentos INSERT: " + e.getMessage());
         }finally{
             //Se desconecta de la base de Datos
             cn.desconectar();
@@ -68,7 +65,7 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             //Se conecta a la base de Datos
             cn.conectar();
             //Envia la consulta a la base de Datos
-            sql="update departamentos set nombre=?, region_id=? where depto_id=?";
+            sql="UPDATE departamentos SET nombre=?, region_id=? WHERE depto_id=?";
             //Prepara la consulta en la base de datos
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -80,13 +77,14 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             //Condiciona la consulta SQL
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (conDepto==0) {
-                mensaje="No se a podido modificar El Registro";
+                mensaje="No se actualizó el registro";
             }else {
-                mensaje="Registro modificado Con Exito";
+                mensaje="Se ha actualizado el registro correctamente";
             }
         } catch (Exception e) {
             //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje="Error a modificar Deprtamentos: "+e;
+            mensaje="Error a modificar Deprtamentos";
+            System.out.println("Error en DAODepartamentos UPDATE: " + e.getMessage());
         }finally{
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -102,7 +100,7 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             //Se conecta a la base de Datos
             cn.conectar();
             //Envia la consulta a la base de datos
-            sql="delete from departamentos where depto_id=?";
+            sql="DELETE FROM departamentos WHERE depto_id=?";
             //Prepara la consulta en la base de datos
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -112,13 +110,14 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             //Condiciona la consulta SQL
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (conDepto==0) {
-                mensaje="No se a podido Eliminar el Registro";
+                mensaje="No se eliminó el registro";
             } else {
-                mensaje="Registro Eliminado Con Exito";
+                mensaje="Se ha eliminado el registro correctamente";
             }
         } catch (SQLException e) {
             //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje="Error al Eliminar Departamentos: "+e;
+            mensaje="Error al Eliminar Departamentos";
+            System.out.println("Error en DAODepartamentos DELETE: " + e.getMessage());
         }finally{
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -134,7 +133,7 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             //Se conecta a la base de datos
             cn.conectar();
             //Envia la consulta a la base de datos
-            sql="select * from departamentos where depto_id=?";
+            sql="SELECT * FROM departamentos WHERE depto_id=?";
             //Prepara la consulta en la base de Datos
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -149,7 +148,7 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             }
         } catch (SQLException e) {
             //Mensaje Por Consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            System.out.println("Error al seleccionar Departamentos " +e);
+            System.out.println("Error al buscar registro " +e.getMessage());
         }finally{
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -171,7 +170,7 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             //Se conecta a la base de datos
             cn.conectar();
             //Envia la consulta a la base de datos
-            sql="select * from departamentos";
+            sql="SELECT * FROM departamentos";
             //Prepara la consulta en la base de datos
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             //Realiza la consulta y muesta los datos de la base de datos
@@ -187,7 +186,7 @@ public class DaoDepartamentos implements InterfaceDepartamento{
             }
         } catch (SQLException e) {
             //Mensaje por Consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            System.out.println("Error al Listar Departamentos: "+e);
+            System.out.println("Error en DAODepartamentos ArrayList: "+e.getMessage());
         }finally{
             //Se desconecta de la base de datos
             cn.desconectar();
