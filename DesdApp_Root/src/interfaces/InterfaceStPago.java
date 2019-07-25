@@ -7,9 +7,9 @@ import modelo.StPago;
 public interface InterfaceStPago {
 
 //Metodos Abstractos
-public String insertStPago(StPago pag);
-public String updateStPago(StPago pag);
-public String deleteStPago(StPago pag);
+public void insertStPago(StPago pag);
+public void updateStPago(StPago pag);
+public void deleteStPago(StPago pag);
 public List<StPago> listaStPago();
 public StPago selectStPago(StPago pag);
 

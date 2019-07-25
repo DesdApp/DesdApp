@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
+public class DAOTIpoUsuario implements interfaces.InterfazTipoUsuario {
 
     ConexionDB cn = new ConexionDB();
     PreparedStatement execute;
@@ -21,7 +21,7 @@ public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
             cn.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO tipos_usuarios VALUES(?, ?)"; // Asignamos a la variable sql la consulta
             execute = cn.getconexionDB().prepareStatement(sql); // Asignamos la consulta al PreparedStatement
-            execute.setByte(1, tipo.getTipoUsuarioId());
+            execute.setInt(1, tipo.getTipo_usario_id());
             execute.setString(2, tipo.getNombre());
             execute.executeUpdate();    // Realizamos la consulta y actualizamos la base de datos
             msg = "Registro almacenado con exito";  // Escribimos un mensaje de que la consulta se realizo con exito
@@ -63,7 +63,7 @@ public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
             cn.conectar();
             sql = "UPDATE tipos_usuarios SET nombre = ? WHERE tipo_usuario_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setByte(2, tipo.getTipoUsuarioId());
+            execute.setInt(2, tipo.getTipo_usario_id());
             execute.setString(1, tipo.getNombre());
             execute.executeUpdate();
             msg = "Registro actualizado";
@@ -85,7 +85,7 @@ public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
             execute.setInt(1, codigo);
             rs = execute.executeQuery();
             rs.next();
-            tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
+            tipo.setTipo_usario_id(rs.getInt("tipo_usuario_id"));
             tipo.setNombre(rs.getString("nombre"));
             rs.close();
         } catch (SQLException e) {
@@ -106,7 +106,7 @@ public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
             rs = execute.executeQuery();
             while (rs.next()) {
                 tipo = new TipoUsuario();
-                tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
+                tipo.setTipo_usario_id(rs.getInt("tipo_usuario_id"));
                 tipo.setNombre(rs.getString("nombre"));
             }
         } catch (SQLException e) {

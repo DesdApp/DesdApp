@@ -2,16 +2,17 @@
 *sql = Sentencia sql, permite manejar los datos en la Base de Datos
 */
 package dao;
-import modelo.StPago;
+
+import interfaces.InterfaceStPago;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
+import modelo.StPago;
 
 
 //Se implementa la Interface de la clase StPago= InterfaceStPago
-public class DAOStPago  implements interfaces.InterfaceStPago {
+public class DAOStPago  implements InterfaceStPago {
 
 //Instanciamos las clases
 private ConexionDB cn = new ConexionDB();//cn = objeto para  hacer conexion con la Base de Datos
@@ -21,13 +22,13 @@ private StPago datosStPag;//datosStPag = objeto de la clase StPago, se utilizara
 
 //Atributos
 private String sql = "";
-private String msg;
+
 
     @Override
     /*
     *Este metodo se encarga de insertar registros a la Base de Datos
     */
-    public String insertStPago(StPago pag) {
+    public void insertStPago(StPago pag) {
         try {
             cn.conectar();//Realizamos la conexion con la base de datos
             sql = "INSERT INTO estado_pagos VALUES (?,?)";//Asignamos la consulta al sql
@@ -36,16 +37,13 @@ private String msg;
             jc.setByte(1,pag.getStPagoId());//Asignamos valores a la consulta 
             jc.setString(2,pag.getName());
             jc.executeUpdate();//Realizamos las cunsulta y actualizamos la base de datos
-            msg = "Se ha ingresado el registro correctamente";
         } catch (Exception e) {
-            msg = "Error al ingresar registro";
-            System.out.println("Error en DAOStPago INSERT: "+e.getMessage());//Si, la consulta es incorrecta se muestra este mensaje
+            System.out.println("Error no se pudo insertar Estado de pago : " + e);//Si, la consulta es incorrecta se muestra este mensaje
         }
         finally{
             cn.desconectar();//Desconectamos la conexion a la conexion a la Base de datos
             
         }
-        return msg;
     }
 
     @Override
@@ -54,7 +52,7 @@ private String msg;
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos.
     *Cerramos la Base de Datos.
     */
-    public String updateStPago(StPago pag) {
+    public void updateStPago(StPago pag) {
         try {
             cn.conectar();
             sql = "UPDATE estado_pagos SET nombre=? WHERE estado_pago_id=?";
@@ -62,15 +60,13 @@ private String msg;
             jc.setString(1,pag.getName());
             jc.setByte(2,pag.getStPagoId());
             jc.executeUpdate();
-            msg = "Se actualizó el registro correctamente";
+            
         } catch (Exception e) {
-            msg = "Error al actualizar registro";
-            System.out.println("Error en DAOStPago UPDATE: " + e.getMessage());
+            System.out.println("Error no se pudo modificar Estado de pago : " + e);
         }
         finally{
             cn.desconectar();
         }
-        return msg;
         
     }
 
@@ -80,27 +76,20 @@ private String msg;
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos datos.
     *Cerramos la Base de Datos.
     */
-    public String deleteStPago(StPago pag) {
+    public void deleteStPago(StPago pag) {
         try {
             cn.conectar();
             sql = "DELETE FROM estado_pagos WHERE estado_pago_id=?";
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setByte(1,pag.getStPagoId());
-            byte contDel = (byte) jc.executeUpdate();
-            if (contDel == 0) {
-                msg = "El registro no existe";
-            } else {
-
-                msg = "Se ha eliminado el registro";
-            }
+            jc.executeUpdate();
         } catch (Exception e) {
-            msg = "No se ha eliminado el registro";
-            System.out.println("Error al eliminar registro en DAOStPago DELETE: " + e.getMessage());
+            System.out.println("Error no se pudo eliminar Estado de Pago : "+ e);
         }
         finally{
             cn.desconectar();
         }
-    return msg;
+    
     }
 
     @Override

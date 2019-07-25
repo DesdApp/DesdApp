@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.EstadosPropiedades;
 
-public class DAOEstPropiedades implements interfaces.InterfaceEstadosProp {
+public class DAOEstPropiedades implements interfaces.InterfazEstadosProp {
 
     // Instanciamos los objetos
     ConexionDB cx = new ConexionDB();   // Objeto usado para establecer la conexion con la base de datos
@@ -101,26 +101,15 @@ public class DAOEstPropiedades implements interfaces.InterfaceEstadosProp {
     }
 
     @Override
-    /**
-     * @return el registro que se selecciono
-     */
     public EstadosPropiedades selectEstado(byte codigo) {
-        /*
-        * Se realiza la consulta para seleccionar un registro
-        */
-        EstadosPropiedades estado = new EstadosPropiedades();// Se crea un nuevo objeto EstadoPropiedades para almacenar el resultado de la busqueda
+        EstadosPropiedades estado = new EstadosPropiedades();
         try {
             cx.conectar();
             sql = "SELECT * FROM estados_propiedades WHERE estado_propiedad_id = ?";
             execute = cx.getconexionDB().prepareStatement(sql);
             execute.setByte(1, codigo);
-            /*
-            * Se utiliza el ExecuteQuery para obtener los resultados de la consulta
-            * y los asigna al ResutSet para luego acceder a ellos
-             */
             rs = execute.executeQuery();
-            rs.next(); // Se pasa al  siguiente registro.
-            estado.setEstadoPropiedadId(rs.getByte("estado_propiedad_id"));// Se obtienen los valores de los campos y se le asignan al objeto estado
+            estado.setEstadoPropiedadId(rs.getByte("estado_propiedad_id"));
             estado.setNombre(rs.getString("nombre"));
             rs.close();
         } catch (SQLException e) {
@@ -132,22 +121,19 @@ public class DAOEstPropiedades implements interfaces.InterfaceEstadosProp {
     }
 
     @Override
-    /**
-     * @return los registros de la tabla
-     */
     public ArrayList<EstadosPropiedades> listEstados() {
         EstadosPropiedades estados;
-        ArrayList<EstadosPropiedades> list = new ArrayList<>();// Utilizamos un ArrayList para obtener todos los registros y almacenarlos
+        ArrayList<EstadosPropiedades> list = new ArrayList<>();
         try {
             cx.conectar();
             sql = "SELECT * FROM estados_propiedades";
             execute = cx.getconexionDB().prepareStatement(sql);
             rs = execute.executeQuery();
-            while (rs.next()) {// Verifica que hayan mas registros
-                estados = new EstadosPropiedades();// Cada vez que pase a un registro nuevo crea un objeto EstadosPropiedades
+            while (rs.next()) {
+                estados = new EstadosPropiedades();
                 estados.setEstadoPropiedadId(rs.getByte("estado_propiedad_id"));
                 estados.setNombre(rs.getString("nombre"));
-                list.add(estados);// Se agregan los registros al ArrayList
+                list.add(estados);
             }
         } catch (SQLException e) {
             System.out.println("Error en DAOEstPropiedades LIST: " + e.getMessage());

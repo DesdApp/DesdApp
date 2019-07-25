@@ -3,9 +3,9 @@ package modelo;
 import java.sql.Date;
 
 //Modelo Negocios
-public class Negocios {
+public class Neg {
 
-//Atributos de la clase Negocios = Negocios
+//Atributos de la clase Neg = Negocios
 private int negocionId;
 private int bienImbId;
 private int tipoTransId;
@@ -18,7 +18,7 @@ private int clientId;
 
 
 //Constructores
-  public Negocios(int negocionId, int bienImbId, int tipoTransId, int AsesorId, double priceVenId, double comEmpresa, Date fecha, byte statePagoId, int clientId) {
+  public Neg(int negocionId, int bienImbId, int tipoTransId, int AsesorId, double priceVenId, double comEmpresa, Date fecha, byte statePagoId, int clientId) {
         this.negocionId = negocionId;
         this.bienImbId = bienImbId;
         this.tipoTransId = tipoTransId;
@@ -30,7 +30,7 @@ private int clientId;
         this.clientId = clientId;
     }
 
-  public Negocios(){
+  public Neg(){
       
   }
 //<editor-fold defaultstate="collapsed" desc="Setter y Getter">

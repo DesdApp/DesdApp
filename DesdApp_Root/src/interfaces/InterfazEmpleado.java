@@ -3,7 +3,7 @@ package interfaces;
 import modelo.Empleado;
 import java.util.ArrayList;
 
-public interface InterfaceEmpleado {
+public interface InterfazEmpleado {
 
     public void insertEmpleado(Empleado empleado);
 
