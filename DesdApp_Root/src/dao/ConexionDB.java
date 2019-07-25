@@ -13,7 +13,6 @@ public class ConexionDB {
     private static final String PASS = "desdapp2019";//y esto, si no lo han modificado dejen user y pass vacios
 
     //Metodos
-
     //conectar a base de datos
     public void conectar() {
         try {
@@ -24,6 +23,7 @@ public class ConexionDB {
             System.out.println("NO se establecio la conexion, error: " + e);//Muestra el mensaje de error en la consolo se puede modificar para que se vea en otro lado por ejemplo un log.
         }
     }
+
     //Desconectar de la base de datos
     public void desconectar() {
         if (conexionDB != null) {//Indicamos que si existe una conexion la cierre, de lo contario no hara nada
@@ -33,7 +33,7 @@ public class ConexionDB {
                     System.out.println("Desconeccion se realizo con exito");//Esto de igual manera no es necesario
                 }
             } catch (SQLException e) {
-                System.out.println("NO se desconecto de la base de datos, error: " + e); //Muestra el mensaje de error en consola               
+                System.out.println("NO se desconecto de la base de datos, error: " + e); //Muestra el mensaje de error en consola
             }
         }
     }
@@ -45,6 +45,6 @@ public class ConexionDB {
     }
 
     public void setconexionDB(Connection conexionDB) {
-        this.conexionDB = conexionDB;
+        this.conexionDB = conexionDB;//no hace nada
     }
 }

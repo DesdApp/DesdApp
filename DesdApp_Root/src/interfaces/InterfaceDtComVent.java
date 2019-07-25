@@ -13,3 +13,4 @@ public void deleteDtComVent(DtComVent dcv);
 public List<DtComVent> listaDtComVent();
 public DtComVent selectDtComVent(DtComVent dcv);
 }
+//
