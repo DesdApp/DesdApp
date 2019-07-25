@@ -7,14 +7,10 @@
 package dao;
 
 import modelo.PagosPropiedades;
-import interfaces.InterfazPagPro;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-public class DAOPagPropi implements InterfazPagPro {    //Implementamos la clase interface para los métodos abstractos
-import java.util.List;
 
 public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamos la clase interface para los métodos abstractos
 
