@@ -3,8 +3,9 @@ package interfaces;
 import java.util.ArrayList;
 import modelo.Bienes;
 
-public interface InterfazBienes {
+public interface InterfaceBienes {
     
+    //Metodos Abstractos de mi clase Bienes
     public String insertBien(Bienes bien);
     
     public String deleteBien(int codigo);
