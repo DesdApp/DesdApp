@@ -7,6 +7,18 @@ public class TiposClientes {
     private String nombre;
     private String descripcion;
 
+    
+    //Constructor
+    public TiposClientes(byte tipoClienteId, String nombre, String descripcion) {    
+        this.tipoClienteId = tipoClienteId;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+    
+    public TiposClientes(){
+        
+    }
+
     //<editor-fold defaultstate="collapsed" desc="Metodos set y get">
     public byte getTipoClienteId() {
         return tipoClienteId;
