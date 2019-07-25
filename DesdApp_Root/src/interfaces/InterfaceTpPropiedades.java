@@ -3,7 +3,7 @@ package interfaces;
 import java.util.ArrayList;
 import modelo.TiposPropiedades;
 
-public interface InterfazTpPropiedades {
+public interface InterfaceTpPropiedades {
     
     public String insertTipo(TiposPropiedades tipo);
     public String deleteTipo(byte codigo);

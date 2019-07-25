@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.TiposPropiedades;
 
-public class DAOTpPropiedades implements interfaces.InterfazTpPropiedades {
+public class DAOTpPropiedades implements interfaces.InterfaceTpPropiedades {
 
     // Instanciamos las clases
     ConexionDB cx = new ConexionDB();
