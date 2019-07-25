@@ -3,14 +3,14 @@
  */
 package dao;
 
-import interfaces.InterfaceNegocios;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Negocios;
 
 //Se implemeta la interface de mi clase Negocios = InterfaceNegocios
-public class DAONegocios implements InterfaceNegocios {
+public class DAONegocios implements interfaces.InterfaceNegocios {
 
 //Instaciamos clases
     private ConexionDB cn = new ConexionDB();//cn = Objeto de conexion con la Base de Datos
@@ -41,8 +41,8 @@ public class DAONegocios implements InterfaceNegocios {
             jc.setByte(8, neg.getStatePagoId());
             jc.setInt(9, neg.getClientId());
             jc.executeUpdate();//Realizamos las cunsulta y actualizamos la base de datos
-        } catch (Exception e) {
-            System.out.println("Error insertar negocio : " + e);//Si la consulta es incorrecta se muestra este mensaje
+        } catch (SQLException e) {
+            System.out.println("Error insertar negocio : " + e.getMessage());//Si la consulta es incorrecta se muestra este mensaje
         } finally {
             cn.desconectar();//Desconectamos la conexion a la conexion a la Base de datos
         }
@@ -71,8 +71,8 @@ public class DAONegocios implements InterfaceNegocios {
             jc.setInt(9, neg.getNegocionId());
             jc.executeUpdate();
 
-        } catch (Exception e) {
-            System.out.println("Error no se pudo modificar Negocio : " + e);
+        } catch (SQLException e) {
+            System.out.println("Error no se pudo modificar Negocio : " + e.getMessage());
         } finally {
             cn.desconectar();
         }
@@ -91,8 +91,8 @@ public class DAONegocios implements InterfaceNegocios {
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setInt(1, neg.getNegocionId());
             jc.executeUpdate();
-        } catch (Exception e) {
-            System.out.println("Error no se pudo eliminar Negocio : " + e);
+        } catch (SQLException e) {
+            System.out.println("Error no se pudo eliminar Negocio : " + e.getMessage());
         } finally {
             cn.desconectar();
         }
@@ -133,7 +133,8 @@ public class DAONegocios implements InterfaceNegocios {
                 lista.add(ng);//Asignamos los registros obtenidos por el objeto "ng" al ArrayList
             }
             rs.close();//Finalizamos la consulta
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("Error en DAONegocios LIST: " + e.getMessage());
         } finally {
             cn.desconectar();
         }
@@ -152,7 +153,7 @@ public class DAONegocios implements InterfaceNegocios {
     public Negocios selectNeg(Negocios neg) {
         try {
             cn.conectar();
-            sql = "SELECT * FROM negocios where negocio_id=?";
+            sql = "SELECT * FROM negocios WHERE negocio_id=?";
 
             jc = cn.getconexionDB().prepareStatement(sql);
             jc.setInt(1, neg.getNegocionId());
@@ -169,8 +170,8 @@ public class DAONegocios implements InterfaceNegocios {
             datosneg.setStatePagoId(rs.getByte("estado_pago_id"));
             datosneg.setClientId(rs.getInt("cliente_id"));
             rs.close();
-        } catch (Exception e) {
-            System.out.println("Error no se pudo buscar el negocio" + e);
+        } catch (SQLException e) {
+            System.out.println("Error no se pudo buscar el negocio" + e.getMessage());
         } finally {
             cn.desconectar();
         }
