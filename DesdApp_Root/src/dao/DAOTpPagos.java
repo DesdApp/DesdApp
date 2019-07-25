@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamos la clase interface para los métodos abstractos
 
