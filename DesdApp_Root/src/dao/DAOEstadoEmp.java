@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAOEstadoEmp implements interfaces.InterfazEstadoEmp {
+public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
 
     ConexionDB cn = new ConexionDB();
     PreparedStatement execute;
@@ -21,7 +21,7 @@ public class DAOEstadoEmp implements interfaces.InterfazEstadoEmp {
             cn.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO estados_empleados VALUES(?, ?)"; // Asignamos a la variable sql la consulta
             execute = cn.getconexionDB().prepareStatement(sql); // Asignamos la consulta al PreparedStatement
-            execute.setInt(1, estadoEmp.getEstado_empleado_id());
+            execute.setByte(1, estadoEmp.getEstadoEmpleadoId());
             execute.setString(2, estadoEmp.getNombre());
             execute.executeUpdate();    // Realizamos la consulta y actualizamos la base de datos
             msg = "Registro almacenado con exito";  // Escribimos un mensaje de que la consulta se realizo con exito
@@ -63,7 +63,7 @@ public class DAOEstadoEmp implements interfaces.InterfazEstadoEmp {
             cn.conectar();
             sql = "UPDATE estado_empleados SET nombre = ? WHERE estado_empleado_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setInt(2, estadoEmp.getEstado_empleado_id());
+            execute.setByte(2, estadoEmp.getEstadoEmpleadoId());
             execute.setString(1, estadoEmp.getNombre());
             execute.executeUpdate();
             msg = "Registro actualizado";
@@ -85,7 +85,7 @@ public class DAOEstadoEmp implements interfaces.InterfazEstadoEmp {
             execute.setInt(1, codigo);
             rs = execute.executeQuery();
             rs.next();
-            estado.setEstado_empleado_id(rs.getInt("estado_empleado_id"));
+            estado.setEstadoEmpleadoId(rs.getByte("estado_empleado_id"));
             estado.setNombre(rs.getString("nombre"));
             rs.close();
         } catch (SQLException e) {
@@ -106,7 +106,7 @@ public class DAOEstadoEmp implements interfaces.InterfazEstadoEmp {
             rs = execute.executeQuery();
             while (rs.next()) {
                 estado = new EstadoEmp();
-                estado.setEstado_empleado_id(rs.getInt("estado_empleado_id"));
+                estado.setEstadoEmpleadoId(rs.getByte("estado_empleado_id"));
                 estado.setNombre(rs.getString("nombre"));
             }
         } catch (SQLException e) {

@@ -1,33 +1,51 @@
 package modelo;
 
+import java.sql.Date;
+
 public class Empleado {
 
-    private int persona_id;
-    private int empleado_id;
+    private int personaId;
+    private int empleadoId;
     private String puesto;
-    private String fecha_inicio;
-    private String fecha_finalizacion;
+    private Date fechaInicio;
+    private Date fechaFinalizacion;
     private double sueldo;
     private String user;
     private String password;
-    private int tipo_usuario_id;
-    private int estado_empleado_id;
+    private int tipoUsuarioId;
+    private int estadoEmpleadoId;
 
+    public Empleado(int personaId, int empleadoId, String puesto, Date fechaInicio, Date fechaFinalizacion, double sueldo, String user, String password, int tipoUsuarioId, int estadoEmpleadoId) {
+        this.personaId = personaId;
+        this.empleadoId = empleadoId;
+        this.puesto = puesto;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinalizacion = fechaFinalizacion;
+        this.sueldo = sueldo;
+        this.user = user;
+        this.password = password;
+        this.tipoUsuarioId = tipoUsuarioId;
+        this.estadoEmpleadoId = estadoEmpleadoId;
+    }
+
+    public Empleado() {
+    }
     //<editor-flod defaultstate="collapsed" desc="Metodos de acceso SET & GET">
-    public int getPersona_id() {
-        return persona_id;
+   
+    public int getPersonaId() {
+        return personaId;
     }
 
-    public void setPersona_id(int persona_id) {
-        this.persona_id = persona_id;
+    public void setPersonaId(int personaId) {
+        this.personaId = personaId;
     }
 
-    public int getEmpleado_id() {
-        return empleado_id;
+    public int getEmpleadoId() {
+        return empleadoId;
     }
 
-    public void setEmpleado_id(int empleado_id) {
-        this.empleado_id = empleado_id;
+    public void setEmpleadoId(int empleadoId) {
+        this.empleadoId = empleadoId;
     }
 
     public String getPuesto() {
@@ -38,20 +56,20 @@ public class Empleado {
         this.puesto = puesto;
     }
 
-    public String getFecha_inicio() {
-        return fecha_inicio;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFecha_inicio(String fecha_inicio) {
-        this.fecha_inicio = fecha_inicio;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public String getFecha_finalizacion() {
-        return fecha_finalizacion;
+    public Date getFechaFinalizacion() {
+        return fechaFinalizacion;
     }
 
-    public void setFecha_finalizacion(String fecha_finalizacion) {
-        this.fecha_finalizacion = fecha_finalizacion;
+    public void setFechaFinalizacion(Date fechFinalizacion) {
+        this.fechaFinalizacion = fechFinalizacion;
     }
 
     public double getSueldo() {
@@ -78,20 +96,20 @@ public class Empleado {
         this.password = password;
     }
 
-    public int getTipo_usuario_id() {
-        return tipo_usuario_id;
+    public int getTipoUsuarioId() {
+        return tipoUsuarioId;
     }
 
-    public void setTipo_usuario_id(int tipo_usuario_id) {
-        this.tipo_usuario_id = tipo_usuario_id;
+    public void setTipoUsuarioId(int tipoUsuarioId) {
+        this.tipoUsuarioId = tipoUsuarioId;
     }
 
-    public int getEstado_empleado_id() {
-        return estado_empleado_id;
+    public int getEstadoEmpleadoId() {
+        return estadoEmpleadoId;
     }
 
-    public void setEstado_empleado_id(int estado_empleado_id) {
-        this.estado_empleado_id = estado_empleado_id;
+    public void setEstadoEmpleadoId(int estadoEmpleadoId) {
+        this.estadoEmpleadoId = estadoEmpleadoId;
     }
     //</>editor-fold>
 }
