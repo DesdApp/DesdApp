@@ -1,12 +1,12 @@
 package interfaces;
 
-import java.util.List;
 import modelo.PagosPropiedades;
+import java.util.ArrayList;
 
 public interface InterfazPagPro {
-    public PagosPropiedades read(PagosPropiedades papo);
-    public void upd(PagosPropiedades papo);
-    public void del(PagosPropiedades papo);
-    public void create(PagosPropiedades papo);
-    public List<PagosPropiedades> listas();
+    public PagosPropiedades select(PagosPropiedades pago);
+    public String update(PagosPropiedades pago);
+    public String delete(PagosPropiedades pago);
+    public String insert(PagosPropiedades pago);
+    public ArrayList<PagosPropiedades> list();
 }
