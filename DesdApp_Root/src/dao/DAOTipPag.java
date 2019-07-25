@@ -6,12 +6,12 @@
  */
 package dao;
 
-
+import modelo.TiposPagos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.TiposPagos;
 
 public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos la clase interface para los métodos abstractos
 
@@ -32,7 +32,7 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
             t.setTipo_pago_id(r.getInt("tipo_pago_id")); //Se asigna el valor específico a la variable
             t.setNombre(r.getString("nombre"));  //Se asigna el valor específico a la variable
             r.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error al buscar tipo de pago en : " +e);  //Comentario para mostrar un error
         }finally{
             cn.desconectar();
@@ -50,7 +50,7 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
             run.setInt(1, t.getTipo_pago_id());
             run.setString(2, t.getNombre());
             run.executeUpdate();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error al ingresar tipo de pago en: " + e);  //Comentario que se mostrará en caso de tener un error
         }finally{
             cn.desconectar();
@@ -67,7 +67,7 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
             run.setString(1, t.getNombre());
             run.setInt(2, t.getTipo_pago_id());
             run.executeUpdate();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error al actualizar tipo de pago en: " + e);  //Comentario que mostrará la ubicación del error
         }finally{
             cn.desconectar();
@@ -83,7 +83,7 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
             run = cn.getconexionDB().prepareStatement(sql);
             run.setInt(1, t.getTipo_pago_id());
             run.executeUpdate();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error al eliminar en: " + e);  //Mostrará el error en caso de que pase, primero Dios no 
         }finally{
             cn.desconectar();
@@ -93,7 +93,7 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
     @Override
     public List<TiposPagos> listar() {   //Se realiza consulta de listar para listar los datos que se solicitan
         ArrayList<TiposPagos> list = new ArrayList();
-        TiposPagos p = null;
+        TiposPagos p;
         
         try {
             cn.conectar();
@@ -102,12 +102,13 @@ public class DAOTipPag implements interfaces.InterfazTipPagos{  //Implementamos 
             r = run.executeQuery();
             
             while(r.next()){
+                p = new TiposPagos();
                 p.setTipo_pago_id(r.getInt("tipo_pago_id"));
                 p.setNombre(r.getString("nombre"));
                 list.add(p);
             }
             r.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error al listar en: " + e);  //Comentario para marcar un error en caso de inconveniente
         }finally{
             cn.desconectar();

@@ -2,16 +2,25 @@ package modelo;
 
 public class EstadoEmp {
 
-    private int estado_empleado_id;
+    private byte estadoEmpleadoId;
     private String nombre;
 
-    //Setter & Getter
-    public int getEstado_empleado_id() {
-        return estado_empleado_id;
+    public EstadoEmp(byte estadoEmpleadoId, String nombre) {
+        this.estadoEmpleadoId = estadoEmpleadoId;
+        this.nombre = nombre;
     }
 
-    public void setEstado_empleado_id(int estado_empleado_id) {
-        this.estado_empleado_id = estado_empleado_id;
+    public EstadoEmp() {
+    }
+
+    //Setter & Getter
+
+    public byte getEstadoEmpleadoId() {
+        return estadoEmpleadoId;
+    }
+
+    public void setEstadoEmpleadoId(byte estadoEmpleadoId) {
+        this.estadoEmpleadoId = estadoEmpleadoId;
     }
 
     public String getNombre() {
@@ -21,5 +30,6 @@ public class EstadoEmp {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+   
 
 }
