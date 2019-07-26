@@ -1,38 +1,42 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package dao;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
-import modelo.DetallesVentas;
-import modelo.PagosPropiedades;
-import modelo.TiposPagos;
-import modelo.Ventas;
+import modelo.Empleado;
+import modelo.EstadoEmp;
+import modelo.EstadosPropiedades;
+import modelo.TipoUsuario;
 
-public class PruebasSteph {
+/**
+ *
+ * @author carolina
+ */
+public class PruebaCarlos {
 
     public static void main(String[] args) {
 
         // Instanciamos las clases
+//        ArrayList list;
         Date date = new Date(12202272000L * 1000);
         Scanner sc = new Scanner(System.in);
 
         // Instancias de los modelos
-        DetallesVentas detalle = new DetallesVentas(1, 1, 1);
-        Ventas venta = new Ventas(1, 1, "a", 1, "Prueba", "Direccion", date, 1, 1);
-        PagosPropiedades pago = new PagosPropiedades(1, 1, 1, 1, date, (double) 10000);
-        TiposPagos tipo = new TiposPagos(1, "Prueba");
+        Empleado emp = new Empleado(7, 6, "Prueba", date, date, (double) 1000, "UserPrueba", "Pss Prueba", 1, 1);
+        EstadoEmp estadoEmp = new EstadoEmp((byte) 5, "Prueba");
 
-        DetallesVentas datosDetalle = new DetallesVentas();
-        Ventas datosVenta = new Ventas();
-        PagosPropiedades datosPago = new PagosPropiedades();
-        TiposPagos datosTipo = new TiposPagos();
+        Empleado datosEmp = new Empleado();
+        EstadosPropiedades datoEstados = new EstadosPropiedades();
 
         // Instancias de los DAO
-        DAODetVentas daoDetalle = new DAODetVentas();
-        DAOVentas daoVenta = new DAOVentas();
-        DAOPagosPropiedades daoPago = new DAOPagosPropiedades();
-        DAOTpPagos daoTipo = new DAOTpPagos();
+        DAOEmpleado daoEmp = new DAOEmpleado();
+        DAOEstadoEmp daoEstadoEmp = new DAOEstadoEmp();
 
         // Realizamos la conexion
         ConexionDB cx = new ConexionDB();
@@ -40,14 +44,14 @@ public class PruebasSteph {
         // Atributos
         int id;
 
-        System.out.println("1) Realizar pruebas en DetallesVentas");
-        System.out.println("2) Realizar pruebas en Ventas");
-        System.out.println("3) Realizar pruebas en PagosPropiedades");
-        System.out.println("4) Realizar pruebas en TiposPagos");
+        System.out.println("1) Realizar pruebas en Empleados");
+        System.out.println("2) Realizar pruebas en Propietarios");
+        System.out.println("3) Realizar pruebas en Estado de Empleados");
+        System.out.println("4) Realizar pruebas en Tipos Usuario");
         System.out.println("5) Salir");
         id = sc.nextInt();
         switch (id) {
-            //<editor-fold defaultstate="collapsed" desc="Pruebas DetallesVentas">
+            //<editor-fold defaultstate="collapsed" desc="Pruebas Empleado">
             case 1:
                 System.out.println("1) INSERT");
                 System.out.println("2) DELETE");
@@ -58,31 +62,27 @@ public class PruebasSteph {
                 id = sc.nextInt();
                 switch (id) {
                     case 1:
-                        JOptionPane.showMessageDialog(null, daoDetalle.insert(detalle));
+                        daoEmp.insertEmpleado(emp);
+
                         break;
 
                     case 2:
-                        System.out.println("Registro a eliminar: ");
-                        id = sc.nextInt();
-                        JOptionPane.showMessageDialog(null, daoDetalle.delete(id));
+                        daoEmp.deleteEmpleado(id);
                         break;
 
                     case 3:
-                        JOptionPane.showMessageDialog(null, daoDetalle.update(detalle));
+                        daoEmp.updateEmpleado(emp);
                         break;
 
                     case 4:
-                        System.out.println("Registro a seleccionar: ");
-                        id = sc.nextInt();
-                        datosDetalle = daoDetalle.select(id);
-                        JOptionPane.showMessageDialog(null, datosDetalle.toString());
+                        daoEmp.selectEmpleado(id);
                         break;
 
                     case 5:
-                        ArrayList<DetallesVentas> list = new ArrayList<>();
-                        list = daoDetalle.list();
-                        for (DetallesVentas detalles : list) {
-                            System.out.println(detalles.toString());
+                        ArrayList<Empleado> lista = new ArrayList<>();
+                        lista = daoEmp.ListEmpleado();
+                        for (Empleado empleado : lista) {
+                            System.out.println(empleado.toString());
                         }
                         break;
 
@@ -95,8 +95,8 @@ public class PruebasSteph {
                 break;
             //</editor-fold>
 
+            //<editor-fold defaultstate="collapsed" desc="Pruebas Propiedades">
             case 2:
-                //<editor-fold defaultstate="collapsed" desc="Pruebas Ventas">
                 System.out.println("1) INSERT");
                 System.out.println("2) DELETE");
                 System.out.println("3) UPDATE");
@@ -106,43 +106,29 @@ public class PruebasSteph {
                 id = sc.nextInt();
                 switch (id) {
                     case 1:
-                        JOptionPane.showMessageDialog(null, daoVenta.insert(venta));
+                        System.out.println("Aun no esta el modelo la interfaz y el dao");
                         break;
-
                     case 2:
-                        System.out.println("Registro a eliminar: ");
-                        id = sc.nextInt();
-                        JOptionPane.showMessageDialog(null, daoVenta.delete(id));
+                        System.out.println("Aun no esta el modelo la interfaz y el dao");
                         break;
-
                     case 3:
-                        JOptionPane.showMessageDialog(null, daoVenta.update(venta));
+                        System.out.println("Aun no esta el modelo la interfaz y el dao");
                         break;
-
                     case 4:
-                        System.out.println("Registro a seleccionar: ");
-                        id = sc.nextInt();
-                        datosVenta = daoVenta.select(id);
-                        JOptionPane.showMessageDialog(null, datosVenta.toString());
+                        System.out.println("Aun no esta el modelo la interfaz y el dao");
                         break;
-
                     case 5:
-                        System.out.println("Registro a seleccionar: ");
-                        id = sc.nextInt();
-                        datosVenta = daoVenta.select(id);
-                        JOptionPane.showMessageDialog(null, datosVenta.toString());
+                        System.out.println("Aun no esta el modelo la interfaz y el dao");
                         break;
-
                     case 6:
                         break;
-
                     default:
                         throw new AssertionError();
                 }
-
                 break;
             //</editor-fold>
 
+            //<editor-fold defaultstate="collapsed" desc="Puebas Estado Empleado">
             case 3:
                 System.out.println("1) INSERT");
                 System.out.println("2) DELETE");
@@ -153,16 +139,35 @@ public class PruebasSteph {
                 id = sc.nextInt();
                 switch (id) {
                     case 1:
+                        daoEstadoEmp.insertEstadoEmp(estadoEmp);
+                        break;
+                    case 2:
+                        daoEstadoEmp.deleteEstadoEmp(id);
+                        break;
+                    case 3:
+                        daoEstadoEmp.updateEmpleado(estadoEmp);
+
+                        break;
+                    case 4:
+                        daoEmp.selectEmpleado(id);
+                        break;
+                    case 5:
+                        ArrayList<EstadoEmp> lista = new ArrayList<>();
+                        lista = daoEstadoEmp.ListEstadoEmp();
+                        for (EstadoEmp estadoEmp1 : lista) {
+                            System.out.println(estadoEmp1.toString());
+                        }
+                        break;
+                    case 6:
 
                         break;
                     default:
                         throw new AssertionError();
                 }
-                //<editor-fold defaultstate="collapsed" desc="Pruebas PagosPropiedades">
-
-                //</editor-fold>
                 break;
+            //</editor-fold>
 
+            //<editor-fold defaultstate="collapsed" desc="Pruebas Para tipos de Usuarios">
             case 4:
                 System.out.println("1) INSERT");
                 System.out.println("2) DELETE");
@@ -175,6 +180,21 @@ public class PruebasSteph {
                     case 1:
 
                         break;
+                    case 2:
+
+                        break;
+                    case 3:
+
+                        break;
+                    case 4:
+
+                        break;
+                    case 5:
+
+                        break;
+                    case 6:
+
+                        break;
                     default:
                         throw new AssertionError();
                 }
@@ -185,9 +205,13 @@ public class PruebasSteph {
 
             case 5:
                 break;
+
             default:
                 throw new AssertionError();
+
         }
+
     }
+    //</editor-fold>
 
 }

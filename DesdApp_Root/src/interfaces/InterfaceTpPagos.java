@@ -1,12 +1,17 @@
 package interfaces;
 
-import modelo.TiposPagos;
 import java.util.ArrayList;
+import modelo.TiposPagos;
 
 public interface InterfaceTpPagos {
-    public TiposPagos select (TiposPagos tipo);
+
+    public TiposPagos select(int id);
+
     public String insert(TiposPagos tipo);
+
     public String update(TiposPagos tipo);
-    public String delete(TiposPagos tipo);
+
+    public String delete(int id);
+
     public ArrayList<TiposPagos> list();
 }

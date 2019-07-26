@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Empleado;
 
-public class DAOEmpelado implements interfaces.InterfaceEmpleado {
+public class DAOEmpleado implements interfaces.InterfaceEmpleado {
 
     ConexionDB cn = new ConexionDB();
     PreparedStatement execute;
@@ -74,7 +74,7 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
     public void updateEmpleado(Empleado empleado) {
         try {
             cn.conectar();
-            sql = "UPDATE empleados SET puesto = ?, fecha_inicio = ?, fecha_finalizacion = ?, sueldo = ?, user = ?, password = ?, tipo_usario_id = ?, estado_empleado_id = ? WHERE empleado_id = ?";
+            sql = "UPDATE empleados SET puesto = ?, fecha_inicio = ?, fecha_finalizacion = ?, sueldo = ?, user = ?, password = ?, tipo_usuario_id = ?, estado_empleado_id = ? WHERE empleado_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
             execute.setInt(9, empleado.getEmpleadoId());
             execute.setString(1, empleado.getPuesto());
@@ -96,7 +96,7 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
     }
 
     @Override
-    public void selectEmpleado(int codigo) {
+    public Empleado selectEmpleado(int codigo) {
         Empleado empleados = new Empleado();
         try {
             cn.conectar();
@@ -122,6 +122,7 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
         } finally {
             cn.desconectar();
         }
+        return empleados;
     }
 
     @Override
@@ -145,6 +146,7 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
                 empleados.setPassword(rs.getString("password"));
                 empleados.setTipoUsuarioId(rs.getInt("tipo_usuario_id"));
                 empleados.setEstadoEmpleadoId(rs.getInt("estado_empleado_id"));
+                list.add(empleados);
             }
         } catch (SQLException e) {
             System.out.println("Error en DAOEmpleado List: " + e.getMessage());

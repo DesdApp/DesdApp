@@ -112,4 +112,11 @@ public class Empleado {
         this.estadoEmpleadoId = estadoEmpleadoId;
     }
     //</>editor-fold>
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "personaId=" + personaId + ", empleadoId=" + empleadoId + ", puesto=" + puesto + ", fechaInicio=" + fechaInicio + ", fechaFinalizacion=" + fechaFinalizacion + ", sueldo=" + sueldo + ", user=" + user + ", password=" + password + ", tipoUsuarioId=" + tipoUsuarioId + ", estadoEmpleadoId=" + estadoEmpleadoId + '}';
+    }
+    
+    
 }

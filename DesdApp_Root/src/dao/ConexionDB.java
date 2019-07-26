@@ -47,4 +47,8 @@ public class ConexionDB {
     public void setconexionDB(Connection conexionDB) {
         this.conexionDB = conexionDB;//no hace nada
     }
+
+    void descxonectar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

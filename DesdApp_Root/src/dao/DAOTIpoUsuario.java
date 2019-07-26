@@ -16,7 +16,7 @@ public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
     String sql;
 
     @Override
-    public void insertTipoUsario(TipoUsuario tipo) {
+    public String insertTipoUsario(TipoUsuario tipo) {
         try {
             cn.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO tipos_usuarios VALUES(?, ?)"; // Asignamos a la variable sql la consulta
@@ -34,10 +34,11 @@ public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
         } finally {
             cn.desconectar();   // Nos desconectamos de la base de datos
         }
+        return msg;
     }
 
     @Override
-    public void deleteTipoUsario(int codigo) {
+    public String deleteTipoUsario(int codigo) {
         try {
             cn.conectar();
             sql = "DELETE FROM tipos_usuarios WHERE tipo_usuario_id=?";
@@ -55,10 +56,11 @@ public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
         } finally {
             cn.desconectar();
         }
+        return msg;
     }
 
     @Override
-    public void updateTipoUsario(TipoUsuario tipo) {
+    public String updateTipoUsario(TipoUsuario tipo) {
         try {
             cn.conectar();
             sql = "UPDATE tipos_usuarios SET nombre = ? WHERE tipo_usuario_id = ?";
@@ -73,32 +75,36 @@ public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
         } finally {
             cn.desconectar();
         }
+        return msg;
     }
 
     @Override
-    public void selectTipoUario(int codigo) {
+    public TipoUsuario selectTipoUsuario(byte codigo) {
         TipoUsuario tipo = new TipoUsuario();
         try {
             cn.conectar();
-            sql = "SELECT * FROM tipos_usuarios WHERE tipo_usuario_id=?";
+            sql = "SELECT * FROM tipos_usuarios WHERE tipo_usuario_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setInt(1, codigo);
+            execute.setByte(1, codigo);
             rs = execute.executeQuery();
             rs.next();
             tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
             tipo.setNombre(rs.getString("nombre"));
             rs.close();
+            System.out.println("Se realizo el SELECT con exito");
         } catch (SQLException e) {
             System.out.println("Error en DAOTipoUsuario SELECT: " + e.getMessage());
         } finally {
             cn.desconectar();
         }
+        return tipo;
     }
 
     @Override
-    public ArrayList<TipoUsuario> ListTipoUsuario() {
-        ArrayList<TipoUsuario> list = new ArrayList<>();
+    public ArrayList<TipoUsuario> listTipoUsuario() {
+        ArrayList<TipoUsuario> list;
         TipoUsuario tipo;
+        list = new ArrayList();
         try {
             cn.conectar();
             sql = "SELECT * FROM tipos_usuarios";
@@ -108,7 +114,11 @@ public class DAOTIpoUsuario implements interfaces.InterfaceTipoUsuario {
                 tipo = new TipoUsuario();
                 tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
                 tipo.setNombre(rs.getString("nombre"));
+               
+                
+                list.add(tipo);
             }
+            
         } catch (SQLException e) {
             System.out.println("Error en DAOTipoUsuario List: " + e.getMessage());
         } finally {
