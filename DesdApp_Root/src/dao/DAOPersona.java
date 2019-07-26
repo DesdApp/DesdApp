@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /*
 *cn // Objeto de la Conexion a la Base de datos
@@ -26,35 +27,35 @@ public class DAOPersona implements interfaces.InterfacePersona{
 
     @Override
     //Selecionar Persona.
-    public Persona selectPersona(Persona per) {
+    public Persona selectPersona(int persona_id) {
+        Persona dato = new Persona();
         try {
             cn.conectar();
             sql="SELECT * FROM personas WHERE persona_id=?";//Se envia la consulta a la base de Datos
             ejecutar=cn.getconexionDB().prepareStatement(sql); 
-            ejecutar.setInt(1, per.getPersonaId());
+            ejecutar.setInt(1, persona_id);
             result=ejecutar.executeQuery();
             
             //while recorre la consulta en la base de datos  y visualiza los datos de la consulta
-            while(result.next()){
-                datoPersona.setPersonaId(result.getInt("persona_id"));
-                datoPersona.setApellido(result.getString("nombre"));
-                datoPersona.setNombre(result.getString("apellido"));
-                datoPersona.setDireccion(result.getString("direccion"));
-                datoPersona.setTelefono(result.getInt("telefono"));
-                datoPersona.setCelular(result.getInt("celular"));
-                datoPersona.setCorreo(result.getString("correo"));
-                datoPersona.setFechaNac(result.getDate("fecha_nacimiento"));
-                datoPersona.setDpi(result.getInt("dpi"));
-                datoPersona.setNit(result.getInt("nit"));
-                
-            }
-            
+                result.next();
+                dato.setPersonaId(result.getInt("persona_id"));
+                dato.setApellido(result.getString("nombre"));
+                dato.setNombre(result.getString("apellido"));
+                dato.setDireccion(result.getString("direccion"));
+                dato.setTelefono(result.getInt("telefono"));
+                dato.setCelular(result.getInt("celular"));
+                dato.setCorreo(result.getString("correo"));
+                dato.setFechaNac(result.getDate("fecha_nacimiento"));
+                dato.setDpi(result.getLong("dpi"));
+                dato.setNit(result.getInt("nit"));
+                result.close();
         } catch (SQLException e) {
             System.out.println("Error al Seleccionar Persona: "+e.getMessage());
         }finally{
             cn.desconectar();//cesconecta la base de datos
         }
-        return datoPersona;//retorna datos tipo Persona
+        return dato;
+//retorna datos tipo Persona
     }
 
     //insertar persona
@@ -72,7 +73,7 @@ public class DAOPersona implements interfaces.InterfacePersona{
             ejecutar.setInt(6, per.getCelular());
             ejecutar.setString(7, per.getCorreo());
             ejecutar.setDate(8, per.getFechaNac());
-            ejecutar.setInt(9, per.getDpi());
+            ejecutar.setLong(9, per.getDpi());
             ejecutar.setInt(10, per.getNit());
             
             ////Realizamos la consulta y actualizamos la base de datos
@@ -98,8 +99,7 @@ public class DAOPersona implements interfaces.InterfacePersona{
     public String updatePersona(Persona per) {
         try {
             cn.conectar();
-            sql="UPDATE personas SET persona_id=?, nombre=?, apellido=?, direccion=?, telefono=?, correo=?, fecha_nacimiento=?,"
-                    + "dpi=?, nit=?, tipo_usuario_id=?  WHERE persona_id=?";
+            sql="UPDATE personas SET nombre=?, apellido=?, direccion=?, telefono=?, celular=?, correo=?, fecha_nacimiento=?, dpi=?, nit=?  WHERE persona_id=?";
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             
             //Ejecuta la consulta en la base de datos
@@ -110,7 +110,7 @@ public class DAOPersona implements interfaces.InterfacePersona{
             ejecutar.setInt(5, per.getCelular());
             ejecutar.setString(6, per.getCorreo());
             ejecutar.setDate(7, per.getFechaNac());
-            ejecutar.setInt(8, per.getDpi());
+            ejecutar.setLong(8, per.getDpi());
             ejecutar.setInt(9, per.getNit());
             ejecutar.setInt(10, per.getPersonaId());
             
@@ -140,14 +140,16 @@ public class DAOPersona implements interfaces.InterfacePersona{
             cn.conectar();
             sql="DELETE FROM personas WHERE persona_id=?";
             ejecutar=cn.getconexionDB().prepareStatement(sql);
-            ejecutar.setInt(1, per.getDpi());
+            ejecutar.setLong(1, per.getPersonaId());
             //Realiza la consulta y actualiza la base de datos
             contPer=ejecutar.executeUpdate();
             //Si la consulta es verdadera no elimina nuestro registro pero si es falsa Eliminara el registro con exito.
             if (contPer==0) {
                 mensaje="No existe el registro";
+                System.out.println("No se eliminó");
             } else {
                 mensaje="Registro eliminado con éxito";
+                System.out.println("Eliminado");
             }
         } catch (SQLException e) {
             mensaje="Error al eliminar registro";
@@ -182,7 +184,7 @@ public class DAOPersona implements interfaces.InterfacePersona{
                 perso.setCelular(result.getInt("celular"));
                 perso.setCorreo(result.getString("correo"));
                 perso.setFechaNac(result.getDate("fecha_nacimiento"));
-                perso.setDpi(result.getInt("dpi"));
+                perso.setDpi(result.getLong("dpi"));
                 perso.setNit(result.getInt("nit"));
                 
                 

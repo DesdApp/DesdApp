@@ -46,6 +46,11 @@ public class Departamentos {
     public void setRegionId(int regionId) {
         this.regionId = regionId;
     }
+
+    @Override
+    public String toString() {
+        return "Departamentos " + "deptoId=" + deptoId + ", nombre=" + nombre + ", regionId=" + regionId ;
+    }
     
     
 }
