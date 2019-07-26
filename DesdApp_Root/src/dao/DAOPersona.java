@@ -27,13 +27,13 @@ public class DAOPersona implements interfaces.InterfacePersona{
 
     @Override
     //Selecionar Persona.
-    public Persona selectPersona(int persona_id) {
+    public Persona selectPersona(Persona per) {
         Persona dato = new Persona();
         try {
             cn.conectar();
             sql="SELECT * FROM personas WHERE persona_id=?";//Se envia la consulta a la base de Datos
             ejecutar=cn.getconexionDB().prepareStatement(sql); 
-            ejecutar.setInt(1, persona_id);
+            ejecutar.setInt(1, per.getPersonaId());
             result=ejecutar.executeQuery();
             
             //while recorre la consulta en la base de datos  y visualiza los datos de la consulta
