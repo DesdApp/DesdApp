@@ -6,13 +6,13 @@
  */
 package dao;
 
-import modelo.PagosPropiedades;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import modelo.PagosPropiedades;
 
-public class DAOPagosPropiedades implements interfaces.InterfacePagosPropiedades{    //Implementamos la clase interface para los métodos abstractos
+public class DAOPagosPropiedades implements interfaces.InterfacePagosPropiedades {    //Implementamos la clase interface para los métodos abstractos
 
     // Instancias de clases
     ConexionDB cn = new ConexionDB();
@@ -24,14 +24,14 @@ public class DAOPagosPropiedades implements interfaces.InterfacePagosPropiedades
     private String msg;
 
     @Override
-    public PagosPropiedades select(PagosPropiedades p) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
+    public PagosPropiedades select(int id) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         PagosPropiedades pago = new PagosPropiedades();
         cn.conectar();
         sql = "SELECT * FROM pagos_propiedades WHERE pago_propiedad_id = ?"; //Se crea consulta sql para retornar los datos correspondientes al método
         try {
 
             run = cn.getconexionDB().prepareStatement(sql);   //Después de ser verificada la conexion, se obtiene la consulta
-            run.setInt(1, p.getPago_prop_id());
+            run.setInt(1, id);
             rs = run.executeQuery();  //Ejecuta la consulta y la almacena
             pago.setPago_prop_id(rs.getInt("pago_propiedad_id"));//Se asigna el valor específico a la variable
             pago.setVenta_id(rs.getInt("venta_id"));  //Se asigna el valor específico a la variable
@@ -73,12 +73,12 @@ public class DAOPagosPropiedades implements interfaces.InterfacePagosPropiedades
     }
 
     @Override
-    public String delete(PagosPropiedades pago) {  //Se realiza consulta de delete para eliminar un registro
+    public String delete(int id) {  //Se realiza consulta de delete para eliminar un registro
         cn.conectar();
         sql = "DELETE FROM pagos_propiedades WHERE pago_propiedad_id = ?"; //Se crea consulta sql para eliminar algún registro
         try {
             run = cn.getconexionDB().prepareStatement(sql);
-            run.setInt(1, pago.getPago_prop_id());
+            run.setInt(1, id);
             byte contDel = (byte) run.executeUpdate();
             if (contDel == 0) {
                 msg = "El registro no existe";

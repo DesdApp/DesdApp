@@ -20,7 +20,7 @@ public class ConexionDB {
             conexionDB = DriverManager.getConnection(URL, USER, PASS);//se envia la solicitud a la base de datos mediante los parametros previamente definidos
             System.out.println("Conexion Establecida");//este sout no es necesario ya que solo muestra cuando la conexion es exitos
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("NO se establecio la conexion, error: " + e);//Muestra el mensaje de error en la consolo se puede modificar para que se vea en otro lado por ejemplo un log.
+            System.out.println("No se establecio la conexion, error: " + e.getMessage());//Muestra el mensaje de error en la consolo se puede modificar para que se vea en otro lado por ejemplo un log.
         }
     }
 
