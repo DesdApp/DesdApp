@@ -30,6 +30,11 @@ public class EstadoEmp {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return "EstadoEmp{" + "estadoEmpleadoId=" + estadoEmpleadoId + ", nombre=" + nombre + '}';
+    }
    
 
 }
