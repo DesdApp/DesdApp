@@ -18,17 +18,17 @@ public class DAODetVentas implements interfaces.InterfaceDetVentas {  //Se imple
     private String msg;
 
     @Override
-    public DetallesVentas select(DetallesVentas det) {    //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
+    public DetallesVentas select(int id) {    //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         DetallesVentas detalle = new DetallesVentas();
         try {
             cn.conectar();  //Abre
             sql = "SELECT * FROM detalles_ventas WHERE detalle_id = ?";  //Se crea consulta sql para retornar los datos correspondientes al método
-            run.setInt(1, det.getDetalle_id());
+            run.setInt(1, id);
             run = cn.getconexionDB().prepareStatement(sql); //Después de ser verificada la conexion, se obtiene la consulta
             rs = run.executeQuery();  //Ejecuta la consulta y la almacena
-            det.setDetalle_id(rs.getInt("detalle_id"));  //Se asigna el valor específico a la variable
-            det.setVenta_id(rs.getInt("venta_id"));   //Se asigna el valor específico a la variable
-            det.setNegocio_id(rs.getInt("negocio_id"));   //Se asigna el valor específico a la variable
+            detalle.setDetalle_id(rs.getInt("detalle_id"));  //Se asigna el valor específico a la variable
+            detalle.setVenta_id(rs.getInt("venta_id"));   //Se asigna el valor específico a la variable
+            detalle.setNegocio_id(rs.getInt("negocio_id"));   //Se asigna el valor específico a la variable
             rs.close();  //Cerramos la consulta
         } catch (SQLException e) {
             System.out.println("Error en DAODetVentas SELECT: " + e.getMessage());  //Comentario para mostrar un error
@@ -80,12 +80,12 @@ public class DAODetVentas implements interfaces.InterfaceDetVentas {  //Se imple
     }
 
     @Override
-    public String delete(DetallesVentas det) {  //Se realiza consulta de delete para eliminar un registro
+    public String delete(int id) {  //Se realiza consulta de delete para eliminar un registro
         cn.conectar();
         sql = "DELETE FROM detalles_ventas WHERE detalle_id = ?";  //Se crea consulta sql para retornar la confirmación de la eliminación
         try {
             run = cn.getconexionDB().prepareStatement(sql);
-            run.setInt(1, det.getDetalle_id());
+            run.setInt(1, id);
             byte contDel = (byte) run.executeUpdate();
             if (contDel == 0) {
                 msg = "El registro no existe";

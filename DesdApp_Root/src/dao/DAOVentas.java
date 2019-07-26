@@ -6,11 +6,11 @@
  */
 package dao;
 
-import modelo.Ventas;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import modelo.Ventas;
 
 public class DAOVentas implements interfaces.InterfaceVentas {  //Implementamos la clase interface para los métodos abstractos
 
@@ -24,13 +24,13 @@ public class DAOVentas implements interfaces.InterfaceVentas {  //Implementamos 
     private String msg;
 
     @Override
-    public Ventas select(Ventas v) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
+    public Ventas select(int id) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         Ventas venta = new Ventas();
         cn.conectar();
         sql = "SELECT * FROM ventas WHERE venta_id = ?"; //Se crea consulta sql para retornar los datos correspondientes al método
         try {
             execute = cn.getconexionDB().prepareStatement(sql);  //Después de ser verificada la conexion, se obtiene la consulta
-            execute.setInt(1, v.getVenta_id());
+            execute.setInt(1, id);
             rs = execute.executeQuery();   //Ejecuta la consulta y la almacena
             venta.setVenta_id(rs.getInt("venta_id"));  //Se asigna el valor específico a la variable
             venta.setNumero_factura(rs.getInt("numero_factura"));  //Se asigna el valor específico a la variable
@@ -78,12 +78,12 @@ public class DAOVentas implements interfaces.InterfaceVentas {  //Implementamos 
     }
 
     @Override
-    public String delete(Ventas venta) {  //Se realiza consulta de delete para eliminar un registro
+    public String delete(int id) {  //Se realiza consulta de delete para eliminar un registro
         cn.conectar();
         sql = "DELETE FROM ventas WHERE venta_id = ?";  //Se crea consulta sql para eliminar algún registro
         try {
             execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setInt(1, venta.getVenta_id());
+            execute.setInt(1, id);
             byte contDel = (byte) execute.executeUpdate();
             if (contDel == 0) {
                 msg = "El registro no existe";
