@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 public interface InterfaceTipoUsuario {
 
-    public void insertTipoUsario(TipoUsuario tipo);
+    public String insertTipoUsario(TipoUsuario tipo);
 
-    public void deleteTipoUsario(int codigo);
+    public String deleteTipoUsario(int codigo);
 
-    public void updateTipoUsario(TipoUsuario tipo);
+    public String updateTipoUsario(TipoUsuario tipo);
 
-    public void selectTipoUario(int codigo);
+    public TipoUsuario selectTipoUsuario(byte codigo);
 
-    public ArrayList<TipoUsuario> ListTipoUsuario();
+    public ArrayList<TipoUsuario> listTipoUsuario();
 }

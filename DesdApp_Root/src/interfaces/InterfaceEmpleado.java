@@ -11,7 +11,7 @@ public interface InterfaceEmpleado {
 
     public void updateEmpleado(Empleado empleado);
 
-    public void selectEmpleado(int codigo);
+    public Empleado selectEmpleado(int codigo);
 
     public ArrayList<Empleado> ListEmpleado();
 }
