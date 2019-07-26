@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Clientes;
 
-public class DAOClientes implements interfaces.InterfazClientes {
+public class DAOClientes implements interfaces.InterfaceClientes {
 
     // Instanciamos las clases
     ConexionDB cx = new ConexionDB();
@@ -111,9 +111,9 @@ public class DAOClientes implements interfaces.InterfazClientes {
                 clientes = new Clientes();
                 clientes.setClientId(rs.getInt("cliente_id"));
                 clientes.setClasificacion(rs.getByte("clasificacion_id"));
-                rs.close();
                 list.add(clientes);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("Error en DAOClientes LIST: " + e.getMessage());
         } finally {

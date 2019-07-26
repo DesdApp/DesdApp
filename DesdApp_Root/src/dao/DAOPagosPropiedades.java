@@ -12,11 +12,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamos la clase interface para los métodos abstractos
+public class DAOPagosPropiedades implements interfaces.InterfacePagosPropiedades{    //Implementamos la clase interface para los métodos abstractos
 
     // Instancias de clases
     ConexionDB cn = new ConexionDB();
-    private ResultSet r;
+    private ResultSet rs;
     private PreparedStatement run;
 
     // Atributos
@@ -24,27 +24,28 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
     private String msg;
 
     @Override
-    public PagosPropiedades select(PagosPropiedades pago) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
-        PagosPropiedades p = new PagosPropiedades();
+    public PagosPropiedades select(PagosPropiedades p) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
+        PagosPropiedades pago = new PagosPropiedades();
         cn.conectar();
         sql = "SELECT * FROM pagos_propiedades WHERE pago_propiedad_id = ?"; //Se crea consulta sql para retornar los datos correspondientes al método
         try {
 
             run = cn.getconexionDB().prepareStatement(sql);   //Después de ser verificada la conexion, se obtiene la consulta
-            r = run.executeQuery();  //Ejecuta la consulta y la almacena
-            p.setPago_prop_id(r.getInt("pago_propiedad_id"));//Se asigna el valor específico a la variable
-            p.setVenta_id(r.getInt("venta_id"));  //Se asigna el valor específico a la variable
-            p.setTipo_pago_id(r.getInt("tipo_pago_id")); //Se asigna el valor específico a la variable
-            p.setNo_tran(r.getInt("transaccion_no"));  //Se asigna el valor específico a la variable
-            p.setFecha(r.getDate("fecha"));  //Se asigna el valor específico a la variable
-            p.setMonto_pagado(r.getDouble("monto_pagado"));  //Se asigna el valor específico a la variable
-            r.close();
+            run.setInt(1, p.getPago_prop_id());
+            rs = run.executeQuery();  //Ejecuta la consulta y la almacena
+            pago.setPago_prop_id(rs.getInt("pago_propiedad_id"));//Se asigna el valor específico a la variable
+            pago.setVenta_id(rs.getInt("venta_id"));  //Se asigna el valor específico a la variable
+            pago.setTipo_pago_id(rs.getInt("tipo_pago_id")); //Se asigna el valor específico a la variable
+            pago.setNo_tran(rs.getInt("transaccion_no"));  //Se asigna el valor específico a la variable
+            pago.setFecha(rs.getDate("fecha"));  //Se asigna el valor específico a la variable
+            pago.setMonto_pagado(rs.getDouble("monto_pagado"));  //Se asigna el valor específico a la variable
+            rs.close();
         } catch (SQLException e) {
-            System.out.println("Error en DAOPagPropi SELECT: " + e.getMessage());  //Comentario para mostrar un error
+            System.out.println("Error en DAOPagosPropiedades SELECT: " + e.getMessage());  //Comentario para mostrar un error
         } finally {
             cn.desconectar();
         }
-        return p;  //retornamos los datos de la tabla
+        return pago;  //retornamos los datos de la tabla
     }
 
     @Override
@@ -64,7 +65,7 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
             msg = "Registro actualizado con exito";
         } catch (SQLException e) {
             msg = "Error al actualizar el registro";
-            System.out.println("Error en DAOPagPropi UPDATE: " + e.getMessage());
+            System.out.println("Error en DAOPagosPropiedades UPDATE: " + e.getMessage());
         } finally {
             cn.desconectar();
         }
@@ -86,7 +87,7 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
             }
         } catch (SQLException e) {
             msg = "Error al eliminar el registro";
-            System.out.println("Error en DAOPagPropi DELETE: " + e.getMessage());
+            System.out.println("Error en DAOPagPropiedades DELETE: " + e.getMessage());
         } finally {
             cn.desconectar();
         }
@@ -108,8 +109,8 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
             run.executeUpdate();
             msg = "Registro almacenado con exito";
         } catch (SQLException e) {
-            msg = "Error al agregar el registro";
-            System.out.println("Error en DAOPagPropi INSERT: " + e.getMessage()); //Comentario que se mostrará en caso de tener un error
+            msg = "Error al almacenar el registro";
+            System.out.println("Error en DAOPagosPropiedades INSERT: " + e.getMessage()); //Comentario que se mostrará en caso de tener un error
         } finally {
             cn.desconectar();
         }
@@ -119,27 +120,27 @@ public class DAOPagPropi implements interfaces.InterfazPagPro{    //Implementamo
     @Override
     public ArrayList<PagosPropiedades> list() {   //Se realiza consulta de listar para listar los datos que se solicitan
         ArrayList<PagosPropiedades> list = new ArrayList();
-        PagosPropiedades p;
+        PagosPropiedades pago;
 
         try {
             cn.conectar();
             sql = "SELECT * FROM pagos_propiedades"; //Se crea consulta de sql para retornar la lista de datos
             run = cn.getconexionDB().prepareStatement(sql);
-            r = run.executeQuery();
+            rs = run.executeQuery();
 
-            while (r.next()) {
-                p = new PagosPropiedades();
-                p.setPago_prop_id(r.getInt("pago_propiedad_id"));
-                p.setVenta_id(r.getInt("venta_id"));
-                p.setTipo_pago_id(r.getInt("tipo_pago_id"));
-                p.setNo_tran(r.getInt("transaccion_no"));
-                p.setFecha(r.getDate("fecha"));
-                p.setMonto_pagado(r.getDouble("monto_pagado"));
-                list.add(p);
+            while (rs.next()) {
+                pago = new PagosPropiedades();
+                pago.setPago_prop_id(rs.getInt("pago_propiedad_id"));
+                pago.setVenta_id(rs.getInt("venta_id"));
+                pago.setTipo_pago_id(rs.getInt("tipo_pago_id"));
+                pago.setNo_tran(rs.getInt("transaccion_no"));
+                pago.setFecha(rs.getDate("fecha"));
+                pago.setMonto_pagado(rs.getDouble("monto_pagado"));
+                list.add(pago);
             }
-            r.close();
+            rs.close();
         } catch (SQLException e) {
-            System.out.println("Error en DAOPagPropi LIST: " + e.getMessage());  //Comentario para marcar un error en caso de inconveniente
+            System.out.println("Error en DAOPagosPropiedades LIST: " + e.getMessage());  //Comentario para marcar un error en caso de inconveniente
         } finally {
             cn.desconectar();
         }

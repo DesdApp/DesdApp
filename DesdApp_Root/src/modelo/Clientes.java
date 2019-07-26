@@ -6,6 +6,16 @@ public class Clientes {
     private int clienteId;
     private byte clasificacion;
 
+    //Contructor de  atributos
+    public Clientes(int clienteId, byte clasificacion) {    
+        this.clienteId = clienteId;
+        this.clasificacion = clasificacion;
+    }
+    
+    public Clientes(){
+        
+    }
+
     //<editor-fold defaultstate="collapsed" desc="Metodos set y get">
     public int getClienteId() {
         return clienteId;

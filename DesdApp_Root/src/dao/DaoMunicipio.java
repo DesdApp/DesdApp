@@ -1,12 +1,11 @@
 package dao;
 
 //Clase Dao para Municipios
-import interfaces.InterfaceMunicipio;
+import modelo.Municipios;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.Municipios;
 
 /*
 *cn // Objeto de la Conexion a la Base de datos
@@ -17,7 +16,7 @@ import modelo.Municipios;
 *contMuni// verificar las sentencias if de cada metodo.
  */
 //implementacion de los metodos abstractos de la interfaz municipio
-public class DaoMunicipio implements InterfaceMunicipio {
+public class DaoMunicipio implements interfaces.InterfaceMunicipio {
 
     private ConexionDB cn = new ConexionDB();
     private String sql = "";
@@ -34,8 +33,8 @@ public class DaoMunicipio implements InterfaceMunicipio {
         try {
             //Se conecta a la base de datos
             cn.conectar();
-            //Eniva la consulta a la base de datos
-            sql = "insert into municipios values(?,?,?)";
+            //Envía la consulta a la base de datos
+            sql = "INSERT INTO municipios VALUES(?,?,?)";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -45,15 +44,15 @@ public class DaoMunicipio implements InterfaceMunicipio {
             //Realiza la consulta y Actualliza la base de datos
             contMuni = ejecutar.executeUpdate();
             //Condiciona la consulta SQL
-            //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
+            //Si Existe la consulta en la base de datos entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (contMuni == 0) {
-                mensaje = "El registro no se a pidido Ingresar";
+                mensaje = "No se ha ingresado el registro";
             } else {
-                mensaje = "Registro Ingresado Con exito";
+                mensaje = "Se ha ingresado el registro correctamente";
             }
         } catch (SQLException e) {
              //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje = "Error al insertar Municipios: " + e;
+            mensaje = "Error en DAOMunicipios INSERT: " + e.getMessage();
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -69,7 +68,7 @@ public class DaoMunicipio implements InterfaceMunicipio {
              //Se conecta a la base de datos
             cn.conectar();
             //Eniva la consulta a la base de datos
-            sql = "updte munisipios set nombre=?, depto_id=? where muni_id=?";
+            sql = "UPDATE municipios SET nombre=?, depto_id=? WHERE muni_id=?";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -81,13 +80,13 @@ public class DaoMunicipio implements InterfaceMunicipio {
             //Condiciona la consulta SQL
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (contMuni == 0) {
-                mensaje = "El registro no se a podido Modificar";
+                mensaje = "No se actualizó el registro";
             } else {
-                mensaje = "Registro modificado con Exito";
+                mensaje = "Se ha actualizado el registro con éxito";
             }
         } catch (SQLException e) {
             //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje = "Error al modificar Municipios: " + e;
+            mensaje = "Error en DAOMunicipios UPDATE: " + e.getMessage();
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -103,7 +102,7 @@ public class DaoMunicipio implements InterfaceMunicipio {
              //Se conecta a la base de datos
             cn.conectar();
             //Eniva la consulta a la base de datos
-            sql = "delete from departamentos  where muni_id=?";
+            sql = "DELETE FROM departamentos  WHERE muni_id=?";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -113,13 +112,13 @@ public class DaoMunicipio implements InterfaceMunicipio {
             //Condiciona la consulta SQL
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (contMuni == 0) {
-                mensaje = "El registro nos e a podido Eliminar";
+                mensaje = "El registro no existe";
             } else {
-                mensaje = "Registro eliminado con Exito";
+                mensaje = "Se ha eliminado el registro con éxito";
             }
         } catch (SQLException e) {
             //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje = "Error a eliminar Municipios: " + e;
+            mensaje = "Error en DAOMunicipios DELETE: " + e.getMessage();
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -135,7 +134,7 @@ public class DaoMunicipio implements InterfaceMunicipio {
              //Se conecta a la base de datos
             cn.conectar();
             //Eniva la consulta a la base de datos
-            sql = "select * from municipios where muni_id=?";
+            sql = "SELECT * FROM municipios WHERE muni_id=?";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
@@ -172,7 +171,7 @@ public class DaoMunicipio implements InterfaceMunicipio {
              //Se conecta a la base de datos
             cn.conectar();
             //Eniva la consulta a la base de datos
-            sql = "Select * from municipios";
+            sql = "SELECT * FROM municipios";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Realiza la consulta y Muesta los datos de la base de datos
@@ -188,7 +187,7 @@ public class DaoMunicipio implements InterfaceMunicipio {
             }
         } catch (SQLException e) {
             //Mensaje por Consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            System.out.println("Error al listar municipios: " + e);
+            System.out.println("Error en DAOMunicipios ArrayList: " + e.getMessage());
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();

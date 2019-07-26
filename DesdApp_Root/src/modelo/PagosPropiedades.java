@@ -10,6 +10,20 @@ public class PagosPropiedades {
     private int no_tran;
     private Date fecha;
     private Double monto_pagado;
+
+    public PagosPropiedades(int pago_prop_id, int venta_id, int tipo_pago_id, int no_tran, Date fecha, Double monto_pagado) {
+        this.pago_prop_id = pago_prop_id;
+        this.venta_id = venta_id;
+        this.tipo_pago_id = tipo_pago_id;
+        this.no_tran = no_tran;
+        this.fecha = fecha;
+        this.monto_pagado = monto_pagado;
+    }
+
+    public PagosPropiedades() {
+    }
+    
+    
     
  //Métodos Getter/Setter para llamar y dar los datos correspondientes
     //<editor-fold defaultstate="collapsed" desc="Setters and Getters">
