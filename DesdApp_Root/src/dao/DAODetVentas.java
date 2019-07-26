@@ -1,10 +1,10 @@
 package dao;
 
-import modelo.DetallesVentas;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import modelo.DetallesVentas;
 
 public class DAODetVentas implements interfaces.InterfaceDetVentas {  //Se implementa la clase de interface para llamar los métodos abstractos
 
@@ -14,7 +14,7 @@ public class DAODetVentas implements interfaces.InterfaceDetVentas {  //Se imple
     private PreparedStatement run;  //Llamamos al método de ejecución
 
     // Atributos
-    private String sql;   //Se crea variable para la consulta de mysql 
+    private String sql;   //Se crea variable para la consulta de mysql
     private String msg;
 
     @Override
@@ -72,7 +72,7 @@ public class DAODetVentas implements interfaces.InterfaceDetVentas {  //Se imple
             msg = "Registro actualizado con exito";
         } catch (SQLException e) {
             msg = "Error al actualizar el registro";
-            System.out.println("Error en DAODetVentas UPDATE: " + e.getMessage());  //Comentario de error en caso de que haya algún inconveniente 
+            System.out.println("Error en DAODetVentas UPDATE: " + e.getMessage());  //Comentario de error en caso de que haya algún inconveniente
         } finally {
             cn.desconectar();
         }

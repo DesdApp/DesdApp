@@ -3,7 +3,7 @@ package interfaces;
 import java.util.ArrayList;
 import modelo.Clientes;
 
-public interface InterfazClientes {
+public interface InterfaceClientes {
     
     public String insertCliente(Clientes cliente);
     public String deleteClientes(int codigo);

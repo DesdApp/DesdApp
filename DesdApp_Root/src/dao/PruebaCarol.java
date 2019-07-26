@@ -5,7 +5,9 @@
  */
 package dao;
 
-import modelo.Persona;
+
+import modelo.TipoUsuario;
+
 
 /**
  *
@@ -13,9 +15,26 @@ import modelo.Persona;
  */
 public class PruebaCarol {
     public static void main(String[] args) {
-        DaoPersona dao=new DaoPersona();
-        String var;
+        ConexionDB cn= new ConexionDB();
+        DAOTIpoUsuario dao= new DAOTIpoUsuario();
+        TipoUsuario modelo= new TipoUsuario();
+        
+       /* modelo.setNombre("Prueba");
+        modelo.setTipoUsuarioId((byte)5);
+        
+       dao.insertTipoUsario(modelo);
+        
+       /* modelo.setTipoUsuarioId((byte)5);
+        dao.deleteTipoUsario(5);*/
        
+      /* modelo.setNombre("Modificado");
+       dao.updateTipoUsario(modelo);
+       */
+       dao.selectTipoUario(1);
+      String nombre= modelo.getNombre();
+      int id= modelo.getTipoUsuarioId();
+       
+        System.out.println("nombre "+modelo.getNombre()+ " id "+modelo.getTipoUsuarioId());
         
                 
     }

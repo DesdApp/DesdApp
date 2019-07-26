@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.TiposClientes;
 
-public class DAOTpClientes implements interfaces.InterfazTpClientes {
+public class DAOTpClientes implements interfaces.InterfaceTpClientes {
 
     // Instanciamos las clases
     ConexionDB cx = new ConexionDB();
@@ -114,9 +114,9 @@ public class DAOTpClientes implements interfaces.InterfazTpClientes {
                 tipos.setTipoClienteId(rs.getByte("tipo_cliente_id"));
                 tipos.setNombre(rs.getString("nombre"));
                 tipos.setDescripcion(rs.getString("descripcion"));
-                rs.close();
                 list.add(tipos);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("Error en DAOTpClientes LIST: " + e.getMessage());
         } finally {

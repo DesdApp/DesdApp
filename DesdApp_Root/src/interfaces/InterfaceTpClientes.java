@@ -3,7 +3,7 @@ package interfaces;
 import java.util.ArrayList;
 import modelo.TiposClientes;
 
-public interface InterfazTpClientes {
+public interface InterfaceTpClientes {
     
     public String insertTipo(TiposClientes tipo);
     
