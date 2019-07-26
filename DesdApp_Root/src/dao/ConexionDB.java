@@ -8,9 +8,9 @@ public class ConexionDB {
 
     //atributos
     private Connection conexionDB;
-    private static final String URL = "jdbc:mysql://10.12.48.93/desdapp";//poner el enlace a la base de datos con respecto a su configuaracion
-    private static final String USER = "desdapp";//esto de igual manera
-    private static final String PASS = "desdapp2019";//y esto, si no lo han modificado dejen user y pass vacios
+    private static final String URL = "jdbc:mysql://127.0.0.1/desdapp";//poner el enlace a la base de datos con respecto a su configuaracion
+    private static final String USER = "root";//esto de igual manera
+    private static final String PASS = "";//y esto, si no lo han modificado dejen user y pass vacios
 
     //Metodos
     //conectar a base de datos
@@ -20,7 +20,7 @@ public class ConexionDB {
             conexionDB = DriverManager.getConnection(URL, USER, PASS);//se envia la solicitud a la base de datos mediante los parametros previamente definidos
             System.out.println("Conexion Establecida");//este sout no es necesario ya que solo muestra cuando la conexion es exitos
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("NO se establecio la conexion, error: " + e);//Muestra el mensaje de error en la consolo se puede modificar para que se vea en otro lado por ejemplo un log.
+            System.out.println("No se establecio la conexion, error: " + e.getMessage());//Muestra el mensaje de error en la consolo se puede modificar para que se vea en otro lado por ejemplo un log.
         }
     }
 

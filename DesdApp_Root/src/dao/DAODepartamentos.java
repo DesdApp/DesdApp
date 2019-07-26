@@ -182,7 +182,9 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
                 deptos.setDeptoId(resul.getInt("depto_id"));
                 deptos.setNombre(resul.getString("nombre"));
                 deptos.setRegionId(resul.getInt("region_id"));
+                
                 list.add(deptos);
+                
             }
         } catch (SQLException e) {
             //Mensaje por Consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable

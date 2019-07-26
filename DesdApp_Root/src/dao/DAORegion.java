@@ -19,7 +19,6 @@ public class DAORegion implements interfaces.InterfaceRegion {
     private String mensaje = "";
     private ResultSet result;
     private PreparedStatement ejecutar;
-    private Regiones datoRegion;
     private int contRegion;
 
     //insertar Un nuevo Registro para Regiones
@@ -116,6 +115,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
     //seleccionar Region
     @Override
     public Regiones selectRegion(Regiones region) {
+        Regiones datos = new Regiones();
         try {
             //Conecta a la base de datos
             cn.conectar();
@@ -126,20 +126,20 @@ public class DAORegion implements interfaces.InterfaceRegion {
             //Realiza la consulta y Muesta los datos de la base de datos
             result = ejecutar.executeQuery();
             //Visualiza los datos de la consulta
-            while (result.next()) {
-                datoRegion.setRegionId(result.getInt("region_id"));
-                datoRegion.setNombre(result.getString("nombre"));
-                datoRegion.setDescripcion(result.getString("descripcion"));
-            }
+            result.next();
+                datos.setRegionId(result.getInt("region_id"));
+                datos.setNombre(result.getString("nombre"));
+                datos.setDescripcion(result.getString("descripcion"));
+            
 
-        } catch (Exception e) {
-            System.out.println("Error al selecionar registro" + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error en DAORegion SELECT: " + e.getMessage());
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
         }
         //Retorna los datos tipo Region
-        return datoRegion;
+        return datos;
     }
 
     //listar Region.
@@ -166,7 +166,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
             regiones.setNombre(result.getString("nombre"));
             regiones.setDescripcion(result.getString("descripcion"));
             //Se agregan los registros a un ArrayList
-                list.add(regiones);
+            list.add(regiones);
                 
             }
         } catch (SQLException e) {
