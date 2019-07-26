@@ -1,11 +1,11 @@
 package modelo;
+
 public class DetallesVentas {
 
 //Se declaran los atributos que componen la tabla "detalles_ventas" en la base de datos
-    
     private int detalle_id;
     private int venta_id;
-    private int negocio_id;            
+    private int negocio_id;
 
     public DetallesVentas(int detalle_id, int venta_id, int negocio_id) {
         this.detalle_id = detalle_id;
@@ -16,13 +16,9 @@ public class DetallesVentas {
     public DetallesVentas() {
     }
 
-    
-    
-//Métodos Setter/Getter para llamar y dar los datos correspondientes    
+//Métodos Setter/Getter para llamar y dar los datos correspondientes
     //<editor-fold defaultstate="collapsed" desc="Setters and Getters">
-
-//Métodos    
-    
+//Métodos
     public int getDetalle_id() {
         return detalle_id;
     }
@@ -46,10 +42,11 @@ public class DetallesVentas {
     public void setNegocio_id(int negocio_id) {
         this.negocio_id = negocio_id;
     }
-            
-    
-    
+    //</editor-fold>
+
+    @Override
+    public String toString() {
+        return "detalle_id=" + detalle_id + "\nventa_id=" + venta_id + "\nnegocio_id=" + negocio_id;
+    }
+
 }
-    
-//</editor-fold>
-    
