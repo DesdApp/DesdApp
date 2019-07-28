@@ -1,19 +1,19 @@
 package modelo;
 
 //Modelo Tipo Transacciones
-public class TpTrans {
+public class TpTransacciones {
     
 private int tpTransId;
 private String name;
 
 
 //Constructor de la Clase TpTrans
-      public TpTrans(int tpTransId, String name) {
+      public TpTransacciones(int tpTransId, String name) {
         this.tpTransId = tpTransId;
         this.name = name;
     }
 
-      public TpTrans(){
+      public TpTransacciones(){
           
       }
 //<editor-fold defaultstate="collapsed" desc="Setter y Getter">
