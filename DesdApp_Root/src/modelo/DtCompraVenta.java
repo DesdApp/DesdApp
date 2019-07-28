@@ -2,7 +2,7 @@ package modelo;
 
 import java.sql.Date;
 
-public class DtComVent {
+public class DtCompraVenta {
 
 //Atributos
 public int negId;
@@ -11,13 +11,13 @@ public String observ;
 
 
 //Construtor de clase DtComVent
-      public DtComVent(int negId, Date dateEstVenta, String observ) {
+      public DtCompraVenta(int negId, Date dateEstVenta, String observ) {
         this.negId = negId;
         this.dateEstVenta = dateEstVenta;
         this.observ = observ;
     }
 
-      public DtComVent(){
+      public DtCompraVenta(){
           
       }
       
