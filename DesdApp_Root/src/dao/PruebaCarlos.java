@@ -9,10 +9,11 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import modelo.Empleado;
-import modelo.EstadoEmp;
+import javax.swing.JOptionPane;
+import modelo.Empleados;
+import modelo.EstadosEmpleados;
 import modelo.EstadosPropiedades;
-import modelo.TipoUsuario;
+import modelo.TpUsuarios;
 
 /**
  *
@@ -28,15 +29,18 @@ public class PruebaCarlos {
         Scanner sc = new Scanner(System.in);
 
         // Instancias de los modelos
-        Empleado emp = new Empleado(7, 6, "Prueba", date, date, (double) 1000, "UserPrueba", "Pss Prueba", 1, 1);
-        EstadoEmp estadoEmp = new EstadoEmp((byte) 5, "Prueba");
+        Empleados emp = new Empleados(7, 6, "Prueba", date, date, (double) 1000, "UserPrueba", "Pss Prueba", 1, 1);
+        EstadosEmpleados estadoEmp = new EstadosEmpleados((byte) 6, "Prueba");
+        TpUsuarios tipUsu = new TpUsuarios((byte) 7, "Ingreso modificado");
 
-        Empleado datosEmp = new Empleado();
+        Empleados datosEmp = new Empleados();
         EstadosPropiedades datoEstados = new EstadosPropiedades();
+        TpUsuarios datoTipoUsu = new TpUsuarios();
 
         // Instancias de los DAO
-        DAOEmpleado daoEmp = new DAOEmpleado();
-        DAOEstadoEmp daoEstadoEmp = new DAOEstadoEmp();
+        DAOEmpleados daoEmp = new DAOEmpleados();
+        DAOEstadosEmpleados daoEstadoEmp = new DAOEstadosEmpleados();
+        DAOTpUsuarios daoTipUsu = new DAOTpUsuarios();
 
         // Realizamos la conexion
         ConexionDB cx = new ConexionDB();
@@ -51,7 +55,7 @@ public class PruebaCarlos {
         System.out.println("5) Salir");
         id = sc.nextInt();
         switch (id) {
-            //<editor-fold defaultstate="collapsed" desc="Pruebas Empleado">
+            //<editor-fold defaultstate="collapsed" desc="Pruebas Empleados">
             case 1:
                 System.out.println("1) INSERT");
                 System.out.println("2) DELETE");
@@ -62,26 +66,26 @@ public class PruebaCarlos {
                 id = sc.nextInt();
                 switch (id) {
                     case 1:
-                        daoEmp.insertEmpleado(emp);
+                        daoEmp.insert(emp);
 
                         break;
 
                     case 2:
-                        daoEmp.deleteEmpleado(id);
+                        daoEmp.delete(id);
                         break;
 
                     case 3:
-                        daoEmp.updateEmpleado(emp);
+                        daoEmp.update(emp);
                         break;
 
                     case 4:
-                        daoEmp.selectEmpleado(id);
+                        daoEmp.select(id);
                         break;
 
                     case 5:
-                        ArrayList<Empleado> lista = new ArrayList<>();
-                        lista = daoEmp.ListEmpleado();
-                        for (Empleado empleado : lista) {
+                        ArrayList<Empleados> lista = new ArrayList<>();
+                        lista = daoEmp.lits();
+                        for (Empleados empleado : lista) {
                             System.out.println(empleado.toString());
                         }
                         break;
@@ -93,7 +97,7 @@ public class PruebaCarlos {
                         throw new AssertionError();
                 }
                 break;
-            //</editor-fold>
+            //</editor-fold>            //</editor-fold>
 
             //<editor-fold defaultstate="collapsed" desc="Pruebas Propiedades">
             case 2:
@@ -128,7 +132,7 @@ public class PruebaCarlos {
                 break;
             //</editor-fold>
 
-            //<editor-fold defaultstate="collapsed" desc="Puebas Estado Empleado">
+            //<editor-fold defaultstate="collapsed" desc="Puebas Estado Empleados">
             case 3:
                 System.out.println("1) INSERT");
                 System.out.println("2) DELETE");
@@ -139,22 +143,22 @@ public class PruebaCarlos {
                 id = sc.nextInt();
                 switch (id) {
                     case 1:
-                        daoEstadoEmp.insertEstadoEmp(estadoEmp);
+                        daoEstadoEmp.insert(estadoEmp);
                         break;
                     case 2:
-                        daoEstadoEmp.deleteEstadoEmp(id);
+                        daoEstadoEmp.delete(id);
                         break;
                     case 3:
-                        daoEstadoEmp.updateEmpleado(estadoEmp);
+                        daoEstadoEmp.update(estadoEmp);
 
                         break;
                     case 4:
-                        daoEmp.selectEmpleado(id);
+                        daoEmp.select(id);
                         break;
                     case 5:
-                        ArrayList<EstadoEmp> lista = new ArrayList<>();
-                        lista = daoEstadoEmp.ListEstadoEmp();
-                        for (EstadoEmp estadoEmp1 : lista) {
+                        ArrayList<EstadosEmpleados> lista = new ArrayList<>();
+                        lista = daoEstadoEmp.list();
+                        for (EstadosEmpleados estadoEmp1 : lista) {
                             System.out.println(estadoEmp1.toString());
                         }
                         break;
@@ -165,7 +169,7 @@ public class PruebaCarlos {
                         throw new AssertionError();
                 }
                 break;
-            //</editor-fold>
+            //</editor-fold>            //</editor-fold>            //</editor-fold>            //</editor-fold>
 
             //<editor-fold defaultstate="collapsed" desc="Pruebas Para tipos de Usuarios">
             case 4:
@@ -178,40 +182,39 @@ public class PruebaCarlos {
                 id = sc.nextInt();
                 switch (id) {
                     case 1:
-
+                        daoTipUsu.insertTipoUsario(tipUsu);
                         break;
                     case 2:
-
+                        daoTipUsu.deleteTipoUsario(id);
                         break;
                     case 3:
-
+                        daoTipUsu.updateTipoUsario(tipUsu);
                         break;
                     case 4:
-
+                        System.out.println("Registro a seleccionar: ");
+                        id = sc.nextInt();
+                        datoTipoUsu = daoTipUsu.selectTipoUsuario((byte)id);
+                        JOptionPane.showMessageDialog(null, datoTipoUsu.toString());
+                        //daoTipUsu.selectTipoUsuario((byte) id);
+                        //System.out.println(daoTipUsu.toString());
                         break;
                     case 5:
-
-                        break;
-                    case 6:
+                        ArrayList<TpUsuarios> lista = new ArrayList<>();
+                        lista = daoTipUsu.list();
+                        for (TpUsuarios tipoUsuario : lista) {
+                            System.out.println(tipoUsuario.toString());
+                        }
+                            break;
+                        
+                        case 6:
 
                         break;
                     default:
                         throw new AssertionError();
                 }
-                //<editor-fold defaultstate="collapsed" desc="Pruebas TiposPagos">
-
-                //</editor-fold>
-                break;
-
-            case 5:
-                break;
-
-            default:
-                throw new AssertionError();
-
+               
         }
+        }
+        //</editor-fold>
 
     }
-    //</editor-fold>
-
-}

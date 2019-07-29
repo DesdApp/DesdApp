@@ -1,16 +1,16 @@
 package modelo;
 
-public class EstadoEmp {
+public class EstadosEmpleados {
 
     private byte estadoEmpleadoId;
     private String nombre;
 
-    public EstadoEmp(byte estadoEmpleadoId, String nombre) {
+    public EstadosEmpleados(byte estadoEmpleadoId, String nombre) {
         this.estadoEmpleadoId = estadoEmpleadoId;
         this.nombre = nombre;
     }
 
-    public EstadoEmp() {
+    public EstadosEmpleados() {
     }
 
     //Setter & Getter
