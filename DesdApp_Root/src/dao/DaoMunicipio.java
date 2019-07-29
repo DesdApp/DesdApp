@@ -29,7 +29,7 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
     //Metodo para insertar Municipios
     @Override
    
-    public String insertMuni(Municipios muni) {
+    public String insert(Municipios muni) {
         try {
             //Se conecta a la base de datos
             cn.conectar();
@@ -63,7 +63,7 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
 
     //Metodo para Modificar Municipios
     @Override
-    public String updateMuni(Municipios muni) {
+    public String update(Municipios muni) {
         try {
              //Se conecta a la base de datos
             cn.conectar();
@@ -97,7 +97,7 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
 
     //Metodo para Eliminar Municipios
     @Override
-    public String deleteMuni(Municipios muni) {
+    public String delete(Municipios muni) {
         try {
              //Se conecta a la base de datos
             cn.conectar();
@@ -129,7 +129,7 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
 
     //Metodos para Seleccionar municipios
     @Override
-    public Municipios selectMuni(Municipios muni) {
+    public Municipios select(Municipios muni) {
         try {
              //Se conecta a la base de datos
             cn.conectar();
@@ -160,7 +160,7 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
 
     //Metodo para Listar Municipios.
     @Override
-    public ArrayList<Municipios> listMuni() {
+    public ArrayList<Municipios> list() {
         //Se Crea un objeto tipo ArrayList
         ArrayList<Municipios> list;
         //Se crea un Objeto tipo Municipios

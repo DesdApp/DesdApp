@@ -24,7 +24,7 @@ public class DaoTipoFacturacion implements interfaces.InterfaceTipoFac {
 
     //Metodo para ingresar
     @Override
-    public String insertTipoFac(TipoFacturacion tipo) {
+    public String insert(TipoFacturacion tipo) {
         try {
             //Se conecta a la base de Datos
             cn.conectar();
@@ -58,7 +58,7 @@ public class DaoTipoFacturacion implements interfaces.InterfaceTipoFac {
 
     //Metodo para Modificar 
     @Override
-    public String updateTipoFac(TipoFacturacion tipo) {
+    public String update(TipoFacturacion tipo) {
         try {
             //Se conecta a la base de Datos
             cn.conectar();
@@ -92,7 +92,7 @@ public class DaoTipoFacturacion implements interfaces.InterfaceTipoFac {
 
     //Metodo para Eliminar
     @Override
-    public String deletTipoFac(TipoFacturacion tipo) {
+    public String delete(TipoFacturacion tipo) {
         try {
             //Se conecta a la base de Datos
             cn.conectar();
@@ -133,7 +133,7 @@ public class DaoTipoFacturacion implements interfaces.InterfaceTipoFac {
      */
      
     @Override
-    public TipoFacturacion selectTipoFac(TipoFacturacion tipo_id) {
+    public TipoFacturacion select(TipoFacturacion tipo_id) {
         try {
             //Se conecta a la base de Datos
             cn.conectar();
@@ -171,7 +171,7 @@ public class DaoTipoFacturacion implements interfaces.InterfaceTipoFac {
      */
     
     @Override
-    public ArrayList<TipoFacturacion> listTipoFac() {
+    public ArrayList<TipoFacturacion> list() {
         //Crea un objeto tipo ArrayList
         ArrayList<TipoFacturacion> list;
         //Crea un objeto tipo TipoFacturacioin

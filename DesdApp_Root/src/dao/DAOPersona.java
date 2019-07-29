@@ -27,13 +27,13 @@ public class DAOPersona implements interfaces.InterfacePersona{
 
     @Override
     //Selecionar Persona.
-    public Persona selectPersona(Persona per) {
+    public Persona select(int id) {
         Persona dato = new Persona();
         try {
             cn.conectar();
             sql="SELECT * FROM personas WHERE persona_id=?";//Se envia la consulta a la base de Datos
             ejecutar=cn.getconexionDB().prepareStatement(sql); 
-            ejecutar.setInt(1, per.getPersonaId());
+            ejecutar.setInt(1, id);
             result=ejecutar.executeQuery();
             
             //while recorre la consulta en la base de datos  y visualiza los datos de la consulta
@@ -60,7 +60,7 @@ public class DAOPersona implements interfaces.InterfacePersona{
 
     //insertar persona
     @Override
-    public String insertPersona(Persona per) {
+    public String insert(Persona per) {
         try {
             cn.conectar();
             sql="INSERT INTO personas VALUES(?,?,?,?,?,?,?,?,?,?)";
@@ -96,7 +96,7 @@ public class DAOPersona implements interfaces.InterfacePersona{
 
     //Modificar Persona
     @Override
-    public String updatePersona(Persona per) {
+    public String update(Persona per) {
         try {
             cn.conectar();
             sql="UPDATE personas SET nombre=?, apellido=?, direccion=?, telefono=?, celular=?, correo=?, fecha_nacimiento=?, dpi=?, nit=?  WHERE persona_id=?";
@@ -135,12 +135,12 @@ public class DAOPersona implements interfaces.InterfacePersona{
     //Eliminar Persona
 
     @Override
-    public String deletPersona(Persona per) {
+    public String delete(int id) {
         try {
             cn.conectar();
             sql="DELETE FROM personas WHERE persona_id=?";
             ejecutar=cn.getconexionDB().prepareStatement(sql);
-            ejecutar.setLong(1, per.getPersonaId());
+            ejecutar.setLong(1, id);
             //Realiza la consulta y actualiza la base de datos
             contPer=ejecutar.executeUpdate();
             //Si la consulta es verdadera no elimina nuestro registro pero si es falsa Eliminara el registro con exito.
@@ -163,7 +163,7 @@ public class DAOPersona implements interfaces.InterfacePersona{
     //listar Personas por pedio de un ArrayList.
 
     @Override
-    public ArrayList<Persona> listPersona() {
+    public ArrayList<Persona> list() {
         ArrayList<Persona>lista; //creamos un objeto tipo Array list
         Persona perso; //Creamos un objeto tipo Persona
         lista=new ArrayList(); //Inicializamos nuestro Objeto de Tipo ArrayList

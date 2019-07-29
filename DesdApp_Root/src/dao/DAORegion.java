@@ -23,7 +23,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
 
     //insertar Un nuevo Registro para Regiones
     @Override
-    public String insertRegion(Regiones region) {
+    public String insert(Regiones region) {
         try {
             cn.conectar();
             sql = "INSERT INTO regiones VALUES(?,?,?)";
@@ -51,7 +51,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
 
     //Modificar Registro de Region
     @Override
-    public String updateRegion(Regiones region) {
+    public String update(Regiones region) {
         try {
             //Se conecta a la base de datos
             cn.conectar();
@@ -85,14 +85,14 @@ public class DAORegion implements interfaces.InterfaceRegion {
 
     //Eliminar Regiones
     @Override
-    public String deleteRegion(Regiones region) {
+    public String delete(int id) {
         try {
             //se conecta a la base de datos
             cn.conectar();
             sql = "DELETE FROM regiones WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
-            ejecutar.setInt(1, region.getRegionId());
+            ejecutar.setInt(1, id);
             //Realiza la consulta y Actualiza la base de datos
             contRegion = ejecutar.executeUpdate();
             //Condiciona la consulta SQL
@@ -114,7 +114,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
 
     //seleccionar Region
     @Override
-    public Regiones selectRegion(Regiones region) {
+    public Regiones select(int id) {
         Regiones datos = new Regiones();
         try {
             //Conecta a la base de datos
@@ -122,7 +122,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
             sql = "SELECT * FROM regiones WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la bae de Datos
-            ejecutar.setInt(1, region.getRegionId());
+            ejecutar.setInt(1, id);
             //Realiza la consulta y Muesta los datos de la base de datos
             result = ejecutar.executeQuery();
             //Visualiza los datos de la consulta
@@ -144,7 +144,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
 
     //listar Region.
     @Override
-    public ArrayList<Regiones> listRegiones() {
+    public ArrayList<Regiones> list() {
         //Crea un objeto tipo ArrayList
         ArrayList<Regiones> list;
         //Crea un objeto tipo Regiones

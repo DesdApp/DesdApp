@@ -25,7 +25,7 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
 
     //Insertar Departamentos
     @Override
-    public String insertDepto(Departamentos depto) {
+    public String insert(Departamentos depto) {
         try {
             //Conecta a la base de Datos
             cn.conectar();
@@ -60,7 +60,7 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
 
     //Modificar Departamentos
     @Override
-    public String updateDepto(Departamentos depto) {
+    public String update(Departamentos depto) {
         try {
             //Se conecta a la base de Datos
             cn.conectar();
@@ -95,7 +95,7 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
 
     //Eliminar Departamentos
     @Override
-    public String deleteDepto(Departamentos depto) {
+    public String delete(Departamentos depto) {
         try {
             //Se conecta a la base de Datos
             cn.conectar();
@@ -128,7 +128,7 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
 
     //Seleccionar Departamentos
     @Override
-    public Departamentos selectDepto(Departamentos depto) {
+    public Departamentos select(Departamentos depto) {
         try {
             //Se conecta a la base de datos
             cn.conectar();
@@ -159,7 +159,7 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
 
     //Listar Departamentos
     @Override
-    public ArrayList<Departamentos> listDepto() {
+    public ArrayList<Departamentos> list() {
         //Crea un objeto tipo ArrayList
         ArrayList<Departamentos> list;
         //Crea un objeto tipo Departamentos

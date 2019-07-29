@@ -8,6 +8,7 @@ package dao;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import modelo.Departamentos;
 import modelo.Municipios;
 import modelo.Persona;
@@ -63,20 +64,24 @@ public class PruebasCarolina {
                 System.out.println("6) Regresar");
                 switch(id){
                     case 1:
-                        daoPer.insertPersona(per);
+                        JOptionPane.showMessageDialog(null, daoPer.insert(per));
                         break;
                     case 2:
-                        daoPer.deletPersona(per);
+                        System.out.println("Registro a eliminar: ");
+                        id = sc.nextInt();
+                        JOptionPane.showMessageDialog(null, daoPer.delete(id));
                         break;
                     case 3:
-                        daoPer.updatePersona(per);
+                        JOptionPane.showMessageDialog(null, daoPer.update(per));
                         break;
                     case 4:
-                        datosPer =  daoPer.selectPersona(per);
+                        System.out.println("Registro a seleccionar: ");
+                        id = sc.nextInt();
+                        JOptionPane.showMessageDialog(null, datosPer.toString());
                         break;
                     case 5:
                         ArrayList<Persona> list = new ArrayList();
-                        list = daoPer.listPersona();
+                        list = daoPer.list();
                         for (Persona pers : list) {
                             System.out.println(pers.toString());
                         }
@@ -101,17 +106,19 @@ public class PruebasCarolina {
                         
                         break;
                     case 2:
-                        daoPer.deletPersona(per);
+                        JOptionPane.showMessageDialog(null, daoPer.delete(id));
                         break;
                     case 3:
-                        daoPer.updatePersona(per);
+                        JOptionPane.showMessageDialog(null, daoPer.update(per));
                         break;
                     case 4:
-                        datosPer =  daoPer.selectPersona(per);
+                        System.out.println("Registro a seleccionar: ");
+                        id = sc.nextInt();
+                        JOptionPane.showMessageDialog(null, datosPer.toString());
                         break;
                     case 5:
                         ArrayList<Persona> list = new ArrayList();
-                        list = daoPer.listPersona();
+                        list = daoPer.list();
                         for (Persona pers : list) {
                             System.out.println(pers.toString());
                         }
