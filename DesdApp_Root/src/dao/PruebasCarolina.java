@@ -40,8 +40,8 @@ public class PruebasCarolina {
         DAOPersona daoPer = new DAOPersona();
         DAORegion daoReg = new DAORegion();
         DAODepartamentos daoDep = new DAODepartamentos();
-        DaoMunicipio daoMuni = new DaoMunicipio();
-        DaoTipoFacturacion daoTip = new DaoTipoFacturacion();
+        DAOMunicipio daoMuni = new DAOMunicipio();
+        DAOTipoFacturacion daoTip = new DAOTipoFacturacion();
         
         ConexionDB cn = new ConexionDB();
         

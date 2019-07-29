@@ -12,7 +12,7 @@ import java.util.ArrayList;
 *datoTipo// Objeto de la clase TipoFacturacion
  */
 //implementacion de los Metodos Abastractos de la interfaz Tipo Facturacion
-public class DaoTipoFacturacion implements interfaces.InterfaceTipoFac {
+public class DAOTipoFacturacion implements interfaces.InterfaceTipoFac {
 
     public ConexionDB cn = new ConexionDB();
     public String sql = "";
