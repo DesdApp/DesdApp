@@ -1,16 +1,16 @@
 package modelo;
 
-public class TipoUsuario {
+public class TpUsuarios {
 
     private byte tipoUsuarioId;
     private String nombre;
 
-    public TipoUsuario(byte tipoUsuarioId, String nombre) {
+    public TpUsuarios(byte tipoUsuarioId, String nombre) {
         this.tipoUsuarioId = tipoUsuarioId;
         this.nombre = nombre;
     }
 
-    public TipoUsuario() {
+    public TpUsuarios() {
     }
     
        //Setter & Getter
