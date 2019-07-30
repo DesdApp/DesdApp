@@ -1,12 +1,12 @@
 package dao;
 
-import modelo.EstadoEmp;
+import modelo.TpUsuarios;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
+public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
 
     ConexionDB cn = new ConexionDB();
     PreparedStatement execute;
@@ -16,13 +16,13 @@ public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
     String sql;
 
     @Override
-    public void insertEstadoEmp(EstadoEmp estadoEmp) {
+    public String insertTipoUsario(TpUsuarios tipo) {
         try {
             cn.conectar();  // Realizamos la conexion con la base de datos
-            sql = "INSERT INTO estados_empleados VALUES(?, ?)"; // Asignamos a la variable sql la consulta
+            sql = "INSERT INTO tipos_usuarios VALUES(?, ?)"; // Asignamos a la variable sql la consulta
             execute = cn.getconexionDB().prepareStatement(sql); // Asignamos la consulta al PreparedStatement
-            execute.setByte(1, estadoEmp.getEstadoEmpleadoId());
-            execute.setString(2, estadoEmp.getNombre());
+            execute.setByte(1, tipo.getTipoUsuarioId());
+            execute.setString(2, tipo.getNombre());
             execute.executeUpdate();    // Realizamos la consulta y actualizamos la base de datos
             msg = "Registro almacenado con exito";  // Escribimos un mensaje de que la consulta se realizo con exito
         } catch (SQLException e) {
@@ -30,17 +30,18 @@ public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
             /*
              * .getMessage() se utiliza para obtener un mensaje detallado del objeto Throwable
              */
-            System.out.println("Error en DAOEstadoEmp INSERT: " + e.getMessage()); // Mostramos un mensaje de error
+            System.out.println("Error en DAOTipoUsuario INSERT: " + e.getMessage()); // Mostramos un mensaje de error
         } finally {
             cn.desconectar();   // Nos desconectamos de la base de datos
         }
+        return msg;
     }
 
     @Override
-    public void deleteEstadoEmp(int codigo) {
+    public String deleteTipoUsario(int codigo) {
         try {
             cn.conectar();
-            sql = "DELETE FROM estado_empleados WHERE estado_empleado_id=?";
+            sql = "DELETE FROM tipos_usuarios WHERE tipo_usuario_id=?";
             execute = cn.getconexionDB().prepareStatement(sql);
             execute.setInt(1, codigo);
             byte contDEL = (byte) execute.executeUpdate();
@@ -51,66 +52,75 @@ public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
             }
         } catch (SQLException e) {
             msg = "Ocurrio un error al trata de eliminar el registro";
-            System.out.println("Error en DAOEstadoEmp DELETE: " + e.getMessage());
+            System.out.println("Error en DAOTipoUsuario DELETE: " + e.getMessage());
         } finally {
             cn.desconectar();
         }
+        return msg;
     }
 
     @Override
-    public void updateEmpleado(EstadoEmp estadoEmp) {
+    public String updateTipoUsario(TpUsuarios tipo) {
         try {
             cn.conectar();
-            sql = "UPDATE estado_empleados SET nombre = ? WHERE estado_empleado_id = ?";
+            sql = "UPDATE tipos_usuarios SET nombre = ? WHERE tipo_usuario_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setByte(2, estadoEmp.getEstadoEmpleadoId());
-            execute.setString(1, estadoEmp.getNombre());
+            execute.setByte(2, tipo.getTipoUsuarioId());
+            execute.setString(1, tipo.getNombre());
             execute.executeUpdate();
             msg = "Registro actualizado";
         } catch (SQLException e) {
             msg = "Error al actualizar el registro";
-            System.out.println("Eror en DAOEstadoEmp UPDATE: " + e.getMessage());
+            System.out.println("Eror en DAOTipoUsuario UPDATE: " + e.getMessage());
         } finally {
             cn.desconectar();
         }
+        return msg;
     }
 
     @Override
-    public void selectEstadoEmp(int codigo) {
-        EstadoEmp estado = new EstadoEmp();
+    public TpUsuarios selectTipoUsuario(byte codigo) {
+        TpUsuarios tipo = new TpUsuarios();
         try {
             cn.conectar();
-            sql = "SELECT * FROM estados_empleados WHERE estado_empleado_id=?";
+            sql = "SELECT * FROM tipos_usuarios WHERE tipo_usuario_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setInt(1, codigo);
+            execute.setByte(1, codigo);
             rs = execute.executeQuery();
             rs.next();
-            estado.setEstadoEmpleadoId(rs.getByte("estado_empleado_id"));
-            estado.setNombre(rs.getString("nombre"));
+            tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
+            tipo.setNombre(rs.getString("nombre"));
             rs.close();
+            System.out.println("Se realizo el SELECT con exito" +rs);
         } catch (SQLException e) {
-            System.out.println("Error en DAOEstadoEmp SELECT: " + e.getMessage());
+            System.out.println("Error en DAOTipoUsuario SELECT: " + e.getMessage());
         } finally {
             cn.desconectar();
         }
+        return tipo;
     }
 
     @Override
-    public ArrayList<EstadoEmp> ListEstadoEmp() {
-        ArrayList<EstadoEmp> list = new ArrayList<>();
-        EstadoEmp estado;
+    public ArrayList<TpUsuarios> list() {
+        ArrayList<TpUsuarios> list;
+        TpUsuarios tipo;
+        list = new ArrayList();
         try {
             cn.conectar();
-            sql = "SELECT * FROM estados_empleados";
+            sql = "SELECT * FROM tipos_usuarios";
             execute = cn.getconexionDB().prepareStatement(sql);
             rs = execute.executeQuery();
             while (rs.next()) {
-                estado = new EstadoEmp();
-                estado.setEstadoEmpleadoId(rs.getByte("estado_empleado_id"));
-                estado.setNombre(rs.getString("nombre"));
+                tipo = new TpUsuarios();
+                tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
+                tipo.setNombre(rs.getString("nombre"));
+               
+                
+                list.add(tipo);
             }
+            
         } catch (SQLException e) {
-            System.out.println("Error en DAOEstadoEmp List: " + e.getMessage());
+            System.out.println("Error en DAOTipoUsuario List: " + e.getMessage());
         } finally {
             cn.desconectar();
         }

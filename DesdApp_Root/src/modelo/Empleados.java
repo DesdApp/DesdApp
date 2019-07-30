@@ -2,7 +2,7 @@ package modelo;
 
 import java.sql.Date;
 
-public class Empleado {
+public class Empleados {
 
     private int personaId;
     private int empleadoId;
@@ -15,7 +15,7 @@ public class Empleado {
     private int tipoUsuarioId;
     private int estadoEmpleadoId;
 
-    public Empleado(int personaId, int empleadoId, String puesto, Date fechaInicio, Date fechaFinalizacion, double sueldo, String user, String password, int tipoUsuarioId, int estadoEmpleadoId) {
+    public Empleados(int personaId, int empleadoId, String puesto, Date fechaInicio, Date fechaFinalizacion, double sueldo, String user, String password, int tipoUsuarioId, int estadoEmpleadoId) {
         this.personaId = personaId;
         this.empleadoId = empleadoId;
         this.puesto = puesto;
@@ -28,7 +28,7 @@ public class Empleado {
         this.estadoEmpleadoId = estadoEmpleadoId;
     }
 
-    public Empleado() {
+    public Empleados() {
     }
     //<editor-flod defaultstate="collapsed" desc="Metodos de acceso SET & GET">
    
