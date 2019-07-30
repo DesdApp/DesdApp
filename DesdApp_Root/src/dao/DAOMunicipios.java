@@ -16,7 +16,7 @@ import java.util.ArrayList;
 *contMuni// verificar las sentencias if de cada metodo.
  */
 //implementacion de los metodos abstractos de la interfaz municipio
-public class DAOMunicipio implements interfaces.InterfaceMunicipio {
+public class DAOMunicipios implements interfaces.InterfaceMunicipio {
 
     private ConexionDB cn = new ConexionDB();
     private String sql = "";
