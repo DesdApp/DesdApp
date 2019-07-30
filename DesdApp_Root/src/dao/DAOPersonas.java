@@ -16,7 +16,7 @@ import java.util.List;
 */
 
 
-public class DAOPersona implements interfaces.InterfacePersona{
+public class DAOPersonas implements interfaces.InterfacePersona{
     private ConexionDB cn=new ConexionDB();
     private String sql="";
     private ResultSet result;

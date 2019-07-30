@@ -37,10 +37,10 @@ public class PruebasCarolina {
         Municipios datosMuni = new Municipios();
         TipoFacturacion datosTip = new TipoFacturacion();
         
-        DAOPersona daoPer = new DAOPersona();
+        DAOPersonas daoPer = new DAOPersonas();
         DAORegion daoReg = new DAORegion();
         DAODepartamentos daoDep = new DAODepartamentos();
-        DAOMunicipio daoMuni = new DAOMunicipio();
+        DAOMunicipios daoMuni = new DAOMunicipios();
         DAOTipoFacturacion daoTip = new DAOTipoFacturacion();
         
         ConexionDB cn = new ConexionDB();

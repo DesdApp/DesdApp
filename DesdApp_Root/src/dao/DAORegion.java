@@ -20,7 +20,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
     private String mensaje = "";
     private ResultSet result;
     private PreparedStatement ejecutar;
-    private int contRegion;
+    private int contRegion=0;
 
     //insertar Un nuevo Registro para Regiones
     @Override
@@ -74,7 +74,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
                 mensaje = "Se ha actualizado el registro";
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error en DAORegion UPDATE: " + e.getMessage());
         } finally {
             //Se desconecta de la base de Datos
