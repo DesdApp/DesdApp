@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import modelo.Empleados;
 import modelo.EstadosEmpleados;
 import modelo.EstadosPropiedades;
+import modelo.Propietarios;
 import modelo.TpUsuarios;
 
 /**
@@ -22,6 +23,9 @@ import modelo.TpUsuarios;
 public class PruebaCarlos {
 
     public static void main(String[] args) {
+        
+        
+        
 
         // Instanciamos las clases
 //        ArrayList list;
@@ -30,17 +34,23 @@ public class PruebaCarlos {
 
         // Instancias de los modelos
         Empleados emp = new Empleados(7, 6, "Prueba", date, date, (double) 1000, "UserPrueba", "Pss Prueba", 1, 1);
+        Propietarios propi= new Propietarios(5,"5","clienteModificado","passABC");
         EstadosEmpleados estadoEmp = new EstadosEmpleados((byte) 6, "Prueba");
         TpUsuarios tipUsu = new TpUsuarios((byte) 7, "Ingreso modificado");
+        
+        
 
         Empleados datosEmp = new Empleados();
+        Propietarios datosProp= new Propietarios();
         EstadosPropiedades datoEstados = new EstadosPropiedades();
         TpUsuarios datoTipoUsu = new TpUsuarios();
-
+        
         // Instancias de los DAO
         DAOEmpleados daoEmp = new DAOEmpleados();
+        DAOPropietarios daoProp=new DAOPropietarios();
         DAOEstadosEmpleados daoEstadoEmp = new DAOEstadosEmpleados();
         DAOTpUsuarios daoTipUsu = new DAOTpUsuarios();
+        
 
         // Realizamos la conexion
         ConexionDB cx = new ConexionDB();
@@ -110,19 +120,28 @@ public class PruebaCarlos {
                 id = sc.nextInt();
                 switch (id) {
                     case 1:
-                        System.out.println("Aun no esta el modelo la interfaz y el dao");
+                        daoProp.insert(propi);
+                        
                         break;
                     case 2:
-                        System.out.println("Aun no esta el modelo la interfaz y el dao");
+                        daoProp.delete(id);
+                        
                         break;
                     case 3:
-                        System.out.println("Aun no esta el modelo la interfaz y el dao");
+                        daoProp.update(propi);
+                        
                         break;
                     case 4:
-                        System.out.println("Aun no esta el modelo la interfaz y el dao");
+                        daoProp.select(id);
+                        
                         break;
                     case 5:
-                        System.out.println("Aun no esta el modelo la interfaz y el dao");
+                         ArrayList<Propietarios> lista = new ArrayList<>();
+                        lista = daoProp.list();
+                        for (Propietarios pro : lista) {
+                            System.out.println(pro.toString());
+                        }
+                        
                         break;
                     case 6:
                         break;

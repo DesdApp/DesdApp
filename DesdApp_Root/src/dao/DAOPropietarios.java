@@ -8,13 +8,15 @@ import java.util.ArrayList;
 import modelo.Propietarios;
 
 //implementacion de los metodos abstractos de la interfaz
+
 public class DAOPropietarios implements interfaces.InterfacePropietarios {
 
-    private ConexionDB cn = new ConexionDB();
+    private final ConexionDB cn = new ConexionDB();
     private String sql = "";
     private String mensaje = "";
     private ResultSet result;
     private PreparedStatement ejecutar;
+    Propietarios datos = new Propietarios();
     private int contProp = 0;
 
     //<editor-fold defaultstate="collapsed" desc="Insertar Propietarios">
@@ -31,7 +33,7 @@ public class DAOPropietarios implements interfaces.InterfacePropietarios {
             //Se conecta a la base de Datos
             cn.conectar();
             //Envia la consulta a la base de Datos:
-            sql = "INSERT INTO propietarios VALUES(?,?,?,?,?)";
+            sql = "INSERT INTO propietarios VALUES(?,?,?,?)";
             //Prepara la consulta en la base de Datos:
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de Datos:
@@ -160,14 +162,11 @@ public class DAOPropietarios implements interfaces.InterfacePropietarios {
      */
     @Override
     public Propietarios select(int id) {
-        //Se crea un objeto de tipo Propietarios
-        Propietarios datos = new Propietarios();
-        
         try {
             //Se conecta a la base de Datos
             cn.conectar();
             //Se envia la consulta a la base de Datos
-            sql="SELECT FROM propietarios WHERE propietario_id=? ";
+            sql="SELECT * FROM propietarios WHERE propietario_id=?";
             //Se ejecuta lal consulata en la base de Datos
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de Datos
@@ -175,12 +174,12 @@ public class DAOPropietarios implements interfaces.InterfacePropietarios {
             //Realiza la consulta y Muestra los datos de la base de Datos
             result=ejecutar.executeQuery();
             //Muestra la consulta
-            while (result.next()) {                
+            result.next();              
                 datos.setPropietarioId(result.getInt("propietario_id"));
                 datos.setAcreedor(result.getString("acreedor"));
                 datos.setUser(result.getString("user"));
                 datos.setPass(result.getString("password"));
-            }
+            result.close();
         } catch (SQLException e) {
              //Mensaje por consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
             System.out.println("Error en DAOPropietarios SELECT: " + e.getMessage());
