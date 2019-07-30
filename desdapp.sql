@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-07-2019 a las 20:40:19
+-- Tiempo de generación: 30-07-2019 a las 16:49:02
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -656,8 +656,7 @@ CREATE TABLE `propietarios` (
   `propietario_id` int(11) NOT NULL,
   `acreedor` varchar(150) NOT NULL,
   `user` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `persona_id` int(10) NOT NULL
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -941,8 +940,7 @@ ALTER TABLE `personas`
 -- Indices de la tabla `propietarios`
 --
 ALTER TABLE `propietarios`
-  ADD PRIMARY KEY (`propietario_id`),
-  ADD KEY `persona_id` (`persona_id`);
+  ADD PRIMARY KEY (`propietario_id`);
 
 --
 -- Indices de la tabla `regiones`
@@ -1024,10 +1022,10 @@ ALTER TABLE `tipos_usuarios`
 --
 ALTER TABLE `bienes_inmuebles`
   ADD CONSTRAINT `bienes_inmuebles_ibfk_1` FOREIGN KEY (`muni_id`) REFERENCES `municipios` (`muni_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `bienes_inmuebles_ibfk_3` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bienes_inmuebles_ibfk_4` FOREIGN KEY (`propietario_id`) REFERENCES `propietarios` (`propietario_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bienes_inmuebles_ibfk_5` FOREIGN KEY (`estado_propiedad_id`) REFERENCES `estados_propiedades` (`estado_propiedad_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `bienes_inmuebles_ibfk_6` FOREIGN KEY (`tipo_propiedad_id`) REFERENCES `tipos_propiedades` (`tipo_propiedad_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `bienes_inmuebles_ibfk_6` FOREIGN KEY (`tipo_propiedad_id`) REFERENCES `tipos_propiedades` (`tipo_propiedad_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bienes_inmuebles_ibfk_7` FOREIGN KEY (`persona_id`) REFERENCES `empleados` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `clientes`
@@ -1090,8 +1088,7 @@ ALTER TABLE `pagos_propiedades`
 -- Filtros para la tabla `propietarios`
 --
 ALTER TABLE `propietarios`
-  ADD CONSTRAINT `propietarios_ibfk_1` FOREIGN KEY (`propietario_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `propietarios_ibfk_2` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `propietarios_ibfk_1` FOREIGN KEY (`propietario_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `ventas`
