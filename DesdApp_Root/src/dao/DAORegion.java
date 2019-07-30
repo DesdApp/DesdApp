@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class DAORegion implements interfaces.InterfaceRegion {
 
-    private ConexionDB cn = new ConexionDB();
+    private final ConexionDB cn = new ConexionDB();
     private String sql = "";
     private String mensaje = "";
     private ResultSet result;
@@ -120,6 +120,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
         try {
             //Conecta a la base de datos
             cn.conectar();
+            //Envia la consulta a la base de Datos:
             sql = "SELECT * FROM regiones WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la bae de Datos

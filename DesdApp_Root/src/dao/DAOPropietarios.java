@@ -149,35 +149,97 @@ public class DAOPropietarios implements interfaces.InterfacePropietarios {
     //</editor-fold>
 
     
-    //<editor-fold defaultstate="collapsed" desc="Insertar Propietarios">
+    //<editor-fold defaultstate="collapsed" desc="Seleccionar Propietarios">
     //Metodo para Seleccionar
     /**
-     * Este metodo es para realizar la consulta de un tipo de facturacion en
+     * Este metodo es para realizar la consulta de un Propietario en
      * base a la id.
      *
-     * @param tipo_id Este parametro es la id del elemento que deseamos buscar.
+     * @param id Este parametro es la id del elemento que deseamos buscar.
      * @return Retorna el objeto obtendio de nuestra consulta.
      */
     @Override
     public Propietarios select(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        //Se crea un objeto de tipo Propietarios
+        Propietarios datos = new Propietarios();
+        
+        try {
+            //Se conecta a la base de Datos
+            cn.conectar();
+            //Se envia la consulta a la base de Datos
+            sql="SELECT FROM propietarios WHERE propietario_id=? ";
+            //Se ejecuta lal consulata en la base de Datos
+            ejecutar=cn.getconexionDB().prepareStatement(sql);
+            //Ejecuta la consulta en la base de Datos
+            ejecutar.setInt(1, id);
+            //Realiza la consulta y Muestra los datos de la base de Datos
+            result=ejecutar.executeQuery();
+            //Muestra la consulta
+            while (result.next()) {                
+                datos.setPropietarioId(result.getInt("propietario_id"));
+                datos.setAcreedor(result.getString("acreedor"));
+                datos.setUser(result.getString("user"));
+                datos.setPass(result.getString("password"));
+            }
+        } catch (SQLException e) {
+             //Mensaje por consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
+            System.out.println("Error en DAOPropietarios SELECT: " + e.getMessage());
+        }finally{
+            //Se desconecta de la base de Datos
+            cn.desconectar();
+        }
+        // retorna el objeto
+            return datos;
+       }
     //</editor-fold>
 
     
-    //<editor-fold defaultstate="collapsed" desc="Insertar Propietarios">
-    //Metodo para Seleccionar
+    //<editor-fold defaultstate="collapsed" desc="Listar Propietarios">
+    //Metodo para listar
     /**
-     * Este metodo es para realizar la consulta de un tipo de facturacion en
-     * base a la id.
-     *
-     * @param tipo_id Este parametro es la id del elemento que deseamos buscar.
-     * @return Retorna el objeto obtendio de nuestra consulta.
+     * Este metodo es para obtener todos los registros de la base de 
+     * datos correspondientes a la clase Propietarios.
+     * 
+     * @return Este metodo retorna una ArrayList de tipo Propietarios.
+     * 
      */
     @Override
     public ArrayList<Propietarios> list() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        //Crea un objeto tipo ArrayList
+        ArrayList<Propietarios>list;
+        //Crea un objeto tipo Propietarios
+        Propietarios propi;
+        //Inicializa el objeto tipo ArrayLisst
+        list= new ArrayList();
+        try {
+            //Se conecta a la base de Datos
+            cn.conectar();
+            //Envia la consulta a la base de Datos
+            sql="SELECT * FROM propietarios";
+            //Ejecuta la consulta en la base de Datos
+            ejecutar=cn.getconexionDB().prepareStatement(sql);
+            //Realiza la consulta y Muestra los datos.
+            result=ejecutar.executeQuery();
+            //Visualiza los datos de la consulta
+            while (result.next()) {   
+                propi= new Propietarios();
+                propi.setPropietarioId(result.getInt("propietario_id"));
+                propi.setAcreedor(result.getString("acreedor"));
+                propi.setUser(result.getString("user"));
+                propi.setPass(result.getString("password"));
+                
+                list.add(propi);
+            }
+        } catch (SQLException e) {
+            //Mensaje por consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
+            System.out.println("Error DAOPropietarios list: "+e.getMessage());
+        }finally{
+            //Se desconecta de la base de Datos
+            cn.desconectar();
+        }
+        //Retorna la consulta del ArrayList
+        return list;
+        }
 
     //</editor-fold>
 }
