@@ -44,4 +44,11 @@ public class TiposClientes {
         this.descripcion = descripcion;
     }
 //</editor-fold>
+
+    @Override
+    public String toString() {
+        return "TiposClientes{" + "tipoClienteId=" + tipoClienteId + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+    }
+    
+    
 }

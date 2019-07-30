@@ -28,8 +28,7 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         */
         try {
             cx.conectar();  // Realizamos la conexion con la base de datos
-            sql = "INSERT INTO bienes_inmuebles VALUES(?, ?, ?, ?, ?, ?, ?, ?, "
-                    + "?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
+            sql = "INSERT INTO bienes_inmuebles VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
             execute = cx.getconexionDB().prepareStatement(sql); // Asignamos la consulta al PreparedStatement
             execute.setInt(1, bien.getInmuebleId());    // Asignamos valores a la consulta
             execute.setString(2, bien.getDireccion());

@@ -34,4 +34,9 @@ public class Clientes {
     }
 //</editor-fold>
 
+    @Override
+    public String toString() {
+        return "Clientes{" + "clienteId=" + clienteId + ", clasificacion=" + clasificacion + '}';
+    }
+
 }

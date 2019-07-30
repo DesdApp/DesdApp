@@ -106,6 +106,7 @@ public class DAOTpClientes implements interfaces.InterfaceTpClientes {
         TiposClientes tipos;
         ArrayList<TiposClientes> list = new ArrayList<>();
         try {
+            cx.conectar();
             sql = "SELECT * FROM tipos_clientes";
             execute = cx.getconexionDB().prepareStatement(sql);
             rs = execute.executeQuery();

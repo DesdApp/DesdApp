@@ -35,4 +35,11 @@ public class EstadosPropiedades {
         this.nombre = nombre;
     }
 //</editor-fold>
+
+    @Override
+    public String toString() {
+        return "EstadosPropiedades{" + "estadoPropiedadId=" + estadoPropiedadId + ", nombre=" + nombre + '}';
+    }
+    
+    
 }
