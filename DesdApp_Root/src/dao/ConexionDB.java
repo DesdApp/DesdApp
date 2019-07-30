@@ -52,3 +52,6 @@ public class ConexionDB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
+
+
+//esto no tiene relevancia
