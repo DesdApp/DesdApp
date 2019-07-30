@@ -20,7 +20,6 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
     private String mensaje="";
     private  ResultSet resul;
     private PreparedStatement ejecutar;
-    private Departamentos datoDepto;
     private int conDepto=0;
 
     //Insertar Departamentos
@@ -95,7 +94,7 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
 
     //Eliminar Departamentos
     @Override
-    public String delete(Departamentos depto) {
+    public String delete(int id) {
         try {
             //Se conecta a la base de Datos
             cn.conectar();
@@ -104,7 +103,7 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
             //Prepara la consulta en la base de datos
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
-            ejecutar.setInt(1, depto.getDeptoId());
+            ejecutar.setInt(1, id);
             //Realiza la consulta y Actualiza la base de datos
             conDepto=ejecutar.executeUpdate();
             //Condiciona la consulta SQL
@@ -128,7 +127,8 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
 
     //Seleccionar Departamentos
     @Override
-    public Departamentos select(Departamentos depto) {
+    public Departamentos select(int id) {
+        Departamentos dato = new Departamentos();
         try {
             //Se conecta a la base de datos
             cn.conectar();
@@ -137,15 +137,15 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
             //Prepara la consulta en la base de Datos
             ejecutar=cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
-            ejecutar.setInt(1, depto.getDeptoId());
+            ejecutar.setInt(1, id);
             //Realiza la consulta y muesta los datos de la base de datos
             resul= ejecutar.executeQuery();
             //Visualiza los datos de la consulta
-            while (resul.next()) {                
-                datoDepto.setDeptoId(resul.getInt("depto_id"));
-                datoDepto.setNombre(resul.getString("nombre"));
-                datoDepto.setRegionId(resul.getInt("region_id"));
-            }
+            resul.next();                
+                dato.setDeptoId(resul.getInt("depto_id"));
+                dato.setNombre(resul.getString("nombre"));
+                dato.setRegionId(resul.getInt("region_id"));
+                resul.close();
         } catch (SQLException e) {
             //Mensaje Por Consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
             System.out.println("Error al buscar registro " +e.getMessage());
@@ -154,7 +154,7 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
             cn.desconectar();
         }
         //Retorna la visualizacion de los datos Tipo Departamentos
-        return datoDepto;
+        return dato;
         }
 
     //Listar Departamentos

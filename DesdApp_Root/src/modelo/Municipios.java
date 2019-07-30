@@ -45,6 +45,11 @@ public class Municipios {
     public void setDeptoId(int deptoId) {
         this.deptoId = deptoId;
     }
+
+    @Override
+    public String toString() {
+        return "Municipios{" + "muniIdi=" + muniIdi + ", nombre=" + nombre + ", deptoId=" + deptoId + '}';
+    }
     
     
 }
