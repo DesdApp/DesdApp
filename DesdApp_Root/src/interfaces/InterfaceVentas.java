@@ -1,12 +1,17 @@
 package interfaces;
 
-import modelo.Ventas;
 import java.util.ArrayList;
+import modelo.Ventas;
 
 public interface InterfaceVentas {
-    public Ventas select(Ventas venta);
+
+    public Ventas select(int id);
+
     public String update(Ventas venta);
-    public String delete(Ventas venta);
+
+    public String delete(int id);
+
     public String insert(Ventas venta);
+
     public ArrayList<Ventas> list();
 }

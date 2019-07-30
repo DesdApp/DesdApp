@@ -13,7 +13,7 @@ public class Persona {
     private int celular;
     private String correo;
     private Date fechaNac;
-    private int dpi;
+    private long dpi;
     private int nit;
    
 
@@ -23,21 +23,22 @@ public class Persona {
     
 
     //Constructor Con paramentros Persona
-    public Persona(int personaId, String nombre, String apellido, String direccion, int telefono, String correo, Date fechaNac, int dpi, int nit, int celular) {
+
+    public Persona(int personaId, String nombre, String apellido, String direccion, int telefono, int celular, String correo, Date fechaNac, long dpi, int nit) {
         this.personaId = personaId;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.celular = celular;
         this.correo = correo;
         this.fechaNac = fechaNac;
         this.dpi = dpi;
         this.nit = nit;
-        this.celular = celular;
     }
-    
-    
+
     //<editor-fold defaultstate="collapsed" desc="Getter y Setter">
+//</editor-fold>
     public int getPersonaId() {
         return personaId;
     }
@@ -78,6 +79,14 @@ public class Persona {
         this.telefono = telefono;
     }
 
+    public int getCelular() {
+        return celular;
+    }
+
+    public void setCelular(int celular) {
+        this.celular = celular;
+    }
+
     public String getCorreo() {
         return correo;
     }
@@ -94,11 +103,11 @@ public class Persona {
         this.fechaNac = fechaNac;
     }
 
-    public int getDpi() {
+    public long getDpi() {
         return dpi;
     }
 
-    public void setDpi(int dpi) {
+    public void setDpi(long dpi) {
         this.dpi = dpi;
     }
 
@@ -109,17 +118,10 @@ public class Persona {
     public void setNit(int nit) {
         this.nit = nit;
     }
- public int getCelular() {
-        return celular;
-    }
 
-    public void setCelular(int celular) {
-        this.celular = celular;
-    }
-    
-    
-    
-//</editor-fold>
+    @Override
+    public String toString() {
+        return "Persona" + "personaId=" + personaId + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", telefono=" + telefono + ", celular=" + celular + ", correo=" + correo + ", fechaNac=" + fechaNac + ", dpi=" + dpi + ", nit=" + nit;    }
 
    
             

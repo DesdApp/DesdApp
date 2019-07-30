@@ -6,11 +6,11 @@
  */
 package dao;
 
-import modelo.TiposPagos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import modelo.TiposPagos;
 
 public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamos la clase interface para los métodos abstractos
 
@@ -24,13 +24,13 @@ public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamo
     private String msg;
 
     @Override
-    public TiposPagos select(TiposPagos tp) { //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
+    public TiposPagos select(int id) { //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         TiposPagos tipo = new TiposPagos();
         try {
             cn.conectar();
             sql = "SELECT * FROM tipos_pagos WHERE tipo_pago_id = ?"; //Se crea consulta sql para retornar los datos correspondientes al método
             run = cn.getconexionDB().prepareStatement(sql);  //Después de ser verificada la conexion, se obtiene la consulta
-            run.setInt(1, tp.getTipo_pago_id());
+            run.setInt(1, id);
             r = run.executeQuery(); //Ejecuta la consulta y la almacena
             tipo.setTipo_pago_id(r.getInt("tipo_pago_id")); //Se asigna el valor específico a la variable
             tipo.setNombre(r.getString("nombre"));  //Se asigna el valor específico a la variable
@@ -47,7 +47,7 @@ public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamo
     public String insert(TiposPagos tipo) {  //Se realiza la consulta de insert para agregar un registro
         cn.conectar();
         sql = "INSERT INTO tipos_pagos VALUES(?,?)";  //Se crea la consulta sql para insertar datos de pagos de una propiedad
-        
+
         try {
             run = cn.getconexionDB().prepareStatement(sql);
             run.setInt(1, tipo.getTipo_pago_id());
@@ -84,12 +84,12 @@ public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamo
     }
 
     @Override
-    public String delete(TiposPagos tipo) { //Se realiza consulta de delete para eliminar un registro
+    public String delete(int id) { //Se realiza consulta de delete para eliminar un registro
         cn.conectar();
         sql = "DELETE FROM tipos_pagos WHERE tipo_pago_id = ?"; //Se crea consulta sql para eliminar algún registro
         try {
             run = cn.getconexionDB().prepareStatement(sql);
-            run.setInt(1, tipo.getTipo_pago_id());
+            run.setInt(1, id);
             byte contDel = (byte) run.executeUpdate();
             if (contDel == 0) {
                 msg = "El registro no existe";
@@ -98,7 +98,7 @@ public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamo
             }
         } catch (SQLException e) {
             msg = "Error al eliminar el registro";
-            System.out.println("Error en DAOTpPagos DELETE: " + e.getMessage());  //Mostrará el error en caso de que pase, primero Dios no 
+            System.out.println("Error en DAOTpPagos DELETE: " + e.getMessage());  //Mostrará el error en caso de que pase, primero Dios no
         } finally {
             cn.desconectar();
         }

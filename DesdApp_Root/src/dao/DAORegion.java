@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 /*
 *cn // Objeto de la Conexion a la Base de datos
 *sql // sentencia sql
@@ -19,12 +20,11 @@ public class DAORegion implements interfaces.InterfaceRegion {
     private String mensaje = "";
     private ResultSet result;
     private PreparedStatement ejecutar;
-    private Regiones datoRegion;
     private int contRegion;
 
     //insertar Un nuevo Registro para Regiones
     @Override
-    public String insertRegion(Regiones region) {
+    public String insert(Regiones region) {
         try {
             cn.conectar();
             sql = "INSERT INTO regiones VALUES(?,?,?)";
@@ -52,7 +52,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
 
     //Modificar Registro de Region
     @Override
-    public String updateRegion(Regiones region) {
+    public String update(Regiones region) {
         try {
             //Se conecta a la base de datos
             cn.conectar();
@@ -64,7 +64,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
             ejecutar.setInt(3, region.getRegionId());
             //Realiza la consulta y Actualiza la base de datos
             contRegion = ejecutar.executeUpdate();
-            
+
             //Condiciona la consulta SQL
             //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
             if (contRegion == 0) {
@@ -86,14 +86,14 @@ public class DAORegion implements interfaces.InterfaceRegion {
 
     //Eliminar Regiones
     @Override
-    public String deleteRegion(Regiones region) {
+    public String delete(int id) {
         try {
             //se conecta a la base de datos
             cn.conectar();
             sql = "DELETE FROM regiones WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
-            ejecutar.setInt(1, region.getRegionId());
+            ejecutar.setInt(1, id);
             //Realiza la consulta y Actualiza la base de datos
             contRegion = ejecutar.executeUpdate();
             //Condiciona la consulta SQL
@@ -115,64 +115,65 @@ public class DAORegion implements interfaces.InterfaceRegion {
 
     //seleccionar Region
     @Override
-    public Regiones selectRegion(Regiones region) {
+    public Regiones select(int id) {
+        Regiones datos = new Regiones();
         try {
             //Conecta a la base de datos
             cn.conectar();
             sql = "SELECT * FROM regiones WHERE region_id=?";
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la bae de Datos
-            ejecutar.setInt(1, region.getRegionId());
+            ejecutar.setInt(1, id);
+
             //Realiza la consulta y Muesta los datos de la base de datos
             result = ejecutar.executeQuery();
             //Visualiza los datos de la consulta
-            while (result.next()) {
-                datoRegion.setRegionId(result.getInt("region_id"));
-                datoRegion.setNombre(result.getString("nombre"));
-                datoRegion.setDescripcion(result.getString("descripcion"));
-            }
+            result.next();
+            datos.setRegionId(result.getInt("region_id"));
+            datos.setNombre(result.getString("nombre"));
+            datos.setDescripcion(result.getString("descripcion"));
+            result.close();
 
-        } catch (Exception e) {
-            System.out.println("Error al selecionar registro" + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error en DAORegion SELECT: " + e.getMessage());
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
         }
         //Retorna los datos tipo Region
-        return datoRegion;
+        return datos;
     }
 
     //listar Region.
     @Override
-    public ArrayList<Regiones> listRegiones() {
+    public ArrayList<Regiones> list() {
         //Crea un objeto tipo ArrayList
         ArrayList<Regiones> list;
         //Crea un objeto tipo Regiones
         Regiones regiones;
         //Inicializamos el objeto list
-        list=new ArrayList();   
+        list = new ArrayList();
         try {
             //Conectamos la base de datos
             cn.conectar();
-            sql="SELECT * FROM regiones";
-            ejecutar=cn.getconexionDB().prepareStatement(sql);
+            sql = "SELECT * FROM regiones";
+            ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Realiza la consulta y Muestra los datos 
-            result=ejecutar.executeQuery();
+            result = ejecutar.executeQuery();
             //Visualiza los datos de la consulta
             while (result.next()) {
                 //Cada vez que pase a un registro nuevo crea un objeto Regiones
-            regiones=new Regiones();
-            regiones.setRegionId(result.getInt("region_id"));
-            regiones.setNombre(result.getString("nombre"));
-            regiones.setDescripcion(result.getString("descripcion"));
-            //Se agregan los registros a un ArrayList
+                regiones = new Regiones();
+                regiones.setRegionId(result.getInt("region_id"));
+                regiones.setNombre(result.getString("nombre"));
+                regiones.setDescripcion(result.getString("descripcion"));
+                //Se agregan los registros a un ArrayList
                 list.add(regiones);
-                
+
             }
         } catch (SQLException e) {
-            System.out.println("Error al seleccionar lista de Regiones: "+e.getMessage());
-        }
-        finally{
+            System.out.println("Error al seleccionar lista de Regiones: " + e.getMessage());
+        } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
         }

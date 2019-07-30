@@ -9,9 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.Empleado;
+import modelo.Empleados;
 
-public class DAOEmpelado implements interfaces.InterfaceEmpleado {
+public class DAOEmpleados implements interfaces.InterfaceEmpleados {
 
     ConexionDB cn = new ConexionDB();
     PreparedStatement execute;
@@ -21,7 +21,7 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
     String sql;
 
     @Override
-    public void insertEmpleado(Empleado empleado) {
+    public String insert(Empleados empleado) {
         try {
             cn.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO empleados VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
@@ -47,13 +47,14 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
         } finally {
             cn.desconectar();   // Nos desconectamos de la base de datos
         }
+        return msg;
     }
 
     @Override
-    public void deleteEmpleado(int codigo) {
+    public String delete(int codigo) {
         try {
             cn.conectar();
-            sql = "DELETE FROM empleados WHERE empleado_id=?";
+            sql = "DELETE FROM empleados WHERE empleado_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
             execute.setInt(1, codigo);
             byte contDEL = (byte) execute.executeUpdate();
@@ -68,13 +69,14 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
         } finally {
             cn.desconectar();
         }
+        return msg;
     }
 
     @Override
-    public void updateEmpleado(Empleado empleado) {
+    public String update(Empleados empleado) {
         try {
             cn.conectar();
-            sql = "UPDATE empleados SET puesto = ?, fecha_inicio = ?, fecha_finalizacion = ?, sueldo = ?, user = ?, password = ?, tipo_usario_id = ?, estado_empleado_id = ? WHERE empleado_id = ?";
+            sql = "UPDATE empleados SET puesto = ?, fecha_inicio = ?, fecha_finalizacion = ?, sueldo = ?, user = ?, password = ?, tipo_usuario_id = ?, estado_empleado_id = ? WHERE empleado_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
             execute.setInt(9, empleado.getEmpleadoId());
             execute.setString(1, empleado.getPuesto());
@@ -93,11 +95,12 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
         } finally {
             cn.desconectar();
         }
+        return msg;
     }
 
     @Override
-    public void selectEmpleado(int codigo) {
-        Empleado empleados = new Empleado();
+    public Empleados select(int codigo) {
+        Empleados empleados = new Empleados();
         try {
             cn.conectar();
             sql = "SELECT * FROM empleados WHERE empleado_id=?";
@@ -122,19 +125,20 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
         } finally {
             cn.desconectar();
         }
+        return empleados;
     }
 
     @Override
-    public ArrayList<Empleado> ListEmpleado() {
-        ArrayList<Empleado> list = new ArrayList<>();
-        Empleado empleados;
+    public ArrayList<Empleados> lits() {
+        ArrayList<Empleados> list = new ArrayList<>();
+        Empleados empleados;
         try {
             cn.conectar();
             sql = "SELECT * FROM empleados";
             execute = cn.getconexionDB().prepareStatement(sql);
             rs = execute.executeQuery();
             while (rs.next()) {
-                empleados = new Empleado();
+                empleados = new Empleados();
                 empleados.setPersonaId(rs.getInt("persona_id"));
                 empleados.setEmpleadoId(rs.getInt("empleado_id"));
                 empleados.setPuesto(rs.getString("puesto"));
@@ -145,6 +149,7 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
                 empleados.setPassword(rs.getString("password"));
                 empleados.setTipoUsuarioId(rs.getInt("tipo_usuario_id"));
                 empleados.setEstadoEmpleadoId(rs.getInt("estado_empleado_id"));
+                list.add(empleados);
             }
         } catch (SQLException e) {
             System.out.println("Error en DAOEmpleado List: " + e.getMessage());
@@ -152,6 +157,6 @@ public class DAOEmpelado implements interfaces.InterfaceEmpleado {
             cn.desconectar();
         }
         return list;
-    }
+          }
 
 }

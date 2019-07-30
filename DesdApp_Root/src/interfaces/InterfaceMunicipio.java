@@ -8,10 +8,10 @@ import modelo.Municipios;
 
 public interface InterfaceMunicipio {
     //declaracion de los metodos abstractos
-    public String insertMuni(Municipios muni);
-    public String updateMuni(Municipios muni);
-    public String deleteMuni(Municipios muni);
-    public Municipios selectMuni(Municipios muni);
-    public ArrayList<Municipios>listMuni();
+    public String insert(Municipios muni);
+    public String update(Municipios muni);
+    public String delete(int id);
+    public Municipios select(int id);
+    public ArrayList<Municipios>list();
     
 }

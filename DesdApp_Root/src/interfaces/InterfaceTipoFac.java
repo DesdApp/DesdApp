@@ -8,11 +8,8 @@ import modelo.TipoFacturacion;
 
 public interface InterfaceTipoFac {
     //Declaracion de Metodods Abstractos
-    public String insertTipoFac(TipoFacturacion tipo);
-    public String updateTipoFac(TipoFacturacion tipo);
-    public String deletTipoFac(TipoFacturacion tipo);
-    public TipoFacturacion selectTipoFac(TipoFacturacion tipo_id);
-    public ArrayList<TipoFacturacion>listTipoFac();
+    public TipoFacturacion select(int id);
+    public ArrayList<TipoFacturacion>list();
     
     
 }

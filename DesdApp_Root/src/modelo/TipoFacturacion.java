@@ -36,6 +36,11 @@ public class TipoFacturacion {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return "TipoFacturacion{" + "tipoId=" + tipoId + ", nombre=" + nombre + '}';
+    }
     
     
 }

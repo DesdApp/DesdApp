@@ -1,16 +1,16 @@
 package modelo;
 
-public class EstadoEmp {
+public class EstadosEmpleados {
 
     private byte estadoEmpleadoId;
     private String nombre;
 
-    public EstadoEmp(byte estadoEmpleadoId, String nombre) {
+    public EstadosEmpleados(byte estadoEmpleadoId, String nombre) {
         this.estadoEmpleadoId = estadoEmpleadoId;
         this.nombre = nombre;
     }
 
-    public EstadoEmp() {
+    public EstadosEmpleados() {
     }
 
     //Setter & Getter
@@ -29,6 +29,11 @@ public class EstadoEmp {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "EstadoEmp{" + "estadoEmpleadoId=" + estadoEmpleadoId + ", nombre=" + nombre + '}';
     }
    
 

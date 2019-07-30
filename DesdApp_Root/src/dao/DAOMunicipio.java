@@ -16,20 +16,19 @@ import java.util.ArrayList;
 *contMuni// verificar las sentencias if de cada metodo.
  */
 //implementacion de los metodos abstractos de la interfaz municipio
-public class DaoMunicipio implements interfaces.InterfaceMunicipio {
+public class DAOMunicipio implements interfaces.InterfaceMunicipio {
 
     private ConexionDB cn = new ConexionDB();
     private String sql = "";
     private String mensaje = "";
     private ResultSet result;
     private PreparedStatement ejecutar;
-    private Municipios datoMuni;
     private int contMuni = 0;
 
     //Metodo para insertar Municipios
     @Override
    
-    public String insertMuni(Municipios muni) {
+    public String insert(Municipios muni) {
         try {
             //Se conecta a la base de datos
             cn.conectar();
@@ -63,7 +62,7 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
 
     //Metodo para Modificar Municipios
     @Override
-    public String updateMuni(Municipios muni) {
+    public String update(Municipios muni) {
         try {
              //Se conecta a la base de datos
             cn.conectar();
@@ -97,16 +96,16 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
 
     //Metodo para Eliminar Municipios
     @Override
-    public String deleteMuni(Municipios muni) {
+    public String delete(int id) {
         try {
              //Se conecta a la base de datos
             cn.conectar();
             //Eniva la consulta a la base de datos
-            sql = "DELETE FROM departamentos  WHERE muni_id=?";
+            sql = "DELETE FROM municipios  WHERE muni_id=?";
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
-            ejecutar.setInt(1, muni.getMuniIdi());
+            ejecutar.setInt(1, id);
             //Realiza la consulta y Actualliza la base de datos
             contMuni = ejecutar.executeUpdate();
             //Condiciona la consulta SQL
@@ -118,7 +117,7 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
             }
         } catch (SQLException e) {
             //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje = "Error en DAOMunicipios DELETE: " + e.getMessage();
+            System.out.println("Error en DAOMunicipios DELETE: " + e.getMessage());
         } finally {
             //Se desconecta de la base de datos
             cn.desconectar();
@@ -129,7 +128,8 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
 
     //Metodos para Seleccionar municipios
     @Override
-    public Municipios selectMuni(Municipios muni) {
+    public Municipios select(int id) {
+        Municipios dato = new Municipios();
         try {
              //Se conecta a la base de datos
             cn.conectar();
@@ -138,15 +138,15 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
             //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
             //Ejecuta la consulta en la base de datos
-            ejecutar.setInt(1, muni.getMuniIdi());
+            ejecutar.setInt(1, id);
             //Realiza la consulta y muestra los datos de la base de datos
             result = ejecutar.executeQuery();
             //Visualiza la consulta
-            while (result.next()) {
-                datoMuni.setMuniIdi(result.getInt("muni_id"));
-                datoMuni.setNombre(result.getString("nombre"));
-                datoMuni.setDeptoId(result.getInt("depto_id"));
-            }
+            result.next();
+                dato.setMuniIdi(result.getInt("muni_id"));
+                dato.setNombre(result.getString("nombre"));
+                dato.setDeptoId(result.getInt("depto_id"));
+            result.close();
         } catch (SQLException e) {
             //Mensaje Por Consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
             System.out.println("Error al Seleccionar Departamento: " + e);
@@ -155,12 +155,12 @@ public class DaoMunicipio implements interfaces.InterfaceMunicipio {
             cn.desconectar();
         }
         //Retorna la visualizacion por medio del objeto datoMuni
-        return datoMuni;
+        return dato;
     }
 
     //Metodo para Listar Municipios.
     @Override
-    public ArrayList<Municipios> listMuni() {
+    public ArrayList<Municipios> list() {
         //Se Crea un objeto tipo ArrayList
         ArrayList<Municipios> list;
         //Se crea un Objeto tipo Municipios

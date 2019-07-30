@@ -1,12 +1,12 @@
 package dao;
 
-import modelo.EstadoEmp;
+import modelo.EstadosEmpleados;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
+public class DAOEstadosEmpleados implements interfaces.InterfaceEstadosEmpleados {
 
     ConexionDB cn = new ConexionDB();
     PreparedStatement execute;
@@ -16,7 +16,7 @@ public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
     String sql;
 
     @Override
-    public void insertEstadoEmp(EstadoEmp estadoEmp) {
+    public String insert(EstadosEmpleados estadoEmp) {
         try {
             cn.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO estados_empleados VALUES(?, ?)"; // Asignamos a la variable sql la consulta
@@ -34,13 +34,14 @@ public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
         } finally {
             cn.desconectar();   // Nos desconectamos de la base de datos
         }
+        return msg;
     }
 
     @Override
-    public void deleteEstadoEmp(int codigo) {
+    public String delete(int codigo) {
         try {
             cn.conectar();
-            sql = "DELETE FROM estado_empleados WHERE estado_empleado_id=?";
+            sql = "DELETE FROM estado_empleados WHERE estado_empleado_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
             execute.setInt(1, codigo);
             byte contDEL = (byte) execute.executeUpdate();
@@ -55,10 +56,11 @@ public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
         } finally {
             cn.desconectar();
         }
+        return msg;
     }
 
     @Override
-    public void updateEmpleado(EstadoEmp estadoEmp) {
+    public String update(EstadosEmpleados estadoEmp) {
         try {
             cn.conectar();
             sql = "UPDATE estado_empleados SET nombre = ? WHERE estado_empleado_id = ?";
@@ -73,14 +75,15 @@ public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
         } finally {
             cn.desconectar();
         }
+        return msg;
     }
 
     @Override
-    public void selectEstadoEmp(int codigo) {
-        EstadoEmp estado = new EstadoEmp();
+    public EstadosEmpleados select(int codigo) {
+        EstadosEmpleados estado = new EstadosEmpleados();
         try {
             cn.conectar();
-            sql = "SELECT * FROM estados_empleados WHERE estado_empleado_id=?";
+            sql = "SELECT * FROM estados_empleados WHERE estado_empleado_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
             execute.setInt(1, codigo);
             rs = execute.executeQuery();
@@ -93,21 +96,23 @@ public class DAOEstadoEmp implements interfaces.InterfaceEstadoEmp {
         } finally {
             cn.desconectar();
         }
+        return estado;
     }
 
     @Override
-    public ArrayList<EstadoEmp> ListEstadoEmp() {
-        ArrayList<EstadoEmp> list = new ArrayList<>();
-        EstadoEmp estado;
+    public ArrayList<EstadosEmpleados> list() {
+        ArrayList<EstadosEmpleados> list = new ArrayList<>();
+        EstadosEmpleados estado;
         try {
             cn.conectar();
             sql = "SELECT * FROM estados_empleados";
             execute = cn.getconexionDB().prepareStatement(sql);
             rs = execute.executeQuery();
             while (rs.next()) {
-                estado = new EstadoEmp();
+                estado = new EstadosEmpleados();
                 estado.setEstadoEmpleadoId(rs.getByte("estado_empleado_id"));
                 estado.setNombre(rs.getString("nombre"));
+                list.add(estado);
             }
         } catch (SQLException e) {
             System.out.println("Error en DAOEstadoEmp List: " + e.getMessage());
