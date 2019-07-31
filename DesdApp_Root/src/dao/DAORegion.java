@@ -22,104 +22,16 @@ public class DAORegion implements interfaces.InterfaceRegion {
     private PreparedStatement ejecutar;
     private int contRegion = 0;
 
-    //insertar Un nuevo Registro para Regiones
-    @Override
-    public String insert(Regiones region) {
-        try {
-            cn.conectar();
-            sql = "INSERT INTO regiones VALUES(?,?,?)";
-            ejecutar = cn.getconexionDB().prepareStatement(sql);
-            ejecutar.setInt(1, region.getRegionId());
-            ejecutar.setString(2, region.getNombre());
-            ejecutar.setString(3, region.getDescripcion());
-            //Realiza la consulta y actualiza la base de datos
-            contRegion = ejecutar.executeUpdate();
+    
 
-            if (contRegion == 0) {
-                mensaje = "No se ingreso el registro";
-            } else {
-                mensaje = "Se ha ingresado correctamente el registro";
-            }
-        } catch (SQLException e) {
-            System.out.println("Error en DAORegion INSERT: " + e.getMessage());
-        } finally {
-            //Se desconecta de la base de Datos
-            cn.desconectar();
-        }
-        //Retorna la consulta realizada a la base de datos
-        return mensaje;
-    }
-
+    //<editor-fold defaultstate="collapsed" desc="Seleccionar Region">
     /**
-     *Actualizar Region: este metodo actualiza las regiones
-     * @param region ingresados por el usuario
-     * @return retorna un string indicando si actulizo o no los datos
+     * Este metodo es para realizar la consulta de una Region 
+     * en base a la id
+     * @param id Este parametro es la id del elemento que deseamos buscar.
+     * @return Retorna el objeto obtenido en la consulta.
      */
-    //Modificar Registro de Region
-    @Override
-    public String update(Regiones region) {
-        try {
-            //Se conecta a la base de datos
-            cn.conectar();
-            sql = "UPDATE regiones SET nombre=?, descripcion=? WHERE region_id=?";
-            ejecutar = cn.getconexionDB().prepareStatement(sql);
-            //Ejecuta la consulta en la base de Datos
-            ejecutar.setString(1, region.getNombre());
-            ejecutar.setString(2, region.getDescripcion());
-            ejecutar.setInt(3, region.getRegionId());
-            //Realiza la consulta y Actualiza la base de datos
-            contRegion = ejecutar.executeUpdate();
-
-            //Condiciona la consulta SQL
-            //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
-            if (contRegion == 0) {
-
-                mensaje = "No se actualizó el registro";
-            } else {
-                mensaje = "Se ha actualizado el registro";
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error en DAORegion UPDATE: " + e.getMessage());
-        } finally {
-            //Se desconecta de la base de Datos
-            cn.desconectar();
-        }
-        //Retorna la consulta realizada a la base de datos
-        return mensaje;
-    }
-
-    //Eliminar Regiones
-    @Override
-    public String delete(int id) {
-        try {
-            //se conecta a la base de datos
-            cn.conectar();
-            sql = "DELETE FROM regiones WHERE region_id=?";
-            ejecutar = cn.getconexionDB().prepareStatement(sql);
-            //Ejecuta la consulta en la base de datos
-            ejecutar.setInt(1, id);
-            //Realiza la consulta y Actualiza la base de datos
-            contRegion = ejecutar.executeUpdate();
-            //Condiciona la consulta SQL
-            //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
-            if (contRegion == 0) {
-                mensaje = "El registro no se a podido Eliminar";
-            } else {
-                mensaje = "Registro eliminado con Exito";
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error en DAORegion DELETE: " + e.getMessage());
-        } finally {
-            //Se desconecta de la base de Datos
-            cn.desconectar();
-        }
-        return mensaje;
-    }
-
-    //seleccionar Region
-    @Override
+     @Override
     public Regiones select(int id) {
         Regiones datos = new Regiones();
         try {
@@ -149,9 +61,16 @@ public class DAORegion implements interfaces.InterfaceRegion {
         //Retorna los datos tipo Region
         return datos;
     }
-
-    //listar Region.
-    @Override
+//</editor-fold>
+   
+   
+    //<editor-fold defaultstate="collapsed" desc="Listar Region">
+    /**
+     * Este metodo es para obtener todos los registros de la base
+     * de Datos correspondites a la clase Regiones
+     * @return  Este metodo retorna un ArrayList de tipo Regiones.
+     */
+      @Override
     public ArrayList<Regiones> list() {
         //Crea un objeto tipo ArrayList
         ArrayList<Regiones> list;
@@ -186,5 +105,8 @@ public class DAORegion implements interfaces.InterfaceRegion {
         //retorna los registros del ArrayList
         return list;
     }
+//</editor-fold>
+   
+  
 
 }

@@ -20,9 +20,10 @@ public class DAOTipoFacturacion implements interfaces.InterfaceTipoFac {
     public ResultSet result;
     public PreparedStatement ejecutar;
     public int contTipo;
-
-    //Metodo para Seleccionar
-    /**
+    
+    //<editor-fold defaultstate="collapsed" desc="Seleccionar TipoFacturacion">
+    
+      /**
      * Este metodo es para realizar la consulta de un tipo de facturacion 
      * en base a la id.
      * @param id Este parametro es la id del elemento que deseamos buscar.
@@ -58,8 +59,11 @@ public class DAOTipoFacturacion implements interfaces.InterfaceTipoFac {
         //Retorna la visualizacion de la consulta 
         return dato;
     }
-
-    //Metodo para listar
+    
+//</editor-fold>
+    
+    
+    //<editor-fold defaultstate="collapsed" desc="Listar TipoFacturacion">
     /**
      * Este metodo es para obtener todos los registros de la base de 
      * datos correspondientes a la clase TipoFacturacion.
@@ -108,6 +112,13 @@ public class DAOTipoFacturacion implements interfaces.InterfaceTipoFac {
         //Retorna la visualizacion de la lista
         return list;
     }
+    
+//</editor-fold>
+
+    
+  
+
+    
     
 
 }

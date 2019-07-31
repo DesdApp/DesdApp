@@ -22,111 +22,14 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
     private PreparedStatement ejecutar;
     private int conDepto=0;
 
-    //Insertar Departamentos
-    @Override
-    public String insert(Departamentos depto) {
-        try {
-            //Conecta a la base de Datos
-            cn.conectar();
-            //Envia la consulta a la base de Datos
-            sql="INSERT INTO departamentos VALUES(?,?,?)";
-            //Prepara la consulta en la base de datos
-            ejecutar=cn.getconexionDB().prepareStatement(sql);
-            //Ejecuta la consulta en la base de Datos
-            ejecutar.setInt(1, depto.getDeptoId());
-            ejecutar.setString(2, depto.getNombre());
-            ejecutar.setInt(3, depto.getRegionId());
-            //Realiza la consulta y actualiza la base de datos
-            conDepto=ejecutar.executeUpdate();
-            //Condiciona la consulta SQL
-            //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
-            if (conDepto==0) {
-                mensaje="No se ingresó el registro";
-            }else{
-                mensaje="Se ha ingresado el registro con éxito";
-            }
-        } catch (Exception e) {
-            //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje="Erro al insertar un Deprtamento";
-            System.out.println("Error en DAODepartamentos INSERT: " + e.getMessage());
-        }finally{
-            //Se desconecta de la base de Datos
-            cn.desconectar();
-        }
-        //Retorna la consulta por medio de la variable mensaje
-        return mensaje;
-        }
-
-    //Modificar Departamentos
-    @Override
-    public String update(Departamentos depto) {
-        try {
-            //Se conecta a la base de Datos
-            cn.conectar();
-            //Envia la consulta a la base de Datos
-            sql="UPDATE departamentos SET nombre=?, region_id=? WHERE depto_id=?";
-            //Prepara la consulta en la base de datos
-            ejecutar=cn.getconexionDB().prepareStatement(sql);
-            //Ejecuta la consulta en la base de datos
-            ejecutar.setString(1, depto.getNombre());
-            ejecutar.setInt(2, depto.getRegionId());
-            ejecutar.setInt(3, depto.getDeptoId());
-            //Realiza la consulta y Actualiza la base de Datos
-            conDepto=ejecutar.executeUpdate();
-            //Condiciona la consulta SQL
-            //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
-            if (conDepto==0) {
-                mensaje="No se actualizó el registro";
-            }else {
-                mensaje="Se ha actualizado el registro correctamente";
-            }
-        } catch (Exception e) {
-            //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje="Error a modificar Deprtamentos";
-            System.out.println("Error en DAODepartamentos UPDATE: " + e.getMessage());
-        }finally{
-            //Se desconecta de la base de datos
-            cn.desconectar();
-        }
-        //Retorna la consulta por medio de la variable mensaje
-        return mensaje;
-          }
-
-    //Eliminar Departamentos
-    @Override
-    public String delete(int id) {
-        try {
-            //Se conecta a la base de Datos
-            cn.conectar();
-            //Envia la consulta a la base de datos
-            sql="DELETE FROM departamentos WHERE depto_id=?";
-            //Prepara la consulta en la base de datos
-            ejecutar=cn.getconexionDB().prepareStatement(sql);
-            //Ejecuta la consulta en la base de datos
-            ejecutar.setInt(1, id);
-            //Realiza la consulta y Actualiza la base de datos
-            conDepto=ejecutar.executeUpdate();
-            //Condiciona la consulta SQL
-            //Si Existe la consulta en la base de tados entramos en el else de lo contrario entra al if y en ambas nos muestra el mensaje
-            if (conDepto==0) {
-                mensaje="No se eliminó el registro";
-            } else {
-                mensaje="Se ha eliminado el registro correctamente";
-            }
-        } catch (SQLException e) {
-            //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
-            mensaje="Error al Eliminar Departamentos";
-            System.out.println("Error en DAODepartamentos DELETE: " + e.getMessage());
-        }finally{
-            //Se desconecta de la base de datos
-            cn.desconectar();
-        }
-        //Retorna la consulta por medio de la variable mensaje
-        return mensaje;
-       }
-
-    //Seleccionar Departamentos
-    @Override
+    //<editor-fold defaultstate="collapsed" desc="Seleccionar Departamentos">
+    /**
+     * Este metodo es para realizar una consulta de un Departamento 
+     * en base a la id.
+     * @param id Este parametro es el id del elemento que deseamos buscar.
+     * @return  Retorna el objeto obtenido en la consulta.
+     */
+     @Override
     public Departamentos select(int id) {
         Departamentos dato = new Departamentos();
         try {
@@ -156,9 +59,16 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
         //Retorna la visualizacion de los datos Tipo Departamentos
         return dato;
         }
+//</editor-fold>
+   
 
-    //Listar Departamentos
-    @Override
+    //<editor-fold defaultstate="collapsed" desc="Listar Departamentos">
+    /**
+     * Este metodo es para obtener todos lor registros de la base de Datos 
+     * correspondites a la clase Departamentos.
+     * @return Este metodo retorna un ArrayList de tipo Departamentos.
+     */
+     @Override
     public ArrayList<Departamentos> list() {
         //Crea un objeto tipo ArrayList
         ArrayList<Departamentos> list;
@@ -197,5 +107,8 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
         return list;
         
          }
+//</editor-fold>
+    
+   
     
 }

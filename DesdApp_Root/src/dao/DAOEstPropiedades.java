@@ -21,89 +21,15 @@ public class DAOEstPropiedades implements interfaces.InterfaceEstadosProp {
     String sql;
     String msg;
 
-    @Override
-    public String insertEstado(EstadosPropiedades estado) {
-        /*
-        * Se realiza la consulta para agregar un registro a la tabla
-         */
-        try {
-            cx.conectar();  // Realizamos la conexion a la base de datos
-            sql = "INSERT INTO estados_propiedades VALUES(?, ?)";   // Asignamos a la variable sql la consulta
-            execute = cx.getconexionDB().prepareStatement(sql); // Asignamos la consulta al PreparedStatement
-            execute.setByte(1, estado.getEstadoPropiedadId());  // Asignamos los valores a la consulta
-            execute.setString(2, estado.getNombre());
-            /**
-             * execute.update() es utilizado para ejecutar una consulta y
-             * actualizar la base de datos
-             */
-            execute.executeUpdate();
-            msg = "Resgistro almacenado con exito"; // Escribimos un mensaje de que la consulta se realizo con exito
-        } catch (SQLException e) {
-            msg = "Error al almacenar el registro"; // Escribimos un mensaje de error
-            /**
-             * .getMessage() se utiliza para obtener un mensaje detallado del
-             * objeto Throwable
-             */
-            System.out.println("Error en DAOEstadosProp INSERT: " + e.getMessage()); // Mostramos un mensaje de error
-        } finally {
-            cx.desconectar();   // Nos desconectamos de la base de datos
-        }
-        return msg;
-    }
-
-    @Override
-    public String deleteEstado(byte codigo) {
-        /**
-         * Se realiza la consulta para borrar un registro de la tabla Nos
-         * conectamos a la base de datos, asignamos la consulta al
-         * PreparedStatement, asignamos los valores a la consulta y realizamos
-         * la consulta. Luego cerramos la conexion
-         */
-        try {
-            cx.conectar();
-            sql = "DELETE FROM estados_propiedades WHERE estado_propiedad_id = ?";
-            execute = cx.getconexionDB().prepareStatement(sql);
-            execute.setByte(1, codigo);
-            byte contDel = (byte) execute.executeUpdate(); // La variable contDel verifica que el registro existe
-            if (contDel == 0) { // Verificamos si el registro existe
-                msg = "El registro no existe";  // escribimos un ensaje de que el registro no existe
-            } else {
-                msg = "registro eliminado con exito";
-            }
-        } catch (SQLException e) {
-            msg = "Error al eliminar el registro";
-            System.out.println("Error en DAOEstadosProp DELETE: " + e.getMessage());
-        } finally {
-
-        }
-        return msg;
-    }
-
-    @Override
-    public String updateEstado(EstadosPropiedades estado) {
-        /**
-         * Se realiza la consulta para actualizar un registro de la tabla
-         */
-        try {
-            cx.conectar();
-            sql = "UPDATE estados_propiedades SET nombre = ? WHERE estado_proiedad_id = ?";
-            execute.setByte(2, estado.getEstadoPropiedadId());
-            execute.setString(1, estado.getNombre());
-            execute.executeUpdate();
-            msg = "Registro actualizado con exito";
-        } catch (SQLException e) {
-            msg = "Error al actualizar el registro";
-            System.out.println("Error en DAOEstPropiedades UPDATE: " + e.getMessage());
-        } finally {
-            cx.desconectar();
-        }
-        return msg;
-    }
-
-    @Override
+    //<editor-fold defaultstate="collapsed" desc="Seleccionar Estado Propiedades">
     /**
-     * @return el registro que se selecciono
+     * Este parametro es par realizar la consulta de un tipo de Estado Propiedades
+     * en base al codigo.
+     * @param codigo Este parametro es el codigo del elemento que deseamos buscar.
+     * @return  Retorna el objeto obtenido en la consulta.
      */
+     @Override
+    
     public EstadosPropiedades selectEstado(byte codigo) {
         /*
         * Se realiza la consulta para seleccionar un registro
@@ -130,7 +56,15 @@ public class DAOEstPropiedades implements interfaces.InterfaceEstadosProp {
         }
         return estado;
     }
-
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Listar Estado de Propiedades">
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos correspondites
+     * a la clase EstadoPropiedades
+     * @return  Este metodo retorna un ArrayList de tipo Estado Propiedades.
+     */
+    
     @Override
     /**
      * @return los registros de la tabla
@@ -157,6 +91,11 @@ public class DAOEstPropiedades implements interfaces.InterfaceEstadosProp {
         return list;
 
     }
+//</editor-fold>
+
+   
+
+    
     
 }
 
