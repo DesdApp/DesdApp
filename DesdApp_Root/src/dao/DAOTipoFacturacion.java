@@ -25,8 +25,7 @@ public class DAOTipoFacturacion implements interfaces.InterfaceTipoFac {
     /**
      * Este metodo es para realizar la consulta de un tipo de facturacion 
      * en base a la id.
-     * 
-     * @param tipo_id Este parametro es la id del elemento que deseamos buscar.
+     * @param id Este parametro es la id del elemento que deseamos buscar.
      * @return Retorna el objeto obtendio de nuestra consulta.
      */
      

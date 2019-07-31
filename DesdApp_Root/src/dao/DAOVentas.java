@@ -22,7 +22,11 @@ public class DAOVentas implements interfaces.InterfaceVentas {  //Implementamos 
     // Atributos
     private String sql;
     private String msg;
-
+    /**
+     * 
+     * @param id valor entero ingresado por el usuario
+     * @return objeto de tipo Ventas con los datos localizados, al no existir el codigo retorna el objeto nulo
+     */
     @Override
     public Ventas select(int id) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         Ventas venta = new Ventas();
@@ -49,7 +53,7 @@ public class DAOVentas implements interfaces.InterfaceVentas {  //Implementamos 
         }
         return venta;
     }
-
+    
     @Override
     public String update(Ventas venta) { //Se realiza la consulta de update para actualizar algún registro
         cn.conectar();

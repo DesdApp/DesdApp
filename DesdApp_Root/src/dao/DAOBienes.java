@@ -21,11 +21,17 @@ public class DAOBienes implements interfaces.InterfaceBienes {
     String msg;
     String sql;
 
+    /**
+     * Este metodo es para Realizar Insertar un nuevo Bien
+     *
+     * @param bien Este parametro es el tipo de objeto que deseamos ingresar
+     * @return Retorna el mensaje de nuestra consulta.
+     */
     @Override
     public String insertBien(Bienes bien) {
         /*
         * Se realiza la consulta para agregar un registro a la tabla
-        */
+         */
         try {
             cx.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO bienes_inmuebles VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
@@ -57,6 +63,14 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         return msg;
     }
 
+    /**
+     * Este metodo es para realizar la Eliminacion de un Bien Inmueble en base a
+     * codigo.
+     *
+     * @param codigo Este parametro es el codigo del elemento que deseamos
+     * Eliminar
+     * @return Retorna el objeto obtenido de nuestra consulta.
+     */
     @Override
     public String deleteBien(int codigo) {
         /*
@@ -85,6 +99,14 @@ public class DAOBienes implements interfaces.InterfaceBienes {
 
     }
 
+    /**
+     * Este metodo es para realizar la Modificacion De un Bien Inmueble En Base
+     * al tipo de Dato
+     *
+     * @param bien Este Parametro Es el tipo de Dato con el que se modificara
+     * Nuestro Bien Inmueble
+     * @return Retorna el objeto obtenido de Nuestra Consulta
+     */
     @Override
     public String updateBien(Bienes bien) {
         /*
@@ -123,10 +145,12 @@ public class DAOBienes implements interfaces.InterfaceBienes {
 
     }
 
-    @Override
     /**
-     * @return el registro que se selecciono
+     *Este metodo 
+     * @param codigo
+     * @return
      */
+    @Override
     public Bienes selectBien(int codigo) {
         /*
         * Se realiza la consulta para seleccionar un registro
