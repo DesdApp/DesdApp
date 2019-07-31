@@ -14,70 +14,13 @@ public class DAOEstadosEmpleados implements interfaces.InterfaceEstadosEmpleados
 
     String msg;
     String sql;
-
-    @Override
-    public String insert(EstadosEmpleados estadoEmp) {
-        try {
-            cn.conectar();  // Realizamos la conexion con la base de datos
-            sql = "INSERT INTO estados_empleados VALUES(?, ?)"; // Asignamos a la variable sql la consulta
-            execute = cn.getconexionDB().prepareStatement(sql); // Asignamos la consulta al PreparedStatement
-            execute.setByte(1, estadoEmp.getEstadoEmpleadoId());
-            execute.setString(2, estadoEmp.getNombre());
-            execute.executeUpdate();    // Realizamos la consulta y actualizamos la base de datos
-            msg = "Registro almacenado con exito";  // Escribimos un mensaje de que la consulta se realizo con exito
-        } catch (SQLException e) {
-            msg = "Error al almacenar el registro"; // Escribimos un mensaje de error
-            /*
-             * .getMessage() se utiliza para obtener un mensaje detallado del objeto Throwable
-             */
-            System.out.println("Error en DAOEstadoEmp INSERT: " + e.getMessage()); // Mostramos un mensaje de error
-        } finally {
-            cn.desconectar();   // Nos desconectamos de la base de datos
-        }
-        return msg;
-    }
-
-    @Override
-    public String delete(int codigo) {
-        try {
-            cn.conectar();
-            sql = "DELETE FROM estado_empleados WHERE estado_empleado_id = ?";
-            execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setInt(1, codigo);
-            byte contDEL = (byte) execute.executeUpdate();
-            if (contDEL == 0) {
-                msg = "El registro no existe";
-            } else {
-                msg = "Registro eliminado con exito";
-            }
-        } catch (SQLException e) {
-            msg = "Ocurrio un error al trata de eliminar el registro";
-            System.out.println("Error en DAOEstadoEmp DELETE: " + e.getMessage());
-        } finally {
-            cn.desconectar();
-        }
-        return msg;
-    }
-
-    @Override
-    public String update(EstadosEmpleados estadoEmp) {
-        try {
-            cn.conectar();
-            sql = "UPDATE estado_empleados SET nombre = ? WHERE estado_empleado_id = ?";
-            execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setByte(2, estadoEmp.getEstadoEmpleadoId());
-            execute.setString(1, estadoEmp.getNombre());
-            execute.executeUpdate();
-            msg = "Registro actualizado";
-        } catch (SQLException e) {
-            msg = "Error al actualizar el registro";
-            System.out.println("Eror en DAOEstadoEmp UPDATE: " + e.getMessage());
-        } finally {
-            cn.desconectar();
-        }
-        return msg;
-    }
-
+//<editor-fold defaultstate="collapsed" desc="Seleccionar Estado Empleado">
+    /**
+     * Este metodo Es para realizar la consulta de un Estado Empleado 
+     * en base al codigo.
+     * @param codigo Este parametro es el codigo del elemento que debemos buscar
+     * @return  Retorna el objeto obtenido de nuestra consulta.
+     */
     @Override
     public EstadosEmpleados select(int codigo) {
         EstadosEmpleados estado = new EstadosEmpleados();
@@ -98,8 +41,17 @@ public class DAOEstadosEmpleados implements interfaces.InterfaceEstadosEmpleados
         }
         return estado;
     }
-
-    @Override
+//</editor-fold>
+    
+    
+//<editor-fold defaultstate="collapsed" desc="Listar Estado Empleados">
+    /**
+     * Este metodo es para obtener todos los registros de la base de 
+     * datos correspondientes a la clase Estao Empleados
+     * @return   Este metodo retorna un ArrayList de tipo EstadosEmpleados.
+     */
+    
+     @Override
     public ArrayList<EstadosEmpleados> list() {
         ArrayList<EstadosEmpleados> list = new ArrayList<>();
         EstadosEmpleados estado;
@@ -121,4 +73,6 @@ public class DAOEstadosEmpleados implements interfaces.InterfaceEstadosEmpleados
         }
         return list;
     }
+//</editor-fold>
+   
 }

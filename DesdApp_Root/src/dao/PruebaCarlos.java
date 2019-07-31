@@ -156,35 +156,24 @@ public class PruebaCarlos {
 
             //<editor-fold defaultstate="collapsed" desc="Puebas Estado Empleados">
             case 3:
-                System.out.println("1) INSERT");
-                System.out.println("2) DELETE");
-                System.out.println("3) UPDATE");
-                System.out.println("4) SELECT");
-                System.out.println("5) LIST");
-                System.out.println("6) Regresar");
+                
+                System.out.println("1) SELECT");
+                System.out.println("2) LIST");
+                System.out.println("3) Regresar");
                 id2 = sc.nextInt();
                 switch (id2) {
+                    
                     case 1:
-                        daoEstadoEmp.insert(estadoEmp);
-                        break;
-                    case 2:
-                        daoEstadoEmp.delete(id);
-                        break;
-                    case 3:
-                        daoEstadoEmp.update(estadoEmp);
-
-                        break;
-                    case 4:
                         daoEmp.select(id);
                         break;
-                    case 5:
+                    case 2:
                         ArrayList<EstadosEmpleados> lista = new ArrayList<>();
                         lista = daoEstadoEmp.list();
                         for (EstadosEmpleados estadoEmp1 : lista) {
                             System.out.println(estadoEmp1.toString());
                         }
                         break;
-                    case 6:
+                    case 3:
 
                         break;
                     default:
@@ -195,24 +184,14 @@ public class PruebaCarlos {
 
             //<editor-fold defaultstate="collapsed" desc="Pruebas Para tipos de Usuarios">
             case 4:
-                System.out.println("1) INSERT");
-                System.out.println("2) DELETE");
-                System.out.println("3) UPDATE");
-                System.out.println("4) SELECT");
-                System.out.println("5) LIST");
-                System.out.println("6) Regresar");
+                
+                System.out.println("1) SELECT");
+                System.out.println("2) LIST");
+                System.out.println("3) Regresar");
                 id2 = sc.nextInt();
                 switch (id2) {
+                    
                     case 1:
-                        daoTipUsu.insertTipoUsario(tipUsu);
-                        break;
-                    case 2:
-                        daoTipUsu.deleteTipoUsario(id);
-                        break;
-                    case 3:
-                        daoTipUsu.updateTipoUsario(tipUsu);
-                        break;
-                    case 4:
                         System.out.println("Registro a seleccionar: ");
                         id = sc.nextInt();
                         datoTipoUsu = daoTipUsu.selectTipoUsuario((byte)id);
@@ -220,7 +199,7 @@ public class PruebaCarlos {
                         //daoTipUsu.selectTipoUsuario((byte) id);
                         //System.out.println(daoTipUsu.toString());
                         break;
-                    case 5:
+                    case 2:
                         ArrayList<TpUsuarios> lista = new ArrayList<>();
                         lista = daoTipUsu.list();
                         for (TpUsuarios tipoUsuario : lista) {
@@ -228,7 +207,7 @@ public class PruebaCarlos {
                         }
                             break;
                         
-                        case 6:
+                        case 3:
 
                         break;
                     default:

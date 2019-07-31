@@ -15,69 +15,14 @@ public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
     String msg;
     String sql;
 
-    @Override
-    public String insertTipoUsario(TpUsuarios tipo) {
-        try {
-            cn.conectar();  // Realizamos la conexion con la base de datos
-            sql = "INSERT INTO tipos_usuarios VALUES(?, ?)"; // Asignamos a la variable sql la consulta
-            execute = cn.getconexionDB().prepareStatement(sql); // Asignamos la consulta al PreparedStatement
-            execute.setByte(1, tipo.getTipoUsuarioId());
-            execute.setString(2, tipo.getNombre());
-            execute.executeUpdate();    // Realizamos la consulta y actualizamos la base de datos
-            msg = "Registro almacenado con exito";  // Escribimos un mensaje de que la consulta se realizo con exito
-        } catch (SQLException e) {
-            msg = "Error al almacenar el registro"; // Escribimos un mensaje de error
-            /*
-             * .getMessage() se utiliza para obtener un mensaje detallado del objeto Throwable
-             */
-            System.out.println("Error en DAOTipoUsuario INSERT: " + e.getMessage()); // Mostramos un mensaje de error
-        } finally {
-            cn.desconectar();   // Nos desconectamos de la base de datos
-        }
-        return msg;
-    }
-
-    @Override
-    public String deleteTipoUsario(int codigo) {
-        try {
-            cn.conectar();
-            sql = "DELETE FROM tipos_usuarios WHERE tipo_usuario_id=?";
-            execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setInt(1, codigo);
-            byte contDEL = (byte) execute.executeUpdate();
-            if (contDEL == 0) {
-                msg = "El registro no existe";
-            } else {
-                msg = "Registro eliminado con exito";
-            }
-        } catch (SQLException e) {
-            msg = "Ocurrio un error al trata de eliminar el registro";
-            System.out.println("Error en DAOTipoUsuario DELETE: " + e.getMessage());
-        } finally {
-            cn.desconectar();
-        }
-        return msg;
-    }
-
-    @Override
-    public String updateTipoUsario(TpUsuarios tipo) {
-        try {
-            cn.conectar();
-            sql = "UPDATE tipos_usuarios SET nombre = ? WHERE tipo_usuario_id = ?";
-            execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setByte(2, tipo.getTipoUsuarioId());
-            execute.setString(1, tipo.getNombre());
-            execute.executeUpdate();
-            msg = "Registro actualizado";
-        } catch (SQLException e) {
-            msg = "Error al actualizar el registro";
-            System.out.println("Eror en DAOTipoUsuario UPDATE: " + e.getMessage());
-        } finally {
-            cn.desconectar();
-        }
-        return msg;
-    }
-
+    //<editor-fold defaultstate="collapsed" desc="Seleccionar TipoUsuario">
+    /**
+     * Este metodo es para realizar la consulta de un Tipo Usuario en base al
+     * codigo
+     *
+     * @param codigo Este parametro es el codigo del elemento que debemos buscar
+     * @return Retorna el objeto obtenido de nuestra consulta.
+     */
     @Override
     public TpUsuarios selectTipoUsuario(byte codigo) {
         TpUsuarios tipo = new TpUsuarios();
@@ -91,7 +36,7 @@ public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
             tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
             tipo.setNombre(rs.getString("nombre"));
             rs.close();
-            System.out.println("Se realizo el SELECT con exito" +rs);
+            System.out.println("Se realizo el SELECT con exito" + rs);
         } catch (SQLException e) {
             System.out.println("Error en DAOTipoUsuario SELECT: " + e.getMessage());
         } finally {
@@ -99,7 +44,15 @@ public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
         }
         return tipo;
     }
+//</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="Listar TiposUsuarios">
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase Tipos Usuarios.
+     *
+     * @return Este metodo retorna un ArrayList de tipo TioposUsuarios.
+     */
     @Override
     public ArrayList<TpUsuarios> list() {
         ArrayList<TpUsuarios> list;
@@ -114,11 +67,10 @@ public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
                 tipo = new TpUsuarios();
                 tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
                 tipo.setNombre(rs.getString("nombre"));
-               
-                
+
                 list.add(tipo);
             }
-            
+
         } catch (SQLException e) {
             System.out.println("Error en DAOTipoUsuario List: " + e.getMessage());
         } finally {
@@ -126,4 +78,6 @@ public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
         }
         return list;
     }
+//</editor-fold>
+
 }
