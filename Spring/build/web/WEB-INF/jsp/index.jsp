@@ -8,10 +8,12 @@
     <title>Welcome to Spring Web MVC project</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/WEB-INF/css/estilo.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/estilo.css"/>
+    <!--la carpeta static tiene que crearse siempre que se llame a un recuros de forma local, dentro de la carpeta static van las carpetas de js(JavaScript), css y image. Esta carpeta va a la altura de WEB-INF y redirect.jsp-->
 </head>
 
 <body>
+    
     <div class="row d-flex justify-content-center mt-5">
 
         <div class="col-5 p-5 border border-dark">
