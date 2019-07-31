@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-07-2019 a las 18:37:54
--- Versión del servidor: 10.3.16-MariaDB
--- Versión de PHP: 7.3.7
+-- Tiempo de generación: 31-07-2019 a las 04:44:16
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -54,6 +54,16 @@ CREATE TABLE `clientes` (
   `cliente_id` int(11) NOT NULL,
   `clasificacion_id` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`cliente_id`, `clasificacion_id`) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4);
 
 -- --------------------------------------------------------
 
@@ -143,11 +153,11 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`persona_id`, `empleado_id`, `puesto`, `fecha_inicio`, `fecha_finalizacion`, `sueldo`, `user`, `password`, `tipo_usuario_id`, `estado_empleado_id`) VALUES
-(1, 1, 'secretaria', '2014-03-20', '0000-00-00', '7300.00', 'ssosad1', '123', 2, 1),
-(2, 2, 'reportes', '2015-09-03', '0000-00-00', '5900.00', 'ptejadav1', '123', 4, 1),
-(3, 3, 'admin', '2010-01-06', '0000-00-00', '8500.00', 'czepedad1', '123', 1, 1),
-(4, 4, 'corredor', '2018-11-29', '0000-00-00', '5900.00', 'eriosk1', '123', 3, 1),
-(5, 5, 'corredor', '2016-02-09', '0000-00-00', '5900.00', 'evelasquez1', '123', 3, 1);
+(1, 201, 'secretaria', '2014-03-20', '0000-00-00', '7300.00', 'ssosad1', '123', 2, 1),
+(2, 202, 'reportes', '2015-09-03', '0000-00-00', '5900.00', 'ptejadav1', '123', 4, 1),
+(3, 203, 'admin', '2010-01-06', '0000-00-00', '8500.00', 'czepedad1', '123', 1, 1),
+(4, 204, 'corredor', '2018-11-29', '0000-00-00', '5900.00', 'eriosk1', '123', 3, 1),
+(5, 205, 'corredor', '2016-02-09', '0000-00-00', '5900.00', 'evelasquez1', '123', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -658,6 +668,32 @@ CREATE TABLE `propietarios` (
   `user` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `propietarios`
+--
+
+INSERT INTO `propietarios` (`propietario_id`, `acreedor`, `user`, `password`) VALUES
+(6, '5', 'cliente1', 'abc123'),
+(7, '6', 'cliente2', 'def456'),
+(8, '5', 'cliente3', 'ghi789'),
+(9, '6', 'cliente4', 'jkl123'),
+(10, '5', 'cliente5', 'mno456'),
+(11, '6', 'cliente6', 'pqr789'),
+(12, '5', 'cliente7', 'stu123'),
+(13, '6', 'cliente8', 'vwx456'),
+(14, '5', 'cliente9', 'yz789'),
+(15, '6', 'cliente10', 'abcd123'),
+(16, '5', 'cliente11', 'efgh456'),
+(17, '6', 'cliente12', 'ijkl789'),
+(18, '5', 'cliente13', 'mnop123'),
+(19, '6', 'cliente14', 'qrst456'),
+(20, '5', 'cliente15', 'uvwx789'),
+(21, '6', 'cliente16', 'yz123'),
+(22, '5', 'cliente17', 'cli123'),
+(23, '6', 'cliente18', 'cli456'),
+(24, '5', 'cliente19', 'cli789'),
+(25, '6', 'cliente20', 'cli123456');
 
 -- --------------------------------------------------------
 
