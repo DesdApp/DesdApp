@@ -20,8 +20,9 @@ public class DAOBienes implements interfaces.InterfaceBienes {
     // Atibutos
     String msg;
     String sql;
-
-    /**
+    
+    //<editor-fold defaultstate="collapsed" desc="Ingresa Bien Inmueble">
+     /**
      * Este metodo es para Realizar Insertar un nuevo Bien
      *
      * @param bien Este parametro es el tipo de objeto que deseamos ingresar
@@ -62,8 +63,10 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         }
         return msg;
     }
+//</editor-fold>
 
-    /**
+    //<editor-fold defaultstate="collapsed" desc="Elimina Bien Inmueble">
+     /**
      * Este metodo es para realizar la Eliminacion de un Bien Inmueble en base a
      * codigo.
      *
@@ -98,7 +101,9 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         return msg;
 
     }
+//</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="Modificar Bien Inmueble">
     /**
      * Este metodo es para realizar la Modificacion De un Bien Inmueble En Base
      * al tipo de Dato
@@ -144,11 +149,14 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         return msg;
 
     }
+//</editor-fold>
 
-    /**
-     *Este metodo 
-     * @param codigo
-     * @return
+    //<editor-fold defaultstate="collapsed" desc="Seleccionar Bien Inmueble">
+     /**
+     *Este metodo es para realizar la consulta de un Bien Inmueble en
+     * base al codigo
+     * @param codigo este parametro es el codigo del elemeto que deseamos buscar.
+     * @return Retorna el objeto obtenido de nuestra consulta.
      */
     @Override
     public Bienes selectBien(int codigo) {
@@ -190,11 +198,16 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         }
         return bien;
     }
+//</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="Listar Bienes Inmuebles">
+     /**
+      * Este metodo es para obtener todos los registros de la base de Datos 
+      * correspondites a la clase Bienes.
+      * @return Este metodo retorna un ArrayList de tipo Bienes.
+      */
     @Override
-    /**
-     * @return los registros de la tabla
-     */
+   
     public ArrayList<Bienes> listBienes() {
         ArrayList<Bienes> list = new ArrayList<>(); // Utilizamos un ArrayList para obtener todos los registros y almacenarlos
         Bienes bien;
@@ -228,5 +241,7 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         }
         return list;
     }
+//</editor-fold>
+    
 
 }

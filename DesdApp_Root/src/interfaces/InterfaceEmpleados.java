@@ -4,7 +4,7 @@ import modelo.Empleados;
 import java.util.ArrayList;
 
 public interface InterfaceEmpleados {
-
+//Declaracion de metodos abstractos.
     public String insert(Empleados empleado);
 
     public String delete(int codigo);
