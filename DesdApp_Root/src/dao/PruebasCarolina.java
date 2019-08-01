@@ -11,7 +11,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 import modelo.Departamentos;
 import modelo.Municipios;
-import modelo.Persona;
+import modelo.Personas;
 import modelo.Regiones;
 import modelo.TipoFacturacion;
 
@@ -25,13 +25,13 @@ public class PruebasCarolina {
         Date date = new Date(12202272000L * 1000);
         Scanner sc = new Scanner(System.in);
         
-        Persona per = new Persona(1, "Prueba", "Apellido", "Direccion", 1, 1, "Correo", date, 2, 0);
+        Personas per = new Personas(1, "Prueba", "Apellido", "Direccion", 1, 1, "Correo", date, 2, 0);
         Regiones reg = new Regiones(1, "Nombre", "Descripcion");
         Departamentos dep = new Departamentos(1, "nombre", 1);
         Municipios muni = new Municipios(1, "nombre", 1);
         TipoFacturacion tip = new TipoFacturacion(1, "nombre");
         
-        Persona datosPer = new Persona();
+        Personas datosPer = new Personas();
         Regiones datosReg = new Regiones();
         Departamentos datosDep = new Departamentos();
         Municipios datosMuni = new Municipios();
@@ -80,9 +80,9 @@ public class PruebasCarolina {
                         JOptionPane.showMessageDialog(null, datosPer.toString());
                         break;
                     case 5:
-                        ArrayList<Persona> list = new ArrayList();
+                        ArrayList<Personas> list = new ArrayList();
                         list = daoPer.list();
-                        for (Persona pers : list) {
+                        for (Personas pers : list) {
                             System.out.println(pers.toString());
                         }
                         break;
@@ -117,9 +117,9 @@ public class PruebasCarolina {
                         JOptionPane.showMessageDialog(null, datosPer.toString());
                         break;
                     case 5:
-                        ArrayList<Persona> list = new ArrayList();
+                        ArrayList<Personas> list = new ArrayList();
                         list = daoPer.list();
-                        for (Persona pers : list) {
+                        for (Personas pers : list) {
                             System.out.println(pers.toString());
                         }
                         break;

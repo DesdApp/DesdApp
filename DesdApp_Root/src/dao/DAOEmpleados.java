@@ -19,8 +19,16 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
 
     String msg;
     String sql;
-
-    @Override
+    
+    
+    //<editor-fold defaultstate="collapsed" desc="Ingresar Empleados">
+    /**
+     * Este metodo es par ingresar un Nuevo Empleado
+     * @param empleado Este parametro es el tipo de objeto que 
+     * desamos ingresar
+     * @return Nos retorna la consulta en un mensaje
+     */
+     @Override
     public String insert(Empleados empleado) {
         try {
             cn.conectar();  // Realizamos la conexion con la base de datos
@@ -49,7 +57,16 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
         }
         return msg;
     }
-
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Eliminar Empleados">
+    /**
+     * Este metodo es para realizar la Eliminacion de un Empleado 
+     * en base al codigo
+     * @param codigo Este parametro es el codigo del elemento que 
+     * vamos a Eliminar.
+     * @return retorna el objeto obtenido de nuestra consulta
+     */
     @Override
     public String delete(int codigo) {
         try {
@@ -71,8 +88,17 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
         }
         return msg;
     }
-
-    @Override
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Modificar Empleados">
+    /**
+     * Este metodo es para realizar la Modificacion de un Empleado en la 
+     * Base de Datos.
+     * @param empleado Este parametro es el tipo de elemento que deseamos
+     * Modificar
+     * @return  Retorna el objeto obtenido en nuestra consulta.
+     */
+     @Override
     public String update(Empleados empleado) {
         try {
             cn.conectar();
@@ -97,8 +123,18 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
         }
         return msg;
     }
+    
+//</editor-fold>
 
-    @Override
+    //<editor-fold defaultstate="collapsed" desc="Seleccionar Empleados">
+    /**
+     * Este metodo es para realizar la consulta de un Empleado en 
+     * base al codigo
+     * @param codigo Este parametro es el codigo del elemento que 
+     * desamos buscar.
+     * @return Retorna el objeto obtenido en nuestra consulta.
+     */
+      @Override
     public Empleados select(int codigo) {
         Empleados empleados = new Empleados();
         try {
@@ -127,8 +163,15 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
         }
         return empleados;
     }
+//</editor-fold>
 
-    @Override
+    //<editor-fold defaultstate="collapsed" desc="Listar Empleados">
+    /**
+     * Este metodo es para obtener todos los registros de la base de 
+     * datos correspondites a la clase Empleados.
+     * @return Este metodo retorna un ArrayList de tipo Empleados.
+     */
+     @Override
     public ArrayList<Empleados> lits() {
         ArrayList<Empleados> list = new ArrayList<>();
         Empleados empleados;
@@ -159,4 +202,9 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
         return list;
           }
 
+//</editor-fold>
+
+  
+
+   
 }
