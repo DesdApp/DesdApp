@@ -7,11 +7,11 @@ import modelo.Negocios;
 public interface InterfaceNegocios {
 
 //Metodos Abstractos
-    public void insertNeg(Negocios neg);
+    public String insertNeg(Negocios neg);
 
-    public void updateNeg(Negocios neg);
+    public String updateNeg(Negocios neg);
 
-    public void deleteNeg(Negocios neg);
+    public String deleteNeg(Negocios neg);
 
     public ArrayList<Negocios> listaNeg();
 

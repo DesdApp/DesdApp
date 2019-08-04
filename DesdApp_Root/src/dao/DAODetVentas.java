@@ -17,6 +17,11 @@ public class DAODetVentas implements interfaces.InterfaceDetVentas {  //Se imple
     private String sql;   //Se crea variable para la consulta de mysql
     private String msg;
 
+    /**
+     * 
+     * @param id   buscará por el id el registro en una consulta a la base de datos
+     * @return  retornará un mensaje en caso de fallas
+     */
     @Override
     public DetallesVentas select(int id) {    //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         DetallesVentas detalle = new DetallesVentas();
@@ -38,6 +43,11 @@ public class DAODetVentas implements interfaces.InterfaceDetVentas {  //Se imple
         return detalle;  //retornamos los datos de la tabla
     }
 
+    /**
+     * 
+     * @param det    ingresará los datos a la base de datos con una consulta
+     * @return        retornará un mensaje en caso de una falla
+     */
     @Override
     public String insert(DetallesVentas det) {   //Se realiza la consulta de insert para agregar un registro
         cn.conectar();
@@ -58,6 +68,11 @@ public class DAODetVentas implements interfaces.InterfaceDetVentas {  //Se imple
         return msg;
     }
 
+    /**
+     * 
+     * @param det     actualizará los datos del registro por el id
+     * @return  retornará un mensaje en el caso de una falla en el code
+     */
     @Override
     public String update(DetallesVentas det) {  //Se realiza la consulta de update para actualizar algún registro
         cn.conectar();
@@ -79,6 +94,11 @@ public class DAODetVentas implements interfaces.InterfaceDetVentas {  //Se imple
         return msg;
     }
 
+    /**
+     * 
+     * @param id     se eliminará el registro con el id ingresado
+     * @return  retornará mensaje en caso de falla o que no exista el registro
+     */
     @Override
     public String delete(int id) {  //Se realiza consulta de delete para eliminar un registro
         cn.conectar();
@@ -100,7 +120,10 @@ public class DAODetVentas implements interfaces.InterfaceDetVentas {  //Se imple
         }
         return msg;
     }
-
+ /**
+  * 
+  * @return   retornará una lista de los registros de la tabla 
+  */
     @Override
     public ArrayList<DetallesVentas> list() {   //Se realiza consulta de list para list los datos que se solicitan
         ArrayList<DetallesVentas> list = new ArrayList();

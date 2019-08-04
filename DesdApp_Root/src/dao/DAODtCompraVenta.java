@@ -21,9 +21,15 @@ public class DAODtCompraVenta implements InterfaceDtCompraVenta {
 
 //Atributos
     private String sql = "";
-
+    String mensaje;
+    
+    /**
+     * 
+     * @param dcv     Ingresará registro a la base de datos
+     * @return         retornará mensaje en caso de una falla
+     */
     @Override
-    public void insertDtComVent(DtCompraVenta dcv) {
+    public String insertDtComVent(DtCompraVenta dcv) {
         try {
             cn.conectar();//Realizamos la conexion con la base de datos
             sql = "INSERT INTO detalles_compras_ventas VALUES(?,?,?)";//Asignamos la consulta al sql
@@ -35,19 +41,26 @@ public class DAODtCompraVenta implements InterfaceDtCompraVenta {
             jc.executeUpdate();//Realizamos las cunsulta y actualizamos la base de datos
 
         } catch (SQLException e) {
+            mensaje = "No se ha ingresado registro";
             System.out.println("Error no se pudo insertar datos de Detalles de Compra y Venta" + e.getMessage());//Si la consulta es incorrecta se muestra este mensaje
         } finally {
             cn.desconectar();//Desconectamos la conexion a la conexion a la Base de datos
         }
+        return mensaje;
     }
 
+    /**
+     * 
+     * @param dcv    actualizará un registro por medio del id
+     * @return  reotrnará mensaje en caso de falla
+     */
     @Override
     /*
     *Este metodo se encarga de realizar modificaciones a registros de la Base de Datos.
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos.
     *Cerramos la Base de Datos.
      */
-    public void updateDtComVent(DtCompraVenta dcv) {
+    public String updateDtComVent(DtCompraVenta dcv) {
         try {
             cn.conectar();
             sql = "UPDATE detalles_compras_ventas SET fecha_establecida_venta=?,observaciones=? WHERE negocio_id=?";
@@ -59,18 +72,26 @@ public class DAODtCompraVenta implements InterfaceDtCompraVenta {
             jc.executeUpdate();
 
         } catch (SQLException e) {
+            mensaje = "No se actualizó el registro";
             System.out.println("Error no se pudo modificar Detalle de Compra y Venta" + e.getMessage());
+        }finally{
+            cn.desconectar();
         }
-        cn.desconectar();
+        return mensaje;
     }
 
+    /**
+     * 
+     * @param dcv     eliminará registro por medio del id
+     * @return    retornará mensaje en caso de falla
+     */
     @Override
     /*
     *Este metodo se encarga de eliminar registros de la Base de Datos.
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos datos.
     *Cerramos la Base de Datos.
      */
-    public void deleteDtComVent(DtCompraVenta dcv) {
+    public String deleteDtComVent(DtCompraVenta dcv) {
         try {
             cn.conectar();
             sql = "DELETE FROM detalles_compras_ventas WHERE negocio_id=?";
@@ -80,12 +101,18 @@ public class DAODtCompraVenta implements InterfaceDtCompraVenta {
             jc.executeUpdate();
 
         } catch (SQLException e) {
+            mensaje = "No se eliminó el registro";
             System.out.println("Error no se pudo eliminar Detalle de Compara y Venta" + e.getMessage());
         } finally {
             cn.desconectar();
         }
+        return mensaje;
     }
 
+    /**
+     * 
+     * @return retornará una lista de los registros de la tabla
+     */
     @Override
     /**
      * @return registros de la tabla
@@ -125,10 +152,11 @@ public class DAODtCompraVenta implements InterfaceDtCompraVenta {
         return lista;
     }
 
-    @Override
+    
     /**
      * @return registro que se selecciono
      */
+    @Override
 
     /*
     *Este metodo se encarga de llamar a registros de la Base de Datos y mostralos.
