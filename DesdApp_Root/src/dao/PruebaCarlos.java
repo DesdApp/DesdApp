@@ -54,10 +54,10 @@ public class PruebaCarlos {
 
         // Realizamos la conexion
         ConexionDB cx = new ConexionDB();
-        int codigo=6;
+
         // Atributos
         int id;
-        int id2;
+
         System.out.println("1) Realizar pruebas en Empleados");
         System.out.println("2) Realizar pruebas en Propietarios");
         System.out.println("3) Realizar pruebas en Estado de Empleados");
@@ -65,8 +65,6 @@ public class PruebaCarlos {
         System.out.println("5) Salir");
         id = sc.nextInt();
         switch (id) {
-            
-            
             //<editor-fold defaultstate="collapsed" desc="Pruebas Empleados">
             case 1:
                 System.out.println("1) INSERT");
@@ -75,8 +73,8 @@ public class PruebaCarlos {
                 System.out.println("4) SELECT");
                 System.out.println("5) LIST");
                 System.out.println("6) Regresar");
-                id2 = sc.nextInt();
-                switch (id2) {
+                id = sc.nextInt();
+                switch (id) {
                     case 1:
                         daoEmp.insert(emp);
 
@@ -119,8 +117,8 @@ public class PruebaCarlos {
                 System.out.println("4) SELECT");
                 System.out.println("5) LIST");
                 System.out.println("6) Regresar");
-                id2 = sc.nextInt();
-                switch (id2) {
+                id = sc.nextInt();
+                switch (id) {
                     case 1:
                         daoProp.insert(propi);
                         
@@ -134,9 +132,8 @@ public class PruebaCarlos {
                         
                         break;
                     case 4:
+                        daoProp.select(id);
                         
-                        datosProp=daoProp.select(codigo);
-                        System.out.println(datosProp.toString());
                         break;
                     case 5:
                          ArrayList<Propietarios> lista = new ArrayList<>();
@@ -162,8 +159,8 @@ public class PruebaCarlos {
                 System.out.println("4) SELECT");
                 System.out.println("5) LIST");
                 System.out.println("6) Regresar");
-                id2 = sc.nextInt();
-                switch (id2) {
+                id = sc.nextInt();
+                switch (id) {
                     case 1:
                         daoEstadoEmp.insert(estadoEmp);
                         break;
@@ -201,8 +198,8 @@ public class PruebaCarlos {
                 System.out.println("4) SELECT");
                 System.out.println("5) LIST");
                 System.out.println("6) Regresar");
-                id2 = sc.nextInt();
-                switch (id2) {
+                id = sc.nextInt();
+                switch (id) {
                     case 1:
                         daoTipUsu.insertTipoUsario(tipUsu);
                         break;

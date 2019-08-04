@@ -20,7 +20,7 @@ public class DAORegion implements interfaces.InterfaceRegion {
     private String mensaje = "";
     private ResultSet result;
     private PreparedStatement ejecutar;
-    private int contRegion = 0;
+    private int contRegion=0;
 
     //insertar Un nuevo Registro para Regiones
     @Override
@@ -50,11 +50,6 @@ public class DAORegion implements interfaces.InterfaceRegion {
         return mensaje;
     }
 
-    /**
-     *Actualizar Region: este metodo actualiza las regiones
-     * @param region ingresados por el usuario
-     * @return retorna un string indicando si actulizo o no los datos
-     */
     //Modificar Registro de Region
     @Override
     public String update(Regiones region) {
