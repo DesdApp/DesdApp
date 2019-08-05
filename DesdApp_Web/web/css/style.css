@@ -27,4 +27,25 @@ body {
 .secondary {
     background-color: #910F0F;
 }
+.fondo{
+    background-color: #005285;
+    border: none;
+    outline:none;
+    display:block;
+}
+#cont{
+    background-color: #ffffff;
+    height: 200px;
+}
+.bt{
+    background-color: #e3f4ff;
+    
+}
+.cd{
+    float: left;
+    margin-right:50px;
+    border-spacing: 30px 30px;
+}
+
+
 /*Inicio*/
