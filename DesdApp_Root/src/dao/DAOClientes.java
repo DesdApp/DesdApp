@@ -17,6 +17,11 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     String sql;
     String msg;
 
+    /**
+     * 
+     * @param cliente ingresará un nuevo registro 
+     * @return  retornará un mensaje de confirmación o error en caso de que el id ya exista en otro registro
+     */
     @Override
     public String insertCliente(Clientes cliente) {
         try {
@@ -35,7 +40,12 @@ public class DAOClientes implements interfaces.InterfaceClientes {
         }
         return msg;
     }
-
+ 
+    /**
+     * 
+     * @param codigo  eliminará el registro por medio de la consulta con el id especifico
+     * @return  retornará un mensaje de confirmación o error en caso de que el id no exista
+     */
     @Override
     public String deleteClientes(int codigo) {
         try {
@@ -58,6 +68,11 @@ public class DAOClientes implements interfaces.InterfaceClientes {
         return msg;
     }
 
+    /**
+     * 
+     * @param cliente   actualizará los datos de un registro por el id
+     * @return  retorna mensaje de confirmacion
+     */
     @Override
     public String updateClientes(Clientes cliente) {
         try {
@@ -77,6 +92,11 @@ public class DAOClientes implements interfaces.InterfaceClientes {
         return msg;
     }
 
+    /**
+     * 
+     * @param codigo   se buscará un registro por su id
+     * @return  se mostrarán los datos del registro
+     */
     @Override
     public Clientes selectcliente(int codigo) {
         Clientes cliente = new Clientes();
@@ -98,6 +118,10 @@ public class DAOClientes implements interfaces.InterfaceClientes {
         return cliente;
     }
 
+    /**
+     * 
+     * @return   retornará una lista de los registros de la tabla que se pidió por medio de la consulta 
+     */
     @Override
     public ArrayList<Clientes> listclientes() {
         Clientes clientes;

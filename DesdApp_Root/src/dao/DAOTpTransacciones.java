@@ -21,12 +21,17 @@ public class DAOTpTransacciones implements InterfaceTpTransacciones {
 
 //Atributos
     private String sql = "";
-
+    String mensaje;
+/**
+ * 
+ * @param tp   el ingreso de nuevos registros, el id es autoincrementable
+ * @return 
+ */
     @Override
     /*
     *Este metodo se encarga de insertar registros a la Base de Datos
      */
-    public void insertTpTrans(TpTransacciones tp) {
+    public String insertTpTrans(TpTransacciones tp) {
         try {
             cn.conectar();//Realizamos la conexion con la base de datos
             sql = "INSERT INTO tipos_transacciones VALUES(?,?)";//Asignamos la consulta al sql
@@ -36,19 +41,26 @@ public class DAOTpTransacciones implements InterfaceTpTransacciones {
             jc.setString(2, tp.getName());
             jc.executeUpdate();//Realizamos las cunsulta y actualizamos la base de datos
         } catch (SQLException e) {
+            mensaje = "No se ingresó el registro correctamente";
             System.out.println("Error no se pudo insertar Tipo Transaccion : " + e.getMessage());//Si, la consulta es incorrecta se muestra este mensaje
         } finally {
             cn.desconectar();//Desconectamos la conexion a la conexion a la Base de datos
         }
+    return mensaje;
     }
 
+    /**
+     * 
+     * @param tp    actualizará un registro por medio de su id
+     * @return  retornará un mensaje en caso de tener una falla
+     */
     @Override
     /*
     *Este metodo se encarga de realizar modificaciones registros de la Base de Datos.
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos.
     *Cerramos la Base de Datos.
      */
-    public void updateTpTrans(TpTransacciones tp) {
+    public String updateTpTrans(TpTransacciones tp) {
         try {
             cn.conectar();
             sql = "UPDATE tipos_transacciones SET nombre=? WHERE tipo_transaccion_id=?";
@@ -56,21 +68,27 @@ public class DAOTpTransacciones implements InterfaceTpTransacciones {
             jc.setString(1, tp.getName());
             jc.setInt(2, tp.getTpTransId());
             jc.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException e) { 
+            mensaje = "No se actualizó el registro";
             System.out.println("Error no se pudo modificar Tipo Transaccion : " + e.getMessage());
         } finally {
             cn.desconectar();
         }
-
+        return mensaje;
     }
 
+    /**
+     * 
+     * @param tp  Eliminará el registro por medio de su id
+     * @return  retornará un mensaje en caso de falla
+     */
     @Override
     /*
     *Este metodo se encarga de eliminar registros de la Base de Datos.
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos datos.
     *Cerramos la Base de Datos.
      */
-    public void deleteTpTrans(TpTransacciones tp) {
+    public String deleteTpTrans(TpTransacciones tp) {
         try {
             cn.conectar();
             sql = "DELETE FROM tipos_transacciones WHERE tipo_transaccion_id=?";
@@ -78,17 +96,19 @@ public class DAOTpTransacciones implements InterfaceTpTransacciones {
             jc.setInt(1, tp.getTpTransId());
             jc.executeUpdate();
         } catch (SQLException e) {
+            mensaje = "No se ha eliminado el registro";
             System.out.println("Error no se pudo eliminar Tipo Transaccion : " + e.getMessage());
         } finally {
             cn.desconectar();
         }
+        return mensaje;
     }
 
-    @Override
     /**
-     * @return registros de la tabla
+     * 
+     * @return retornará la lista de registros de la tabla  
      */
-
+    @Override
     /*
     *Este metodo se encarga de llamar a los registros de la Base de Datos para porteriormente listarlos.
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos datos.
@@ -120,6 +140,11 @@ public class DAOTpTransacciones implements InterfaceTpTransacciones {
         return lista;
     }
 
+    /**
+     * 
+     * @param tp    con el id buscará el registro y lo mostrará
+     * @return   retornará los datos del registro 
+     */
     @Override
     /**
      * @return registro que se selecciono

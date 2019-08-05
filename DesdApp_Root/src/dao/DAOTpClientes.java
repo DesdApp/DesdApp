@@ -16,69 +16,12 @@ public class DAOTpClientes implements interfaces.InterfaceTpClientes {
     // Atributos
     String msg;
     String sql;
-
-    @Override
-    public String insertTipo(TiposClientes tipo) {
-        try {
-            cx.conectar();
-            sql = "INSERT INTO tipos_clientes VALUES(?, ?, ?)";
-            execute = cx.getconexionDB().prepareStatement(sql);
-            execute.setByte(1, tipo.getTipoClienteId());
-            execute.setString(2, tipo.getNombre());
-            execute.setString(3, tipo.getDescripcion());
-            execute.executeUpdate();
-            msg = "Registro almacenado con exito";
-        } catch (SQLException e) {
-            msg = "Error al almacenar el registro";
-            System.out.println("Error en DAOTpClientes INSERT: " + e.getMessage());
-        } finally {
-            cx.desconectar();
-        }
-        return msg;
-    }
-
-    @Override
-    public String deleteTipo(byte codigo) {
-        try {
-            cx.conectar();
-            sql = "DELETE FROM tipos_clientes WHERE tipo_cliente_id = ?";
-            execute = cx.getconexionDB().prepareStatement(sql);
-            execute.setByte(1, codigo);
-            byte contDel = (byte) execute.executeUpdate();
-            if (contDel == 0) {
-                msg = "El registro no existe";
-            } else {
-                msg = "Registro eliminado con exito";
-            }
-        } catch (SQLException e) {
-            msg = "Error al eliminar el registro";
-            System.out.println("Error en DAOTpClientes DELETE: " + e.getMessage());
-        } finally {
-            cx.desconectar();
-        }
-        return msg;
-    }
-
-    @Override
-    public String updateTipo(TiposClientes tipo) {
-        try {
-            cx.conectar();
-            sql = "UPDATE tipos_clientes SET nombre = ?, descripcion = ? WHERE tipo_cliente_id = ?";
-            execute = cx.getconexionDB().prepareStatement(sql);
-            execute.setByte(3, tipo.getTipoClienteId());
-            execute.setString(1, tipo.getNombre());
-            execute.setString(2, tipo.getDescripcion());
-            execute.executeUpdate();
-            msg = "Registro actualizado con exito";
-        } catch (SQLException e) {
-            msg = "Error al actualizar el registro";
-            System.out.println("Error en DAOTpClientes UPDATE: " + e.getMessage());
-        } finally {
-            cx.desconectar();
-        }
-        return msg;
-    }
-
+    
+    /**
+     * 
+     * @param codigo   por medio de una consulta buscará un registro de la base de datos
+     * @return retornará los datos de la consulta
+     */
     @Override
     public TiposClientes selectTipo(byte codigo) {
         TiposClientes tipo = new TiposClientes();
@@ -100,6 +43,11 @@ public class DAOTpClientes implements interfaces.InterfaceTpClientes {
         }
         return tipo;
     }
+    
+    /**
+     * 
+     * @return   retornará una lista de los registros 
+     */
 
     @Override
     public ArrayList<TiposClientes> listTipos() {

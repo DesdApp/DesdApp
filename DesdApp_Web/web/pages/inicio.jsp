@@ -84,7 +84,7 @@
               <h3>GTM Bines Raices-Magnates en Inmobiliaria</h3>
           </div>
         </div>
-          <div class="container-fluid col-9 bt mt-4 d-flex mg-auto">
+          <div class="container-fluid col-9 bt mt-4 d-flex">
               <!--Card1-->
               <div class="row col-offset-4 float-left">
               <div class="cd card mt-3" style="width: 18rem;">

@@ -21,6 +21,11 @@ public class DAOTpPropiedades implements interfaces.InterfaceTpPropiedades {
     String sql;
     String msg;
 
+    /**
+     * 
+     * @param tipo  se ingresa un nuevo registro
+     * @return  retorna un mensaje de confirmación o error en caso de que el id se repita
+     */
     @Override
     public String insertTipo(TiposPropiedades tipo) {
         /*
@@ -51,6 +56,11 @@ public class DAOTpPropiedades implements interfaces.InterfaceTpPropiedades {
         return msg;
     }
 
+    /**
+     * 
+     * @param codigo  elimina un registro por medio del id ingresado 
+     * @return  retorna un mensaje de confirmación o error en caso de que el registro no exista
+     */
     @Override
     public String deleteTipo(byte codigo) {
         /**
@@ -78,6 +88,11 @@ public class DAOTpPropiedades implements interfaces.InterfaceTpPropiedades {
         return msg;
     }
 
+    /**
+     * 
+     * @param tipo  actualizará el registro que se llama por el id en la consulta
+     * @return  retornará un mensaje de confirmacion
+     */
     @Override
     public String updateTipo(TiposPropiedades tipo) {
         /**
@@ -98,11 +113,11 @@ public class DAOTpPropiedades implements interfaces.InterfaceTpPropiedades {
         }
         return msg;
     }
-
-    @Override
-    /**
+/**
      * @return el registro que se selecciono
      */
+    @Override
+    
     public TiposPropiedades selectTipo(byte codigo) {
         /*
         * Se realiza la consulta para seleccionar un registro
@@ -130,6 +145,10 @@ public class DAOTpPropiedades implements interfaces.InterfaceTpPropiedades {
         return tipo;
     }
 
+    /**
+     * 
+     * @return  retornará una lista de los registros de la tabla que se pide en la consulta
+     */
     @Override
     public ArrayList<TiposPropiedades> listTipos() {
         TiposPropiedades tipo;

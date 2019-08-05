@@ -20,12 +20,18 @@ public class DAONegocios implements interfaces.InterfaceNegocios {
 
 //Atributos
     private String sql = "";
+    String mensaje;
 
+    /**
+     * 
+     * @param neg
+     * @return   retorna el mensaje de confirmación de un registro agregado 
+     */
     @Override
     /*
     *Este metodo se encarga de insertar registros a la Base de Datos
      */
-    public void insertNeg(Negocios neg) {
+    public String insertNeg(Negocios neg) {
         try {
             cn.conectar();//Realizamos la conexion con la base de datos
             sql = "INSERT INTO negocios VALUES(?,?,?,?,?,?,?,?,?)";//Asignamos la consulta al sql
@@ -42,19 +48,26 @@ public class DAONegocios implements interfaces.InterfaceNegocios {
             jc.setInt(9, neg.getClientId());
             jc.executeUpdate();//Realizamos las cunsulta y actualizamos la base de datos
         } catch (SQLException e) {
+            mensaje = "No se ingresó el registro";
             System.out.println("Error insertar negocio : " + e.getMessage());//Si la consulta es incorrecta se muestra este mensaje
         } finally {
             cn.desconectar();//Desconectamos la conexion a la conexion a la Base de datos
         }
+        return mensaje;
     }
 
+    /**
+     * 
+     * @param neg
+     * @return   retorna la confirmación de actualización de un registro 
+     */
     @Override
     /*
     *Este metodo se encarga de realizar modificaciones a registros de la Base de Datos.
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos.
     *Cerramos la Base de Datos.
      */
-    public void updateNeg(Negocios neg) {
+    public String updateNeg(Negocios neg) {
         try {
             cn.conectar();
             sql = "UPDATE negocios SET bien_inmueble_id=?,tipo_transaccion_id=?,asesor_id=?,precio_venta_propiedad=?,comision_empresa=?,fecha=?,estado_pago_id=?,cliente_id=? WHERE negocio_id=?";
@@ -72,19 +85,26 @@ public class DAONegocios implements interfaces.InterfaceNegocios {
             jc.executeUpdate();
 
         } catch (SQLException e) {
+            mensaje = "No se actualizó el registro";
             System.out.println("Error no se pudo modificar Negocio : " + e.getMessage());
         } finally {
             cn.desconectar();
         }
+        return mensaje;
     }
 
+    /**
+     * 
+     * @param neg
+     * @return  retorna la confirmaición de eliminación de un registro
+     */
     @Override
     /*
     *Este metodo se encarga de eliminar registros de la Base de Datos.
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos datos.
     *Cerramos la Base de Datos.
      */
-    public void deleteNeg(Negocios neg) {
+    public String deleteNeg(Negocios neg) {
         try {
             cn.conectar();
             sql = "DELETE FROM negocios WHERE negocio_id=?";
@@ -92,12 +112,19 @@ public class DAONegocios implements interfaces.InterfaceNegocios {
             jc.setInt(1, neg.getNegocionId());
             jc.executeUpdate();
         } catch (SQLException e) {
+            mensaje = "No se eliminó el registro";
             System.out.println("Error no se pudo eliminar Negocio : " + e.getMessage());
         } finally {
             cn.desconectar();
         }
+        return mensaje;
     }
 
+    
+    /**
+     * 
+     * @return  para retornar los todos los datos de una tabla específica
+     */
     @Override
     /**
      * @return registros de la tabla
@@ -148,6 +175,12 @@ public class DAONegocios implements interfaces.InterfaceNegocios {
     *Este metodo se encarga de llamar a registros de la Base de Datos y mostralos.
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos datos.
     *Cerramos la Base de Datos.
+     */
+    
+    /**
+     * este método es para consultar en la base de datos en Negocios por el propietario_id
+     * @param neg
+     * @return retorna el objeto obtenido por nuestra consulta
      */
     @Override
     public Negocios selectNeg(Negocios neg) {
