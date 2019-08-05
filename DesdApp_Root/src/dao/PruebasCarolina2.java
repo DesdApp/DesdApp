@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import modelo.Departamentos;
 import modelo.Municipios;
-import modelo.Personas;
+import modelo.Persona;
 import modelo.Regiones;
 import modelo.TipoFacturacion;
 
@@ -73,7 +73,7 @@ public class PruebasCarolina2 {
 
 
 
-//        Personas p = new Personas();
+//        Persona p = new Persona();
 //        DAOPersona dao = new DAOPersona();
 //        ArrayList<Persona> lst = new ArrayList();
 //        lst = dao.list();

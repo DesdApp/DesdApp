@@ -2,14 +2,14 @@
 package interfaces;
 
 import java.util.ArrayList;
-import modelo.Personas;
+import modelo.Persona;
 
-//Interfaz para la Clase Personas
+//Interfaz para la Clase Persona
 public interface InterfacePersona {
-    //Metodos abstractos Para Personas
-    public Personas select(int id);
-    public String insert(Personas per);
-    public String update(Personas per);
+    //Metodos abstractos Para Persona
+    public Persona select(int id);
+    public String insert(Persona per);
+    public String update(Persona per);
     public String delete(int id);
-    public ArrayList<Personas>list();
+    public ArrayList<Persona>list();
 }

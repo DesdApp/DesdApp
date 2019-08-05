@@ -22,88 +22,11 @@ public class DAOStPago implements interfaces.InterfaceStPago {
     private String sql = "";
     private String msg;
 
-    @Override
-    /*
-    *Este metodo se encarga de insertar registros a la Base de Datos
-     */
-    public String insertStPago(StPago pag) {
-        try {
-            cn.conectar();//Realizamos la conexion con la base de datos
-            sql = "INSERT INTO estado_pagos VALUES (?,?)";//Asignamos la consulta al sql
-
-            jc = cn.getconexionDB().prepareStatement(sql);//Asignamos la consulta al PreparedStatement
-            jc.setByte(1, pag.getStPagoId());//Asignamos valores a la consulta
-            jc.setString(2, pag.getName());
-            jc.executeUpdate();//Realizamos las cunsulta y actualizamos la base de datos
-            msg = "Se ha ingresado el registro correctamente";
-        } catch (SQLException e) {
-            msg = "Error al ingresar registro";
-            System.out.println("Error en DAOStPago INSERT: " + e.getMessage());//Si, la consulta es incorrecta se muestra este mensaje
-        } finally {
-            cn.desconectar();//Desconectamos la conexion a la conexion a la Base de datos
-
-        }
-        return msg;
-    }
-
-    @Override
-    /*
-    *Este metodo se encarga de realizar modificaciones registros de la Base de Datos.
-    *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos.
-    *Cerramos la Base de Datos.
-     */
-    public String updateStPago(StPago pag) {
-        try {
-            cn.conectar();
-            sql = "UPDATE estado_pagos SET nombre=? WHERE estado_pago_id=?";
-            jc = cn.getconexionDB().prepareStatement(sql);
-            jc.setString(1, pag.getName());
-            jc.setByte(2, pag.getStPagoId());
-            jc.executeUpdate();
-            msg = "Se actualizó el registro correctamente";
-        } catch (SQLException e) {
-            msg = "Error al actualizar registro";
-            System.out.println("Error en DAOStPago UPDATE: " + e.getMessage());
-        } finally {
-            cn.desconectar();
-        }
-        return msg;
-
-    }
-
-    @Override
-    /*
-    *Este metodo se encarga de eliminar registros de la Base de Datos.
-    *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos datos.
-    *Cerramos la Base de Datos.
-     */
-    public String deleteStPago(StPago pag) {
-        try {
-            cn.conectar();
-            sql = "DELETE FROM estado_pagos WHERE estado_pago_id=?";
-            jc = cn.getconexionDB().prepareStatement(sql);
-            jc.setByte(1, pag.getStPagoId());
-            byte contDel = (byte) jc.executeUpdate();
-            if (contDel == 0) {
-                msg = "El registro no existe";
-            } else {
-
-                msg = "Se ha eliminado el registro";
-            }
-        } catch (SQLException e) {
-            msg = "No se ha eliminado el registro";
-            System.out.println("Error al eliminar registro en DAOStPago DELETE: " + e.getMessage());
-        } finally {
-            cn.desconectar();
-        }
-        return msg;
-    }
-
-    @Override
     /**
-     * @return registros de la tabla
+     * 
+     * 
      */
-
+    @Override
     /*
     *Este metodo se encarga de llamar a los registros de la Base de Datos para porteriormente listarlos.
     *Nos conectamos a la base de datos,asignamos nuestra consulta al PreparedStatement,realizamos la consulta y actualizamos datos.
@@ -135,10 +58,12 @@ public class DAOStPago implements interfaces.InterfaceStPago {
         return lista;
     }
 
-    @Override
     /**
-     * @return registro que se selecciono
+     * 
+     * @param pag   buscará el registro de la base de datos por medio de pag 
+     *  @return   retornará los datos obtenidos por medio de una consulta con su id
      */
+    @Override
 
     /*
     *Este metodo se encarga de llamar registros de la Base de Datos y mostralos.

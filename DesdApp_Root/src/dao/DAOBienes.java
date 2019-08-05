@@ -20,19 +20,12 @@ public class DAOBienes implements interfaces.InterfaceBienes {
     // Atibutos
     String msg;
     String sql;
-    
-    //<editor-fold defaultstate="collapsed" desc="Ingresa Bien Inmueble">
-     /**
-     * Este metodo es para Realizar Insertar un nuevo Bien
-     *
-     * @param bien Este parametro es el tipo de objeto que deseamos ingresar
-     * @return Retorna el mensaje de nuestra consulta.
-     */
+
     @Override
     public String insertBien(Bienes bien) {
         /*
         * Se realiza la consulta para agregar un registro a la tabla
-         */
+        */
         try {
             cx.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO bienes_inmuebles VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
@@ -63,17 +56,7 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         }
         return msg;
     }
-//</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Elimina Bien Inmueble">
-     /**
-     * Este metodo es para realizar la Eliminacion de un Bien Inmueble en base a
-     * codigo.
-     *
-     * @param codigo Este parametro es el codigo del elemento que deseamos
-     * Eliminar
-     * @return Retorna el objeto obtenido de nuestra consulta.
-     */
     @Override
     public String deleteBien(int codigo) {
         /*
@@ -101,17 +84,7 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         return msg;
 
     }
-//</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Modificar Bien Inmueble">
-    /**
-     * Este metodo es para realizar la Modificacion De un Bien Inmueble En Base
-     * al tipo de Dato
-     *
-     * @param bien Este Parametro Es el tipo de Dato con el que se modificara
-     * Nuestro Bien Inmueble
-     * @return Retorna el objeto obtenido de Nuestra Consulta
-     */
     @Override
     public String updateBien(Bienes bien) {
         /*
@@ -149,16 +122,11 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         return msg;
 
     }
-//</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Seleccionar Bien Inmueble">
-     /**
-     *Este metodo es para realizar la consulta de un Bien Inmueble en
-     * base al codigo
-     * @param codigo este parametro es el codigo del elemeto que deseamos buscar.
-     * @return Retorna el objeto obtenido de nuestra consulta.
-     */
     @Override
+    /**
+     * @return el registro que se selecciono
+     */
     public Bienes selectBien(int codigo) {
         /*
         * Se realiza la consulta para seleccionar un registro
@@ -198,16 +166,11 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         }
         return bien;
     }
-//</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Listar Bienes Inmuebles">
-     /**
-      * Este metodo es para obtener todos los registros de la base de Datos 
-      * correspondites a la clase Bienes.
-      * @return Este metodo retorna un ArrayList de tipo Bienes.
-      */
     @Override
-   
+    /**
+     * @return los registros de la tabla
+     */
     public ArrayList<Bienes> listBienes() {
         ArrayList<Bienes> list = new ArrayList<>(); // Utilizamos un ArrayList para obtener todos los registros y almacenarlos
         Bienes bien;
@@ -241,7 +204,5 @@ public class DAOBienes implements interfaces.InterfaceBienes {
         }
         return list;
     }
-//</editor-fold>
-    
 
 }

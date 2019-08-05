@@ -23,6 +23,11 @@ public class DAOPagosPropiedades implements interfaces.InterfacePagosPropiedades
     private String sql;
     private String msg;
 
+    /** 
+     * 
+     * @param id   se buscará el registro en la base de datos por el id ingresado
+     * @return  retornará un mensaje de confirmación o falla en caso de repetir el id  
+     */
     @Override
     public PagosPropiedades select(int id) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         PagosPropiedades pago = new PagosPropiedades();
@@ -48,6 +53,11 @@ public class DAOPagosPropiedades implements interfaces.InterfacePagosPropiedades
         return pago;  //retornamos los datos de la tabla
     }
 
+    /**
+     * 
+     * @param pago    se actualizarán los datos de un registro 
+     * @return  retornará mensaje de confirmación o falla en caso de que no exista el registro
+     */
     @Override
     public String update(PagosPropiedades pago) {   //Se realiza la consulta de update para actualizar algún registro
         cn.conectar();
@@ -72,6 +82,11 @@ public class DAOPagosPropiedades implements interfaces.InterfacePagosPropiedades
         return msg;
     }
 
+    /**
+     * 
+     * @param id      eliminará el registro del id ingresado
+     * @return  retornará un mensaje de confirmación o de falla si el registro no existe
+     */
     @Override
     public String delete(int id) {  //Se realiza consulta de delete para eliminar un registro
         cn.conectar();
@@ -94,6 +109,11 @@ public class DAOPagosPropiedades implements interfaces.InterfacePagosPropiedades
         return msg;
     }
 
+    /**
+     * 
+     * @param pago  se ingresará un nuevo registro
+     * @return   retornará un mensaje de confirmación
+     */
     @Override
     public String insert(PagosPropiedades pago) {   //Se realiza la consulta de insert para agregar un registro
         cn.conectar();
@@ -117,6 +137,10 @@ public class DAOPagosPropiedades implements interfaces.InterfacePagosPropiedades
         return msg;
     }
 
+    /**
+     * 
+     * @return   retornará una lista de los registros de la tabla que se pide en la consulta 
+     */
     @Override
     public ArrayList<PagosPropiedades> list() {   //Se realiza consulta de listar para listar los datos que se solicitan
         ArrayList<PagosPropiedades> list = new ArrayList();
