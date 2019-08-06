@@ -30,7 +30,7 @@
     <!--Barra de navegacion-->
     <div class="primary conetainer-fluid form-row col-lg-16 d-flex">
         <div class="header-mobile houzez-header-mobile btn btn-group btn-block">
-            <img src="../img/let.PNG" width="130px" height="130px" class="rounded float-left" alt="...">
+            <img src="../img/let.PNG" width="120px" height="120px" class="rounded float-left" alt="...">
             <button class="btn btn-block btn primary ronder-top text-light" type="button"
                 name="btnInicio"><a>Inicio</a></button>
             <div class="btn-group btn-block">
@@ -72,7 +72,7 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="../img/d2.jpg" alt="First slide">
+                <img class="d-block w-100" src="../img/d5.png" height="500px" alt="First slide">
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="../img/d4.png" alt="Second slide">
