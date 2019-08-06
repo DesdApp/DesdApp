@@ -10,22 +10,39 @@ and open the template in the editor.
     Author     : Javam2019
 */
 
-body {
-    background-color: #f3f3f3;
-}
 
 
 /* Colors */
 
+<<<<<<< HEAD
+=======
 .background {
     background-color: #f3f3f3;
 }
+>>>>>>> 999a8229f1d1a4c864f71bb57a7f306462893e4f
 
 .primary {
-    background-color: #005285;
+    background-color: #011144;
 }
 
 .secondary {
+<<<<<<< HEAD
+    background-color: #d99f59;
+}
+
+.bg{
+    background-color: #F2F2E9;
+}
+  .red {
+ background-color: #910F0F;
+ }
+ 
+.bt{
+    background-color: #f5d7b2;
+    border-right: 50px;
+    
+}
+=======
     background-color: #910F0F;
 }
 
@@ -58,6 +75,10 @@ body {
     margin-right: 50px;
     border-spacing: 30px 30px;
 }
+>>>>>>> 999a8229f1d1a4c864f71bb57a7f306462893e4f
 
+#div-login {
+    background-color: #ffffff;
+}
 
 /*Inicio*/
