@@ -88,8 +88,6 @@ public class JfrmPerfil extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1280, 720));
 
-        JDesktop.setBackground(new java.awt.Color(0, 0, 0));
-
         jLblCodigo.setBackground(new java.awt.Color(0, 0, 0));
         jLblCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
 
@@ -135,17 +133,21 @@ public class JfrmPerfil extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLblCorreo)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLblApellido)
-                        .addComponent(jLblNombre))
-                    .addComponent(jLblDpi)
-                    .addComponent(jLblFechaNac)
-                    .addComponent(jLblCod)
-                    .addComponent(jLblTelefono))
-                .addContainerGap(400, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLblCorreo)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLblApellido)
+                                .addComponent(jLblNombre))
+                            .addComponent(jLblDpi)
+                            .addComponent(jLblCod)
+                            .addComponent(jLblTelefono)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLblFechaNac)))
+                .addContainerGap(411, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,9 +156,9 @@ public class JfrmPerfil extends javax.swing.JFrame {
                 .addComponent(jLblNombre)
                 .addGap(47, 47, 47)
                 .addComponent(jLblApellido)
-                .addGap(47, 47, 47)
+                .addGap(37, 37, 37)
                 .addComponent(jLblFechaNac)
-                .addGap(43, 43, 43)
+                .addGap(53, 53, 53)
                 .addComponent(jLblDpi)
                 .addGap(48, 48, 48)
                 .addComponent(jLblCod)
@@ -196,7 +198,7 @@ public class JfrmPerfil extends javax.swing.JFrame {
                         .addComponent(jLblImgPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLblCodigoLayout.createSequentialGroup()
-                .addGap(0, 138, Short.MAX_VALUE)
+                .addGap(0, 116, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85))
         );
@@ -208,13 +210,16 @@ public class JfrmPerfil extends javax.swing.JFrame {
         JDesktopLayout.setHorizontalGroup(
             JDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JDesktopLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(jLblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         JDesktopLayout.setVerticalGroup(
             JDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLblCodigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(JDesktopLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLblCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
