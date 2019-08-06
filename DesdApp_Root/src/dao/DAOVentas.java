@@ -22,11 +22,7 @@ public class DAOVentas implements interfaces.InterfaceVentas {  //Implementamos 
     // Atributos
     private String sql;
     private String msg;
-    /**
-     * 
-     * @param id valor entero ingresado por el usuario
-     * @return objeto de tipo Ventas con los datos localizados, al no existir el codigo retorna el objeto nulo
-     */
+
     @Override
     public Ventas select(int id) {  //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         Ventas venta = new Ventas();
@@ -53,7 +49,11 @@ public class DAOVentas implements interfaces.InterfaceVentas {  //Implementamos 
         }
         return venta;
     }
-    
+    /**
+     * 
+     * @param venta  actualizará los datos de un registro especificando por el id
+     * @return  retorna un mensaje en caso de que tenga un error
+     */
     @Override
     public String update(Ventas venta) { //Se realiza la consulta de update para actualizar algún registro
         cn.conectar();
@@ -81,6 +81,11 @@ public class DAOVentas implements interfaces.InterfaceVentas {  //Implementamos 
         return msg;
     }
 
+    /**
+     * 
+     * @param id     por medio del id ingresado se eliminará el registro
+     * @return  retornará un mensaje en caso de falla
+     */
     @Override
     public String delete(int id) {  //Se realiza consulta de delete para eliminar un registro
         cn.conectar();
@@ -103,6 +108,11 @@ public class DAOVentas implements interfaces.InterfaceVentas {  //Implementamos 
         return msg;
     }
 
+    /**
+     * 
+     * @param venta  se ingresarán nuevos registro con los datos dados
+     * @return retornara un mensaje de falla en caso de que ya exista el registro
+     */
     @Override
     public String insert(Ventas venta) {  //Se realiza la consulta de insert para agregar un registro
         cn.conectar();
@@ -128,6 +138,10 @@ public class DAOVentas implements interfaces.InterfaceVentas {  //Implementamos 
         return msg;
     }
 
+    /**
+     * 
+     * @return  retorna una lista de los registros de la tabla que se pide a traves de la consulta 
+     */
     @Override
     public ArrayList<Ventas> list() {  //Se realiza consulta de listar para listar los datos que se solicitan
         ArrayList<Ventas> list = new ArrayList();

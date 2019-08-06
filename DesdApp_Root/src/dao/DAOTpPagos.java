@@ -23,6 +23,11 @@ public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamo
     private String sql;
     private String msg;
 
+    /**
+     * 
+     * @param id    mostrará los datos del registro que se buscó por el id
+     * @return  retornará los datos
+     */
     @Override
     public TiposPagos select(int id) { //Se realiza la consulta de select para ver el registro llamandolo por el detalle_id
         TiposPagos tipo = new TiposPagos();
@@ -42,7 +47,11 @@ public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamo
         }
         return tipo;
     }
-
+ /**
+  * 
+  * @param tipo  ingresará un nuevo registro 
+  * @return  retornará un mensaje de confirmación o falla por que ya existe el id del registro
+  */
     @Override
     public String insert(TiposPagos tipo) {  //Se realiza la consulta de insert para agregar un registro
         cn.conectar();
@@ -63,6 +72,11 @@ public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamo
         return msg;
     }
 
+    /**
+     * 
+     * @param tipo  actualizará los datos de un registro por medio del id
+     * @return  retornara una confirmación 
+     */
     @Override
     public String update(TiposPagos tipo) { //Se realiza la consulta de update para actualizar algún registro
         cn.conectar();
@@ -83,6 +97,11 @@ public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamo
         return msg;
     }
 
+    /**
+     * 
+     * @param id   eliminará el regsitro por el id
+     * @return  retornará una conf
+     */
     @Override
     public String delete(int id) { //Se realiza consulta de delete para eliminar un registro
         cn.conectar();
@@ -105,6 +124,10 @@ public class DAOTpPagos implements interfaces.InterfaceTpPagos {  //Implementamo
         return msg;
     }
 
+    /**
+     * 
+     * @return   retornará una lista de los registros de la tabla 
+     */
     @Override
     public ArrayList<TiposPagos> list() {   //Se realiza consulta de list para list los datos que se solicitan
         ArrayList<TiposPagos> list = new ArrayList();

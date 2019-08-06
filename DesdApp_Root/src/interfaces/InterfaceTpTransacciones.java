@@ -7,11 +7,11 @@ import modelo.TpTransacciones;
 public interface InterfaceTpTransacciones {
 
 //Metodos Abstractos
-    public void insertTpTrans(TpTransacciones tp);
+    public String insertTpTrans(TpTransacciones tp);
 
-    public void updateTpTrans(TpTransacciones tp);
+    public String updateTpTrans(TpTransacciones tp);
 
-    public void deleteTpTrans(TpTransacciones tp);
+    public String deleteTpTrans(TpTransacciones tp);
 
     public ArrayList<TpTransacciones> listaTpTrans();
 
