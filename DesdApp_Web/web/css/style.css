@@ -8,44 +8,37 @@ and open the template in the editor.
     Author     : Javam2019
 */
 
-body {
-    background-color: #f3f3f3;
-}
 
 #company {
     font-size: 32px;
 }
 
-#div-login {
-    background-color: #ffffff;
-}
+/* Colors */
+
 
 .primary {
-    background-color: #005285;
+    background-color: #011144;
 }
 
 .secondary {
-    background-color: #910F0F;
-}
-.fondo{
-    background-color: #005285;
-    border: none;
-    outline:none;
-    display:block;
-}
-#cont{
-    background-color: #ffffff;
-    height: 200px;
-}
-.bt{
-    background-color: #e3f4ff;
-    
-}
-.cd{
-    float: left;
-    margin-right:50px;
-    border-spacing: 30px 30px;
+    background-color: #d99f59;
 }
 
+.bg{
+    background-color: #F2F2E9;
+}
+  .red {
+ background-color: #910F0F;
+ }
+ 
+.bt{
+    background-color: #f5d7b2;
+    border-right: 50px;
+    
+}
+
+#div-login {
+    background-color: #ffffff;
+}
 
 /*Inicio*/
