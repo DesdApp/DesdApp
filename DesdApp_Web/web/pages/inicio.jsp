@@ -114,65 +114,247 @@
             </div>
         </div>
     </div>
-    <!--Card1-->
-    <div class="container col-12" id="verdoso">
-        <div class="container">
-            <div class="row">
-                <div class="col-4">
-                    <div class="espacioCard card mt-3 mb-3" style="width: 18rem;">
-                        <img src="../img/c1.jpg" width="350" height="220" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Casa Venta</h5>
-                            <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
-                                PRECIO $525,000 Negociable</p>
-                            <a href="#" class="btn botonCard btn-primary">Detalles</a>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-header">
-                                Lic. Angela Vega
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!--Card2-->
-                <div class="col-4 float-left">
-                    <div class="espacioCard card mt-3 mb-3" style="width: 18rem;">
-                        <img src="../img/c3.jpg" height="220" width="350" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Casa Renta</h5>
-                            <p class="card-text">RENTO CASA EN CONDOMINIO SANTA ANITA
-                                PRECIO Q.5,500.00 incluye Mantenimiento.</p>
-                            <a href="#" class="btn botonCard btn-primary">Detalles</a>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-header">
-                                Lic. Luis Porto
+    
+
+   
+            <div class="bd-example">
+                    <div id="carouselExampleCaptions" class="carousel slide" style="height: 700px" data-ride="carousel">
+                      <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                      </ol>
+                      <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <!--Card1-->
+                            <div class="container col-12" style="height: 700px" id="verdoso">
+                                <div class="container">
+                                     <!--Titulo Destacados-->
+                                     <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
+                                                    <h4 class="mt-5" style="text-align: center">Propiedades-Destacadas</h4>
+                                            </div>
+                                                
+                                            </div>
+                                <!--Fin Titulo Destacado-->
+
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="espacioCard card mt-5 mb-3" style="width: 18rem;">
+                                                    <img src="../img/c1.jpg" width="350px" height="220px" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Casa Venta</h5>
+                                                        <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                                            PRECIO $525,000 Negociable</p>
+                                                        <a href="#" class="btn colorBt botonCard btn-primary">Detalles</a>
+                                                    </div>
+                                                    <div class="card" style="width: 18rem;">
+                                                        <div class="card-header">
+                                                            Lic. Angela Vega
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                            
+                                            <!--Card2-->
+                                            <div class="col-4 float-left">
+                                                <div class="espacioCard card mt-5 mb-3" style="width: 18rem;">
+                                                    <img src="../img/c3.jpg" height="220" width="350" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Casa Renta</h5>
+                                                        <p class="card-text">RENTO CASA EN CONDOMINIO SANTA ANITA
+                                                            PRECIO Q.5,500.00 incluye Mantenimiento.</p>
+                                                        <a href="#" class="btn colorBt botonCard btn-primary">Detalles</a>
+                                                    </div>
+                                                    <div class="card" style="width: 18rem;">
+                                                        <div class="card-header">
+                                                            Lic. Luis Porto
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Card3-->
+                                            <div class="col-4 float-left">
+                                                <div class="espacioCard card mt-5 mb-3" style="width: 18rem;">
+                                                    <img src="../img/c2.jpg" width="350" height="220" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Casa en Venta</h5>
+                                                        <p class="card-text">Casa - Condominio Santa Anita Guatemala
+                                                            Precio: $128,000 Negociable poco</p>
+                                                        <a href="#" class=" colorBt btn botonCard btn-primary">Detalles</a>
+                                                    </div>
+                                                    <div class="card" style="width: 18rem;">
+                                                        <div class="card-header">
+                                                            Lic. Angela Vega
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                             </div>
+                            <!--Fin Card-->   
                         </div>
+
+                        <div class="carousel-item">
+                          
+                            <!--Card1-->
+                            <div class="container col-12" id="verdoso" style="height: 700px">
+                                    <div class="container">
+                                         <!--Titulo Destacados-->
+                                         <div class="row">
+                                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
+                                                        <h4 class="mt-5" style="text-align: center">Propiedades-Destacadas</h4>
+                                                </div>
+                                                    
+                                                </div>
+                                    <!--Fin Titulo Destacado-->
+
+                                            <div class="row">
+                                                <div class="col-4">
+                                                   <div class="espacioCard card mt-5 mb-3" style="width: 18rem;">
+                                                        <img src="../img/c1.jpg" width="350" height="220" class="card-img-top" alt="...">
+                                                         <div class="card-body">
+                                                            <h5 class="card-title">Casa Venta</h5>
+                                                            <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                                                PRECIO $525,000 Negociable</p>
+                                                            <a href="#" class="btn colorBt botonCard btn-primary">Detalles</a>
+                                                        </div>
+                                                        <div class="card" style="width: 18rem;">
+                                                            <div class="card-header">
+                                                                Lic. Angela Vega
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                
+                                                <!--Card2-->
+                                                <div class="col-4 float-left">
+                                                    <div class="espacioCard card mt-5 mb-3" style="width: 18rem;">
+                                                        <img src="../img/c3.jpg" height="220" width="350" class="card-img-top" alt="...">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Casa Renta</h5>
+                                                            <p class="card-text">RENTO CASA EN CONDOMINIO SANTA ANITA
+                                                                PRECIO Q.5,500.00 incluye Mantenimiento.</p>
+                                                            <a href="#" class="btn colorBt botonCard btn-primary">Detalles</a>
+                                                        </div>
+                                                        <div class="card" style="width: 18rem;">
+                                                            <div class="card-header">
+                                                                Lic. Luis Porto
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--Card3-->
+                                                <div class="col-4 float-left">
+                                                    <div class="espacioCard card mt-5 mb-3" style="width: 18rem;">
+                                                        <img src="../img/c2.jpg" width="350" height="220" class="card-img-top" alt="...">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Casa en Venta</h5>
+                                                            <p class="card-text">Casa - Condominio Santa Anita Guatemala
+                                                                Precio: $128,000 Negociable poco</p>
+                                                            <a href="#" class=" colorBt btn botonCard btn-primary">Detalles</a>
+                                                        </div>
+                                                        <div class="card" style="width: 18rem;">
+                                                            <div class="card-header">
+                                                                Lic. Angela Vega
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!--Fin Card-->   
+                        </div>   
+                        
+
+                        <div class="carousel-item">
+                         <!--Card1-->
+                         <div class="container col-12" id="verdoso" style="height: 700px">
+                                <div class="container">
+                                    <!--Titulo Destacados-->
+                                        <div class="row">
+                                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
+                                                        <h4 class="mt-5" style="text-align: center">Propiedades-Destacadas</h4>
+                                                </div>
+                                                    
+                                                </div>
+                                    <!--Fin Titulo Destacado-->
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 float-left">
+                                                <div class="espacioCard card mt-4 mb-3" style="width: 18rem;">
+                                                    <img src="../img/c1.jpg" width="350" height="220" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Casa Venta</h5>
+                                                        <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                                            PRECIO $525,000 Negociable</p>
+                                                        <a href="#" class="btn colorBt botonCard btn-primary">Detalles</a>
+                                                    </div>
+                                                    <div class="card" style="width: 18rem;">
+                                                        <div class="card-header">
+                                                            Lic. Angela Vega
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                            
+                                            <!--Card2-->
+                                            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 float-left">
+                                                <div class="espacioCard card mt-4 mb-3" style="width: 18rem;">
+                                                    <img src="../img/c3.jpg" height="220" width="350" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Casa Renta</h5>
+                                                        <p class="card-text">RENTO CASA EN CONDOMINIO SANTA ANITA
+                                                            PRECIO Q.5,500.00 incluye Mantenimiento.</p>
+                                                        <a href="#" class="btn colorBt botonCard btn-primary">Detalles</a>
+                                                    </div>
+                                                    <div class="card" style="width: 18rem;">
+                                                        <div class="card-header">
+                                                            Lic. Luis Porto
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Card3-->
+                                            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 float-left">
+                                                <div class="espacioCard card mt-4 mb-3" style="width: 18rem;">
+                                                    <img src="../img/c2.jpg" width="350" height="220" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Casa en Venta</h5>
+                                                        <p class="card-text">Casa - Condominio Santa Anita Guatemala
+                                                            Precio: $128,000 Negociable poco</p>
+                                                        <a href="#" class=" colorBt btn botonCard btn-primary">Detalles</a>
+                                                    </div>
+                                                    <div class="card" style="width: 18rem;">
+                                                        <div class="card-header">
+                                                            Lic. Angela Vega
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            <!--Fin Card-->   
+                        </div>
+                 
+                      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
                     </div>
                 </div>
-                <!--Card3-->
-                <div class="col-4 float-left">
-                    <div class="espacioCard card mt-3 mb-3" style="width: 18rem;">
-                        <img src="../img/c2.jpg" width="350" height="220" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Casa en Venta</h5>
-                            <p class="card-text">Casa - Condominio Santa Anita Guatemala
-                                Precio: $128,000 Negociable poco</p>
-                            <a href="#" class="btn botonCard btn-primary">Detalles</a>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-header">
-                                Lic. Angela Vega
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Fin Card-->
+                
+
+ 
     <div class="primary">
         <div class="container">
             <div class="row">
@@ -199,12 +381,14 @@
                     <h4 class="text-light mt-5">Suscribete a nuestro Blog</h4>
                     
                     <form>
-                        <div class="form-row align-items-center">
-                          <div class="col-auto">
-                            <label class="sr-only" for="inlineFormInput">Name</label>
+                        <div class="form-row align-items-center mt-4">
+                          <div class="col-6">
+                            <h9 class="text-light">Nombre</h9>
+                            <label class="sr-only text-light" for="inlineFormInput">Name</label>
                             <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
                           </div>
-                          <div class="col-2">
+                          <div class="col-6">
+                            <h9 class="text-light">Email</h9>
                             <label class="sr-only" for="inlineFormInputGroup">Email</label>
                             <div class="input-group mb-2">
                               <div class="input-group-prepend">
@@ -214,7 +398,7 @@
                             </div>
                           </div>
                           <div class="col-auto">
-                            <button type="submit" class="btn btn-primary mb-2">Suscribirme</button>
+                            <button type="submit" class="btn colorBt btn-primary mb-2">Suscribirme</button>
                           </div>
                         </div>
                       </form>
