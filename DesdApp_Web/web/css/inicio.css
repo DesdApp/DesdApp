@@ -30,6 +30,9 @@
 #div-login {
     background-color: #ffffff;
 }
+.colorBt{
+    background-color: #49a3b9;
+}
 
 
 .bannerHeigth{
@@ -38,4 +41,7 @@ margin-top:3%;
 }
 #verdoso{
     background-color: rgb(211, 198, 189);
+}
+.espacioCard{
+    margin-right: 5%;
 }
