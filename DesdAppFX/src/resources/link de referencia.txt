@@ -15,3 +15,7 @@ El color que aparece en la paleta de colores es feíto :(
 
 paleta de colores monokai
 https://www.colourlovers.com/palette/1718713/Monokai
+
+
+Codigo de referencia de JavaFx
+https://www.tutorialspoint.com/javafx/javafx_application.htm
