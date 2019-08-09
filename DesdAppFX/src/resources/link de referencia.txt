@@ -19,3 +19,4 @@ https://www.colourlovers.com/palette/1718713/Monokai
 
 Codigo de referencia de JavaFx
 https://www.tutorialspoint.com/javafx/javafx_application.htm
+https://code.makery.ch/es/library/javafx-tutorial/part1/
