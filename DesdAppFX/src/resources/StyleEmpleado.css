@@ -1,34 +1,13 @@
-.button:hover{
-    -fx-background-color: #0099CC;;
-    -fx-border-radius: 46;
-    -fx-background-radius: 46;
-    -fx-text-fill: #fff;
-    -fx-alignment: CENTER;
-}
+.btn:hover
+{
+    -fx-background-color: #00aff0;
+    -fx-box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    -fx-font-size: 20px; 
 
-.btn {
-      -fx-color: #0099CC; /*Color texto */
-      -fx-background: transparent; /* Eliminar color de fondo */
-      -fx-border: 2px solid #0099CC; /* Ancho de borde, estilo de línea y color */
-      -fx-border-radius: 70px; /* Esquinas redondeadas */
-      -fx-text-decoration: none;
-      -fx-text-transform: uppercase; /* Mayúsculas */
-      -fx-border: none;
-      -fx-color: white;
-      
-      -fx-text-align: center;
-      -fx-text-decoration: none;
-      -fx-display: inline-block;
-      -fx-font-size: 16px;
-      -fx-margin: 4px 2px;
-     
-      -fx-transition-duration: 0.4s;   
-}
-.buttonBar {
-  -fx-float: left;
-  -fx-border: 1px solid succes;
+
 }
 
 
 
- 
+
+
