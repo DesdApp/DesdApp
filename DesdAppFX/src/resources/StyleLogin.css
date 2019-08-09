@@ -1,6 +1,39 @@
 /*color de fondo*/
 .background_app{
-    -fx-background-color: #00aff0;
+    -fx-margin:0;
+    -fx-padding: 0;
+    -fx-font-family: sans-serif;
+    -fx-background: #272819;
+}
+.lab{
+    -fx-color:white;
+    -fx-text-alignment:center ;
+    -fx-text-size: 25px;
+    -fx-weight: 350px;
+}
+.box1{
+    -fx-width: 350px;
+    -fx-padding: 45px;
+    -fx-position: absolute;
+    -fx-top: 50%;
+    -fx-left:50%;
+    -fx-transform: traslate(-50%,-50%);
+    -fx-background:#191919;
+    -fx-text-align: center;  
+}
+
+.input{ 
+    -fx-border:0;
+    -fx-background: none;
+    -fx-display:block;
+    -fx-margin:20px auto;
+    -fx-text-align: center;
+    -fx-border: 2px solid blue;
+    -fx-padding: 14px;
+    -fx-width:200px;
+    -fx-outline: none;
+    -fx-border-radius: 24px;
+    -fx-trasition:0.25s;
 }
 
 /* cajas de texto */
