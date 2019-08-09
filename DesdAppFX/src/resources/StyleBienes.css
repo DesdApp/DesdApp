@@ -2,15 +2,11 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
-}
-.uno{
+.background{
+    -fx-background-color: #1E1E1E;
+    -fx-text-fill:#ffffff; 
     
 }
-.dos{
-    -fx-width: 100%;
-}
-.tabPane{
-
+.button{
+    -fx-background-color: #66D9EF;  
 }

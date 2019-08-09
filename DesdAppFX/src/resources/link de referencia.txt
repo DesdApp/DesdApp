@@ -6,3 +6,9 @@ https://www.citymax-gt.com/apartamentos/?tab=renta-descargar c�digo
 
 
 https://www.tutorialspoint.com/javafx informacion varia sobre JavaFX
+
+http://kio4.com/b4a/b4j5.htm     Color y tamaño de letra
+
+
+El color de fondo es:  1E1E1E
+El color que aparece en la paleta de colores es feíto :(
