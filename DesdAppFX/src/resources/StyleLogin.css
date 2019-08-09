@@ -3,7 +3,7 @@
     -fx-margin:0;
     -fx-padding: 0;
     -fx-font-family: sans-serif;
-    -fx-background: #282923;
+    -fx-background: #272819;
 }
 .lab{
     -fx-color:white;
@@ -11,7 +11,7 @@
     -fx-text-size: 25px;
     -fx-weight: 350px;
 }
-.box{
+.box1{
     -fx-width: 350px;
     -fx-padding: 45px;
     -fx-position: absolute;
@@ -28,7 +28,7 @@
     -fx-display:block;
     -fx-margin:20px auto;
     -fx-text-align: center;
-    -fx-border: 2px solid #3498db;
+    -fx-border: 2px solid blue;
     -fx-padding: 14px;
     -fx-width:200px;
     -fx-outline: none;
