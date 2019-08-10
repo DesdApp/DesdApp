@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="480.0" styleClass="background_app" stylesheets="@../../resources/StyleLogin.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContorladorLogin">
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="480.0" styleClass="background_app" stylesheets="@../../resources/StyleLogin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContorladorLogin">
    <children>
       <Button fx:id="btnInicioSecion" layoutX="183.0" layoutY="311.0" mnemonicParsing="false" stylesheets="@../../resources/StyleLogin.css" text="Iniciar Sesion">
          <effect>
@@ -20,8 +20,8 @@
             <String fx:value="button1" />
             <String fx:value="button1" />
          </styleClass></Button>
-      <PasswordField layoutX="173.0" layoutY="223.0" promptText="Contraseña" styleClass="input" stylesheets="@../../resources/StyleLogin.css" />
-      <TextField layoutX="174.0" layoutY="172.0" promptText="Usuario" styleClass="input" stylesheets="@../../resources/StyleLogin.css" />
+      <PasswordField layoutX="169.0" layoutY="223.0" promptText="Contraseña" styleClass="input" stylesheets="@../../resources/StyleLogin.css" />
+      <TextField layoutX="168.0" layoutY="172.0" promptText="Usuario" styleClass="input" stylesheets="@../../resources/StyleLogin.css" />
       <Label layoutX="335.0" layoutY="278.0" styleClass="texterr_app" text="Error al iniciar sesion" />
       <ImageView fitHeight="100.0" fitWidth="123.0" layoutX="196.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
