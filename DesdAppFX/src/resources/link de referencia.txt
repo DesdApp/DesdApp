@@ -2,4 +2,21 @@ https://youtu.be/OnYRLPSoUtM
 
 https://salvadorhm.blogspot.com/2014/07/aplicacion-interfaz-de-multiples.html
 
-https://www.citymax-gt.com/apartamentos/?tab=renta-descargar c�digo
+https://www.citymax-gt.com/apartamentos/?tab=renta-descargar c�digo
+
+
+https://www.tutorialspoint.com/javafx informacion varia sobre JavaFX
+
+http://kio4.com/b4a/b4j5.htm     Color y tamaño de letra
+
+
+El color de fondo es:  1E1E1E
+El color que aparece en la paleta de colores es feíto :(
+
+paleta de colores monokai
+https://www.colourlovers.com/palette/1718713/Monokai
+
+
+Codigo de referencia de JavaFx
+https://www.tutorialspoint.com/javafx/javafx_application.htm
+https://code.makery.ch/es/library/javafx-tutorial/part1/

@@ -1,4 +1,3 @@
-
 .primary {
     background-color: #011144;
 }
@@ -20,8 +19,11 @@
     
 }
 
+#div-login {
+    background-color: #ffffff;
+}
 .colorBt{
-    background-color: #9ddff0;
+    background-color: #49a3b9;
 }
 
 
@@ -31,12 +33,6 @@ margin-top:3%;
 }
 .verdoso{
     background-color: rgb(211, 198, 189);
-}
-.borderCard{
-    border-right: 10px;
-    border-width: 1px;
-  border-style: solid;
-  border-color: #011144;
 }
 .alineacion{
     align-items: center;

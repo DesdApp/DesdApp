@@ -3,39 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package ch.makery.address.view;
 
-import java.awt.Button;
-import java.awt.Label;
-import java.awt.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
  * @author javam2019
  */
-public class BienesController implements Initializable {    
-    @FXML
-    private Label tittle;
-    
-    @FXML
-    private TableView table;
-    
-    @FXML
-    private Button btninsert;
-    
-    
+public class PersonOverviewController implements Initializable {
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }    
+
+    @FXML
+    private void handleDeletePerson(ActionEvent event) {
     }
 
+    @FXML
+    private void handleEditPerson(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleNewPerson(ActionEvent event) {
+    }
+    
 }
