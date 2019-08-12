@@ -21,15 +21,16 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
                 integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href="../css/inicio.css" type="text/css">
-        
+
         <title>Inicio</title>
     </head>
 
     <body class="bg">
 
         <!--Barra de navegacion-->
-
         <div class="row primary">
             <div class="col-sm-3 col-md-1"><img src="../img/let.PNG" width="120px">
 
@@ -117,7 +118,7 @@
 
         <!--Destacados-->
         
-                <div class="col-12 alineacion" style="margin-top: 6px ; height: 170px;">
+                <div class="col-12 alineacion container-fluid" style="margin-top: 6px ; height: 170px;">
                     <h4>GTM Bines Raices-Magnates en Inmobiliaria</h4>
                 </div>
             
@@ -132,9 +133,10 @@
                                       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                                     </ol>
                                     <div class="carousel-inner">
-                                      <div class="carousel-item active carousel-item" style="margin-top: 35px; margin-bottom:45px">
+                                      <div class="carousel-item active carousel-item container-fluid" style="margin-top: 35px; margin-bottom:45px">
 
                                         <!--Cards-->
+                                        <div class="row" style="justify-content: center">
                                         <!--1-->
                                         <div class="card espacioCard" style="width: 18rem;float: left;">
                                             <img src="../img/c1.jpg" class="card-img-top" alt="...">
@@ -166,7 +168,7 @@
                                             </div>
                                         </div>
                                         <!--4-->
-                                        <div class="card espacioCard " style="width: 18rem;">
+                                        <div class="card espacioCard" style="width: 18rem;float: left;">
                                                 <img src="../img/c1.jpg" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Casa-Venta</h5>
@@ -177,8 +179,9 @@
                                             </div>
     
                                         </div>
+                                    </div>
                                       <div class="carousel-item" style="margin-top: 35px; margin-bottom:45px">
-
+                                        
                                          <!--5-->
                                          <div class="card espacioCard" style="width: 18rem;float: left;">
                                             <img src="../img/c1.jpg" class="card-img-top" alt="...">
@@ -328,7 +331,6 @@
 
           </div>
   </div>
-
 
     
     </body>

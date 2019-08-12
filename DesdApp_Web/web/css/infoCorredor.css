@@ -38,4 +38,6 @@ margin-top:3%;
     align-items: center;
     display: flex;
     justify-content: center;
+    margin-right: auto;
+    margin-top: auto;
 }
