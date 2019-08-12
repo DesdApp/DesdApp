@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1140.0" stylesheets="@../../resources/StyleEmpleado.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1158.0" stylesheets="@../../resources/StyleEmpleado.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab styleClass="hgnf" text="Nuevo Registro">
          <content>
@@ -145,7 +145,7 @@
                         <Image url="@../../resources/images/buscar.png" />
                      </image>
                   </ImageView>
-                  <TableView layoutX="22.0" layoutY="118.0" prefHeight="612.0" prefWidth="1156.0">
+                  <TableView layoutY="104.0" prefHeight="612.0" prefWidth="1156.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="Id Empleado" />
                       <TableColumn prefWidth="75.0" text="Nombre Completo" />
@@ -158,6 +158,9 @@
                         <TableColumn prefWidth="75.0" text="Estado de Empleado" />
                         <TableColumn prefWidth="75.0" text="Fecha Finalizadion" />
                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                      
                   </TableView>
                   <Button layoutX="811.0" layoutY="33.0" mnemonicParsing="false" text="Buscar">

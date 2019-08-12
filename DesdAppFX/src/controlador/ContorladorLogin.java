@@ -5,8 +5,10 @@
  */
 package controlador;
 
+import java.awt.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -16,11 +18,15 @@ import javafx.fxml.Initializable;
  */
 public class ContorladorLogin implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private Button btnInicioSecion;
+    
+    
+    
     @Override
+
     public void initialize(URL url, ResourceBundle rb) {
+
         // TODO
     }
 
