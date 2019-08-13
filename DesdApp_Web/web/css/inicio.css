@@ -31,7 +31,7 @@
     background-color: #ffffff;
 }
 .colorBt{
-    background-color: #49a3b9;
+    background-color: #08748f;
 }
 
 
@@ -49,4 +49,5 @@ margin-top:3%;
     align-items: center;
     display: flex;
     justify-content: center;
+    text-align: center
 }
