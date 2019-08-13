@@ -50,7 +50,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../pages/index.jsp">Inicio</a>
+                            <a class="nav-link" href="../WEB-INF/index.jsp">Inicio</a>
                         </li>
 
                          <!--B1-->       
@@ -124,7 +124,7 @@
             
     
 
-                <div class="col-12 verdoso">
+                <div class="verdoso">
                             
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <ol class="carousel-indicators">
@@ -133,22 +133,29 @@
                                       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                                     </ol>
                                     <div class="carousel-inner">
-                                      <div class="carousel-item active carousel-item container-fluid" style="margin-top: 35px; margin-bottom:45px">
+                                      <div class="carousel-item active carousel-item">
 
+                                        <h4 class="mt-5" style="text-align: center">Propiedades-Destacadas</h4>
+                                        <hr>
                                         <!--Cards-->
-                                        <div class="row mx-auto">
+                                        <div class="row">
                                         <!--1-->
-                                        <div class="card espacioCard col-3">
-                                            <img src="../img/c1.jpg" class="card-img-top card-img-fluid" style="width: 100%" alt="...">
+                                        <div class="card col-3 mx-auto mb-4">
+                                            <img src="../img/c1.jpg" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">Casa-Venta</h5>
                                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                                         PRECIO $525,000.</p>
                                                 <a href="#" class="btn btn-primary">Detalles</a>
                                             </div>
+                                            <div class="card" style="width: 18rem;">
+                                                <div class="card-header">
+                                                    Lic. Angela Vega
+                                                </div>
+                                            </div>
                                         </div>
                                         <!--2-->
-                                        <div class="card espacioCard" style="width: 18rem;float: left;">
+                                        <div class="card col-3 mx-auto mb-4">
                                             <img src="../img/c1.jpg" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">Casa-Venta</h5>
@@ -158,7 +165,7 @@
                                             </div>
                                         </div>
                                         <!--3-->
-                                        <div class="card espacioCard" style="width: 18rem;float: left;">
+                                        <div class="card col-3 mx-auto mb-4" >
                                             <img src="../img/c1.jpg" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">Casa-Venta</h5>
@@ -167,19 +174,10 @@
                                                 <a href="#" class="btn btn-primary">Detalles</a>
                                             </div>
                                         </div>
-                                        <!--4-->
-                                        <div class="card espacioCard" style="width: 18rem;float: left;">
-                                                <img src="../img/c1.jpg" class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Casa-Venta</h5>
-                                                    <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
-                                                            PRECIO $525,000.</p>
-                                                    <a href="#" class="btn btn-primary">Detalles</a>
-                                                </div>
-                                            </div>
-    
+
                                         </div>
                                     </div>
+
                                       <div class="carousel-item" style="margin-top: 35px; margin-bottom:45px">
                                         
                                          <!--5-->
@@ -280,7 +278,7 @@
                                     </a>
                                   </div>
       
-                    </div>
+                    </div >
 
                     <!--Footer-->
        <div class="row primary">
