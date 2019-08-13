@@ -1,0 +1,56 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+/* 
+    Created on : 1/08/2019, 11:16:13 AM
+    Author     : Javam2019
+*/
+
+a {
+    color: #011144;
+}
+
+
+/* Colors */
+
+.primary {
+    background-color: #011144;
+}
+
+.secondary {
+    background-color: #d99f59;
+}
+
+.bg {
+    background-color: #F2F2E9;
+}
+
+.bg-white {
+    background: #ffffff;
+}
+
+.red {
+    background-color: #910F0F;
+}
+
+
+/* Text */
+
+.text-small {
+    font-size: 14px;
+}
+
+.text-big {
+    font-size: 32px;
+}
+
+.text-medium {
+    font-size: 24px;
+}
+
+
+/*Inicio*/
