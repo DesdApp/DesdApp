@@ -1,0 +1,58 @@
+#company {
+    font-size: 32px;
+}
+
+/* Colors */
+
+
+.primary {
+    background-color: #011144;
+}
+
+.secondary {
+    background-color: #d99f59;
+}
+
+.bg{
+    background-color: #F2F2E9;
+}
+  .red {
+ background-color: #910F0F;
+ }
+ 
+.bt{
+    background-color: #f5d7b2;
+    border-right: 50px;
+    
+}
+
+#div-login {
+    background-color: #ffffff;
+}
+.colorBt{
+    background-color: #49a3b9;
+}
+
+
+.bannerHeigth{
+height: 120px;
+margin-top:3%;
+}
+.verdoso{
+    background-color: rgb(211, 198, 189);
+}
+.espacioCard{
+    margin-right: 1%;
+}
+.alineacion{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.imagAdmin{
+    margin-top: 25px;
+ width: 220px;
+ height: 210px;
+ border-radius:150px;
+ border:10px solid #666;
+}

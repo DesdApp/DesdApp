@@ -2,11 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/nosotros.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -16,6 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/nosotros.css" type="text/css">
     <title>Document</title>
 </head>
 
@@ -71,10 +70,10 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Contactenos</a>
+                            <a class="nav-link" href="">Contáctenos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Iniciar Secion</a>
+                            <a class="nav-link" href="#">Iniciar Sesión</a>
                         </li> 
                     </ul>
                 </div> 
@@ -84,7 +83,6 @@
         </div>
 
      <!--Informacion y Card Corredores-->
-     <div class="col-12">
             <div class="container col-12">
                         <h3 class="mt-5" style="text-align: center">Quienes somos</h3>
                         <p>
@@ -96,9 +94,9 @@
             </div>
         
             <!--Grupo 1-->
-            <div class="mt-5 primary alineacion">
-                <div class="row col-6 float-left" style="text-align: center">
-                    <div class="card mb-3" style="max-width: 540px;">
+            <div class="primary row">
+                <div class="col-6">
+                    <div class="card mb-2 mt-2 mx-auto" style="max-width: 540px;">
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="../img/p8.jpg" class="card-img" alt="...">
@@ -107,15 +105,15 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
                       </div>
                 </div>
 
-                <div class="row col-6">
-                    <div class="card mb-3" style="max-width: 540px;">
+                <div class="col-6">
+                    <div class="card mb-2 mt-2 mx-auto" style="max-width: 540px;">
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="../img/p4.jpg" class="card-img" alt="...">
@@ -124,7 +122,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -134,9 +132,9 @@
             </div>
 
             <!--Grupo 2-->
-            <div class="mt-5 alineacion">
-                <div class="row col-6 float-left" style="text-align: center">
-                    <div class="card mb-3" style="max-width: 540px;">
+            <div class="row mt-4">
+                <div class="col-6" >
+                    <div class="card mx-auto mb-2 mt-2" style="max-width: 540px;">
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="../img/p5.jpg" class="card-img" alt="...">
@@ -145,15 +143,15 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
                       </div>
                 </div>
 
-                <div class="row col-6">
-                    <div class="card mb-3" style="max-width: 540px;">
+                <div class=" col-6">
+                    <div class="card mb-3 mx-auto mt-2 mb-2" style="max-width: 540px;">
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="../img/p6.jpg" class="card-img" alt="...">
@@ -162,7 +160,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -173,9 +171,9 @@
 
             <!--Grupo 3-->
             
-            <div class="mt-5 primary alineacion">
-                <div class="row col-6 float-left" style="text-align: center">
-                    <div class="card mb-3" style="max-width: 540px;">
+            <div class="mt-4 row primary">
+                <div class="col-6">
+                    <div class="card mx-auto mb-2 mt-2" style="max-width: 540px;">
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="../img/p9.jpg" class="card-img" alt="...">
@@ -184,15 +182,15 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
                       </div>
                 </div>
 
-                <div class="row col-6">
-                    <div class="card mb-3" style="max-width: 540px;">
+                <div class=" col-6">
+                    <div class="card mx-auto mb-2 mt-2" style="max-width: 540px;">
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="../img/p3.jpg" class="card-img" alt="...">
@@ -201,7 +199,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -210,9 +208,9 @@
                 </div>
             </div>
             <!--Grupo 4-->
-            <div class="mt-5 alineacion">
-                <div class="row col-6 float-left" style="text-align: center">
-                    <div class="card mb-3" style="max-width: 540px;">
+            <div class="row mt-4">
+                <div class="col-6">
+                    <div class="card mx-auto mb-2 mt-2" style="max-width: 540px;">
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="../img/p11.jpg" class="card-img" alt="...">
@@ -221,15 +219,15 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
                       </div>
                 </div>
 
-                <div class="row col-6">
-                    <div class="card mb-3" style="max-width: 540px;">
+                <div class=" col-6">
+                    <div class="card mx-auto mb-2 mt-2" style="max-width: 540px;">
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="../img/p10.jpg" class="card-img" alt="...">
@@ -238,7 +236,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -246,7 +244,7 @@
 
                 </div>
             </div>
-          </div>
+    
 
           
         
