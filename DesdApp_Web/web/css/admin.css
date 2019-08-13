@@ -50,9 +50,21 @@ margin-top:3%;
     justify-content: center;
 }
 .imagAdmin{
-    margin-top: 25px;
+    margin-top: 10px;
  width: 220px;
  height: 210px;
  border-radius:150px;
- border:10px solid #666;
+ border:1px solid #666;
+}
+
+.text-medium{
+    font-size: 24px;
+}
+
+.contadorVistas>samp{
+    text-align: center;
+}
+.table{
+    height: 650px;
+    width: 200%;
 }
