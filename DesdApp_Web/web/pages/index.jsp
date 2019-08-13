@@ -136,10 +136,10 @@
                                       <div class="carousel-item active carousel-item container-fluid" style="margin-top: 35px; margin-bottom:45px">
 
                                         <!--Cards-->
-                                        <div class="row" style="justify-content: center">
+                                        <div class="row mx-auto">
                                         <!--1-->
-                                        <div class="card espacioCard" style="width: 18rem;float: left;">
-                                            <img src="../img/c1.jpg" class="card-img-top" alt="...">
+                                        <div class="card espacioCard col-3">
+                                            <img src="../img/c1.jpg" class="card-img-top card-img-fluid" style="width: 100%" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">Casa-Venta</h5>
                                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
