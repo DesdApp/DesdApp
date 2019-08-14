@@ -22,7 +22,7 @@
             </div>
             <nav class="navbar navbar-expand-md primary navbar-dark col-sm-9 col-md-11">
                 <!--Empieza barra de navegacion-->
-                <a class="navbar-brand" href="#">Barra de navegacion</a>
+                <a class="navbar-brand" href="#">Navbar Principal</a>
 
                 <!-- Toggler/collapsibe Button -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -63,10 +63,10 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Contactenos</a>
+                            <a class="nav-link" href="">Contáctenos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Iniciar Secion</a>
+                            <a class="nav-link" href="#">Iniciar Sesión</a>
                         </li>
                     </ul>
                 </div>
@@ -85,8 +85,8 @@
                             <br>
                             <h2 class="card-title ">Administrador</h2>
                             <br>
-                            <p class="text-medium card-text"> Nombre Completo</p>
-                            <p class="text-medium card-text"> Telefono </p>
+                            <p class="text-medium card-text"> Nombre completo</p>
+                            <p class="text-medium card-text"> Teléfono </p>
                             <p class="text-medium card-text"> Correo </p>
                         </div>
                     </div>
@@ -101,9 +101,9 @@
                 <table class="table ">
                     <thead class="thead text-light primary">
                         <tr>
-                            <th scope="col">Codigo</th>
+                            <th scope="col">Código</th>
                             <th scope="col">Nombre de la propiedad</th>
-                            <th scope="col">Descripcion</th>
+                            <th scope="col">Descripción</th>
                             <th scope="col">Estado</th>
                             <th scope="col">Precio</th>
                             <th scope="col">Corredor</th>
@@ -124,7 +124,7 @@
                                 <div>Contador de vistas &nbsp;</div>
                                 <i class="material-icons">remove_red_eye</i>
                             </td>
-                            <td>link para Detalles</td>
+                            <td>Link para Detalles</td>
 
                         </tr>
                         <tr>
@@ -138,7 +138,7 @@
                                 <div>Contador de vistas &nbsp;</div>
                                 <i class="material-icons">remove_red_eye</i>
                             </td>
-                            <td>link para Detalles</td>
+                            <td>Link para Detalles</td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
@@ -151,7 +151,7 @@
                                 <div>Contador de vistas &nbsp;</div>
                                 <i class="material-icons">remove_red_eye</i>
                             </td>
-                            <td>link para Detalles</td>
+                            <td>Link para Detalles</td>
                         </tr>
                         <tr>
                             <th scope="row">4</th>
@@ -164,7 +164,7 @@
                                 <div>Contador de vistas &nbsp;</div>
                                 <i class="material-icons">remove_red_eye</i>
                             </td>
-                            <td>link para Detalles</td>
+                            <td>Link para Detalles</td>
                         </tr>
                         <tr>
                             <th scope="row">5</th>
@@ -177,7 +177,7 @@
                                 <div>Contador de vistas &nbsp;</div>
                                 <i class="material-icons">remove_red_eye</i>
                             </td>
-                            <td>link para Detalles</td>
+                            <td>Link para Detalles</td>
                         </tr>
                         <tr>
                             <th scope="row">6</th>
@@ -190,7 +190,7 @@
                                 <div class="contadorVistas">Contador de vistas &nbsp;</div>
                                 <i class="material-icons ">remove_red_eye</i>
                             </td>
-                            <td>link para Detalles</td>
+                            <td>Link para Detalles</td>
                         </tr>
                     </tbody>
                 </table>
@@ -203,14 +203,13 @@
             <div class="col-xl-4 primaryfloat-left">
                 <h4 class="text-light mt-5">Bienes Raices Guatemala</h4>
                 <p class="text-light">
-                    Empresa lider en ventar,renta, compra venta,
-                    alquiler.
-                    Contamos con la mejor asesoramiento inmobiliario
+                    Empresa lider en venta, alquiler y compraventa.
+                    Contamos con el mejor asesoramiento inmobiliario
                 </p>
             </div>
 
             <div class="col-xl-4 primary float-left">
-                <h4 class="text-light mt-5">Contactenos</h4>
+                <h4 class="text-light mt-5">Contáctenos</h4>
                 <p class="text-light">
                     Zona 10 48-95 interiores de nook
                     BienesRaices@gmail.com
@@ -220,7 +219,7 @@
             </div>
 
             <div class="col-xl-4 primary float-left">
-                <h4 class="text-light mt-5">Suscribete a nuestro Blog</h4>
+                <h4 class="text-light mt-5">Puedes suscribirte a nuestro Blog</h4>
 
                 <form>
                     <div class="form-row align-items-center mt-4">
