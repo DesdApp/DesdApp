@@ -42,12 +42,12 @@ margin-top:3%;
 .verdoso{
     background-color: rgb(211, 198, 189);
 }
-.espacioCard{
-    margin-right: 1%;
-}
 .alineacion{
     align-items: center;
     display: flex;
     justify-content: center;
     text-align: center
+}
+.ImgTm{
+    max-width: auto;
 }
