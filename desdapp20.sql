@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-08-2019 a las 08:36:26
--- Versión del servidor: 10.3.16-MariaDB
--- Versión de PHP: 7.3.7
+-- Tiempo de generación: 14-08-2019 a las 20:55:17
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.0.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `desdapp20`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `clientes_id` int(10) NOT NULL,
+  `persona_id` int(10) NOT NULL,
+  `nombre_titular` varchar(150) NOT NULL,
+  `user` varchar(15) NOT NULL,
+  `password` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -472,19 +486,6 @@ CREATE TABLE `personas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `propietarios`
---
-
-CREATE TABLE `propietarios` (
-  `propietario_id` int(11) NOT NULL,
-  `nombre_titular` varchar(150) NOT NULL,
-  `user` varchar(15) NOT NULL,
-  `passwrod` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `regiones`
 --
 
@@ -553,6 +554,13 @@ INSERT INTO `tipo_documento` (`tipo_documento_id`, `nombre_documeto`) VALUES
 --
 
 --
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`clientes_id`),
+  ADD KEY `persona_id` (`persona_id`);
+
+--
 -- Indices de la tabla `departamentos`
 --
 ALTER TABLE `departamentos`
@@ -590,12 +598,6 @@ ALTER TABLE `personas`
   ADD KEY `tipo_documento_id` (`tipo_documento_id`);
 
 --
--- Indices de la tabla `propietarios`
---
-ALTER TABLE `propietarios`
-  ADD PRIMARY KEY (`propietario_id`);
-
---
 -- Indices de la tabla `regiones`
 --
 ALTER TABLE `regiones`
@@ -616,6 +618,12 @@ ALTER TABLE `tipo_documento`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `clientes_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `personas`
