@@ -1,5 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="../css/admin.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Administrador</title>
 </head>
 
@@ -90,19 +92,25 @@
                     </div>
                 </div>
             </div>
-        </div><!--fin del Perfil para el administrador-->
-    
+        </div>
+        <!--fin del Perfil para el administrador-->
+
         <!--Empieza Tabla-->
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center table-responsive">
             <div class="col-10 mt-5 ">
-                <table class="table">
+                <table class="table ">
                     <thead class="thead text-light primary">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Codigo</th>
+                            <th scope="col">Nombre de la propiedad</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Corredor</th>
+                            <th scope="col">Vistas</th>
+                            <th scope="col">Detalles</th>
                         </tr>
+                        
                     </thead>
                     <tbody>
                         <tr>
@@ -110,91 +118,136 @@
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
+                            <td>$0000.00</td>
+                            <td>Mark</td>
+                            <td class=" d-flex justify-content-left">
+                                <div>Contador de vistas &nbsp;</div>
+                                <i class="material-icons">remove_red_eye</i>
+                            </td>
+                            <td>link para Detalles</td>
+
                         </tr>
                         <tr>
                             <th scope="row">2</th>
                             <td>Jacob</td>
                             <td>Thornton</td>
                             <td>@fat</td>
+                            <td>$0000.00</td>
+                            <td>Mark</td>
+                            <td class=" d-flex justify-content-left">
+                                <div>Contador de vistas &nbsp;</div>
+                                <i class="material-icons">remove_red_eye</i>
+                            </td>
+                            <td>link para Detalles</td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
                             <td>Larry</td>
                             <td>the Bird</td>
                             <td>@twitter</td>
+                            <td>$0000.00</td>
+                            <td>Mark</td>
+                            <td class=" d-flex justify-content-left">
+                                <div>Contador de vistas &nbsp;</div>
+                                <i class="material-icons">remove_red_eye</i>
+                            </td>
+                            <td>link para Detalles</td>
                         </tr>
                         <tr>
                             <th scope="row">4</th>
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
+                            <td>$0000.00</td>
+                            <td>Mark</td>
+                            <td class=" d-flex justify-content-left">
+                                <div>Contador de vistas &nbsp;</div>
+                                <i class="material-icons">remove_red_eye</i>
+                            </td>
+                            <td>link para Detalles</td>
                         </tr>
                         <tr>
                             <th scope="row">5</th>
                             <td>Jacob</td>
                             <td>Thornton</td>
                             <td>@fat</td>
+                            <td>$0000.00</td>
+                            <td>Mark</td>
+                            <td class=" d-flex justify-content-left">
+                                <div>Contador de vistas &nbsp;</div>
+                                <i class="material-icons">remove_red_eye</i>
+                            </td>
+                            <td>link para Detalles</td>
                         </tr>
                         <tr>
                             <th scope="row">6</th>
                             <td>Larry</td>
                             <td>the Bird</td>
                             <td>@twitter</td>
+                            <td>$0000.00</td>
+                            <td>Mark</td>
+                            <td class=" d-flex justify-content-left">
+                                <div class="contadorVistas">Contador de vistas &nbsp;</div>
+                                <i class="material-icons ">remove_red_eye</i>
+                            </td>
+                            <td>link para Detalles</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-        </div> <!--fin de la tabla-->
+        </div>
+        <!--fin de la tabla-->
         <!--footer-->
         <div class="row primary mt-5">
-                <div class="col-xl-4 primaryfloat-left">
-                    <h4 class="text-light mt-5">Bienes Raices Guatemala</h4>
-                    <p class="text-light">
-                        Empresa lider en ventar,renta, compra venta,
-                        alquiler.
-                        Contamos con la mejor asesoramiento inmobiliario
-                    </p>
-                </div>
-      
-                <div class="col-xl-4 primary float-left">
-                    <h4 class="text-light mt-5">Contactenos</h4>
-                    <p class="text-light">
-                        Zona 10 48-95 interiores de nook
-                        BienesRaices@gmail.com
-                        +502 22334455
-      
-                    </p>
-                </div>
-                
-                <div class="col-xl-4 primary float-left">
-                    <h4 class="text-light mt-5">Suscribete a nuestro Blog</h4>
-                    
-                    <form>
-                        <div class="form-row align-items-center mt-4">
-                          <div class="col-6">
+            <div class="col-xl-4 primaryfloat-left">
+                <h4 class="text-light mt-5">Bienes Raices Guatemala</h4>
+                <p class="text-light">
+                    Empresa lider en ventar,renta, compra venta,
+                    alquiler.
+                    Contamos con la mejor asesoramiento inmobiliario
+                </p>
+            </div>
+
+            <div class="col-xl-4 primary float-left">
+                <h4 class="text-light mt-5">Contactenos</h4>
+                <p class="text-light">
+                    Zona 10 48-95 interiores de nook
+                    BienesRaices@gmail.com
+                    +502 22334455
+
+                </p>
+            </div>
+
+            <div class="col-xl-4 primary float-left">
+                <h4 class="text-light mt-5">Suscribete a nuestro Blog</h4>
+
+                <form>
+                    <div class="form-row align-items-center mt-4">
+                        <div class="col-6">
                             <h9 class="text-light">Nombre</h9>
                             <label class="sr-only text-light" for="inlineFormInput">Name</label>
                             <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Username">
-                          </div>
-                          <div class="col-6">
+                        </div>
+                        <div class="col-6">
                             <h9 class="text-light">Email</h9>
                             <label class="sr-only" for="inlineFormInputGroup">Email</label>
                             <div class="input-group mb-2">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
-                              </div>
-                              <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Email">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Email">
                             </div>
-                          </div>
-                          <div class="col-auto">
-                            <button type="submit" class="btn colorBt btn-primary mb-2">Suscribirme</button>
-                          </div>
                         </div>
-                      </form>
-      
-                </div>
-        </div> <!--fin del pie de pagina-->
+                        <div class="col-auto">
+                            <button type="submit" class="btn colorBt btn-primary mb-2">Suscribirme</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <!--fin del pie de pagina-->
 
 
 
