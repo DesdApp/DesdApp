@@ -20,3 +20,7 @@ https://www.colourlovers.com/palette/1718713/Monokai
 Codigo de referencia de JavaFx
 https://www.tutorialspoint.com/javafx/javafx_application.htm
 https://code.makery.ch/es/library/javafx-tutorial/part1/
+
+
+boton para agregar a favoritos
+https://es.stackoverflow.com/questions/108317/c%C3%B3mo-hacer-un-bot%C3%B3n-a%C3%B1adir-a-favoritos-con-javascript
