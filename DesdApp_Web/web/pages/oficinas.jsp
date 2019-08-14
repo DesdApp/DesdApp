@@ -1,8 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../pages/index.jsp">Inicio</a>
+                            <a class="nav-link" href="../WEB-INF/index.jsp">Inicio</a>
                         </li>
 
                          <!--B1-->       
@@ -54,8 +54,8 @@
                                 aria-haspopup="true" aria-expanded="false">Inmuebles</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Apartamentos</a>
-                                <a class="dropdown-item" href="#">Bodegas</a>
                                 <a class="dropdown-item" href="#">Casas</a>
+                                <a class="dropdown-item" href="#">Bódegas</a>
                                 <a class="dropdown-item" href="#">Edificios</a>
                                 <a class="dropdown-item" href="#">Fincas</a>
                                 <a class="dropdown-item" href="#">Locales</a>
@@ -66,7 +66,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Contáctenos</a>
+                            <a class="nav-link" href="">Cont&aacute;ctenos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../WEB-INF/login.html">Iniciar Sesión</a>
@@ -84,10 +84,10 @@
                 </div> 
 
             
-            <div class="verdoso col-12 alineacion">
+            <div class="row verdoso">
             
-                <h4>Ubicación</h4>
-                <p style="margin-top: 15px">
+                <h4 class="col-12 alineacion mt-5">Ubicaci&oacute;n</h4>
+                <p class="mx-auto mt-5 mb-5">
                     UBICACION: 8a. Avenida 17-50, Zona 10<br>
                     TEL: (502)+ 40931717<br>
                     CORREO: BienesRaices@gmail.com<br>

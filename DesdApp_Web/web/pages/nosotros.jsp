@@ -41,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../pages/index.jsp">Inicio</a>
+                            <a class="nav-link" href="../WEB-INF/index.jsp">Inicio</a>
                         </li>
 
                          <!--B1-->       
