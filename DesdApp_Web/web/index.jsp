@@ -23,7 +23,7 @@
         crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="../css/inicio.css" type="text/css">
+        <link rel="stylesheet" href="css/index.css" type="text/css">
 
         <title>Inicio</title>
     </head>
@@ -32,7 +32,7 @@
 
         <!--Barra de navegacion-->
         <div class="row primary">
-            <div class="col-sm-3 col-md-1"><img src="../img/let.PNG" width="120px">
+            <div class="col-sm-3 col-md-1"><img src="img/let.PNG" width="120px">
 
             </div>
 
@@ -50,7 +50,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../WEB-INF/index.jsp">Inicio</a>
+                            <a class="nav-link" href="index.jsp">Inicio</a>
                         </li>
 
                          <!--B1-->       
@@ -58,8 +58,8 @@
                             <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="true" aria-expanded="false">Quienes somos</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="../pages/nosotros.jsp">Nuestro Equipo</a>
-                                <a class="dropdown-item" href="../pages/oficinas.jsp">Oficinas</a>
+                                <a class="dropdown-item" href="pages/nosotros.jsp">Nuestro Equipo</a>
+                                <a class="dropdown-item" href="pages/oficinas.jsp">Oficinas</a>
                             </div>
                         </li>
                         <!--B2-->
@@ -67,7 +67,7 @@
                             <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="true" aria-expanded="false">Inmuebles</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Apartamentos</a>
+                                <a class="dropdown-item" href="">Apartamentos</a>
                                 <a class="dropdown-item" href="#">Bodegas</a>
                                 <a class="dropdown-item" href="#">Casas</a>
                                 <a class="dropdown-item" href="#">Edificios</a>
@@ -83,7 +83,7 @@
                             <a class="nav-link" href="">Contáctenos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Iniciar Sesión</a>
+                            <a class="nav-link" href="pages/login.jsp">Iniciar Sesión</a>
                         </li> 
                     </ul>
                 </div> 
@@ -96,13 +96,13 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="../img/b6.jpg" alt="First slide">
+                    <img class="d-block w-100" src="img/b6.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="../img/d4.png" alt="Second slide">
+                    <img class="d-block w-100" src="img/d4.png" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="../img/d3.png" alt="Third slide">
+                    <img class="d-block w-100" src="img/d3.png" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -141,22 +141,22 @@
                                         <div class="row">
                                         <!--1-->
                                         <div class="card col-3 mx-auto mb-4">
-                                            <img src="../img/c1.jpg" class="card-img-top" alt="...">
+                                            <img src="img/c1.jpg" class="card-img-top" alt="Responsive image">
                                             <div class="card-body">
                                                 <h5 class="card-title">Casa-Venta</h5>
                                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                                         PRECIO $525,000.</p>
                                                 <a href="#" class="btn btn-primary">Detalles</a>
                                             </div>
-                                            <div class="card" style="width: 18rem;">
-                                                <div class="card-header">
+                                            <div class="card mx-auto border-0" style="width: 100%">
+                                                <div class="card">
                                                     Lic. Angela Vega
                                                 </div>
                                             </div>
                                         </div>
                                         <!--2-->
                                         <div class="card col-3 mx-auto mb-4">
-                                            <img src="../img/c1.jpg" class="card-img-top" alt="...">
+                                            <img src="img/c1.jpg" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">Casa-Venta</h5>
                                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
@@ -166,7 +166,7 @@
                                         </div>
                                         <!--3-->
                                         <div class="card col-3 mx-auto mb-4" >
-                                            <img src="../img/c1.jpg" class="card-img-top" alt="...">
+                                            <img src="img/c1.jpg" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">Casa-Venta</h5>
                                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
