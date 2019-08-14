@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -50,20 +51,20 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inmuebles</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Apartamentos</a>
-                                    <a class="dropdown-item" href="#">Bodegas</a>
-                                    <a class="dropdown-item" href="#">Casas</a>
-                                    <a class="dropdown-item" href="#">Edificios</a>
-                                    <a class="dropdown-item" href="#">Fincas</a>
-                                    <a class="dropdown-item" href="#">Locales</a>
-                                    <a class="dropdown-item" href="#">Oficinas</a>
-                                    <a class="dropdown-item" href="#">Proyectos</a>
-                                    <a class="dropdown-item" href="#">Terrenos</a>
+                                    <a class="dropdown-item" href="apartamentos.jsp">Apartamentos</a>
+                                    <a class="dropdown-item" href="bodegas.jsp">Bodegas</a>
+                                    <a class="dropdown-item" href="casas.jsp">Casas</a>
+                                    <a class="dropdown-item" href="inmuebles.jsp">Edificios</a>
+                                    <a class="dropdown-item" href="inmuebles.jsp">Fincas</a>
+                                    <a class="dropdown-item" href="inmuebles.jsp">Locales</a>
+                                    <a class="dropdown-item" href="inmuebles.jsp">Oficinas</a>
+                                    <a class="dropdown-item" href="inmuebles.jsp">Proyectos</a>
+                                    <a class="dropdown-item" href="inmuebles.jsp">Terrenos</a>
                                 </div>
                             </li>
 
                             <a class="nav-item nav-link text-light" href="#">Contactenos</a>
-                            <a class="nav-item nav-link text-light" href="../index.html">Iniciar Secion/Registrarse</a>
+                            <a class="nav-item nav-link text-light" href="../index.html">Iniciar Sesion/Registrarse</a>
                         </div>
                     </div>
                 </nav>
@@ -177,7 +178,7 @@
                 <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 float-left" style="height: 250px">
                     <h4 class="text-light mt-5">Bienes Raices Guatemala</h4>
                     <p class="text-light">
-                        Empresa lider en ventar, renta, compra venta, alquiler. Contamos con la mejor asesoramiento inmobiliario
+                        Empresa lider en venta, renta, compra venta, alquiler. Contamos con la mejor asesoramiento inmobiliario
                     </p>
                 </div>
 

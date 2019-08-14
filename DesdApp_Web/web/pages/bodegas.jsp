@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Inmuebles</title>
+    <title>Bodegas</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/inmueblesStyle.css" type="text/css">
@@ -24,7 +24,7 @@
 
             <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9" style="display: flex; justify-content: flex-start; align-items: center" height="120px">
                 <nav class="primary navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand text-light" href="#">Barra Navegacion</a>
+                    <a class="navbar-brand text-light" href="#">Navbar Principal</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -57,8 +57,8 @@
                                 </div>
                             </li>
 
-                            <a class="nav-item nav-link text-light" href="#">Contactenos</a>
-                            <a class="nav-item nav-link text-light" href="../index.html">Iniciar Secion/Registrarse</a>
+                            <a class="nav-item nav-link text-light" href="#">Contáctenos</a>
+                            <a class="nav-item nav-link text-light" href="../index.html">Iniciar Sesión/Registrarse</a>
                         </div>
                     </div>
                 </nav>
@@ -74,7 +74,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg">
                     <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Inmuebles</li>
+                    <li class="breadcrumb-item active" aria-current="page">Bodegas</li>
                 </ol>
             </nav>
         </div>
@@ -88,7 +88,7 @@
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c1.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-medium">Casa Venta</h5>
+                            <h5 class="card-title text-medium">Bodega en venta</h5>
                             <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
                             <a href="inmueble.jsp" class="btn primary text-light ">Detalles</a>
                         </div>
@@ -105,7 +105,7 @@
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c2.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-medium">Casa Venta</h5>
+                            <h5 class="card-title text-medium">Bodega en venta</h5>
                             <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
                             <a href="#" class="btn primary text-light ">Detalles</a>
                         </div>
@@ -125,7 +125,7 @@
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c1.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-medium">Casa Venta</h5>
+                            <h5 class="card-title text-medium">Bodega en venta</h5>
                             <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
                             <a href="#" class="btn primary text-light ">Detalles</a>
                         </div>
@@ -142,7 +142,7 @@
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c2.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-medium">Casa Venta</h5>
+                            <h5 class="card-title text-medium"> Bodega en alquiler </h5>
                             <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
                             <a href="#" class="btn primary text-light ">Detalles</a>
                         </div>
@@ -242,7 +242,7 @@
                             <select class="form-control">
                                 <option selected>Tipo operación</option>
                                 <option>Venta</option>
-                                <option>Renta</option>
+                                <option>Alquiler</option>
                             </select>
                         </div>
 
@@ -252,10 +252,10 @@
 
                 <div class="row bg-white d-flex justify-content-between p-3">
                     <div class="col-12 mb-3">
-                        <h5>Filtros por tipo de operacion</h5>
+                        <h5>Filtros por tipo de operación</h5>
                     </div>
                     <div class="col-12 mb-3">
-                        <a href="">Renta</a>
+                        <a href="">Alquiler</a>
                     </div>
                     <div class="col-12 mb-3">
                         <a href="">Venta</a>
