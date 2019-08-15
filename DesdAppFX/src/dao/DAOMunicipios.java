@@ -178,7 +178,7 @@ public class DAOMunicipios implements interfaces.InterfaceMunicipio {
             result = ejecutar.executeQuery();
             //Visualiza la consulta 
             while (result.next()) {
-                // //Cada vez que pase a un registro nuevo crea un objeto tipo Municipos
+                // //Cada vez que pase a un registro nuevo crea un objeto tipo mun  
                 mun = new Municipios();
                 mun.setMuniIdi(result.getInt("muni_id"));
                 mun.setNombre(result.getString("nombre"));

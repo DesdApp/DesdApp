@@ -1,3 +1,9 @@
+#company {
+    font-size: 32px;
+}
+
+/* Colors */
+
 
 .primary {
     background-color: #011144;
@@ -20,8 +26,11 @@
     
 }
 
+#div-login {
+    background-color: #ffffff;
+}
 .colorBt{
-    background-color: #08748f;
+    background-color: #49a3b9;
 }
 
 
@@ -32,14 +41,30 @@ margin-top:3%;
 .verdoso{
     background-color: rgb(211, 198, 189);
 }
-.borderCard{
-    border-right: 10px;
-    border-width: 1px;
-  border-style: solid;
-  border-color: #011144;
+.espacioCard{
+    margin-right: 1%;
 }
 .alineacion{
     align-items: center;
     display: flex;
     justify-content: center;
+}
+.imagAdmin{
+    margin-top: 10px;
+ width: 220px;
+ height: 210px;
+ border-radius:150px;
+ border:1px solid #666;
+}
+
+.text-medium{
+    font-size: 24px;
+}
+
+.contadorVistas>samp{
+    text-align: center;
+}
+.table{
+    height: 650px;
+    width: 200%;
 }

@@ -5,17 +5,31 @@
  */
 package controlador;
 
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
  * @author javam2019
  */
-public class BienesController implements Initializable {
-
+public class BienesController implements Initializable {    
+    @FXML
+    private Label tittle;
+    
+    @FXML
+    private TableView table;
+    
+    @FXML
+    private Button btninsert;
+    
+    
     /**
      * Initializes the controller class.
      */
