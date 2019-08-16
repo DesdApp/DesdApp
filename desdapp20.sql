@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-08-2019 a las 03:54:37
--- Versión del servidor: 10.3.16-MariaDB
--- Versión de PHP: 7.3.7
+-- Tiempo de generación: 16-08-2019 a las 20:17:46
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.0.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -559,13 +559,13 @@ INSERT INTO `regiones` (`region_id`, `nombre`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `subcriptores`
+-- Estructura de tabla para la tabla `suscriptores`
 --
 
-CREATE TABLE `subcriptores` (
-  `subcripcion_id` int(10) NOT NULL,
-  `nombre` varchar(150) NOT NULL,
-  `correo` varchar(200) NOT NULL
+CREATE TABLE `suscriptores` (
+  `suscriptor_id` int(10) NOT NULL,
+  `nombre` varchar(250) NOT NULL,
+  `correo` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -592,9 +592,8 @@ INSERT INTO `tipos_propiedades` (`tipo_propiedad_id`, `nombre`) VALUES
 (6, 'Locales Comerciales'),
 (7, 'Oficinas'),
 (8, 'Terrenos'),
-(9, 'Oficionas'),
-(10, 'Proyectos de Residenciale'),
-(11, 'Proyectos de Apartamentos');
+(9, 'Proyectos de Residenciale'),
+(10, 'Proyectos de Apartamentos');
 
 -- --------------------------------------------------------
 
@@ -750,10 +749,10 @@ ALTER TABLE `regiones`
   ADD PRIMARY KEY (`region_id`);
 
 --
--- Indices de la tabla `subcriptores`
+-- Indices de la tabla `suscriptores`
 --
-ALTER TABLE `subcriptores`
-  ADD PRIMARY KEY (`subcripcion_id`);
+ALTER TABLE `suscriptores`
+  ADD PRIMARY KEY (`suscriptor_id`);
 
 --
 -- Indices de la tabla `tipos_propiedades`
@@ -803,10 +802,10 @@ ALTER TABLE `personas`
   MODIFY `persona_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `subcriptores`
+-- AUTO_INCREMENT de la tabla `suscriptores`
 --
-ALTER TABLE `subcriptores`
-  MODIFY `subcripcion_id` int(10) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `suscriptores`
+  MODIFY `suscriptor_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
