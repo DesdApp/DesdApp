@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-08-2019 a las 02:56:41
+-- Tiempo de generación: 16-08-2019 a las 03:54:37
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -32,6 +32,7 @@ CREATE TABLE `bienes_inmuebles` (
   `inmueble_id` varchar(25) NOT NULL,
   `tipo_propiedad_id` tinyint(2) NOT NULL,
   `estado_id` tinyint(2) NOT NULL,
+  `estado_neg_id` tinyint(2) NOT NULL,
   `cliente_id` int(10) NOT NULL,
   `direccion` varchar(150) NOT NULL,
   `zona_id` tinyint(2) NOT NULL,
@@ -39,6 +40,8 @@ CREATE TABLE `bienes_inmuebles` (
   `descripcion_metros` varchar(250) NOT NULL,
   `cant_cuartos` int(3) NOT NULL,
   `cant_niveles` int(3) NOT NULL,
+  `sotanos` tinyint(2) NOT NULL,
+  `elevadores` tinyint(2) NOT NULL,
   `precio_min_venta` int(10) NOT NULL,
   `precio_sugerido` int(10) NOT NULL,
   `precio_real` int(10) NOT NULL,
@@ -147,6 +150,16 @@ CREATE TABLE `estado_bien_inmueble` (
   `estado_id` tinyint(2) NOT NULL,
   `nombre` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `estado_bien_inmueble`
+--
+
+INSERT INTO `estado_bien_inmueble` (`estado_id`, `nombre`) VALUES
+(1, 'Disponible'),
+(2, 'Vendido'),
+(3, 'En Proceso'),
+(4, 'No definido');
 
 -- --------------------------------------------------------
 
@@ -563,8 +576,25 @@ CREATE TABLE `subcriptores` (
 
 CREATE TABLE `tipos_propiedades` (
   `tipo_propiedad_id` tinyint(2) NOT NULL,
-  `nombre` int(11) NOT NULL
+  `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tipos_propiedades`
+--
+
+INSERT INTO `tipos_propiedades` (`tipo_propiedad_id`, `nombre`) VALUES
+(1, 'Apartamentos'),
+(2, 'Bodegas'),
+(3, 'Casas'),
+(4, 'Edificios'),
+(5, 'Fincas'),
+(6, 'Locales Comerciales'),
+(7, 'Oficinas'),
+(8, 'Terrenos'),
+(9, 'Oficionas'),
+(10, 'Proyectos de Residenciale'),
+(11, 'Proyectos de Apartamentos');
 
 -- --------------------------------------------------------
 
@@ -609,6 +639,25 @@ INSERT INTO `tipo_documento` (`tipo_documento_id`, `nombre_documeto`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `venta_renta`
+--
+
+CREATE TABLE `venta_renta` (
+  `estado_neg_id` tinyint(2) NOT NULL,
+  `nombre` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `venta_renta`
+--
+
+INSERT INTO `venta_renta` (`estado_neg_id`, `nombre`) VALUES
+(1, 'Venta'),
+(2, 'Renta');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `zonas`
 --
 
@@ -639,13 +688,15 @@ ALTER TABLE `bienes_inmuebles`
   ADD KEY `cliente_id` (`cliente_id`),
   ADD KEY `cod_empleado` (`cod_empleado`),
   ADD KEY `zona_id` (`zona_id`),
-  ADD KEY `estado_id` (`estado_id`);
+  ADD KEY `estado_id` (`estado_id`),
+  ADD KEY `estado_neg_id` (`estado_neg_id`);
 
 --
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`cliente_id`),
+  ADD UNIQUE KEY `user` (`user`,`password`),
   ADD KEY `persona_id` (`persona_id`);
 
 --
@@ -689,6 +740,7 @@ ALTER TABLE `municipios`
 --
 ALTER TABLE `personas`
   ADD PRIMARY KEY (`persona_id`),
+  ADD UNIQUE KEY `no_documento` (`no_documento`,`nit`),
   ADD KEY `tipo_documento_id` (`tipo_documento_id`);
 
 --
@@ -720,6 +772,12 @@ ALTER TABLE `tipos_usuarios`
 --
 ALTER TABLE `tipo_documento`
   ADD PRIMARY KEY (`tipo_documento_id`);
+
+--
+-- Indices de la tabla `venta_renta`
+--
+ALTER TABLE `venta_renta`
+  ADD PRIMARY KEY (`estado_neg_id`);
 
 --
 -- Indices de la tabla `zonas`
@@ -762,13 +820,14 @@ ALTER TABLE `bienes_inmuebles`
   ADD CONSTRAINT `bienes_inmuebles_ibfk_2` FOREIGN KEY (`cod_empleado`) REFERENCES `empleados` (`cod_empleado`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bienes_inmuebles_ibfk_3` FOREIGN KEY (`tipo_propiedad_id`) REFERENCES `tipos_propiedades` (`tipo_propiedad_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bienes_inmuebles_ibfk_4` FOREIGN KEY (`zona_id`) REFERENCES `zonas` (`zona_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `bienes_inmuebles_ibfk_5` FOREIGN KEY (`estado_id`) REFERENCES `estado_bien_inmueble` (`estado_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `bienes_inmuebles_ibfk_5` FOREIGN KEY (`estado_id`) REFERENCES `estado_bien_inmueble` (`estado_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bienes_inmuebles_ibfk_6` FOREIGN KEY (`estado_neg_id`) REFERENCES `venta_renta` (`estado_neg_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `departamentos`
