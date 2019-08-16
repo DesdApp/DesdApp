@@ -1,6 +1,6 @@
 package dao;
 
-import modelo.Persona;
+import modelo.Personas;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ import java.util.List;
 *sql // sentencia sql
 *result //para visualizar todos los metadatos de ResultSet creado al consultar la base de datos
 *ejecutar// instancia de la ejecucion que contiene la base de datos
-*datoPerosona// Objeto de la clase Persona
+*datoPerosona// Objeto de la clase Personas
 */
 
 
@@ -21,14 +21,14 @@ public class DAOPersonas implements interfaces.InterfacePersona{
     private String sql="";
     private ResultSet result;
     private PreparedStatement ejecutar;
-    private Persona datoPersona=new Persona();
+    private Personas datoPersona=new Personas();
     private String mensaje="";
     private int contPer=0;
 
     @Override
-    //Selecionar Persona.
-    public Persona select(int id) {
-        Persona dato = new Persona();
+    //Selecionar Personas.
+    public Personas select(int id) {
+        Personas dato = new Personas();
         try {
             cn.conectar();
             sql="SELECT * FROM personas WHERE persona_id=?";//Se envia la consulta a la base de Datos
@@ -55,12 +55,12 @@ public class DAOPersonas implements interfaces.InterfacePersona{
             cn.desconectar();//cesconecta la base de datos
         }
         return dato;
-//retorna datos tipo Persona
+//retorna datos tipo Personas
     }
 
     //insertar persona
     @Override
-    public String insert(Persona per) {
+    public String insert(Personas per) {
         try {
             cn.conectar();
             sql="INSERT INTO personas VALUES(?,?,?,?,?,?,?,?,?,?)";
@@ -94,9 +94,9 @@ public class DAOPersonas implements interfaces.InterfacePersona{
         return mensaje; //Valor de retorno
          }
 
-    //Modificar Persona
+    //Modificar Personas
     @Override
-    public String update(Persona per) {
+    public String update(Personas per) {
         try {
             cn.conectar();
             sql="UPDATE personas SET nombre=?, apellido=?, direccion=?, telefono=?, celular=?, correo=?, fecha_nacimiento=?, dpi=?, nit=?  WHERE persona_id=?";
@@ -132,7 +132,7 @@ public class DAOPersonas implements interfaces.InterfacePersona{
         return mensaje; //Este es nuestro valor de Retorno
          }
     
-    //Eliminar Persona
+    //Eliminar Personas
 
     @Override
     public String delete(int id) {
@@ -163,9 +163,9 @@ public class DAOPersonas implements interfaces.InterfacePersona{
     //listar Personas por pedio de un ArrayList.
 
     @Override
-    public ArrayList<Persona> list() {
-        ArrayList<Persona>lista; //creamos un objeto tipo Array list
-        Persona perso; //Creamos un objeto tipo Persona
+    public ArrayList<Personas> list() {
+        ArrayList<Personas>lista; //creamos un objeto tipo Array list
+        Personas perso; //Creamos un objeto tipo Personas
         lista=new ArrayList(); //Inicializamos nuestro Objeto de Tipo ArrayList
         try {
             cn.conectar();
@@ -174,7 +174,7 @@ public class DAOPersonas implements interfaces.InterfacePersona{
             result=ejecutar.executeQuery();
             
             while(result.next()){
-                perso=new Persona();//Cada vez que pase a un registro nuevo crea un objeto Perosona
+                perso=new Personas();//Cada vez que pase a un registro nuevo crea un objeto Perosona
                 
                  perso.setPersonaId(result.getInt("persona_id"));
                 perso.setApellido(result.getString("nombre"));
