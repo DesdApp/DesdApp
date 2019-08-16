@@ -179,7 +179,7 @@
         </div>
 
         <!-- Aside derecho -->
-        <div class="col-2">
+        <div class="col-md-3 col-sm-9">
             <aside>
 
                 <!-- Filtros -->

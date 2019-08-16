@@ -33,6 +33,9 @@
 .colorBt{
     background-color: #08748f;
 }
+.celeste{
+    background-color: #08748f;
+}
 
 
 .bannerHeigth{
@@ -50,4 +53,10 @@ margin-top:3%;
 }
 .ImgTm{
     max-width: auto;
+}
+.encima{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

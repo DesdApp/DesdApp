@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 
     <head>
@@ -55,7 +56,7 @@ and open the template in the editor.
 
         <div class="row d-flex justify-content-center">
             <h5>¿No tienes una cuenta?
-                <a href="">Registrarme</a>
+                <a href="registrarse.jsp">Registrarme</a>
             </h5>
         </div>
 

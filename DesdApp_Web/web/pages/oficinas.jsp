@@ -17,7 +17,7 @@
      
     <!--Barra de navegacion-->
 
-        <div class="row primary">
+        <div class="row mx-auto primary" style="justify-content: center; text-align: center; display: flex">
             <div class="col-sm-3 col-md-1"><img src="../img/let.PNG" width="120px">
 
             </div>
@@ -25,7 +25,6 @@
 
             <nav class="navbar navbar-expand-md primary navbar-dark col-sm-9 col-md-11">
                 <!-- Brand -->
-                <a class="navbar-brand" href="#">Navbar</a>
 
                 <!-- Toggler/collapsibe Button -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -36,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../WEB-INF/index.jsp">Inicio</a>
+                            <a class="nav-link" href="../index.jsp">Inicio</a>
                         </li>
 
                          <!--B1-->       
@@ -44,8 +43,8 @@
                             <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="true" aria-expanded="false">Quienes somos</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="../pages/nosotros.jsp">Nuestro Equipo</a>
-                                <a class="dropdown-item" href="../pages/oficinas.jsp">Oficinas</a>
+                                <a class="dropdown-item" href="nosotros.jsp">Nuestro Equipo</a>
+                                <a class="dropdown-item" href="oficinas.jsp">Oficinas</a>
                             </div>
                         </li>
                         <!--B2-->
@@ -69,7 +68,7 @@
                             <a class="nav-link" href="">Cont&aacute;ctenos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../WEB-INF/login.html">Iniciar Sesión</a>
+                            <a class="nav-link" href="../pages/login.jsp">Iniciar Sesión/Registrarse</a>
                         </li> 
                     </ul>
                 </div> 
@@ -79,26 +78,25 @@
         </div>
 
         <!--Contenedor-->
-                <div class="col-12 mt-5 alineacion mb-5">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.1097195751377!2d-90.51294158480425!3d14.592823281178639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3c1422dbd8d%3A0x838789a4bd79bea8!2sNOOK+design+Center!5e0!3m2!1ses-419!2sgt!4v1565339700520!5m2!1ses-419!2sgt" width="1200" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div> 
 
-            
-            <div class="row verdoso">
-            
-                <h4 class="col-12 alineacion mt-5">Ubicaci&oacute;n</h4>
-                <p class="mx-auto mt-5 mb-5">
+        <div class="row">
+            <div class="verdoso col-md-4 col-sm-12" style="text-align: center">
+                <h4 class="mt-5">Ubicaci&oacute;n</h4>
+                <p class="mt-5">
                     UBICACION: 8a. Avenida 17-50, Zona 10<br>
                     TEL: (502)+ 40931717<br>
                     CORREO: BienesRaices@gmail.com<br>
                     PAGINA WEB: BienesRaicesGuatemala.com<br>
-            </p>   
+                 </p>   
+                 <img src="../img/office.jpg" class="img-fluid" >
             </div>
-        
-      
 
-       
+            <div class="col-md-6 col-sm-6 mt-5 mb-5 mx-auto embed-responsive embed-responsive-16by9 ">
+                <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.1097195751377!2d-90.51294158480425!3d14.592823281178639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3c1422dbd8d%3A0x838789a4bd79bea8!2sNOOK+design+Center!5e0!3m2!1ses-419!2sgt!4v1565339700520!5m2!1ses-419!2sgt" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div> 
 
+        </div>
+                
 
        <!--Footer-->
        <div class="row primary">

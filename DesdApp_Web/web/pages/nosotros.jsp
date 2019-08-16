@@ -29,8 +29,6 @@
 
 
             <nav class="navbar navbar-expand-md primary navbar-dark col-sm-9 col-md-11">
-                <!-- Brand -->
-                <a class="navbar-brand" href="#">Navbar</a>
 
                 <!-- Toggler/collapsibe Button -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -41,7 +39,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../WEB-INF/index.jsp">Inicio</a>
+                            <a class="nav-link" href="../index.jsp">Inicio</a>
                         </li>
 
                          <!--B1-->       
@@ -74,7 +72,7 @@
                             <a class="nav-link" href="">Contáctenos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Iniciar Sesión</a>
+                            <a class="nav-link" href="../pages/login.jsp">Iniciar Sesión</a>
                         </li> 
                     </ul>
                 </div> 
