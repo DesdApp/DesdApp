@@ -14,7 +14,7 @@ import modelo.Empleados;
 import modelo.EstadosEmpleados;
 import modelo.EstadosPropiedades;
 import modelo.Propietarios;
-import modelo.TpUsuarios;
+import modelo.TiposUsuarios;
 
 /**
  *
@@ -36,14 +36,14 @@ public class PruebaCarlos {
         Empleados emp = new Empleados(7, 6, "Prueba", date, date, (double) 1000, "UserPrueba", "Pss Prueba", 1, 1);
         Propietarios propi= new Propietarios(5,"5","clienteModificado","passABC");
         EstadosEmpleados estadoEmp = new EstadosEmpleados((byte) 6, "Prueba");
-        TpUsuarios tipUsu = new TpUsuarios((byte) 7, "Ingreso modificado");
+        TiposUsuarios tipUsu = new TiposUsuarios((byte) 7, "Ingreso modificado");
         
         
 
         Empleados datosEmp = new Empleados();
         Propietarios datosProp= new Propietarios();
         EstadosPropiedades datoEstados = new EstadosPropiedades();
-        TpUsuarios datoTipoUsu = new TpUsuarios();
+        TiposUsuarios datoTipoUsu = new TiposUsuarios();
         
         // Instancias de los DAO
         DAOEmpleados daoEmp = new DAOEmpleados();
@@ -218,9 +218,9 @@ public class PruebaCarlos {
                         //System.out.println(daoTipUsu.toString());
                         break;
                     case 5:
-                        ArrayList<TpUsuarios> lista = new ArrayList<>();
+                        ArrayList<TiposUsuarios> lista = new ArrayList<>();
                         lista = daoTipUsu.list();
-                        for (TpUsuarios tipoUsuario : lista) {
+                        for (TiposUsuarios tipoUsuario : lista) {
                             System.out.println(tipoUsuario.toString());
                         }
                             break;

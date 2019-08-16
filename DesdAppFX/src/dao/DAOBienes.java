@@ -25,7 +25,7 @@ public class DAOBienes implements interfaces.InterfaceBienes {
     public String insertBien(Bienes bien) {
         /*
         * Se realiza la consulta para agregar un registro a la tabla
-        */
+         */
         try {
             cx.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO bienes_inmuebles VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
@@ -73,7 +73,7 @@ public class DAOBienes implements interfaces.InterfaceBienes {
             if (contDel == 0) { // Verificamos si el registro existe
                 msg = "El registro no existe";  // escribimos un ensaje de que el registro no existe
             } else {
-                msg = "registro eliminado con exito";
+                msg = "Registro eliminado con exito";
             }
         } catch (SQLException e) {
             msg = "Error al eliminar el registro";
@@ -194,9 +194,9 @@ public class DAOBienes implements interfaces.InterfaceBienes {
                 bien.setPrecio(rs.getFloat("precio"));
                 bien.setPrecioMinVenta(rs.getFloat("precio_min_venta"));
                 bien.setPersonaId(rs.getInt("persona_id"));
-                rs.close();
                 list.add(bien); // Se agregan los registros al ArrayList
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("Error en DAOBienes LIST: " + e.getMessage());
         } finally {

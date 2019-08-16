@@ -1,12 +1,12 @@
 package dao;
 
-import modelo.TpUsuarios;
+import modelo.TiposUsuarios;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
+public class DAOTpUsuarios implements interfaces.InterfaceTiposUsuarios {
 
     ConexionDB cn = new ConexionDB();
     PreparedStatement execute;
@@ -16,7 +16,7 @@ public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
     String sql;
 
     @Override
-    public String insertTipoUsario(TpUsuarios tipo) {
+    public String insertTipoUsario(TiposUsuarios tipo) {
         try {
             cn.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO tipos_usuarios VALUES(?, ?)"; // Asignamos a la variable sql la consulta
@@ -60,7 +60,7 @@ public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
     }
 
     @Override
-    public String updateTipoUsario(TpUsuarios tipo) {
+    public String updateTipoUsario(TiposUsuarios tipo) {
         try {
             cn.conectar();
             sql = "UPDATE tipos_usuarios SET nombre = ? WHERE tipo_usuario_id = ?";
@@ -79,8 +79,8 @@ public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
     }
 
     @Override
-    public TpUsuarios selectTipoUsuario(byte codigo) {
-        TpUsuarios tipo = new TpUsuarios();
+    public TiposUsuarios selectTipoUsuario(byte codigo) {
+        TiposUsuarios tipo = new TiposUsuarios();
         try {
             cn.conectar();
             sql = "SELECT * FROM tipos_usuarios WHERE tipo_usuario_id = ?";
@@ -101,9 +101,9 @@ public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
     }
 
     @Override
-    public ArrayList<TpUsuarios> list() {
-        ArrayList<TpUsuarios> list;
-        TpUsuarios tipo;
+    public ArrayList<TiposUsuarios> list() {
+        ArrayList<TiposUsuarios> list;
+        TiposUsuarios tipo;
         list = new ArrayList();
         try {
             cn.conectar();
@@ -111,7 +111,7 @@ public class DAOTpUsuarios implements interfaces.InterfaceTpUsuarios {
             execute = cn.getconexionDB().prepareStatement(sql);
             rs = execute.executeQuery();
             while (rs.next()) {
-                tipo = new TpUsuarios();
+                tipo = new TiposUsuarios();
                 tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
                 tipo.setNombre(rs.getString("nombre"));
                
