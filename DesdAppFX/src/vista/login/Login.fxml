@@ -23,12 +23,12 @@
       <PasswordField layoutX="169.0" layoutY="223.0" promptText="Contraseña" styleClass="input" stylesheets="@../../resources/StyleLogin.css" />
       <TextField layoutX="168.0" layoutY="172.0" promptText="Usuario" styleClass="input" stylesheets="@../../resources/StyleLogin.css" />
       <Label layoutX="335.0" layoutY="278.0" styleClass="texterr_app" text="Error al iniciar sesion" />
-      <ImageView fitHeight="100.0" fitWidth="123.0" layoutX="196.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="100.0" fitWidth="123.0" layoutX="202.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/images/login.png" />
          </image>
       </ImageView>
       <Label layoutX="33.0" layoutY="371.0" styleClass="textnp_app" text="Recupeara Contraseña" />
-      <Label layoutX="170.0" layoutY="124.0" stylesheets="@../../resources/StyleLogin.css" text="Iniciar Secion" />
+      <Label alignment="CENTER" layoutX="187.0" layoutY="124.0" styleClass="lab" stylesheets="@../../resources/StyleLogin.css" text="Iniciar Secion" />
    </children>
 </AnchorPane>
