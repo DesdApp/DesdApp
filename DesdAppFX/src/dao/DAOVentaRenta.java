@@ -4,13 +4,14 @@
  */
 package dao;
 
+import modelo.BienesInmuebles;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.EstadoBienInmueble;
+import modelo.VentaRenta;
 
-public class DAOEstadoPropiedades implements interfaces.InterfaceEstadoBienInmueble {
+public class DAOVentaRenta implements interfaces.InterfaceVentaRenta {
 
     // Instanciamos los objetos
     ConexionDB cx = new ConexionDB();   // Objeto usado para establecer la conexion con la base de datos
@@ -22,30 +23,27 @@ public class DAOEstadoPropiedades implements interfaces.InterfaceEstadoBienInmue
     String msg;
 
     @Override
-    /**
-     * @return el registro que se selecciono
-     */
-    public EstadoBienInmueble selectEstado(byte codigo) {
+    public VentaRenta selectEstado(byte codigo) {
         /*
         * Se realiza la consulta para seleccionar un registro
         */
-        EstadoBienInmueble estado = new EstadoBienInmueble();// Se crea un nuevo objeto EstadoPropiedades para almacenar el resultado de la busqueda
+        VentaRenta estado = new VentaRenta();// Se crea un nuevo objeto VentaRenta para almacenar el resultado de la busqueda
         try {
             cx.conectar();
-            sql = "SELECT * FROM estado_bien_inmueble WHERE estado_id = ?";
+            sql = "SELECT * FROM venta_renta WHERE estado_neg_id = ?";
             execute = cx.getconexionDB().prepareStatement(sql);
             execute.setByte(1, codigo);
             /*
             * Se utiliza el ExecuteQuery para obtener los resultados de la consulta
             * y los asigna al ResutSet para luego acceder a ellos
-             */
+            */
             rs = execute.executeQuery();
             rs.next(); // Se pasa al  siguiente registro.
-            estado.setEstadoId(rs.getByte("estado_id"));// Se obtienen los valores de los campos y se le asignan al objeto estado
+            estado.setEstadoNegId(rs.getByte("estado_neg_id"));// Se obtienen los valores de los campos y se le asignan al objeto estado
             estado.setNombre(rs.getString("nombre"));
             rs.close();
         } catch (SQLException e) {
-            System.out.println("Error en DAOEstadoBienInmuble SELECT: " + e.getMessage());
+            System.out.println("Error en DAOVentaRenta SELECT: " + e.getMessage());
         } finally {
             cx.desconectar();
         }
@@ -53,31 +51,26 @@ public class DAOEstadoPropiedades implements interfaces.InterfaceEstadoBienInmue
     }
 
     @Override
-    /**
-     * @return los registros de la tabla
-     */
-    public ArrayList<EstadoBienInmueble> listEstados() {
-        EstadoBienInmueble estados;
-        ArrayList<EstadoBienInmueble> list = new ArrayList<>();// Utilizamos un ArrayList para obtener todos los registros y almacenarlos
+    public ArrayList<VentaRenta> ListEstados() {
+        VentaRenta estados;
+        ArrayList<VentaRenta> list = new ArrayList<>();// Utilizamos un ArrayList para obtener todos los registros y almacenarlos
         try {
             cx.conectar();
-            sql = "SELECT * FROM estado_bien_inmueble";
+            sql = "SELECT * FROM venta_renta";
             execute = cx.getconexionDB().prepareStatement(sql);
             rs = execute.executeQuery();
             while (rs.next()) {// Verifica que hayan mas registros
-                estados = new EstadoBienInmueble();// Cada vez que pase a un registro nuevo crea un objeto EstadoBienInmueble
-                estados.setEstadoId(rs.getByte("estado_id"));
+                estados = new VentaRenta();// Cada vez que pase a un registro nuevo crea un objeto VentaRenta
+                estados.setEstadoNegId(rs.getByte("estado_neg_id"));
                 estados.setNombre(rs.getString("nombre"));
                 list.add(estados);// Se agregan los registros al ArrayList
             }
         } catch (SQLException e) {
-            System.out.println("Error en DAOEstadoBienInmuble LIST: " + e.getMessage());
+            System.out.println("Error en DAOVentaRenta LIST: " + e.getMessage());
         } finally {
             cx.desconectar();
         }
         return list;
-
     }
-    
-}
 
+}
