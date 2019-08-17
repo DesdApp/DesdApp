@@ -9,19 +9,14 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=\, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/index.css" type="text/css">
 
@@ -31,13 +26,13 @@
 <body class="negro">
 
     <!--Barra de navegacion-->
-    <div class="row primary mx-auto">
+    <div class="row primary mx-auto" style="justify-content: center; text-align: center; display: flex">
         <div class="col-sm-3 col-md-1"><img src="img/let.PNG" width="120px">
 
         </div>
 
 
-        <nav class="navbar navbar-expand-md primary navbar-dark col-sm-9 col-md-11">
+        <nav class="navbar navbar-expand-md mx-auto primary navbar-dark col-sm-9 col-md-11">
 
         
             <!-- Toggler/collapsibe Button -->
@@ -98,7 +93,7 @@
             <div class="carousel-item active">
                 <img class="d-block w-100" src="img/b6.jpg" alt="First slide">
          
-                        <div class="form-group encima col-sm-12 col-md-5 form-inline my-3 my-lg-0">
+                        <div class="form-group mx-auto encima form-inline my-3 my-lg-0">
                             <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                         </div>
@@ -107,7 +102,7 @@
             <div class="carousel-item">
                 <img class="d-block w-100" src="img/d4.png"alt="Second slide">
 
-                <div class="form-group encima col-sm-9 col-md-5 form-inline my-3 my-lg-0">
+                <div class="form-group encima form-inline my-3 my-lg-0">
                         <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                 </div>
@@ -116,7 +111,7 @@
             <div class="carousel-item">
                 <img class="d-block w-100" src="img/d3.png" alt="Third slide">
 
-                <div class="form-group encima col-sm-5 col-md-5 form-inline my-3 my-lg-0">
+                <div class="form-group encima resoponsive-inline form-inline my-3 my-lg-0">
                         <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                 </div>
@@ -137,7 +132,7 @@
     <!--Destacados-->
 
     <div>
-        <div class="col-sm-12 mx-auto mt-6 colorBt alineacion" style="height: 80px;">
+        <div class="col-sm-12 mx-auto mt-6 negro text-light alineacion" style="height: 80px;">
             <h4>GTM Bines Raices-Magnates en Inmobiliaria</h4>
         </div>
     </div>
@@ -303,7 +298,7 @@
     </div>
 
     <!--Segundo Carruesel-->
-    <div class="colorBt" style="height: 30px"></div>
+    <div class="negro" style="height: 30px"></div>
     <div class="verdoso">
         
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
