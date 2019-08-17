@@ -140,7 +140,7 @@
                       </div>
                     </div>
                     <div class="col-auto">
-                      <button type="submit" class="btn colorBt btn-primary mb-2">Suscribirme</button>
+                      <button type="submit" class="btn btn-primary btn-primary mb-2">Suscribirme</button>
                     </div>
                   </div>
                 </form>
