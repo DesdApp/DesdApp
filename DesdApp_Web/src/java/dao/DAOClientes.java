@@ -10,7 +10,7 @@ public class DAOClientes implements interfaces.InterfaceClientes {
 
     // Instanciamos las clases
     ConexionDB cx = new ConexionDB();
-    PreparedStatement execute;
+    PreparedStatement exe;
     ResultSet rs;
 
     // Atributos
@@ -18,19 +18,23 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     String msg;
 
     /**
-     * 
-     * @param cliente ingresará un nuevo registro 
-     * @return  retornará un mensaje de confirmación o error en caso de que el id ya exista en otro registro
+     *
+     * @param cliente ingresará un nuevo registro
+     * @return retornará un mensaje de confirmación o error en caso de que el id
+     * ya exista en otro registro
      */
     @Override
     public String insertCliente(Clientes cliente) {
         try {
             cx.conectar();
-            sql = "INSERT INTO clientes VALUES(?, ?)";
-            execute = cx.getconexionDB().prepareStatement(sql);
-            execute.setInt(1, cliente.getClienteId());
-            execute.setByte(2, cliente.getClasificacion());
-            execute.executeUpdate();
+            sql = "INSERT INTO clientes VALUES(?, ?, ?, ?, ?)";
+            exe = cx.getconexionDB().prepareStatement(sql);
+            exe.setInt(1, cliente.getClienteId());
+            exe.setInt(2, cliente.getPersonaId());
+            exe.setString(3, cliente.getNombreTitular());
+            exe.setString(4, cliente.getUser());
+            exe.setString(5, cliente.getPassword());
+            exe.executeUpdate();
             msg = "Registro almacenado con exito";
         } catch (SQLException e) {
             msg = "Error al almacenar el registro";
@@ -40,20 +44,22 @@ public class DAOClientes implements interfaces.InterfaceClientes {
         }
         return msg;
     }
- 
+
     /**
-     * 
-     * @param codigo  eliminará el registro por medio de la consulta con el id especifico
-     * @return  retornará un mensaje de confirmación o error en caso de que el id no exista
+     *
+     * @param codigo eliminará el registro por medio de la consulta con el id
+     * especifico
+     * @return retornará un mensaje de confirmación o error en caso de que el id
+     * no exista
      */
     @Override
     public String deleteClientes(int codigo) {
         try {
             cx.conectar();
             sql = "DELETE FROM clientes WHERE cliente_id = ?";
-            execute = cx.getconexionDB().prepareStatement(sql);
-            execute.setInt(1, codigo);
-            byte contDel = (byte) execute.executeUpdate();
+            exe = cx.getconexionDB().prepareStatement(sql);
+            exe.setInt(1, codigo);
+            byte contDel = (byte) exe.executeUpdate();
             if (contDel == 0) {
                 msg = "El registro no existe";
             } else {
@@ -69,19 +75,23 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     }
 
     /**
-     * 
-     * @param cliente   actualizará los datos de un registro por el id
-     * @return  retorna mensaje de confirmacion
+     *
+     * @param cliente actualizará los datos de un registro por el id
+     * @return retorna mensaje de confirmacion
      */
     @Override
     public String updateClientes(Clientes cliente) {
         try {
             cx.conectar();
-            sql = "UPDATE clientes SET clasificacion_id = ? WHERE cliente_id = ?";
-            execute = cx.getconexionDB().prepareStatement(sql);
-            execute.setInt(2, cliente.getClienteId());
-            execute.setByte(1, cliente.getClasificacion());
-            execute.executeUpdate();
+            sql = "UPDATE clientes SET persona_id = ?, nombre_titular = ?,"
+                    + " user = ?, password = ? WHERE cliente_id = ?";
+            exe = cx.getconexionDB().prepareStatement(sql);
+            exe.setInt(5, cliente.getClienteId());
+            exe.setInt(1, cliente.getPersonaId());
+            exe.setString(2, cliente.getNombreTitular());
+            exe.setString(3, cliente.getUser());
+            exe.setString(4, cliente.getPassword());
+            exe.executeUpdate();
             msg = "Registro actualizado con exito";
         } catch (SQLException e) {
             msg = "Error al actualizar el registro";
@@ -93,9 +103,9 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     }
 
     /**
-     * 
-     * @param codigo   se buscará un registro por su id
-     * @return  se mostrarán los datos del registro
+     *
+     * @param codigo se buscará un registro por su id
+     * @return se mostrarán los datos del registro
      */
     @Override
     public Clientes selectcliente(int codigo) {
@@ -103,12 +113,15 @@ public class DAOClientes implements interfaces.InterfaceClientes {
         try {
             cx.conectar();
             sql = "SELECT * FROM clientes WHERE cliente_id = ?";
-            execute = cx.getconexionDB().prepareStatement(sql);
-            execute.setInt(1, codigo);
-            rs = execute.executeQuery();
+            exe = cx.getconexionDB().prepareStatement(sql);
+            exe.setInt(1, codigo);
+            rs = exe.executeQuery();
             rs.next();
-            cliente.setClientId(rs.getInt("cliente_id"));
-            cliente.setClasificacion(rs.getByte("clasificacion_id"));
+            cliente.setClienteId(rs.getInt("cliente_id"));
+            cliente.setPersonaId(rs.getInt("persona_id"));
+            cliente.setNombreTitular(rs.getString("nombre_titular"));
+            cliente.setUser(rs.getString("user"));
+            cliente.setPassword(rs.getString("password"));
             rs.close();
         } catch (SQLException e) {
             System.out.println("Error en DAOClientes SELECT: " + e.getMessage());
@@ -119,8 +132,9 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     }
 
     /**
-     * 
-     * @return   retornará una lista de los registros de la tabla que se pidió por medio de la consulta 
+     *
+     * @return retornará una lista de los registros de la tabla que se pidió por
+     * medio de la consulta
      */
     @Override
     public ArrayList<Clientes> listclientes() {
@@ -129,12 +143,15 @@ public class DAOClientes implements interfaces.InterfaceClientes {
         try {
             cx.conectar();
             sql = "SELECT * FROM clientes";
-            execute = cx.getconexionDB().prepareStatement(sql);
-            rs = execute.executeQuery();
+            exe = cx.getconexionDB().prepareStatement(sql);
+            rs = exe.executeQuery();
             while (rs.next()) {
                 clientes = new Clientes();
-                clientes.setClientId(rs.getInt("cliente_id"));
-                clientes.setClasificacion(rs.getByte("clasificacion_id"));
+                clientes.setClienteId(rs.getInt("cliente_id"));
+                clientes.setPersonaId(rs.getInt("persona_id"));
+                clientes.setNombreTitular(rs.getString("nombre_titular"));
+                clientes.setUser(rs.getString("user"));
+                clientes.setPassword(rs.getString("password"));
                 list.add(clientes);
             }
             rs.close();
