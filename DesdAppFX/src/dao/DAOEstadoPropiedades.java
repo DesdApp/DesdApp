@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.EstadosPropiedades;
 
-public class DAOEstPropiedades implements interfaces.InterfaceEstadosProp {
+public class DAOEstadoPropiedades implements interfaces.InterfaceEstadosProp {
 
     // Instanciamos los objetos
     ConexionDB cx = new ConexionDB();   // Objeto usado para establecer la conexion con la base de datos
