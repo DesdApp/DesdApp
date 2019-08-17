@@ -26,6 +26,7 @@ public class DAOZonas implements interfaces.InterfaceZonas {
             execute = cx.getconexionDB().prepareStatement(sql);
             execute.setByte(1, zonaId);
             rs = execute.executeQuery();
+            rs.next();
             zona.setZonaId(rs.getByte("zona_id"));
             zona.setNombre(rs.getString("nombre"));
             zona.setMuniId(rs.getInt("muni_id"));
