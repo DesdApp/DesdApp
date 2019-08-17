@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAOTpUsuarios implements interfaces.InterfaceTiposUsuarios {
+public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
 
     ConexionDB cn = new ConexionDB();
     PreparedStatement execute;

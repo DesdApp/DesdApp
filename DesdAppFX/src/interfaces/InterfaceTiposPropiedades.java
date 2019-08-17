@@ -3,7 +3,7 @@ package interfaces;
 import java.util.ArrayList;
 import modelo.TiposPropiedades;
 
-public interface InterfaceTpPropiedades {
+public interface InterfaceTiposPropiedades {
     
     //Metodos Abstractos
     public String insertTipo(TiposPropiedades tipo);

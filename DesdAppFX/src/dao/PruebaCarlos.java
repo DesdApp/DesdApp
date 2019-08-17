@@ -49,7 +49,7 @@ public class PruebaCarlos {
         DAOEmpleados daoEmp = new DAOEmpleados();
         DAOPropietarios daoProp=new DAOPropietarios();
         DAOEstadosEmpleados daoEstadoEmp = new DAOEstadosEmpleados();
-        DAOTpUsuarios daoTipUsu = new DAOTpUsuarios();
+        DAOTiposUsuarios daoTipUsu = new DAOTiposUsuarios();
         
 
         // Realizamos la conexion
