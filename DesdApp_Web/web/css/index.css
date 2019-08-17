@@ -9,6 +9,9 @@
 .primary {
     background-color: #011144;
 }
+.primary2 {
+    background-color: #031d72;
+}
 
 .secondary {
     background-color: #d99f59;
@@ -31,10 +34,10 @@
     background-color: #ffffff;
 }
 .colorBt{
-    background-color: #08748f;
+    background-color: rgb(211, 204, 162);
 }
-.celeste{
-    background-color: #08748f;
+.negro{
+    background-color: black;
 }
 
 
@@ -56,7 +59,7 @@ margin-top:3%;
 }
 .encima{
     position: absolute;
-    top: 10%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
 }

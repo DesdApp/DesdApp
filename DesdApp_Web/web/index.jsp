@@ -28,7 +28,7 @@
     <title>Inicio</title>
 </head>
 
-<body class="bg">
+<body class="negro">
 
     <!--Barra de navegacion-->
     <div class="row primary mx-auto">
@@ -96,9 +96,9 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="img/b6.jpg" height="468px" alt="First slide">
+                <img class="d-block w-100" src="img/b6.jpg" alt="First slide">
          
-                        <div class="encima form-inline my-3 my-lg-0">
+                        <div class="form-group encima col-sm-12 col-md-5 form-inline my-3 my-lg-0">
                             <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                         </div>
@@ -107,7 +107,7 @@
             <div class="carousel-item">
                 <img class="d-block w-100" src="img/d4.png"alt="Second slide">
 
-                <div class="encima form-inline my-3 my-lg-0">
+                <div class="form-group encima col-sm-9 col-md-5 form-inline my-3 my-lg-0">
                         <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                 </div>
@@ -116,7 +116,7 @@
             <div class="carousel-item">
                 <img class="d-block w-100" src="img/d3.png" alt="Third slide">
 
-                <div class="encima form-inline my-3 my-lg-0">
+                <div class="form-group encima col-sm-5 col-md-5 form-inline my-3 my-lg-0">
                         <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                 </div>
@@ -136,8 +136,8 @@
 
     <!--Destacados-->
 
-    <div class="row">
-        <div class="col-12 mt-6 alineacion celeste text-light" style="height: 80px;">
+    <div>
+        <div class="col-sm-12 mx-auto mt-6 colorBt alineacion" style="height: 80px;">
             <h4>GTM Bines Raices-Magnates en Inmobiliaria</h4>
         </div>
     </div>
@@ -166,7 +166,7 @@
                                     <h5 class="card-title">Casa-Venta</h5>
                                     <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                         PRECIO $525,000.</p>
-                                    <input class="btn btn-outline-primary" type="submit" src>Detalles</button>
+                                        <a href="#" class="btn btn-primary text-light ">Detalles</a>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +178,7 @@
                                     <h5 class="card-title">Casa-Venta</h5>
                                     <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                         PRECIO $525,000.</p>
-                                    <a href="#" class="btn colorBt text-light">Detalles</a>
+                                    <a href="#" class="btn btn-primary text-light ">Detalles</a>
                                 </div>
                             </div>
                         </div>
@@ -190,7 +190,7 @@
                                     <h5 class="card-title">Casa-Venta</h5>
                                     <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                         PRECIO $525,000.</p>
-                                    <a href="#" class="btn colorBt text-light">Detalles</a>
+                                    <a href="#" class="btn btn-primary text-light">Detalles</a>
                                 </div>
                             </div>
                         </div>
@@ -212,19 +212,19 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn colorBt text-light">Detalles</a>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
                     <!--6-->
-                    <div class="col-3 col-sm-6 col-md-3 mx-auto">
+                    <div class="col-sm-6 col-md-3 mx-auto">
                         <div class="card mx-auto mb-4">
                             <img src="img/c1.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn colorBt text-light">Detalles</a>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -236,7 +236,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn colorBt text-light">Detalles</a>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -258,7 +258,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn colorBt text-light">Detalles</a>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -270,7 +270,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn colorBt text-light">Detalles</a>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -282,7 +282,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn colorBt text-light">Detalles</a>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -303,14 +303,164 @@
     </div>
 
     <!--Segundo Carruesel-->
-    <div class="verdoso mt-5">
+    <div class="colorBt" style="height: 30px"></div>
+    <div class="verdoso">
+        
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        
+                    <h4 class="mt-5" style="text-align: center">Propiedades-Destacadas</h4>
+                    <hr>
 
+                    <div class="row mb-5">
+                    <!--8-->
+                    <div class="col-sm-6 col-md-3 mx-auto">
+                        <div class="card mx-auto mb-4">
+                            <img src="img/c1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Casa-Venta</h5>
+                                <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                    PRECIO $525,000.</p>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--9-->
+                    <div class="col-sm-6 col-md-3 mx-auto">
+                        <div class="card mx-auto mb-4">
+                            <img src="img/c1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Casa-Venta</h5>
+                                <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                    PRECIO $525,000.</p>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--10-->
+                    <div class="col-sm-6 col-md-3 mx-auto">
+                        <div class="card mx-auto mb-4">
+                            <img src="img/c1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Casa-Venta</h5>
+                                <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                    PRECIO $525,000.</p>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                      </div>
+                      <div class="carousel-item">
+                        
+                    <h4 class="mt-5" style="text-align: center">Propiedades-Destacadas</h4>
+                    <hr>
+
+                    <div class="row mb-5">
+                    <!--8-->
+                    <div class="col-sm-6 col-md-3 mx-auto">
+                        <div class="card mx-auto mb-4">
+                            <img src="img/c1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Casa-Venta</h5>
+                                <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                    PRECIO $525,000.</p>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--9-->
+                    <div class="col-sm-6 col-md-3 mx-auto">
+                        <div class="card mx-auto mb-4">
+                            <img src="img/c1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Casa-Venta</h5>
+                                <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                    PRECIO $525,000.</p>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--10-->
+                    <div class="col-sm-6 col-md-3 mx-auto">
+                        <div class="card mx-auto mb-4">
+                            <img src="img/c1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Casa-Venta</h5>
+                                <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                    PRECIO $525,000.</p>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                      </div>
+                      <div class="carousel-item">
+                        
+                    <h4 class="mt-5" style="text-align: center">Propiedades-Destacadas</h4>
+                    <hr>
+
+                    <div class="row mb-5">
+                    <!--8-->
+                    <div class="col-sm-6 col-md-3 mx-auto">
+                        <div class="card mx-auto mb-4">
+                            <img src="img/c1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Casa-Venta</h5>
+                                <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                    PRECIO $525,000.</p>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--9-->
+                    <div class="col-sm-6 col-md-3 mx-auto">
+                        <div class="card mx-auto mb-4">
+                            <img src="img/c1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Casa-Venta</h5>
+                                <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                    PRECIO $525,000.</p>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--10-->
+                    <div class="col-sm-6 col-md-3 mx-auto">
+                        <div class="card mx-auto mb-4">
+                            <img src="img/c1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Casa-Venta</h5>
+                                <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
+                                    PRECIO $525,000.</p>
+                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
            
     </div>
 
     <!--Footer-->
-    <div class="row primary">
-        <div class="col-xl-4 primaryfloat-left">
+    <div class="mx-auto row col-xl-12 primary">
+        <div class="col-xl-4">
             <h4 class="text-light mt-5">Bienes Raices Guatemala</h4>
             <p class="text-light">
                 Empresa lider en ventar,renta, compra venta,
@@ -319,7 +469,7 @@
             </p>
         </div>
 
-        <div class="col-xl-4 primary float-left">
+        <div class="col-xl-4">
             <h4 class="text-light mt-5">Contactenos</h4>
             <p class="text-light">
                 Zona 10 48-95 interiores de nook
@@ -329,7 +479,7 @@
             </p>
         </div>
 
-        <div class="col-xl-4 primary float-left">
+        <div class="col-xl-4">
             <h4 class="text-light mt-5">Suscribete a nuestro Blog</h4>
 
             <form>
@@ -350,13 +500,13 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <button type="submit" class="btn colorBt text-light mb-2">Suscribirme</button>
+                        <button type="submit" class="btn btn-primary text-light mb-2">Suscribirme</button>
                     </div>
                 </div>
             </form>
 
         </div>
-    </div>
+
 
 
 </body>
