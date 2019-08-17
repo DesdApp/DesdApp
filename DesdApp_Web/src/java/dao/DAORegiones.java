@@ -13,7 +13,7 @@ import java.util.ArrayList;
 *ejecutar// instancia de la ejecucion que contiene la base de datos
 *datoRegion// Objeto de la clase Region
  */
-public class DAORegion implements interfaces.InterfaceRegion {
+public class DAORegiones implements interfaces.InterfaceRegion {
 
     private final ConexionDB cn = new ConexionDB();
     private String sql = "";
