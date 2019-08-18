@@ -18,7 +18,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/index.css" type="text/css">
+        <link rel="stylesheet" href="css/index.css" type="text/css">
 
     <title>Inicio</title>
 </head>
@@ -26,7 +26,7 @@
 <body class="negro">
 
     <!--Barra de navegacion-->
-    <div class="row primary mx-auto" style="justify-content: center; text-align: center; display: flex">
+    <form class="row primary mx-auto" style="justify-content: center; text-align: center; display: flex">
         <div class="col-sm-3 col-md-1"><img src="img/let.PNG" width="120px">
 
         </div>
@@ -77,7 +77,7 @@
                         <a class="nav-link" href="">Contáctenos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/login.jsp">Iniciar Sesión/Registrarse</a>
+                        <a class="nav-link" href="Controlador?accion=add">Iniciar Sesión/Registrarse</a>
                     </li>
                     <li>
                 </ul>
@@ -85,7 +85,7 @@
         </nav>
 
 
-    </div>
+    </form>
 
     <!--Banner-->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -95,7 +95,7 @@
          
                         <div class="form-group mx-auto encima form-inline my-3 my-lg-0">
                             <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                            <button class="btn text-light colorBt my-2 my-sm-0" type="submit">Search</button>
                         </div>
         
             </div>
@@ -104,7 +104,7 @@
 
                 <div class="form-group encima form-inline my-3 my-lg-0">
                         <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn text-light colorBt my-2 my-sm-0" type="submit">Search</button>
                 </div>
     
             </div>
@@ -113,7 +113,7 @@
 
                 <div class="form-group encima resoponsive-inline form-inline my-3 my-lg-0">
                         <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn text-light colorBt my-2 my-sm-0" type="submit">Search</button>
                 </div>
     
             </div>
@@ -161,7 +161,7 @@
                                     <h5 class="card-title">Casa-Venta</h5>
                                     <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                         PRECIO $525,000.</p>
-                                        <a href="#" class="btn btn-primary text-light ">Detalles</a>
+                                        <a href="#" class="btn colorBt text-light ">Detalles</a>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                                     <h5 class="card-title">Casa-Venta</h5>
                                     <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                         PRECIO $525,000.</p>
-                                    <a href="#" class="btn btn-primary text-light ">Detalles</a>
+                                    <a href="#" class="btn colorBt text-light ">Detalles</a>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                                     <h5 class="card-title">Casa-Venta</h5>
                                     <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                         PRECIO $525,000.</p>
-                                    <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                    <a href="#" class="btn colorBt text-light">Detalles</a>
                                 </div>
                             </div>
                         </div>
@@ -207,7 +207,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -219,7 +219,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -231,7 +231,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -253,7 +253,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -265,7 +265,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -277,7 +277,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -322,7 +322,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -334,7 +334,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -346,7 +346,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -366,7 +366,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -378,7 +378,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -390,7 +390,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -410,7 +410,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -422,7 +422,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -434,7 +434,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="#" class="btn colorBt text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -495,7 +495,7 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary text-light mb-2">Suscribirme</button>
+                        <button type="submit" class="btn colorBt text-light mb-2">Suscribirme</button>
                     </div>
                 </div>
             </form>

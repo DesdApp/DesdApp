@@ -34,7 +34,7 @@
     background-color: #ffffff;
 }
 .colorBt{
-    background-color: rgb(211, 204, 162);
+    background-color:#d99f59;
 }
 .negro{
     background-color: black;
@@ -62,4 +62,8 @@ margin-top:3%;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.sinBorde{
+    border: 0;
+    outline:0px;
 }

@@ -34,29 +34,29 @@ and open the template in the editor.
             <div id="div-login" class="col-6 p-5">
                 <h2>Registrarme</h2>
 
-                <form class="needs-validation mt-5" novalidate>
+                <form action="Controlador" class="needs-validation mt-5" novalidate>
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
-                        <label for="validationTooltip01">Nombre</label>
-                        <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required>
+                        <label for="nombre" >Nombre</label>
+                        <input type="text" class="form-control" name="txtNombre" id="nombre" placeholder="First name" value="Mark" required>
                         <div class="valid-tooltip">
                           Looks good!
                         </div>
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label for="validationTooltip02">Apellido</label>
-                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" name="txtApellido" id="apellido" placeholder="Last name" value="Otto" required>
                         <div class="valid-tooltip">
                           Looks good!
                         </div>
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label for="validationTooltipUsername">Username</label>
+                        <label for="usserName">Username</label>
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                           </div>
-                          <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+                            <input type="text" class="form-control" name="txtUsser" id="usserName" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
                           <div class="invalid-tooltip">
                             Please choose a unique and valid username.
                           </div>
@@ -65,22 +65,22 @@ and open the template in the editor.
                     </div>
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
-                        <label for="validationTooltip03">Dirección</label>
-                        <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
+                        <label for="direccion">Dirección</label>
+                        <input type="text" class="form-control" name="txtDireccion" id="direccion" placeholder="City" required>
                         <div class="invalid-tooltip">
                           Please provide a valid city.
                         </div>
                       </div>
                       <div class="col-md-3 mb-3">
-                        <label for="validationTooltip04">No. documento</label>
-                        <input type="number" class="form-control" id="validationTooltip04" placeholder="Document" required>
+                        <label for="document">No. documento</label>
+                        <input type="number" class="form-control" name="txtDocument" id="document" placeholder="Document" required>
                         <div class="invalid-tooltip">
                           Please provide a valid state.
                         </div>
                       </div>
                       <div class="col-md-3 mb-3">
-                        <label for="validationTooltip05">nit</label>
-                        <input type="number" class="form-control" id="validationTooltip05" placeholder="nit" required>
+                        <label for="nit">nit</label>
+                        <input type="number" class="form-control" name="txtName" id="nit" placeholder="nit" required>
                         <div class="invalid-tooltip">
                           Please provide a valid zip.
                         </div>
@@ -88,29 +88,45 @@ and open the template in the editor.
                     </div>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationTooltip03">Fecha Nacimiento</label>
-                            <input type="date" class="form-control" id="validationTooltip03" placeholder="8/17/2002" required>
+                            <label for="fechaNac">Fecha Nacimiento</label>
+                            <input type="date" class="form-control" name="txtFechaNac" id="fechaNac" placeholder="8/17/2002" required>
                             <div class="invalid-tooltip">
                               Please provide a valid city.
                             </div>
                           </div>
                           <div class="col-md-4 mb-3">
-                            <label for="validationTooltip04">Celular</label>
-                            <input type="number" class="form-control" id="validationTooltip04" placeholder="cel" required>
+                            <label for="cel">Celular</label>
+                            <input type="number" class="form-control" name="txtCel" id="cel" placeholder="cel" required>
                             <div class="invalid-tooltip">
                               Please provide a valid state.
                             </div>
                           </div>
                           <div class="col-md-4 mb-3">
-                            <label for="validationTooltip05">Telefono</label>
-                            <input type="number" class="form-control" id="validationTooltip05" placeholder="tel" required>
+                            <label for="tel">Telefono</label>
+                            <input type="number" class="form-control" name="txtTel" id="tel" placeholder="tel" required>
                             <div class="invalid-tooltip">
                               Please provide a valid zip.
                             </div>
                         </div>
 
                     </div>
-                    <button class="btn btn-primary" type="submit">Registrame</button>
+                    <div class="form-row">
+                      <div class="col-md-6 mb-3">
+                        <label for="id">ID Persona</label>
+                        <input type="number" class="form-control" name="idPer" id="id" placeholder="ID Persona" required>
+                        <div class="invalid-tooltip">
+                          Please provide a valid state.
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="tel">Tipo Documento</label>
+                        <input type="number" class="form-control" name="txtTpDocument" id="tel" placeholder="1-2" required>
+                        <div class="invalid-tooltip">
+                          Please provide a valid zip.
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn mt-3 btn-primary" name="accion" value="Agregar" type="submit">Registrame</button>
                   </form>
 
                

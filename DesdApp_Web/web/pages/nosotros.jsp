@@ -100,7 +100,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -117,7 +117,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -138,7 +138,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -155,7 +155,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -177,7 +177,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn  btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn  colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -194,7 +194,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn  btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn  colorBt mb-2 text-light" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -214,7 +214,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn  btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn  colorBt mb-2 text-light" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -231,7 +231,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -287,7 +287,7 @@
                       </div>
                     </div>
                     <div class="col-auto">
-                      <button type="submit" class="btn colorBt btn-primary mb-2">Suscribirme</button>
+                      <button type="submit" class="btn colorBt mb-2">Suscribirme</button>
                     </div>
                   </div>
                 </form>
