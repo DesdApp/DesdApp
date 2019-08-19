@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-08-2019 a las 07:10:35
--- Versión del servidor: 10.3.16-MariaDB
--- Versión de PHP: 7.3.7
+-- Tiempo de generación: 19-08-2019 a las 20:42:30
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `desdapp20`
+-- Base de datos: `desdapp`
 --
 
 -- --------------------------------------------------------
@@ -48,6 +48,32 @@ CREATE TABLE `bienes_inmuebles` (
   `cod_empleado` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `bienes_inmuebles`
+--
+
+INSERT INTO `bienes_inmuebles` (`inmueble_id`, `tipo_propiedad_id`, `estado_id`, `estado_neg_id`, `cliente_id`, `direccion`, `zona_id`, `metro_cuadrados`, `descripcion_metros`, `cant_cuartos`, `cant_niveles`, `sotanos`, `elevadores`, `precio_min_venta`, `precio_sugerido`, `precio_real`, `cod_empleado`) VALUES
+('1', 10, 1, 1, 5, '3ra. Avenida 13-04 ', 4, '125X50', '125 metros de ancho por 50 metros de largo', 1, 1, 0, 0, 5700, 6000, 5600, 1),
+('10', 3, 1, 2, 14, '6ta. Calle 2-71 ', 5, '57X45', '57 metros de ancho por 41 metros de largo', 3, 1, 0, 0, 79158, 79458, 79058, 1),
+('11', 5, 1, 1, 15, '2da. Calle 11-67 ', 5, '96X453', '96 metros de ancho por 453 metros de largo', 2, 1, 0, 0, 4565940, 4566240, 4565840, 2),
+('12', 5, 4, 2, 16, '9na. Avenida 5-63 ', 3, '523X242', '523 metros de ancho por 242 metros de largo', 5, 2, 1, 0, 13289130, 13289430, 13289030, 5),
+('13', 3, 3, 2, 17, '31 calle 14-14 ', 14, '256X231', '256 metros de ancho por 231 metros de largo', 4, 1, 0, 0, 6445524, 6445824, 6445424, 4),
+('14', 3, 3, 1, 18, '8va. Avenida 17-36 ', 11, '12X31', '12 metros de ancho por 31 metros de largo', 6, 2, 0, 0, 86748, 87048, 86648, 3),
+('15', 2, 2, 1, 19, '3ra. Calle 23-20 ', 17, '123X123', '123 metros de ancho por 123 metros de largo', 4, 2, 0, 0, 680505, 680805, 680405, 2),
+('16', 6, 1, 1, 20, '20 calle 14-14 ', 14, '123X121', '123 metros de ancho por 121 metros de largo', 0, 3, 1, 1, 1562415, 1562715, 1562315, 1),
+('17', 3, 3, 1, 21, '1ra. Calle 4-42 ', 1, '31X21', '31 metros de ancho por 21 metros de largo', 4, 2, 0, 0, 196860, 197160, 196760, 5),
+('18', 4, 3, 2, 22, '6ta. Calle 6-53 ', 10, '234X123', '234 metros de ancho por 123 metros de largo', 10, 6, 2, 1, 3309630, 3309930, 3309530, 3),
+('19', 3, 1, 1, 23, '10ma. Calle 4-20 ', 11, '123X112', '123 metros de ancho por 112 metros de largo', 3, 1, 0, 0, 1138740, 1139040, 1138640, 2),
+('2', 2, 1, 2, 6, '7ma. Avenida 1-12 ', 10, '100X75', '100 metros de ancho por 75 metros de largo', 2, 1, 0, 0, 787500, 787500, 787400, 2),
+('20', 3, 1, 2, 24, '7ma. Calle 7-61', 18, '12X31', '12 metros de ancho por 31 metros de largo', 1, 1, 0, 0, 15696, 15996, 15596, 5),
+('3', 9, 1, 2, 7, '3ra. Calle 25-21 ', 10, '18X9', '18 metros de ancho por 9metros de largo', 3, 1, 0, 0, 3426, 3726, 3326, 5),
+('4', 3, 2, 1, 8, '1ra. Calle 20-12', 2, '300X250', '300 metros de ancho por 250 metros de largo', 2, 1, 0, 0, 5624700, 5625000, 5624600, 4),
+('5', 8, 2, 2, 9, '2da. Calle 03-75 ', 15, '1000X700', '1000 metros de ancho por 700 metros de largo', 30, 14, 3, 2, 15999700, 16000000, 15999600, 3),
+('6', 4, 2, 2, 10, '6ta. Avenida 25-21 ', 13, '30X20', '30 metros de ancho por 20 metros de largo', 5, 2, 0, 0, 6900, 7200, 6800, 1),
+('7', 7, 3, 1, 11, '1ra. Avenida 1-46 ', 5, '25X20', '25 metros de ancho por 20 metros de largo', 4, 2, 0, 0, 1700, 2000, 1600, 4),
+('8', 4, 4, 1, 12, '1ra. Calle 4-42 ', 1, '50X43', '50 metros de ancho por 43 metros de largo', 4, 2, 0, 0, 224450, 224750, 224350, 2),
+('9', 1, 1, 2, 13, '6ta. Calle 2-71 ', 5, '356X231', '356 metros de ancho por 231 metros de largo', 5, 2, 1, 0, 16446900, 16447200, 16446800, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +87,41 @@ CREATE TABLE `clientes` (
   `user` varchar(15) NOT NULL,
   `password` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`cliente_id`, `persona_id`, `nombre_titular`, `user`, `password`) VALUES
+(5, 2, 'Raquel ', 'raqu20', 'raqu20'),
+(6, 3, 'Stephanie', 'steph21', 'steph21'),
+(7, 4, 'Carlos', 'carl22', 'carl22'),
+(8, 5, 'Estela', 'estel23', 'estel23'),
+(9, 6, 'Esteban', 'estb24', 'estb24'),
+(10, 7, 'Fernanda', 'fern25', 'fern25'),
+(11, 8, 'Maria', 'mar26', 'mar26'),
+(12, 9, 'Jose', 'jose27', 'jose27'),
+(13, 10, 'Daniela', 'dani28', 'dani28'),
+(14, 11, 'Marco', 'marc29', 'marc29'),
+(15, 12, 'Jeronimo', 'jer30', 'jer30'),
+(16, 13, 'Estefania', 'estef31', 'estef31'),
+(17, 14, 'Guillermo', 'guill32', 'guill32'),
+(18, 15, 'Eliana', 'eli33', 'eli33'),
+(19, 16, 'Jose', 'jos34', 'jos34'),
+(20, 17, 'Marcela', 'marce35', 'marce35'),
+(21, 18, 'Daniel', 'dan36', 'dan36'),
+(22, 19, 'Rafael', 'raf37', 'raf37'),
+(23, 20, 'Camilo', 'cam38', 'cam38'),
+(24, 21, 'Santiago', 'santi39', 'santi39'),
+(25, 22, 'Grace', 'grace40', 'grace40'),
+(26, 23, 'Karen', 'karen41', 'karen41'),
+(27, 24, 'Saul', 'saul42', 'saul42'),
+(28, 25, 'Javier', 'javi43', 'javi43'),
+(29, 26, 'Virginia', 'virg44', 'virg44'),
+(30, 27, 'Sergio', 'ser45', 'ser45'),
+(31, 28, 'Jorge', 'jorg46', 'jorg46'),
+(32, 29, 'Mariana', 'mar47', 'mar47'),
+(33, 30, 'Roberto', 'rob48', 'rob48');
 
 -- --------------------------------------------------------
 
@@ -125,7 +186,11 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`cod_empleado`, `persona_id`, `tipo_usuario_id`, `puesto`, `fecha_inicio`, `fecha_finalizacion`, `user`, `password`, `estado_emp_id`) VALUES
-(2019, 1, 1, 'Admin', '2019-01-02', '0000-00-00', 'admin', 'admin', 1);
+(1, 2, 2, 'secretaria', '2014-03-20', '0000-00-00', 'ssosad1', '123', 1),
+(2, 3, 4, 'reportes', '2015-09-03', '0000-00-00', 'ptejadav1', '123', 1),
+(3, 4, 1, 'admin', '2010-01-06', '0000-00-00', 'czepedad1', '123', 1),
+(4, 5, 3, 'corredor', '2018-11-29', '0000-00-00', 'eriosk1', '123', 1),
+(5, 6, 3, 'corredor', '2016-02-09', '0000-00-00', 'evelasquez1', '123', 1);
 
 -- --------------------------------------------------------
 
@@ -542,7 +607,35 @@ CREATE TABLE `personas` (
 --
 
 INSERT INTO `personas` (`persona_id`, `nombre`, `apellido`, `tipo_documento_id`, `no_documento`, `nit`, `direccion`, `celular`, `telefono`, `correo`, `fecha_nacimiento`) VALUES
-(1, 'test', 'test', 1, 'test', 'test', 'tes', 12345678, 12345678, 'test', '1992-09-15');
+(2, 'Raquel Pamela', 'Tejada Vega', 1, '101', '74145261', 'Zona 18 Colonia \"San Maria\" calle 12-23', 50570814, 50570814, 'raquelvegajava12@gmail.com', '2002-08-20'),
+(3, 'Stephanie Maria Gabriela', 'Sosa De Leon', 1, '102', '74145262', '3 calle casa #5 Resideciales \"Las Palmas\", Sanarate', 34480816, 34480816, 'stephaniemaria2401@gmail.com', '2001-09-24'),
+(4, 'Carlos Estuardo', 'Zepeda Diaz', 1, '103', '74145263', 'Villa Nueva', 32355494, 32355494, 'carloszepeda1392@gmail.com', '1992-09-13'),
+(5, 'Estela Carolina', 'Velasquez', 1, '104', '74145264', 'San José Pinula', 42282440, 42282440, 'ekarol1994@gmail.com', '1994-07-24'),
+(6, 'Esteban Adrian', 'Rios Kirste', 2, '105', '74145265', 'Zona 18 colonia Kennedy 7 calle 7-55', 10101010, 10101010, 'erioskirste@gmail.com', '2003-09-14'),
+(7, 'Fernanda Violeta', 'Gohg ', 1, '106', '74145266', 'Zona 18 colonia Kennedy 7 calle 7-56', 34764324, 34764324, 'fgogh4354@mail.com', '1992-12-21'),
+(8, 'Maria Alejandra', 'Castillo Lopez', 1, '107', '74145267', 'Zona 18 colonia Kennedy 7 calle 7-57', 24052345, 24052345, 'maricas@mail.com', '2000-03-02'),
+(9, 'Jose Santiago', 'Arriaza Aldana', 1, '108', '74145268', 'Zona 18 colonia Kennedy 7 calle 7-58', 34255647, 34255647, 'jarriazaa1443@mail.com', '1998-12-21'),
+(10, 'Daniela Elizabeth', 'Diaz Cabrera', 1, '109', '74145269', 'Villa Nueva', 23562466, 23562466, 'ddiaz2374@mail.com', '1970-10-07'),
+(11, 'Marco Gonzalo', 'Ruiz Pelaez', 1, '110', '74145270', '3 calle casa #5 Resideciales \"Las Palmas\", Sanarate', 34527689, 34527689, 'mruizp2334@mail.com', '1985-02-25'),
+(12, 'Jeronimo Jorge', 'Burgos Idarraga', 1, '111', '74145271', '4 calle casa #5 Resideciales \"Las Palmas\", Sanarate', 31053976, 31053976, 'Jburgos2335@mail.com', '2002-08-20'),
+(13, 'Estefania Alejandra', 'Villegas Aguirre', 2, '112', '74145272', '5 calle casa #5 Resideciales \"Las Palmas\", Sanarate', 31189997, 31189997, 'Evillegas2336@mail.com', '2001-09-24'),
+(14, 'Guillermo Alejandro', 'Fernandez Carmona', 1, '113', '74145273', '31 calle 14-14 zona 14', 31326018, 31326018, 'gfernandez2337@mail.com', '1992-09-13'),
+(15, 'Eliana Marisol', 'Ramirez Ospina', 2, '114', '74145274', 'San José Pinula', 31462039, 31462039, 'Eramirez2338@mail.com', '1994-07-24'),
+(16, 'Jose Raul', 'Carmona Pérez', 2, '115', '74145275', 'San José Pinula', 31598060, 31598060, 'jcarmona2339@mail.com', '2003-09-14'),
+(17, 'Marcela Sofia', 'De santis Cifuentes', 2, '116', '74145276', '20 calle 14-14 zona 14', 31734081, 31734081, 'mcifuentes2340@mail.com', '1992-12-21'),
+(18, 'Daniela Elizabeth', 'Franco Zapeta', 2, '117', '74145277', 'Zona 18 colonia Kennedy 7 calle 7-58', 31870102, 31870102, 'dfranco2341@mail.com', '2000-03-02'),
+(19, 'Rafael Felipe', 'Cortes Miramar', 1, '118', '74145278', 'Zona 18 colonia Kennedy 7 calle 7-59', 32006123, 32006123, 'rcortes2342@mail.com', '1998-12-21'),
+(20, 'Camilo Sebastian', 'Berrio Escobar', 1, '119', '74145279', 'San José Pinula', 32142144, 32142144, 'cberrio2343@mail.com', '1970-10-07'),
+(21, 'Francisco Tomas', 'Arias Martinez', 2, '120', '74145280', 'Zona 18 colonia Kennedy 7 calle 7-61', 32278165, 32278165, 'farias2344@mail.com', '1985-02-25'),
+(22, 'Antonio Eliseo', 'Merizalde Zetino', 1, '121', '74145281', '25 calle 14-14 zona 14', 32414186, 32414186, 'amerizaldez2345@mail.com', '2002-08-20'),
+(23, 'Karen Andrea', 'Restrepo Borja', 2, '122', '74145282', '26 calle 14-14 zona 14', 32550207, 32550207, 'krestrepob2346@mail.com', '2001-09-24'),
+(24, 'David Saul', 'Lemus Vino', 1, '123', '74145283', 'Zona 18 Colonia \"San Maria\" calle 12-23', 35686228, 35686228, 'dlemusv2347@mail.com', '1992-09-13'),
+(25, 'Javier Danilo', 'Santana Benitez', 1, '124', '74145284', 'Zona 18 Colonia \"San Maria\" calle 12-24', 32822249, 32822249, 'jsantanab2348@mail.com', '1994-07-24'),
+(26, 'Virginia Fatima', 'Saldarriaga Espinoza', 2, '125', '74145285', 'San José Pinula', 32958270, 32958270, 'rgiraldoa23@mail.com', '2003-09-14'),
+(27, 'Sergio Manuel', 'Posada Santos', 2, '126', '74145286', 'Zona 18 Colonia \"San Maria\" calle 12-26', 33094291, 33094291, 'sposadas2350@mail.com', '1992-12-21'),
+(28, 'Jorge Agustin', 'Zea Flores', 2, '127', '74145287', '31 calle 14-14 zona 14', 43230312, 43230312, 'jzeaf2351@mail.com', '2000-03-02'),
+(29, 'Mariana Cristina', 'Diaz Gutierrez', 2, '128', '74145288', '32 calle 14-14 zona 14', 33366333, 33366333, 'mriazg@mail.com', '1998-12-21'),
+(30, 'Roberto Jimenez', 'Giraldo Ayala', 1, '129', '74145289', '33 calle 14-14 zona 14', 33502354, 33502354, 'rgiraldoa6413@mail.com', '1970-10-07');
 
 -- --------------------------------------------------------
 
@@ -1528,13 +1621,13 @@ ALTER TABLE `zonas`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `cliente_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `cliente_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `persona_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `persona_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `suscriptores`

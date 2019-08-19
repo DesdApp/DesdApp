@@ -1,9 +1,11 @@
-<%-- 
+<%-- +¿´'p0o9i8u7y6t5r4e3wq ASDFGHJKILÑ{
+´+
     Document   : inicio
     Created on : Aug 2, 2019, 8:31:22 AM
     Author     : User
 --%>
 
+<%@page import="dao.DAOBienesInmuebles"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +16,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UEN3467890'}zmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -28,7 +30,7 @@
     <!--Barra de navegacion-->
     <div class="row primary mx-auto" style="justify-content: center; text-align: center; display: flex">
         <div class="col-sm-3 col-md-1"><img src="img/let.PNG" width="120px">
-
+_.,MNBVCXSZAcv bnm,.-
         </div>
 
 
@@ -136,6 +138,11 @@
             <h4>GTM Bines Raices-Magnates en Inmobiliaria</h4>
         </div>
     </div>
+    
+   <%
+       DAOBienesInmuebles dao = new DAOBienesInmuebles();
+       /*dao.selectBien(codigo);*/
+   %> 
 
 
     <div class="verdoso">
@@ -161,7 +168,7 @@
                                     <h5 class="card-title">Casa-Venta</h5>
                                     <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                         PRECIO $525,000.</p>
-                                        <a href="#" class="btn btn-primary text-light ">Detalles</a>
+                                        <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light ">Detalles</a>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +180,7 @@
                                     <h5 class="card-title">Casa-Venta</h5>
                                     <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                         PRECIO $525,000.</p>
-                                    <a href="#" class="btn btn-primary text-light ">Detalles</a>
+                                    <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light ">Detalles</a>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +192,7 @@
                                     <h5 class="card-title">Casa-Venta</h5>
                                     <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                         PRECIO $525,000.</p>
-                                    <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                    <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                                 </div>
                             </div>
                         </div>
@@ -207,7 +214,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -219,7 +226,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -231,7 +238,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -253,7 +260,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -265,7 +272,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -277,7 +284,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -322,7 +329,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -334,7 +341,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -346,7 +353,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -366,7 +373,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -378,7 +385,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -390,7 +397,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -410,7 +417,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -422,7 +429,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -434,7 +441,7 @@
                                 <h5 class="card-title">Casa-Venta</h5>
                                 <p class="card-text">CASA EN KM.13 RUTA AL SALVADOR
                                     PRECIO $525,000.</p>
-                                <a href="#" class="btn btn-primary text-light">Detalles</a>
+                                <a href="Inicio?accion=seleccionar" class="btn btn-primary text-light">Detalles</a>
                             </div>
                         </div>
                     </div>
