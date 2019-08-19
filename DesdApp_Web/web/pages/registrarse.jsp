@@ -37,6 +37,27 @@ and open the template in the editor.
                 <form action="Controlador" class="needs-validation mt-5" novalidate>
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
+                        <label for="id">ID Persona</label>
+                        <input type="number" class="form-control" name="txtidPer" id="id" placeholder="ID Persona" required>
+                        <div class="invalid-tooltip">
+                          Please provide a valid state.
+                        </div>
+                      </div>
+                      <div class="col-md-8 mb-3">
+                        <label for="usserName">Username</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                          </div>
+                            <input type="text" class="form-control" name="txtUsser" id="usserName" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+                          <div class="invalid-tooltip">
+                            Please choose a unique and valid username.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-md-4 mb-3">
                         <label for="nombre" >Nombre</label>
                         <input type="text" class="form-control" name="txtNombre" id="nombre" placeholder="First name" value="Mark" required>
                         <div class="valid-tooltip">
@@ -51,15 +72,10 @@ and open the template in the editor.
                         </div>
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label for="usserName">Username</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                          </div>
-                            <input type="text" class="form-control" name="txtUsser" id="usserName" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-                          <div class="invalid-tooltip">
-                            Please choose a unique and valid username.
-                          </div>
+                        <label for="tel">Tipo Documento</label>
+                        <input type="number" class="form-control" name="txtTpDocument" id="tel" placeholder="1-2" required>
+                        <div class="invalid-tooltip">
+                          Please provide a valid zip.
                         </div>
                       </div>
                     </div>
@@ -80,7 +96,7 @@ and open the template in the editor.
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="nit">nit</label>
-                        <input type="number" class="form-control" name="txtName" id="nit" placeholder="nit" required>
+                        <input type="number" class="form-control" name="txtNit" id="nit" placeholder="nit" required>
                         <div class="invalid-tooltip">
                           Please provide a valid zip.
                         </div>
@@ -110,22 +126,7 @@ and open the template in the editor.
                         </div>
 
                     </div>
-                    <div class="form-row">
-                      <div class="col-md-6 mb-3">
-                        <label for="id">ID Persona</label>
-                        <input type="number" class="form-control" name="idPer" id="id" placeholder="ID Persona" required>
-                        <div class="invalid-tooltip">
-                          Please provide a valid state.
-                        </div>
-                      </div>
-                      <div class="col-md-6 mb-3">
-                        <label for="tel">Tipo Documento</label>
-                        <input type="number" class="form-control" name="txtTpDocument" id="tel" placeholder="1-2" required>
-                        <div class="invalid-tooltip">
-                          Please provide a valid zip.
-                        </div>
-                      </div>
-                    </div>
+                    
                     <button class="btn mt-3 btn-primary" name="accion" value="Agregar" type="submit">Registrame</button>
                   </form>
 

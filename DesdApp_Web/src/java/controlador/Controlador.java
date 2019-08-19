@@ -1,8 +1,10 @@
 
 package controlador;
 
+import dao.DAOPersonas;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +18,10 @@ import modelo.Personas;
  */
 public class Controlador extends HttpServlet {
 
-    String registradoListo = "pages/registroexito.jsp";
+    String registrado = "pages/registroexito.jsp";
     String add = "pages/login.jsp";
     Personas p = new Personas();
+    DAOPersonas daoP = new DAOPersonas();
   
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -46,7 +49,30 @@ public class Controlador extends HttpServlet {
          if (action.equalsIgnoreCase("registrar")) {
             acceso=add;
          }else if (action.equalsIgnoreCase("Agregar")) {
-         
+             int id = Integer.parseInt(request.getParameter("txtidPer"));
+             String nombre = request.getParameter("txtNombre");
+             String apellido = request.getParameter("txtApellido");
+             byte TpDocument = Byte.parseByte(request.getParameter("txtTpDocument"));
+             String noDocument = request.getParameter("txtDocument");
+             String nit = request.getParameter("txtNit");
+             String direccion = request.getParameter("txtDireccion");
+             int cel = Integer.parseInt(request.getParameter("txtCel"));
+             int tel = Integer.parseInt(request.getParameter("txtTel"));
+             String correo = request.getParameter("txtUsser");
+             Date fechaNac = Date.valueOf("txtFechaNac");
+             p.setPersonaId(id);
+             p.setNombre(nombre);
+             p.setApellido(apellido);
+             p.setTipoDocumentoId(TpDocument);
+             p.setNoDocumento(noDocument);
+             p.setNit(nit);
+             p.setDireccion(direccion);
+             p.setCelular(cel);
+             p.setTelefono(tel);
+             p.setCorreo(correo);
+             p.setFechaNacimiento(fechaNac);
+             daoP.insert(p);
+             acceso = registrado;
         }
         RequestDispatcher pages = request.getRequestDispatcher(acceso);
         pages.forward(request, response);
