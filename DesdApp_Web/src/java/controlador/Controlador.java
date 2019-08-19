@@ -16,8 +16,8 @@ import modelo.Personas;
  */
 public class Controlador extends HttpServlet {
 
-    String registradoListo ="pages/registroexito.jsp";
-    String add ="pages/registrarse.jsp";
+    String registradoListo = "pages/registroexito.jsp";
+    String add = "pages/login.jsp";
     Personas p = new Personas();
   
     
@@ -40,16 +40,16 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String acceso="";
-        String action=request.getParameter("accion");
-        System.out.println("Accion:" + action);
-        if (action.equalsIgnoreCase("add")) {
-            acceso =add;
-        }else if (action.equalsIgnoreCase("Agregar")) {
+         String acceso="";
+         String action = request.getParameter("accion");
+         System.out.println("Accion:" + action);
+         if (action.equalsIgnoreCase("registrar")) {
+            acceso=add;
+         }else if (action.equalsIgnoreCase("Agregar")) {
          
         }
-        RequestDispatcher vista = request.getRequestDispatcher(acceso);
-        vista.forward(request, response);
+        RequestDispatcher pages = request.getRequestDispatcher(acceso);
+        pages.forward(request, response);
     }
 
     

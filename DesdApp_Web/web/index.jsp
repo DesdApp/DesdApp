@@ -52,8 +52,8 @@
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Quienes somos</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="pages/nosotros.jsp">Nuestro Equipo</a>
-                            <a class="dropdown-item" href="pages/oficinas.jsp">Oficinas</a>
+                            <a class="dropdown-item" href="#">Nuestro Equipo</a>
+                            <a class="dropdown-item" href="#">Oficinas</a>
                         </div>
                     </li>
                     <!--B2-->
@@ -77,7 +77,7 @@
                         <a class="nav-link" href="">Contáctenos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Controlador?accion=add">Iniciar Sesión/Registrarse</a>
+                        <a class="nav-link" href="Controlador?accion=registrar">Iniciar Sesión/Registrarse</a>
                     </li>
                     <li>
                 </ul>
