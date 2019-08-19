@@ -2,8 +2,8 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 18-08-2019 a las 03:45:52
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 19-08-2019 a las 07:10:35
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -112,13 +112,20 @@ CREATE TABLE `empleados` (
   `cod_empleado` int(10) NOT NULL,
   `persona_id` int(10) NOT NULL,
   `tipo_usuario_id` tinyint(2) NOT NULL,
-  `puesto` int(11) NOT NULL,
-  `fecha_inicio` int(11) NOT NULL,
-  `fecha_finalizacion` int(11) NOT NULL,
-  `user` int(11) NOT NULL,
-  `passwrod` int(11) NOT NULL,
+  `puesto` varchar(50) NOT NULL,
+  `fecha_inicio` date NOT NULL,
+  `fecha_finalizacion` date DEFAULT NULL,
+  `user` varchar(15) NOT NULL,
+  `password` varchar(30) NOT NULL,
   `estado_emp_id` tinyint(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `empleados`
+--
+
+INSERT INTO `empleados` (`cod_empleado`, `persona_id`, `tipo_usuario_id`, `puesto`, `fecha_inicio`, `fecha_finalizacion`, `user`, `password`, `estado_emp_id`) VALUES
+(2019, 1, 1, 'Admin', '2019-01-02', '0000-00-00', 'admin', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -529,6 +536,13 @@ CREATE TABLE `personas` (
   `correo` varchar(100) NOT NULL,
   `fecha_nacimiento` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `personas`
+--
+
+INSERT INTO `personas` (`persona_id`, `nombre`, `apellido`, `tipo_documento_id`, `no_documento`, `nit`, `direccion`, `celular`, `telefono`, `correo`, `fecha_nacimiento`) VALUES
+(1, 'test', 'test', 1, 'test', 'test', 'tes', 12345678, 12345678, 'test', '1992-09-15');
 
 -- --------------------------------------------------------
 
@@ -1431,7 +1445,7 @@ ALTER TABLE `departamentos`
 --
 ALTER TABLE `empleados`
   ADD PRIMARY KEY (`cod_empleado`),
-  ADD UNIQUE KEY `user` (`user`,`passwrod`),
+  ADD UNIQUE KEY `user` (`user`,`password`),
   ADD KEY `persona_id` (`persona_id`),
   ADD KEY `tipo_usuario_id` (`tipo_usuario_id`,`estado_emp_id`),
   ADD KEY `estado_emp_id` (`estado_emp_id`);
@@ -1520,7 +1534,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `persona_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `persona_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `suscriptores`

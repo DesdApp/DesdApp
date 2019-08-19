@@ -8,7 +8,7 @@ public class ConexionDB {
 
     //atributos
     private Connection conexionDB;
-    private static final String URL = "jdbc:mysql://127.0.0.1/desdapp";//poner el enlace a la base de datos con respecto a su configuaracion
+    private static final String URL = "jdbc:mysql://127.0.0.1/desdapp20";//poner el enlace a la base de datos con respecto a su configuaracion
     private static final String USER = "root";//esto de igual manera
     private static final String PASS = "";//y esto, si no lo han modificado dejen user y pass vacios
 

@@ -3,27 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/vista/login/Login.fxml</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/vista/empleadofx/PersonOverview.fxml</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/vista/persona/Persona.fxml</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/resources/StyleEmpleado.css</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/vista/empleados/Empleado.fxml</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOTpUsuarios.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/modelo/Empleados.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/resources/images/busqueda.png</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/resources/StyleLogin.css</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOPersonas.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOBienes.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/resources/link%20de%20referencia.txt</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOEmpleados.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/dao/ConexionDB.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOPropietarios.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/ContorladorLogin.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/ContorladorLogin.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/vista/ExeFXMain.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/modelo/VentaRenta.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOVentaRenta.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOEstadoBienInmueble.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/vista/login/main.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/ContorladorLogin.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/vista/ExeFXMain.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/vista/login/Login.fxml</file>
         </group>
     </open-files>
 </project-private>
