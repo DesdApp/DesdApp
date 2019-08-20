@@ -1,5 +1,5 @@
 
-package vista.login;
+package main;
 
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -15,7 +15,7 @@ public class main extends Application {
     public void start(Stage primaryStage) {
         try {
             FXMLLoader cargador = new FXMLLoader();
-            AnchorPane root = cargador.load(getClass().getResourceAsStream("Login.fxml"));
+            AnchorPane root = cargador.load(getClass().getResourceAsStream("/vista/login/Login.fxml"));
             
             Scene scene = new Scene(root);
             
