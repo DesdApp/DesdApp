@@ -166,6 +166,7 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     @Override
     public int validar(Clientes clin) {
         try {
+            
             cx.conectar();
             
             sql = "SELECT * FROM clientes WHERE user=? AND password=?";
