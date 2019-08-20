@@ -70,6 +70,10 @@
                     </li> 
                 </ul>
             </div> 
+            <div class="form-group mx-auto encima form-inline my-3 my-lg-0">
+                <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn text-light colorBt my-2 my-sm-0" type="submit">Search</button>
+            </div>
         </nav>
     </div>
     <a class="col-md-12 mx-auto">Propiedad en Venta</a>
