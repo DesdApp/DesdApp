@@ -174,6 +174,7 @@
                             </a>
                         </li>
                     </ul>
+
                 </nav>
             </div>
         </div>
@@ -181,6 +182,10 @@
         <!-- Aside derecho -->
         <div class="col-2">
             <aside>
+
+                </div> 
+            </nav>
+
 
                 <!-- Filtros -->
                 <div class="row bg-white d-flex justify-content-between p-3 mb-5">
