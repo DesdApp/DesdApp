@@ -1,151 +1,276 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Inmuebles</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/oficinas.css" type="text/css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/inmueblesStyle.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
-<body>
-     
+
+<body class="bg">
+
     <!--Barra de navegacion-->
-
-        <div class="row mx-auto primary" style="justify-content: center; text-align: center; display: flex">
-            <div class="col-sm-3 col-md-1"><img src="../img/let.PNG" width="120px">
-
+    <div class="container-fluid primary bannerHeigth">
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"><img src="../img/let.PNG" width="120px" height="120px" class="rounded float-left" alt="...">
             </div>
 
+            <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9" style="display: flex; justify-content: flex-start; align-items: center" height="120px">
+                <nav class="primary navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand text-light" href="#">Barra Navegacion</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link active text-light" href="../pages/inicio.jsp">Inicio <span
+                                    class="sr-only">(current)</span></a>
 
-            <nav class="navbar navbar-expand-md primary navbar-dark col-sm-9 col-md-11">
-                <!-- Brand -->
+                            <!--B1-->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Quienes somos</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="../pages/nosotros.jsp">Nuestro Equipo</a>
+                                    <a class="dropdown-item" href="../pages/oficinas.jsp">Oficinas</a>
+                                </div>
+                            </li>
+                            <!--B2-->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inmuebles</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Apartamentos</a>
+                                    <a class="dropdown-item" href="#">Bodegas</a>
+                                    <a class="dropdown-item" href="#">Casas</a>
+                                    <a class="dropdown-item" href="#">Edificios</a>
+                                    <a class="dropdown-item" href="#">Fincas</a>
+                                    <a class="dropdown-item" href="#">Locales</a>
+                                    <a class="dropdown-item" href="#">Oficinas</a>
+                                    <a class="dropdown-item" href="#">Proyectos</a>
+                                    <a class="dropdown-item" href="#">Terrenos</a>
+                                </div>
+                            </li>
 
-                <!-- Toggler/collapsibe Button -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                            <a class="nav-item nav-link text-light" href="#">Contactenos</a>
+                            <a class="nav-item nav-link text-light" href="../index.html">Iniciar Secion/Registrarse</a>
+                        </div>
+                    </div>
+                </nav>
 
-                <!-- Navbar links -->
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.jsp">Inicio</a>
-                        </li>
+            </div>
+        </div>
+    </div>
 
-                         <!--B1-->       
-                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false">Quienes somos</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="nosotros.jsp">Nuestro Equipo</a>
-                                <a class="dropdown-item" href="oficinas.jsp">Oficinas</a>
+    <div class="row d-flex justify-content-center">
+
+        <!-- Breadcrumb -->
+        <div class="col-8">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Inmuebles</li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Inmuebles -->
+        <div class="col-4 mr-5">
+            <div class="row d-flex justify-content-between">
+
+                <!--Card1-->
+                <div class="col-offset-4 float-left">
+                    <div class="cd card mt-3" style="width: 18rem;">
+                        <img src="../img/c1.jpg" width="100%" height="220" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-medium">Casa Venta</h5>
+                            <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
+                            <a href="inmueble.jsp" class="btn primary text-light ">Detalles</a>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header text-small">
+                                Lic. Angela Vega
                             </div>
-                        </li>
-                        <!--B2-->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false">Inmuebles</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Apartamentos</a>
-                                <a class="dropdown-item" href="#">Casas</a>
-                                <a class="dropdown-item" href="#">Bódegas</a>
-                                <a class="dropdown-item" href="#">Edificios</a>
-                                <a class="dropdown-item" href="#">Fincas</a>
-                                <a class="dropdown-item" href="#">Locales</a>
-                                <a class="dropdown-item" href="#">Oficinas</a>
-                                <a class="dropdown-item" href="#">Proyectos</a>
-                                <a class="dropdown-item" href="#">Terrenos</a>
-                            </div>
-                        </li>
+                        </div>
+                    </div>
+                </div>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Cont&aacute;ctenos</a>
+                <!--Card2-->
+                <div class="col-offset-4 float-left">
+                    <div class="cd card mt-3" style="width: 18rem;">
+                        <img src="../img/c2.jpg" width="100%" height="220" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-medium">Casa Venta</h5>
+                            <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
+                            <a href="#" class="btn primary text-light ">Detalles</a>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header text-small">
+                                Lic. Angela Vega
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-between">
+
+                <!--Card1-->
+                <div class="col-offset-4 float-left">
+                    <div class="cd card mt-3" style="width: 18rem;">
+                        <img src="../img/c1.jpg" width="100%" height="220" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-medium">Casa Venta</h5>
+                            <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
+                            <a href="#" class="btn primary text-light ">Detalles</a>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header text-small">
+                                Lic. Angela Vega
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Card2-->
+                <div class="col-offset-4 float-left">
+                    <div class="cd card mt-3" style="width: 18rem;">
+                        <img src="../img/c2.jpg" width="100%" height="220" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-medium">Casa Venta</h5>
+                            <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
+                            <a href="#" class="btn primary text-light ">Detalles</a>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header text-small">
+                                Lic. Angela Vega
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paginacion -->
+            <div class="col-12 d-flex justify-content-center my-5">
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../pages/login.jsp">Iniciar Sesión/Registrarse</a>
-                        </li> 
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
                     </ul>
+
+                </nav>
+            </div>
+        </div>
+
+        <!-- Aside derecho -->
+        <div class="col-2">
+            <aside>
+
                 </div> 
             </nav>
 
 
-        </div>
-
-        <!--Contenedor-->
-
-        <div class="row">
-            <div class="verdoso col-md-4 col-sm-12" style="text-align: center">
-                <h4 class="mt-5">Ubicaci&oacute;n</h4>
-                <p class="mt-5">
-                    UBICACION: 8a. Avenida 17-50, Zona 10<br>
-                    TEL: (502)+ 40931717<br>
-                    CORREO: BienesRaices@gmail.com<br>
-                    PAGINA WEB: BienesRaicesGuatemala.com<br>
-                 </p>   
-                 <img src="../img/office.jpg" class="img-fluid" >
-            </div>
-
-            <div class="col-md-6 col-sm-6 mt-5 mb-5 mx-auto embed-responsive embed-responsive-16by9 ">
-                <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.1097195751377!2d-90.51294158480425!3d14.592823281178639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3c1422dbd8d%3A0x838789a4bd79bea8!2sNOOK+design+Center!5e0!3m2!1ses-419!2sgt!4v1565339700520!5m2!1ses-419!2sgt" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div> 
-
-        </div>
-                
-
-       <!--Footer-->
-       <div class="row primary">
-          <div class="col-xl-4 primaryfloat-left">
-              <h4 class="text-light mt-5">Bienes Raices Guatemala</h4>
-              <p class="text-light">
-                  Empresa lider en ventar,renta, compra venta,
-                  alquiler.
-                  Contamos con la mejor asesoramiento inmobiliario
-              </p>
-          </div>
-
-          <div class="col-xl-4 primary float-left">
-              <h4 class="text-light mt-5">Contactenos</h4>
-              <p class="text-light">
-                  Zona 10 48-95 interiores de nook
-                  BienesRaices@gmail.com
-                  502+ 22334455
-
-              </p>
-          </div>
-          
-          <div class="col-xl-4 primary float-left">
-              <h4 class="text-light mt-5">Suscribete a nuestro Blog</h4>
-              
-              <form>
-                  <div class="form-row align-items-center mt-4">
-                    <div class="col-6">
-                      <h9 class="text-light">Nombre</h9>
-                      <label class="sr-only text-light" for="inlineFormInput">Name</label>
-                      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Username">
-                    </div>
-                    <div class="col-6">
-                      <h9 class="text-light">Email</h9>
-                      <label class="sr-only" for="inlineFormInputGroup">Email</label>
-                      <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">@</div>
+                <!-- Filtros -->
+                <div class="row bg-white d-flex justify-content-between p-3 mb-5">
+                    <form class="col-12">
+                        <h5>Filtros de busqueda</h5>
+                        <div class="form-group row">
+                            <input class="form-control" type="text" placeholder="Ingrese zona, sector, ciudad o cod. de inmueble">
                         </div>
-                        <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Email">
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <button type="submit" class="btn colorBt text-light mb-2">Suscribirme</button>
-                    </div>
-                  </div>
-                </form>
 
-          </div>
-  </div>
+                        <div class="form-group row d-flex justify-content-between">
+                            <select class="form-control col-6">
+                                <option selected>Habitaciones</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>Cualquiera</option>
+                            </select>
+                            <select class="form-control col-6">
+                                <option selected>Baños</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>Cualquiera</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row d-flex justify-content-between">
+                            <select class="form-control">
+                                <option selected>Tipo inmueble</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>Cualquiera</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row d-flex justify-content-between">
+                            <select class="form-control">
+                                <option selected>Tipo operación</option>
+                                <option>Venta</option>
+                                <option>Renta</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-block secondary text-light">Buscar</button>
+                    </form>
+                </div>
+
+                <div class="row bg-white d-flex justify-content-between p-3">
+                    <div class="col-12 mb-3">
+                        <h5>Filtros por tipo de operacion</h5>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <a href="">Renta</a>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <a href="">Venta</a>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+
+    </div>
 </body>
+
 </html>

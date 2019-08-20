@@ -78,6 +78,10 @@
                     </li> 
                 </ul>
             </div> 
+            <input class="form-control mx-auto col-md-6 mr-sm-1" type="search" placeholder="Ingrese zona, sector, ciudad o codigo" aria-label="Search">
+                        <button class="btn  mx-auto btn-outline-info  my-2 my-sm-0" type="submit">Search</button>
+
+
         </nav>
 
 
@@ -114,7 +118,7 @@
 
 
         <!-- Inmueble -->
-        <div class="col-4 mr-5">
+        <div class="col-5 mr-6">
             <div class="row d-flex justify-content-between">
 
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -152,10 +156,10 @@
         </div>
 
         <!-- Aside derecho -->
-        <div class="col-2">
+        <div class="col-3">
             <aside>
 
-                <div class="row bg-white d-flex justify-content-between p-3">
+                <div class="row d-flex justify-content-between p-3">
 
                     <!-- Informacion del corredor -->
                     <div class="mb-3" style="max-width: 540px;">
@@ -199,7 +203,7 @@
         </div>
 
         <!-- Informacion de la propiedad -->
-        <div class="col-6 m-5">
+        <div class="col-8 m-6">
             <div class="row white p-5">
                 <h4 class="col-12 mb-5">Resumen de la propiedad</h4>
                 <div class="col-4">
@@ -248,6 +252,7 @@
         </div>
     </div>
 
+    <br>
     <!-- Footer -->
     <div class="primary">
         <div class="container">
