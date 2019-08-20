@@ -56,7 +56,7 @@ and open the template in the editor.
 
         <div class="row d-flex justify-content-center">
             <h5>¿No tienes una cuenta?
-                <a href="registrarse.jsp">Registrarme</a>
+                <a href="Controlador?accion=add">Registrarme</a>
             </h5>
         </div>
 

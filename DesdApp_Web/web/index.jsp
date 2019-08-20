@@ -51,7 +51,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Quienes somos</a>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu transparente">
                             <a class="dropdown-item" href="#">Nuestro Equipo</a>
                             <a class="dropdown-item" href="#">Oficinas</a>
                         </div>
@@ -60,7 +60,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Inmuebles</a>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu transparente">
                             <a class="dropdown-item" href="">Apartamentos</a>
                             <a class="dropdown-item" href="#">Bodegas</a>
                             <a class="dropdown-item" href="#">Casas</a>
