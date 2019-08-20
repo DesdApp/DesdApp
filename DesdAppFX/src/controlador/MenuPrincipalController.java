@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Ryzen5
  */
-public class PersonaController implements Initializable {
+public class MenuPrincipalController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -22,6 +22,6 @@ public class PersonaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
-
+    }    
+    
 }
