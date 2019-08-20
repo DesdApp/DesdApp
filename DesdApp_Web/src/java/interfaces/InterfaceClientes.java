@@ -9,5 +9,6 @@ public interface InterfaceClientes {
     public String deleteClientes(int codigo);
     public String updateClientes(Clientes cliente);
     public Clientes selectcliente(int codigo);
+    public int validar(Clientes clin);
     public ArrayList<Clientes> listclientes();
 }
