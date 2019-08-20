@@ -1,33 +1,57 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlador;
 
-import java.awt.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 
-/**
- * FXML Controller class
- *
- * @author Ryzen5
- */
+//Importacion de conexion
+import dao.LoginLogicaAcceso;
+import javafx.scene.control.ComboBox;
+
 public class ContorladorLogin implements Initializable {
 
-    @FXML
-    private Button btnInicioSecion;
-    
-    
+    @FXML Button btnInicioSesion;
+    @FXML TextField txtUser;
+    @FXML PasswordField txtPassword;
+    @FXML Label lblErrorSesion;
+    @FXML ComboBox<String> listaP;
     
     @Override
-
-    public void initialize(URL url, ResourceBundle rb) {
-
-        // TODO
+    public void initialize(URL url, ResourceBundle rb) {     
+        
     }
+    
+    @FXML
+    void iniciarSesion (ActionEvent evt){
+       LoginLogicaAcceso login = new LoginLogicaAcceso();
+              
+       String user = txtUser.getText().trim();
+       String contra = txtPassword.getText().trim();
+       int permisos = 1;
+       int sesion = login.validarUsario(user, contra);
+       int privi = login.privilegios(user, permisos);
+       
+       if(sesion == 1){
+           System.out.println("Se inicio sesion*-*-");
+           
+       }else{
+           lblErrorSesion.setText("Datos invalidos");
+           System.out.println("datos invalidos");
+       }
+       if(privi == 1){ 
+               
+           }else{
+               lblErrorSesion.setText("NO tiene privilegios");
+               System.out.println("No tiene permisos");
+           }
 
+       
+    }
+    
 }

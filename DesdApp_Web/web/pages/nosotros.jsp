@@ -3,18 +3,14 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/nosotros.css" type="text/css">
     <title>Document</title>
 </head>
@@ -22,15 +18,13 @@
 <body class="bg">
     <!--Barra de navegacion-->
 
-        <div class="row primary">
+        <div class="row primary mx-auto" style="justify-content: center; text-align: center; display: flex">
             <div class="col-sm-3 col-md-1"><img src="../img/let.PNG" width="120px">
 
             </div>
 
 
             <nav class="navbar navbar-expand-md primary navbar-dark col-sm-9 col-md-11">
-                <!-- Brand -->
-                <a class="navbar-brand" href="#">Navbar</a>
 
                 <!-- Toggler/collapsibe Button -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -41,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../WEB-INF/index.jsp">Inicio</a>
+                            <a class="nav-link" href="../index.jsp">Inicio</a>
                         </li>
 
                          <!--B1-->       
@@ -74,7 +68,7 @@
                             <a class="nav-link" href="">Contáctenos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Iniciar Sesión</a>
+                            <a class="nav-link" href="../pages/login.jsp">Iniciar Sesión</a>
                         </li> 
                     </ul>
                 </div> 
@@ -84,7 +78,7 @@
         </div>
 
      <!--Informacion y Card Corredores-->
-            <div class="container col-12">
+            <div class="container col-md-11">
                         <h3 class="mt-5" style="text-align: center">Quienes somos</h3>
                         <p>
                                 Somos una empresa Inmobiliaria enfocada en el Asesoramiento de nuestros clientes, con el objetivo de brindarles el mejor servicio.
@@ -106,7 +100,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -123,7 +117,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -144,7 +138,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -161,7 +155,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -183,7 +177,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn  colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -200,7 +194,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn  colorBt mb-2 text-light" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -209,7 +203,7 @@
                 </div>
             </div>
             <!--Grupo 4-->
-            <div class="row mt-4">
+            <div class="row mt-4 mb-4">
                 <div class="col-6">
                     <div class="card mx-auto mb-2 mt-2" style="max-width: 540px;">
                         <div class="row no-gutters">
@@ -220,7 +214,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Lic. Mariano Alcaparro</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn  colorBt mb-2 text-light" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -237,7 +231,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Licda. Maria Turbina</h5>
                               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <button type="submit" class="btn colorBt btn-primary mb-2" style="align-content: flex-end">Detalles</button>
+                              <button type="submit" class="btn colorBt text-light mb-2" style="align-content: flex-end">Detalles</button>
                             </div>
                           </div>
                         </div>
@@ -293,7 +287,7 @@
                       </div>
                     </div>
                     <div class="col-auto">
-                      <button type="submit" class="btn colorBt btn-primary mb-2">Suscribirme</button>
+                      <button type="submit" class="btn colorBt mb-2">Suscribirme</button>
                     </div>
                   </div>
                 </form>

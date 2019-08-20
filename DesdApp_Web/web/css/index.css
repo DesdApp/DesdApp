@@ -9,6 +9,9 @@
 .primary {
     background-color: #011144;
 }
+.primary2 {
+    background-color: #031d72;
+}
 
 .secondary {
     background-color: #d99f59;
@@ -31,7 +34,10 @@
     background-color: #ffffff;
 }
 .colorBt{
-    background-color: #08748f;
+    background-color: #3a95a5;
+}
+.negro{
+    background-color: black;
 }
 
 
@@ -50,4 +56,26 @@ margin-top:3%;
 }
 .ImgTm{
     max-width: auto;
+}
+.encima{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.sinBorde{
+    border: 0;
+    outline:0px;
+}
+.transparente{
+    opacity: 0.9;
+    -moz-opacity: 0.9;
+    filter: alpha(opacity=90);
+    -khtml-opacity: 0.8;
+}
+.transparente1{
+    opacity: 0.3;
+    -moz-opacity: 0.3;
+    filter: alpha(opacity=30);
+    -khtml-opacity: 0.3;
 }

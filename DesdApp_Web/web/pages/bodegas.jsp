@@ -17,64 +17,74 @@
 <body class="bg">
 
     <!--Barra de navegacion-->
-    <div class="container-fluid primary bannerHeigth">
-        <div class="row">
-            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"><img src="../img/let.PNG" width="120px" height="120px" class="rounded float-left" alt="...">
-            </div>
 
-            <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9" style="display: flex; justify-content: flex-start; align-items: center" height="120px">
-                <nav class="primary navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand text-light" href="#">Navbar Principal</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-item nav-link active text-light" href="../pages/inicio.jsp">Inicio <span
-                                    class="sr-only">(current)</span></a>
+    <div class="row primary mx-auto" style="justify-content: center; text-align: center; display: flex">
+        <div class="col-sm-3 col-md-1"><img src="../img/let.PNG" width="120px">
 
-                            <!--B1-->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Quienes somos</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="../pages/nosotros.jsp">Nuestro Equipo</a>
-                                    <a class="dropdown-item" href="../pages/oficinas.jsp">Oficinas</a>
-                                </div>
-                            </li>
-                            <!--B2-->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inmuebles</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Apartamentos</a>
-                                    <a class="dropdown-item" href="#">Bodegas</a>
-                                    <a class="dropdown-item" href="#">Casas</a>
-                                    <a class="dropdown-item" href="#">Edificios</a>
-                                    <a class="dropdown-item" href="#">Fincas</a>
-                                    <a class="dropdown-item" href="#">Locales</a>
-                                    <a class="dropdown-item" href="#">Oficinas</a>
-                                    <a class="dropdown-item" href="#">Proyectos</a>
-                                    <a class="dropdown-item" href="#">Terrenos</a>
-                                </div>
-                            </li>
-
-                            <a class="nav-item nav-link text-light" href="#">Contáctenos</a>
-                            <a class="nav-item nav-link text-light" href="../index.html">Iniciar Sesión/Registrarse</a>
-                        </div>
-                    </div>
-                </nav>
-
-            </div>
         </div>
+
+
+        <nav class="navbar navbar-expand-md primary navbar-dark col-sm-9 col-md-11">
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.jsp">Inicio</a>
+                    </li>
+
+                     <!--B1-->       
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Quienes somos</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="../pages/nosotros.jsp">Nuestro Equipo</a>
+                            <a class="dropdown-item" href="../pages/oficinas.jsp">Oficinas</a>
+                        </div>
+                    </li>
+                    <!--B2-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Inmuebles</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Apartamentos</a>
+                            <a class="dropdown-item" href="#">Bodegas</a>
+                            <a class="dropdown-item" href="#">Casas</a>
+                            <a class="dropdown-item" href="#">Edificios</a>
+                            <a class="dropdown-item" href="#">Fincas</a>
+                            <a class="dropdown-item" href="#">Locales</a>
+                            <a class="dropdown-item" href="#">Oficinas</a>
+                            <a class="dropdown-item" href="#">Proyectos</a>
+                            <a class="dropdown-item" href="#">Terrenos</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Contáctenos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/login.jsp">Iniciar Sesión</a>
+                    </li> 
+                </ul>
+            </div> 
+        </nav>
+
+
     </div>
 
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center mx-auto">
 
         <!-- Breadcrumb -->
-        <div class="col-8">
+        <div class="col-md-8 col-sm-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg">
                     <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Bodegas</li>
+                    <li class="breadcrumb-item active" aria-current="page">Inmuebles</li>
                 </ol>
             </nav>
         </div>
@@ -88,7 +98,7 @@
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c1.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-medium">Bodega en venta</h5>
+                            <h5 class="card-title text-medium">Casa Venta</h5>
                             <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
                             <a href="inmueble.jsp" class="btn primary text-light ">Detalles</a>
                         </div>
@@ -105,7 +115,7 @@
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c2.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-medium">Bodega en venta</h5>
+                            <h5 class="card-title text-medium">Casa Venta</h5>
                             <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
                             <a href="#" class="btn primary text-light ">Detalles</a>
                         </div>
@@ -125,7 +135,7 @@
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c1.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-medium">Bodega en venta</h5>
+                            <h5 class="card-title text-medium">Casa Venta</h5>
                             <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
                             <a href="#" class="btn primary text-light ">Detalles</a>
                         </div>
@@ -142,7 +152,7 @@
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c2.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-medium"> Bodega en alquiler </h5>
+                            <h5 class="card-title text-medium">Casa Venta</h5>
                             <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
                             <a href="#" class="btn primary text-light ">Detalles</a>
                         </div>
@@ -179,12 +189,12 @@
         </div>
 
         <!-- Aside derecho -->
-        <div class="col-2">
+        <div class="col-md-3 col-sm-12">
             <aside>
 
                 <!-- Filtros -->
                 <div class="row bg-white d-flex justify-content-between p-3 mb-5">
-                    <form class="col-12">
+                    <form class="col-md-12">
                         <h5>Filtros de busqueda</h5>
                         <div class="form-group row">
                             <input class="form-control" type="text" placeholder="Ingrese zona, sector, ciudad o cod. de inmueble">
@@ -242,7 +252,7 @@
                             <select class="form-control">
                                 <option selected>Tipo operación</option>
                                 <option>Venta</option>
-                                <option>Alquiler</option>
+                                <option>Renta</option>
                             </select>
                         </div>
 
@@ -252,10 +262,10 @@
 
                 <div class="row bg-white d-flex justify-content-between p-3">
                     <div class="col-12 mb-3">
-                        <h5>Filtros por tipo de operación</h5>
+                        <h5>Filtros por tipo de operacion</h5>
                     </div>
                     <div class="col-12 mb-3">
-                        <a href="">Alquiler</a>
+                        <a href="">Renta</a>
                     </div>
                     <div class="col-12 mb-3">
                         <a href="">Venta</a>
