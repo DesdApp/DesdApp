@@ -1,6 +1,5 @@
 package controlador;
 
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -12,10 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
 //Importacion de conexion
-import dao.ConexionDB;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import dao.LoginLogicaAcceso;
+import javafx.scene.control.ComboBox;
 
 public class ContorladorLogin implements Initializable {
 
@@ -23,43 +20,38 @@ public class ContorladorLogin implements Initializable {
     @FXML TextField txtUser;
     @FXML PasswordField txtPassword;
     @FXML Label lblErrorSesion;
-    
-    
+    @FXML ComboBox<String> listaP;
     
     @Override
-
-    public void initialize(URL url, ResourceBundle rb) {
-
+    public void initialize(URL url, ResourceBundle rb) {     
         
     }
+    
     @FXML
     void iniciarSesion (ActionEvent evt){
-        ConexionDB cn = new ConexionDB();
-        
-        //Asignar valores de las cajas de texto a variables
-        cn.conectar();
-        String usuario = txtUser.getText().trim();
-        String contra = txtPassword.getText().trim();
-        
-        String sql = "SELECT * FROM empleados WHERE user='"+ usuario +"' AND password='"+ contra +"' ";
-        
-        try {
-            Statement st = cn.getconexionDB().createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            
-            if(rs.next()){
-                System.out.println("Se puedo");
-                lblErrorSesion.setText("");
-            }else{
-                lblErrorSesion.setText("Error de usuario o contrasena");
-            }
-        } catch (SQLException e) {
-            System.out.println("Error de coenxion" + e.getMessage());
-            
-        }finally{
-            cn.desconectar();
-        }
-        
+       LoginLogicaAcceso login = new LoginLogicaAcceso();
+              
+       String user = txtUser.getText().trim();
+       String contra = txtPassword.getText().trim();
+       int permisos = 1;
+       int sesion = login.validarUsario(user, contra);
+       int privi = login.privilegios(user, permisos);
+       
+       if(sesion == 1){
+           System.out.println("Se inicio sesion*-*-");
+           
+       }else{
+           lblErrorSesion.setText("Datos invalidos");
+           System.out.println("datos invalidos");
+       }
+       if(privi == 1){ 
+               
+           }else{
+               lblErrorSesion.setText("NO tiene privilegios");
+               System.out.println("No tiene permisos");
+           }
+
+       
     }
     
 }
