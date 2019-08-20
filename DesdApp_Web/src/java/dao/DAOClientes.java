@@ -163,4 +163,29 @@ public class DAOClientes implements interfaces.InterfaceClientes {
         return list;
     }
 
+    @Override
+    public int validar(Clientes clin) {
+        try {
+            cx.conectar();
+            
+            sql = "SELECT * FROM clientes WHERE user=? AND password=?";
+            exe=cx.getconexionDB().prepareStatement(sql);
+            exe.setString(1, clin.getUser());
+            exe.setString(2, clin.getPassword());
+            rs=exe.executeQuery();
+            
+            if(rs.next()){
+                return 1;
+            }
+
+        } catch (SQLException e) {
+
+            System.out.println("Error: "+e.getMessage());
+        }finally{
+            cx.desconectar();
+        }
+        return 0;
+        }
+    
+
 }

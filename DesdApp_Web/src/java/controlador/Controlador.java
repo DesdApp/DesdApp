@@ -1,6 +1,7 @@
-
+        
 package controlador;
 
+import dao.DAOClientes;
 import dao.DAOPersonas;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Clientes;
 import modelo.Personas;
 
 /**
@@ -22,6 +24,7 @@ public class Controlador extends HttpServlet {
     String add = "pages/login.jsp";
     Personas p = new Personas();
     DAOPersonas daoP = new DAOPersonas();
+    DAOClientes daoC=new DAOClientes();
   
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -83,7 +86,24 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            String email=request.getParameter("txtEmail");
+            String pass=request.getParameter("txtPass");
+            
+            Clientes cliente= new Clientes();
+            
+            cliente.setUser(email);
+            cliente.setPassword(pass);
+            
+            System.out.println("email: "+email+"pass"+pass);
+            int resultado = daoC.validar(cliente);
+            if (resultado == 1) {
+            response.sendRedirect("../index.jsp");
+        } else {
+            response.sendRedirect("login.jsp?error=1");
+
+        }
+            
+                   
     }
 
     /**
