@@ -69,10 +69,10 @@ public class DAOPersonas implements interfaces.InterfacePersona {
             exe.setString(5, per.getNoDocumento());
             exe.setString(6, per.getNit());
             exe.setString(7, per.getDireccion());
-            exe.setInt(5, per.getCelular());
-            exe.setInt(6, per.getTelefono());
-            exe.setString(7, per.getCorreo());
-            exe.setDate(8, per.getFechaNacimiento());
+            exe.setInt(8, per.getCelular());
+            exe.setInt(9, per.getTelefono());
+            exe.setString(10, per.getCorreo());
+            exe.setDate(11, per.getFechaNacimiento());
 
             ////Realizamos la consulta y actualizamos la base de datos
             cont = exe.executeUpdate();

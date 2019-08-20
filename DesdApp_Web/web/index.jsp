@@ -44,7 +44,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.jsp">Inicio</a>
+                        <a class="nav-link" href="Controlador?accion=index">Inicio</a>
                     </li>
 
                     <!--B1-->
@@ -52,8 +52,8 @@
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Quienes somos</a>
                         <div class="dropdown-menu transparente">
-                            <a class="dropdown-item" href="#">Nuestro Equipo</a>
-                            <a class="dropdown-item" href="#">Oficinas</a>
+                            <a class="dropdown-item" href="Controlador?accion=equipo">Nuestro Equipo</a>
+                            <a class="dropdown-item" href="Controlador?accion=oficina">Oficinas</a>
                         </div>
                     </li>
                     <!--B2-->
@@ -93,28 +93,80 @@
             <div class="carousel-item active">
                 <img class="d-block w-100" src="img/b6.jpg" alt="First slide">
          
-                        <div class="form-group mx-auto encima form-inline my-3 my-lg-0">
-                            <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn text-light colorBt my-2 my-sm-0" type="submit">Search</button>
+                        
+                        <div class="form-group mx-auto col-md-8 bg rounded transparente encima form-inline my-3 my-lg-0" style="height: 60px">
+                        <select class="custom-select col-md-2 mx-auto mr-sm-1" id="inputGroupSelect01">
+                            <option selected>Venta/Renta</option>
+                            <option value="1">Venta</option>
+                            <option value="2">Renta</option>
+                        </select>
+                        <select class="custom-select col-md-2 mx-auto mr-sm-1" id="inputGroupSelect01">
+                            <option selected>Cualquier Inmueble</option>
+                            <option value="1">Apartamentos</option>
+                            <option value="2">Bodegas</option>
+                            <option value="3">Casas</option>
+                            <option value="4">Edificios</option>
+                            <option value="5">Fincas</option>
+                            <option value="6">Locales</option>
+                            <option value="7">Terrenos</option>
+                            <option value="8">Oficinas</option>
+                            <option value="9">Proyectos</option>
+                        </select>
+                        <input class="form-control mx-auto col-md-6 mr-sm-1" type="search" placeholder="Ingrese zona,sector,ciudad o cod" aria-label="Search">
+                        <button class="btn  mx-auto btn-outline-info  my-2 my-sm-0" type="submit">Search</button>
                         </div>
         
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="img/d4.png"alt="Second slide">
 
-                <div class="form-group encima form-inline my-3 my-lg-0">
-                        <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn text-light colorBt my-2 my-sm-0" type="submit">Search</button>
-                </div>
+                 <div class="form-group mx-auto col-md-8 bg rounded transparente encima form-inline my-3 my-lg-0" style="height: 60px">
+                        <select class="custom-select col-md-2 mx-auto mr-sm-1" id="inputGroupSelect01">
+                            <option selected>Venta/Renta</option>
+                            <option value="1">Venta</option>
+                            <option value="2">Renta</option>
+                        </select>
+                        <select class="custom-select col-md-2 mx-auto mr-sm-1" id="inputGroupSelect01">
+                            <option selected>Cualquier Inmueble</option>
+                            <option value="1">Apartamentos</option>
+                            <option value="2">Bodegas</option>
+                            <option value="3">Casas</option>
+                            <option value="4">Edificios</option>
+                            <option value="5">Fincas</option>
+                            <option value="6">Locales</option>
+                            <option value="7">Terrenos</option>
+                            <option value="8">Oficinas</option>
+                            <option value="9">Proyectos</option>
+                        </select>
+                        <input class="form-control mx-auto col-md-6 mr-sm-1" type="search" placeholder="Ingrese zona,sector,ciudad o cod" aria-label="Search">
+                        <button class="btn  mx-auto btn-outline-info  my-2 my-sm-0" type="submit">Search</button>
+                        </div>
     
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="img/d3.png" alt="Third slide">
 
-                <div class="form-group encima resoponsive-inline form-inline my-3 my-lg-0">
-                        <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn text-light colorBt my-2 my-sm-0" type="submit">Search</button>
-                </div>
+                 <div class="form-group mx-auto col-md-8 bg rounded transparente encima form-inline my-3 my-lg-0" style="height: 60px">
+                        <select class="custom-select col-md-2 mx-auto mr-sm-1" id="inputGroupSelect01">
+                            <option selected>Venta/Renta</option>
+                            <option value="1">Venta</option>
+                            <option value="2">Renta</option>
+                        </select>
+                        <select class="custom-select col-md-2 mx-auto mr-sm-1" id="inputGroupSelect01">
+                            <option selected>Cualquier Inmueble</option>
+                            <option value="1">Apartamentos</option>
+                            <option value="2">Bodegas</option>
+                            <option value="3">Casas</option>
+                            <option value="4">Edificios</option>
+                            <option value="5">Fincas</option>
+                            <option value="6">Locales</option>
+                            <option value="7">Terrenos</option>
+                            <option value="8">Oficinas</option>
+                            <option value="9">Proyectos</option>
+                        </select>
+                        <input class="form-control mx-auto col-md-6 mr-sm-1" type="search" placeholder="Ingrese zona,sector,ciudad o cod" aria-label="Search">
+                        <button class="btn  mx-auto btn-outline-info  my-2 my-sm-0" type="submit">Search</button>
+                        </div>
     
             </div>
         </div>

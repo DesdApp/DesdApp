@@ -34,7 +34,7 @@
     background-color: #ffffff;
 }
 .colorBt{
-    background-color:#d99f59;
+    background-color: #3a95a5;
 }
 .negro{
     background-color: black;
@@ -72,4 +72,10 @@ margin-top:3%;
     -moz-opacity: 0.9;
     filter: alpha(opacity=90);
     -khtml-opacity: 0.8;
+}
+.transparente1{
+    opacity: 0.3;
+    -moz-opacity: 0.3;
+    filter: alpha(opacity=30);
+    -khtml-opacity: 0.3;
 }

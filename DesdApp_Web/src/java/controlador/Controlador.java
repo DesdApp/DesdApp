@@ -23,6 +23,9 @@ public class Controlador extends HttpServlet {
     String registrado = "pages/registroexito.jsp";
     String add = "pages/login.jsp";
     String registrase = "pages/registrarse.jsp";
+    String equipo = "pages/nosotros.jsp";
+    String oficina = "pages/oficinas.jsp";
+    String index = "index.jsp";
     Personas p = new Personas();
     DAOPersonas daoP = new DAOPersonas();
     DAOClientes daoC=new DAOClientes();
@@ -54,6 +57,12 @@ public class Controlador extends HttpServlet {
             acceso=add;
          }else if(action.equalsIgnoreCase("add")){
              acceso = registrase;
+         }else if(action.equalsIgnoreCase("equipo")){
+            acceso=equipo; 
+         }else if(action.equalsIgnoreCase("oficina")){
+            acceso=oficina;
+         }else if(action.equalsIgnoreCase("index")){
+            acceso=index;
          }
          else if (action.equalsIgnoreCase("Agregar")) {
              int id = Integer.parseInt(request.getParameter("txtidPer"));
@@ -79,7 +88,7 @@ public class Controlador extends HttpServlet {
              p.setCorreo(correo);
              p.setFechaNacimiento(fechaNac);
              daoP.insert(p);
-             acceso = add;
+             acceso = registrado;
         }
         RequestDispatcher pages = request.getRequestDispatcher(acceso);
         pages.forward(request, response);
