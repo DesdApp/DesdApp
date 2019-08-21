@@ -80,7 +80,7 @@
     <div class="row d-flex justify-content-center mx-auto">
 
         <!-- Breadcrumb -->
-        <div class="col-md-8 col-sm-12">
+        <div class="col-md-12 col-sm-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg">
                     <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
@@ -90,11 +90,11 @@
         </div>
 
         <!-- Inmuebles -->
-        <div class="col-4 mr-5">
+        <div class="col-md-4 mr-1">
             <div class="row d-flex justify-content-between">
 
                 <!--Card1-->
-                <div class="col-offset-4 float-left">
+                <div class="col-offset-4 col-md-3 float-left">
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c1.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -111,7 +111,7 @@
                 </div>
 
                 <!--Card2-->
-                <div class="col-offset-4 float-left">
+                <div class="col-offset-4 col-md-3 float-left">
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c2.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">

@@ -60,6 +60,7 @@ public class DAOPersonas implements interfaces.InterfacePersona {
     public String insert(Personas per) {
         try {
             cn.conectar();
+            //Entro
             sql = "INSERT INTO personas VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             exe = cn.getconexionDB().prepareStatement(sql);
             exe.setInt(1, per.getPersonaId());

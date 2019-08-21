@@ -34,7 +34,7 @@ and open the template in the editor.
             <div id="div-login" class="col-6 p-5">
                 <h2>Registrarme</h2>
 
-                <form action="Controlador" class="needs-validation mt-5" novalidate>
+                <form action="${pageContext.request.contextPath}/Controlador" method="post" class="needs-validation mt-5" novalidate>
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="id">ID Persona</label>
@@ -127,7 +127,7 @@ and open the template in the editor.
 
                     </div>
                     
-                    <button class="btn mt-3 btn-primary" name="accion" value="Agregar" type="submit">Registrame</button>
+                    <input class="btn mt-3 btn-primary" name="accion" value="Registrarme" type="submit" >
                   </form>
 
                
