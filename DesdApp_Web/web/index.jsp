@@ -52,7 +52,7 @@
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Quienes somos</a>
                         <div class="dropdown-menu transparente">
-                            <a class="dropdown-item" href="Controlador?accion=equipo">Nuestro Equipo</a>
+                            <a class="dropdown-item" href="pages/nosotros.jsp">Nuestro Equipo</a>
                             <a class="dropdown-item" href="Controlador?accion=oficina">Oficinas</a>
                         </div>
                     </li>
