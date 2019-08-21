@@ -11,5 +11,6 @@ public interface InterfacePersona {
     public String insert(Personas per);
     public String update(Personas per);
     public String delete(int id);
+    public int validar(Personas persona);
     public ArrayList<Personas>list();
 }

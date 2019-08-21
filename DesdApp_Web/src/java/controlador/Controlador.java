@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
 import java.sql.Date;
+import javafx.scene.control.Alert;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +31,8 @@ public class Controlador extends HttpServlet {
     Personas p = new Personas();
     DAOPersonas daoP = new DAOPersonas();
     DAOClientes daoC = new DAOClientes();
+    String cont = null;
+        
 
     String user = null;
     String pass = null;
@@ -96,15 +99,13 @@ public class Controlador extends HttpServlet {
              System.out.println(p.toString());
              daoP.insert(p);
              
-             if (p == null) {
-             out.println("<script type=\"text/javascript\">");
-             out.println("alert('Los campos no pueden estar vacios');");
-             acceso = registrase;
-          }else{
-             acceso = index;
-         }
-        }
-         
+             if (nombre.equals("")||apellido.equals("")||TpDocument == 0 ||noDocument.equals("") ||nit.equals("")||direccion.equals("")||cel == 0 ||tel == 0 ||correo.equals("")||fechaNac.equals("")) {
+              response.sendRedirect("pages/registrase.jsp?alert=1");
+             }else{
+              acceso = index;
+             }
+            
+        } 
          
         
         RequestDispatcher pages = request.getRequestDispatcher(acceso);

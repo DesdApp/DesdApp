@@ -16,71 +16,73 @@
 
 <body class="bg">
 
-    <!-- Redes sociales -->
-    <div class="container-fluid secondary d-flex justify-content-end align-items-center pr-5">
-        <p class="text-light">Siguenos</p>
-
-    </div>
-
-    <!--Barra de navegacion-->
-    <div id="cont" class="container-fluid color primary bannerHeigth">
-        <div class="row">
-            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"><img src="../img/let.PNG" width="120px" height="120px" class="rounded float-left" alt="...">
-            </div>
-
-            <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9" style="display: flex; justify-content: flex-start; align-items: center" height="120px">
-                <nav class="primary navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand text-light" href="#">Barra Navegacion</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-item nav-link active text-light" href="../pages/inicio.jsp">Inicio <span
-                                    class="sr-only">(current)</span></a>
-
-                            <!--B1-->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Quienes somos</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="../pages/nosotros.jsp">Nuestro Equipo</a>
-                                    <a class="dropdown-item" href="../pages/oficinas.jsp">Oficinas</a>
-                                </div>
-                            </li>
-                            <!--B2-->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inmuebles</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="apartamentos.jsp">Apartamentos</a>
-                                    <a class="dropdown-item" href="bodegas.jsp">Bodegas</a>
-                                    <a class="dropdown-item" href="casas.jsp">Casas</a>
-                                    <a class="dropdown-item" href="inmuebles.jsp">Edificios</a>
-                                    <a class="dropdown-item" href="inmuebles.jsp">Fincas</a>
-                                    <a class="dropdown-item" href="inmuebles.jsp">Locales</a>
-                                    <a class="dropdown-item" href="inmuebles.jsp">Oficinas</a>
-                                    <a class="dropdown-item" href="inmuebles.jsp">Proyectos</a>
-                                    <a class="dropdown-item" href="inmuebles.jsp">Terrenos</a>
-                                </div>
-                            </li>
-
-                            <a class="nav-item nav-link text-light" href="#">Contactenos</a>
-                            <a class="nav-item nav-link text-light" href="../index.html">Iniciar Sesion/Registrarse</a>
-                        </div>
-                    </div>
-                </nav>
+    <div class="container-fluid">
+        <div class="row primary">
+            <div class="col-sm-3 col-md-1"><img src="../img/let.PNG" width="120px">
 
             </div>
+            <nav class="navbar navbar-expand-md primary navbar-dark col-sm-9 col-md-11">
+                <!--Empieza barra de navegacion-->
+                <a class="navbar-brand" href="#">Navbar Principal</a>
+
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/index.jsp">Inicio</a>
+                        </li>
+
+                        <!--B1-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">Quienes somos</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../pages/nosotros.jsp">Nuestro Equipo</a>
+                                <a class="dropdown-item" href="../pages/oficinas.jsp">Oficinas</a>
+                            </div>
+                        </li>
+                        <!--B2-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">Inmuebles</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Apartamentos</a>
+                                <a class="dropdown-item" href="#">Bodegas</a>
+                                <a class="dropdown-item" href="#">Casas</a>
+                                <a class="dropdown-item" href="#">Edificios</a>
+                                <a class="dropdown-item" href="#">Fincas</a>
+                                <a class="dropdown-item" href="#">Locales</a>
+                                <a class="dropdown-item" href="#">Oficinas</a>
+                                <a class="dropdown-item" href="#">Proyectos</a>
+                                <a class="dropdown-item" href="#">Terrenos</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Contáctenos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Iniciar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--Fin de la barra de navegacion-->
         </div>
-    </div>
 
     <!-- Informacion de contacto -->
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center style=width:200px;">
         <!-- Imagen e informacion de contacto -->
-        <div class="col-6 mt-5">
+        <div class="col-12 mt-9">
             <div class="card mb-3">
                 <div class="row p-3">
                     <div class="col-md-3 d-flex justify-content-center p-2">
-                        <img src="../img/persona.png" class="rounded-circle img-fluid" alt="...">
+                        <img src="../img/p1.jpg" class="img-fluid" alt="...">
                     </div>
                     <div class="col-md-9">
                         <div class="card-body">
