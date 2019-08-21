@@ -199,4 +199,9 @@ public class DAOPersonas implements interfaces.InterfacePersona {
         return list;//Retorna los registros agregados al ArrayList
     }
 
+    @Override
+    public int validar(Personas persona) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

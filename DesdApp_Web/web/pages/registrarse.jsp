@@ -12,6 +12,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=\, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -34,41 +35,34 @@ and open the template in the editor.
             <div id="div-login" class="col-6 p-5">
                 <h2>Registrarme</h2>
 
+                 <% String alert = (String) request.getParameter("error");
+                %>
+                
                 <form action="${pageContext.request.contextPath}/Controlador" method="post" class="needs-validation mt-5" novalidate>
                     <div class="form-row">
-                      <div class="col-md-4 mb-3">
-                        <label for="id">ID Persona</label>
-                        <input type="number" class="form-control" name="txtidPer" id="id" placeholder="ID Persona" required>
-                        <div class="invalid-tooltip">
-                          Please provide a valid state.
-                        </div>
-                      </div>
-                      <div class="col-md-8 mb-3">
-                        <label for="usserName">Username</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                          </div>
-                            <input type="text" class="form-control" name="txtUsser" id="usserName" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-                          <div class="invalid-tooltip">
-                            Please choose a unique and valid username.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-6 mb-3">
                         <label for="nombre" >Nombre</label>
                         <input type="text" class="form-control" name="txtNombre" id="nombre" placeholder="First name" value="Mark" required>
                         <div class="valid-tooltip">
                           Looks good!
                         </div>
                       </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-6 mb-3">
                         <label for="apellido">Apellido</label>
                         <input type="text" class="form-control" name="txtApellido" id="apellido" placeholder="Last name" value="Otto" required>
                         <div class="valid-tooltip">
                           Looks good!
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-md-8 mb-3">
+                        <label for="usserName">Correo</label>
+                        <div class="input-group">
+                         <input type="text" class="form-control" name="txtUsser" id="usserName" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+                          <div class="invalid-tooltip">
+                            Please choose a unique and valid username.
+                          </div>
                         </div>
                       </div>
                       <div class="col-md-4 mb-3">
@@ -79,30 +73,7 @@ and open the template in the editor.
                         </div>
                       </div>
                     </div>
-                    <div class="form-row">
-                      <div class="col-md-6 mb-3">
-                        <label for="direccion">Dirección</label>
-                        <input type="text" class="form-control" name="txtDireccion" id="direccion" placeholder="City" required>
-                        <div class="invalid-tooltip">
-                          Please provide a valid city.
-                        </div>
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="document">No. documento</label>
-                        <input type="number" class="form-control" name="txtDocument" id="document" placeholder="Document" required>
-                        <div class="invalid-tooltip">
-                          Please provide a valid state.
-                        </div>
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="nit">nit</label>
-                        <input type="number" class="form-control" name="txtNit" id="nit" placeholder="nit" required>
-                        <div class="invalid-tooltip">
-                          Please provide a valid zip.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-row">
+                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="fechaNac">Fecha Nacimiento</label>
                             <input type="date" class="form-control" name="txtFechaNac" id="fechaNac" placeholder="8/17/2002" required>
@@ -127,9 +98,47 @@ and open the template in the editor.
 
                     </div>
                     
+                    <div class="form-row">
+                      <div class="col-md-6 mb-3">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" class="form-control" name="txtDireccion" id="direccion" placeholder="City" required>
+                        <div class="invalid-tooltip">
+                          Please provide a valid city.
+                        </div>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="document">No. documento</label>
+                        <input type="number" class="form-control" name="txtDocument" id="document" placeholder="Document" required>
+                        <div class="invalid-tooltip">
+                          Please provide a valid state.
+                        </div>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="nit">nit</label>
+                        <input type="number" class="form-control" name="txtNit" id="nit" placeholder="nit" required>
+                        <div class="invalid-tooltip">
+                          Please provide a valid zip.
+                        </div>
+                      </div>
+                    </div>
+                   
                     <input class="btn mt-3 btn-primary" name="accion" value="Registrarme" type="submit" >
                   </form>
+                   <div class="mt-4" style="height:80px">
+                <%
+                   if (alert != null) {
 
+                %>
+                
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong> Todas las casillas deben estar llenas.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <% }%>
+            </div>
                
 
                   

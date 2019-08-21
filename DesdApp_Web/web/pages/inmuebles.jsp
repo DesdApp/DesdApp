@@ -80,7 +80,7 @@
     <div class="row d-flex justify-content-center mx-auto">
 
         <!-- Breadcrumb -->
-        <div class="col-md-12 col-sm-12">
+        <div class="col-offset-4 col-md-3 col-sm-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg">
                     <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>

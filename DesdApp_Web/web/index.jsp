@@ -61,6 +61,7 @@
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Inmuebles</a>
                         <div class="dropdown-menu transparente">
+                            <a class="dropdown-item" href="Inmueble?accion=bien">Apartamentos</a>
                             <a class="dropdown-item" href="Controlador?accion=apartos">Apartamentos</a>
                             <a class="dropdown-item" href="Controlador?accion=bodegas">Bodegas</a>
                             <a class="dropdown-item" href="Controlador?accion=casas">Casas</a>
