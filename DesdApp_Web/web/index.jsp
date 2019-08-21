@@ -61,15 +61,15 @@
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Inmuebles</a>
                         <div class="dropdown-menu transparente">
-                            <a class="dropdown-item" href="">Apartamentos</a>
-                            <a class="dropdown-item" href="#">Bodegas</a>
-                            <a class="dropdown-item" href="#">Casas</a>
-                            <a class="dropdown-item" href="#">Edificios</a>
-                            <a class="dropdown-item" href="#">Fincas</a>
-                            <a class="dropdown-item" href="#">Locales</a>
-                            <a class="dropdown-item" href="#">Oficinas</a>
-                            <a class="dropdown-item" href="#">Proyectos</a>
-                            <a class="dropdown-item" href="#">Terrenos</a>
+                            <a class="dropdown-item" href="Controlador?accion=apartos">Apartamentos</a>
+                            <a class="dropdown-item" href="Controlador?accion=bodegas">Bodegas</a>
+                            <a class="dropdown-item" href="Controlador?accion=casas">Casas</a>
+                            <a class="dropdown-item" href="Controlador?accion=edificios">Edificios</a>
+                            <a class="dropdown-item" href="Controlador?accion=fincas">Fincas</a>
+                            <a class="dropdown-item" href="Controlador?accion=locales">Locales</a>
+                            <a class="dropdown-item" href="Controlador?accion=ofisinas">Oficinas</a>
+                            <a class="dropdown-item" href="Controlador?accion=proyectos">Proyectos</a>
+                            <a class="dropdown-item" href="Controlador?accion=terreno">Terrenos</a>
                         </div>
                     </li>
 

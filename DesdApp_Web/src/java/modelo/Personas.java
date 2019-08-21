@@ -36,6 +36,12 @@ public class Personas {
     public Personas() {
     }
 
+    @Override
+    public String toString() {
+        return "Personas{" + "personaId=" + personaId + ", nombre=" + nombre + ", apellido=" + apellido + ", tipoDocumentoId=" + tipoDocumentoId + ", noDocumento=" + noDocumento + ", nit=" + nit + ", direccion=" + direccion + ", celular=" + celular + ", telefono=" + telefono + ", correo=" + correo + ", fechaNacimiento=" + fechaNacimiento + '}';
+    }
+    
+
     //<editor-fold defaultstate="collapsed" desc="Metodos set y get">
     public int getPersonaId() {
         return personaId;

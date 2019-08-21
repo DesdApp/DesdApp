@@ -1,10 +1,12 @@
         
 package controlador;
 
+import com.sun.java.swing.plaf.windows.resources.windows;
 import dao.DAOClientes;
 import dao.DAOPersonas;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.sql.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -64,8 +66,8 @@ public class Controlador extends HttpServlet {
          }else if(action.equalsIgnoreCase("index")){
             acceso=index;
          }
-         else if (action.equalsIgnoreCase("Agregar")) {
-             int id = Integer.parseInt(request.getParameter("txtidPer"));
+         else if (action.equalsIgnoreCase("Registrarme")) {
+             //int id = Integer.parseInt(request.getParameter("txtidPer"));
              String nombre = request.getParameter("txtNombre");
              String apellido = request.getParameter("txtApellido");
              byte TpDocument = Byte.parseByte(request.getParameter("txtTpDocument"));
@@ -75,8 +77,11 @@ public class Controlador extends HttpServlet {
              int cel = Integer.parseInt(request.getParameter("txtCel"));
              int tel = Integer.parseInt(request.getParameter("txtTel"));
              String correo = request.getParameter("txtUsser");
-             Date fechaNac = Date.valueOf("txtFechaNac");
-             p.setPersonaId(id);
+             //Date fechaNac = Date.valueOf("txtFechaNac");
+            // p.setPersonaId(id);
+            Date fechaNac = Date.valueOf(request.getParameter("txtFechaNac"));
+            
+            // p.setPersonaId(id);
              p.setNombre(nombre);
              p.setApellido(apellido);
              p.setTipoDocumentoId(TpDocument);
@@ -87,9 +92,20 @@ public class Controlador extends HttpServlet {
              p.setTelefono(tel);
              p.setCorreo(correo);
              p.setFechaNacimiento(fechaNac);
+             System.out.println(p.toString());
              daoP.insert(p);
-             acceso = registrado;
+             
+             if (p == null) {
+             out.println("<script type=\"text/javascript\">");
+             out.println("alert('Los campos no pueden estar vacios');");
+             acceso = registrase;
+          }else{
+             acceso = index;
+         }
         }
+         
+         
+        
         RequestDispatcher pages = request.getRequestDispatcher(acceso);
         pages.forward(request, response);
     }
