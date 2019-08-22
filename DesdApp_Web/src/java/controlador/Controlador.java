@@ -30,6 +30,7 @@ public class Controlador extends HttpServlet {
     String index = "index.jsp";
     String mg = "";
     Personas p = new Personas();
+    Clientes c = new Clientes();
     DAOPersonas daoP = new DAOPersonas();
     DAOClientes daoC = new DAOClientes();
     String cont = null;
@@ -81,7 +82,7 @@ public class Controlador extends HttpServlet {
              String direccion = request.getParameter("txtDireccion");
              int cel = Integer.parseInt(request.getParameter("txtCel"));
              int tel = Integer.parseInt(request.getParameter("txtTel"));
-             String correo = request.getParameter("txtUsser");
+             String correo = request.getParameter("emailAddress");
              //Date fechaNac = Date.valueOf("txtFechaNac");
             // p.setPersonaId(id);
             Date fechaNac = Date.valueOf(request.getParameter("txtFechaNac"));
@@ -98,11 +99,23 @@ public class Controlador extends HttpServlet {
              p.setCorreo(correo);
              p.setFechaNacimiento(fechaNac);
              System.out.println(p.toString());
-             mg = daoP.insert(p);
+             int personaIdValor = daoP.insert(p);
+             System.out.println("Ultimo Ingresado" + personaIdValor);
              
-             if (mg.equals(null)){
+             c.setPersonaId(personaIdValor);
+             c.setNombreTitular(nombre);
+             c.setUser(request.getParameter("usser"));
+             c.setPassword(request.getParameter("txtContra"));
+             System.out.println(c.toString());
+             daoC.insertCliente(c);
+             
+             String pass = request.getParameter("");
+             c.setUser(user);
+             c.setPassword(pass);
+             if (personaIdValor==0){
               response.sendRedirect("pages/registrase.jsp?m=1");
               acceso = "pages/registrase.jsp?m=1";
+              
              }else{
               acceso = index;
              }

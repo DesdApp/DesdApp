@@ -19,6 +19,13 @@ public class Clientes {
 
     }
 
+    @Override
+    public String toString() {
+        return "Clientes{" + "clienteId=" + clienteId + ", personaId=" + personaId + ", nombreTitular=" + nombreTitular + ", user=" + user + ", password=" + password + '}';
+    }
+    
+    
+
     public Clientes() {
     }
 

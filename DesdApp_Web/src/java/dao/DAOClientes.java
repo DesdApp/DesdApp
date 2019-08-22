@@ -187,6 +187,11 @@ public class DAOClientes implements interfaces.InterfaceClientes {
         }
         return 0;
         }
+
+    @Override
+    public String insertpassword(Clientes cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 
 }

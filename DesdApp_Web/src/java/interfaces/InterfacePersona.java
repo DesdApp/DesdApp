@@ -8,7 +8,7 @@ import modelo.Personas;
 public interface InterfacePersona {
     //Metodos abstractos Para Personas
     public Personas select(int id);
-    public String insert(Personas per);
+    public int insert(Personas per);
     public String update(Personas per);
     public String delete(int id);
     public int validar(Personas persona);
