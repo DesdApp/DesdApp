@@ -160,7 +160,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             bien.setClienteId(rs.getInt("cliente_id"));
             bien.setDireccion(rs.getString("direccion"));
             bien.setZonaId(rs.getByte("zona_id"));
-            bien.setMetrosCuadrados(rs.getString("metros_cuadrados"));
+            bien.setMetrosCuadrados(rs.getString("metro_cuadrados"));
             bien.setDescripcionMetros(rs.getString("descripcion_metros"));
             bien.setCantCuartos(rs.getByte("cant_cuartos"));
             bien.setCantNiveles(rs.getByte("cant_niveles"));
@@ -200,7 +200,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
                 bien.setClienteId(rs.getInt("cliente_id"));
                 bien.setDireccion(rs.getString("direccion"));
                 bien.setZonaId(rs.getByte("zona_id"));
-                bien.setMetrosCuadrados(rs.getString("metros_cuadrados"));
+                bien.setMetrosCuadrados(rs.getString("metro_cuadrados"));
                 bien.setDescripcionMetros(rs.getString("descripcion_metros"));
                 bien.setCantCuartos(rs.getByte("cant_cuartos"));
                 bien.setCantNiveles(rs.getByte("cant_niveles"));

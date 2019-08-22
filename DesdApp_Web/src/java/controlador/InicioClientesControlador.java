@@ -5,19 +5,25 @@
  */
 package controlador;
 
+import dao.DAOBienesInmuebles;
+import dao.DAOVentaRenta;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.BienesInmuebles;
+import modelo.VentaRenta;
 
 /**
  *
  * @author javam2019
  */
-public class Controlador2 extends HttpServlet {
+public class InicioClientesControlador extends HttpServlet {
 
+    String listar = "pages/inicioClientes.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,15 +38,7 @@ public class Controlador2 extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Controlador2</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Controlador2 at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
         }
     }
 
@@ -57,6 +55,25 @@ public class Controlador2 extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+        
+        
+        DAOVentaRenta dao = new DAOVentaRenta();
+        ArrayList<VentaRenta> listaVentaRenta = new ArrayList<>();
+        listaVentaRenta = dao.ListEstados();
+        request.setAttribute("listaVentaRenta", listaVentaRenta);
+        
+        DAOBienesInmuebles daoBienesInmuebles = new DAOBienesInmuebles();
+        
+        ArrayList<BienesInmuebles> listaBienesInmuebles = new ArrayList<>();
+        listaBienesInmuebles = daoBienesInmuebles.listBienes();
+       
+       
+        request.setAttribute("listaBienesInmuebles", listaBienesInmuebles);
+        
+        request.getRequestDispatcher(listar).forward(request, response);
+        
+        
+        
         
     }
 

@@ -12,6 +12,14 @@
         <servlet-name>Inmueble</servlet-name>
         <servlet-class>controlador.Inmueble</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InicioClientesControlador</servlet-name>
+        <servlet-class>controlador.InicioClientesControlador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorLogin</servlet-name>
+        <servlet-class>controlador.ControladorLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Controlador</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>Inmueble</servlet-name>
         <url-pattern>/Inmueble</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InicioClientesControlador</servlet-name>
+        <url-pattern>/InicioClientesControlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorLogin</servlet-name>
+        <url-pattern>/ControladorLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
