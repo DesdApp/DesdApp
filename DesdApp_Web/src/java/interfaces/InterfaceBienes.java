@@ -15,4 +15,6 @@ public interface InterfaceBienes {
     public BienesInmuebles selectBien(int codigo);
     
     public ArrayList<BienesInmuebles> listBienes();
+    
+   
 }

@@ -79,13 +79,13 @@ public class DAOPersonas implements interfaces.InterfacePersona {
             cont = exe.executeUpdate();
 
             if (cont == 0) {
-                msg = "No Se a podido agregar el registro";
+                msg = null;
             } else {
                 msg = "Registro agregado con éxito";
             }
 
         } catch (SQLException e) {
-            msg = "Error al ingresar registro";
+            msg = null;
             System.out.println("Error en DAOPersona INSERT: " + e.getMessage());
         } finally {
             cn.desconectar(); //Desconecta la base de datos
