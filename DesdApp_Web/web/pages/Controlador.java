@@ -28,6 +28,7 @@ public class Controlador extends HttpServlet {
     String equipo = "pages/nosotros.jsp";
     String oficina = "pages/oficinas.jsp";
     String index = "index.jsp";
+    String mg = "";
     Personas p = new Personas();
     DAOPersonas daoP = new DAOPersonas();
     DAOClientes daoC = new DAOClientes();
@@ -97,10 +98,11 @@ public class Controlador extends HttpServlet {
              p.setCorreo(correo);
              p.setFechaNacimiento(fechaNac);
              System.out.println(p.toString());
-             daoP.insert(p);
+             mg = daoP.insert(p);
              
-             if (nombre.equals("")||apellido.equals("")||TpDocument == 0 ||noDocument.equals("") ||nit.equals("")||direccion.equals("")||cel == 0 ||tel == 0 ||correo.equals("")||fechaNac.equals("")) {
-              response.sendRedirect("pages/registrase.jsp?alert=1");
+             if (mg.equals(null)){
+              response.sendRedirect("pages/registrase.jsp?m=1");
+              acceso = "pages/registrase.jsp?m=1";
              }else{
               acceso = index;
              }
