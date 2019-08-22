@@ -23,10 +23,11 @@ import modelo.Personas;
 public class Controlador extends HttpServlet {
 
     String registrado = "pages/registroexito.jsp";
-    String add = "pages/login.jsp";
+    String ingresar = "pages/login.jsp";
     String registrase = "pages/registrarse.jsp";
     String equipo = "pages/nosotros.jsp";
     String oficina = "pages/oficinas.jsp";
+    String inicioC = "pages/inicioClientes.jsp";
     String index = "index.jsp";
     Personas p = new Personas();
     DAOPersonas daoP = new DAOPersonas();
@@ -59,9 +60,7 @@ public class Controlador extends HttpServlet {
         String acceso="";
          String action = request.getParameter("accion");
          System.out.println("Accion:" + action);
-         if (action.equalsIgnoreCase("registrar")) {
-            acceso=add;
-         }else if(action.equalsIgnoreCase("add")){
+          if(action.equalsIgnoreCase("add")){
              acceso = registrase;
          }else if(action.equalsIgnoreCase("equipo")){
             acceso=equipo; 
@@ -69,7 +68,11 @@ public class Controlador extends HttpServlet {
             acceso=oficina;
          }else if(action.equalsIgnoreCase("index")){
             acceso=index;
-         }
+         }else if(action.equalsIgnoreCase("login1")) {
+            acceso=ingresar;
+         }else if(action.equalsIgnoreCase("login")){
+                 acceso = inicioC;
+                 }
          else if (action.equalsIgnoreCase("Registrarme")) {
              //int id = Integer.parseInt(request.getParameter("txtidPer"));
              String nombre = request.getParameter("txtNombre");
@@ -116,8 +119,14 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        System.out.println("CONTROLADOR");
+        
+         String acceso="";
+         String action = request.getParameter("accion");
+        
+         System.out.println("Accion:" + action);
+          if(action.equalsIgnoreCase("inicioC")){
+             acceso = inicioC;
+          }
         user = request.getParameter("txtUser");
         pass = request.getParameter("txtPass");
 
@@ -133,7 +142,7 @@ public class Controlador extends HttpServlet {
 
         if (resultado == 1) {
             System.out.println("Llegue al 1");
-            response.sendRedirect("pages/ejemploInicio.jsp");
+            response.sendRedirect("pages/inicioClientes.jsp");
         } else {
             response.sendRedirect("pages/login.jsp?error=1");
 
