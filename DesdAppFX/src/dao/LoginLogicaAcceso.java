@@ -31,8 +31,8 @@ public class LoginLogicaAcceso {
             
             if(rs.next()){
                 result = 1;
-                System.out.println("consutal realizada con exito");
-            }
+                System.out.println("consulta realizada con exito, se inicio sesion");
+            }else{System.out.println("No se inicio sesion");}
         } catch (SQLException e) {
             System.out.println("Error de validadion de usuario: " + e.getMessage());
         } finally {
@@ -51,10 +51,9 @@ public class LoginLogicaAcceso {
             rs = execute.executeQuery();
             if(rs.next()){
                 privilegios = 1;
-                System.out.println("Admin");
+                System.out.println("Tiene privilegios");
             }else{
-                //lblErrorSesion.setText("NO tiene privilegios");
-                System.out.println("no tiene privilegios de administrador");
+                System.out.println("NO tiene privilegios");
         }
         } catch (SQLException e) {
             System.out.println("Error en Validacion de privilegios: " + e.getMessage());

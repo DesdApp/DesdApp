@@ -29,34 +29,56 @@ public class ContorladorLogin implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String[] textos = {"Uno", "Dos", "Tres"};
+        String[] textos = {"Administrador", "Secretaria", "Corredor", "Reportes"};
         ObservableList<String> lista = FXCollections.observableArrayList(textos);
         listaP.setItems(lista);
-
     }
 
     @FXML
     void iniciarSesion(ActionEvent evt) {
         LoginLogicaAcceso login = new LoginLogicaAcceso();
 
-        String user = txtUser.getText().trim();
-        String contra = txtPassword.getText().trim();
-        int permisos = 1;
-        int sesion = login.validarUsario(user, contra);
-        int privi = login.privilegios(user, permisos);
+        String user = txtUser.getText().trim();//asignar valores
+        String contra = txtPassword.getText().trim();//asignar valores
 
-        if (sesion == 1) {
-            System.out.println("Se inicio sesion*-*-");
+        int pValor = listaP.getSelectionModel().getSelectedIndex();//Se obtiene el valor del index del combobox 
+        int permisos; //se inicia permisos con valor 0
 
-        } else {
-            lblErrorSesion.setText("Datos invalidos");
-            System.out.println("datos invalidos");
-        }
-        if (privi == 1) {
-
-        } else {
+        //Se comprueba el valor obtenido de combobox y se asigna el valor conrespodiente a permisos
+        if (pValor == 0) {//comprueba si tiene privilegios de administrador
+            System.out.println("Tiene privilegios de administrador");
+            permisos = 1;
+        } else if (pValor == 1) {//comprueba si tiene privilegios de Secretaria
+            System.out.println("Tiene privilegios de Secretaria");
+            permisos = 2;
+        } else if (pValor == 2) {//comprueba si tiene privilegios de Corredor
+            System.out.println("Tiene privilegios de Corredor");
+            permisos = 3;
+        } else if (pValor == 3) {//comprueba si tiene privilegios de Reportes
+            System.out.println("Tiene privilegios de Reportes");
+            permisos = 4;
+        } else {//De lo contrario asigna el valor cero a los permisos
+            permisos = 0;
+        } 
+        
+        System.out.println(listaP.getSelectionModel().getSelectedIndex());
+        
+        if(permisos ==0) {//Al no tener ninguno de los privilegios nuestra en pantalla que no existen privilegios
             lblErrorSesion.setText("NO tiene privilegios");
             System.out.println("No tiene permisos");
+        }
+        
+        int sesionP = login.privilegios(user, permisos);//Se ejecuta la funcion con los valores asigandos
+        int sesion = login.validarUsario(user, contra);//ejecutar comprobacion
+        
+        //Se validad y de ser erronea la comprobacion se muestra en pantalla
+        if (sesion == 1 && sesionP ==1) {
+            System.out.println("Se inicio sesion*-*-");
+            lblErrorSesion.setText("");
+            login.validarUsario(user, contra);
+        } else {
+            lblErrorSesion.setText("Datos invalidos");
+            System.out.println("datos invalidos, no se inicio sesion");
         }
 
     }

@@ -135,7 +135,7 @@ public class Controlador extends HttpServlet {
 
         if (resultado == 1) {
             System.out.println("Llegue al 1");
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("pages/ejemploInicio.jsp");
         } else {
             response.sendRedirect("pages/login.jsp?error=1");
 
