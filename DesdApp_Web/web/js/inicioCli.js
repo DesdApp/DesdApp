@@ -2,3 +2,5 @@
 $(document).ready(function () {
     $('.mdb-select').materialSelect();
 });
+
+$('#myModal').modal(options);

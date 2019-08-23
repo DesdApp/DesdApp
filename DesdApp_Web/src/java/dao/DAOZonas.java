@@ -24,10 +24,10 @@ public class DAOZonas implements interfaces.InterfaceZonas {
             cx.conectar();
             sql = "SELECT * FROM zonas WHERE zona_id = ?";
             execute = cx.getconexionDB().prepareStatement(sql);
-            execute.setByte(1, zonaId);
+            execute.setInt(1, zonaId);
             rs = execute.executeQuery();
             rs.next();
-            zona.setZonaId(rs.getByte("zona_id"));
+            zona.setZonaId(rs.getInt("zona_id"));
             zona.setNombre(rs.getString("nombre"));
             zona.setMuniId(rs.getInt("muni_id"));
             rs.close();
@@ -50,7 +50,7 @@ public class DAOZonas implements interfaces.InterfaceZonas {
             rs = execute.executeQuery();
             while (rs.next()) {
                 zonas = new Zonas();
-                zonas.setZonaId(rs.getByte("zona_id"));
+                zonas.setZonaId(rs.getInt("zona_id"));
                 zonas.setNombre(rs.getString("nombre"));
                 zonas.setMuniId(rs.getInt("muni_id"));
                 list.add(zonas);

@@ -29,10 +29,11 @@ public class ControladorLogin extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     DAOClientes daoC = new DAOClientes();
-     String inicioC = "pages/inicioClientes.jsp";
-     String user = null;
+    DAOClientes daoC = new DAOClientes();
+    String inicioC = "pages/inicioClientes_2.jsp";
+    String user = null;
     String pass = null;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -41,7 +42,7 @@ public class ControladorLogin extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorLogin</title>");            
+            out.println("<title>Servlet ControladorLogin</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ControladorLogin at " + request.getContextPath() + "</h1>");
@@ -78,13 +79,14 @@ public class ControladorLogin extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         
-         String acceso="";
-         String action = request.getParameter("accion");
-        
-         System.out.println("Accion:" + action);
-          if(action.equalsIgnoreCase("inicioC")){
-             acceso = inicioC;
-          }
+
+        String acceso = "";
+        String action = request.getParameter("accion");
+
+        System.out.println("Accion:" + action);
+        if (action.equalsIgnoreCase("inicioC")) {
+            acceso = inicioC;
+        }
         user = request.getParameter("txtUser");
         pass = request.getParameter("txtPass");
 
@@ -105,7 +107,7 @@ public class ControladorLogin extends HttpServlet {
             } catch (Exception e) {
                 System.out.println("Error aqui: " + e);
             }
-            
+
             //response.sendRedirect("pages/inicioClientes.jsp");
         } else {
             response.sendRedirect("pages/login.jsp?error=1");

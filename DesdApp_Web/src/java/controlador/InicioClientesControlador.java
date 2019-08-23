@@ -5,8 +5,11 @@
  */
 package controlador;
 
-import dao.DAOBienesInmuebles;
+import dao.DAODepartamentos;
+import dao.DAOMunicipios;
+import dao.DAOTiposPropiedades;
 import dao.DAOVentaRenta;
+import dao.DAOZonas;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,8 +17,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.BienesInmuebles;
+import modelo.Departamentos;
+import modelo.Municipios;
+import modelo.TiposPropiedades;
 import modelo.VentaRenta;
+import modelo.Zonas;
 
 /**
  *
@@ -23,7 +29,8 @@ import modelo.VentaRenta;
  */
 public class InicioClientesControlador extends HttpServlet {
 
-    String listar = "pages/inicioClientes.jsp";
+    String listar = "pages/inicioClientes_2.jsp";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -38,7 +45,7 @@ public class InicioClientesControlador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
         }
     }
 
@@ -55,26 +62,34 @@ public class InicioClientesControlador extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
-        
+
         DAOVentaRenta dao = new DAOVentaRenta();
         ArrayList<VentaRenta> listaVentaRenta = new ArrayList<>();
         listaVentaRenta = dao.ListEstados();
         request.setAttribute("listaVentaRenta", listaVentaRenta);
+
+        DAOTiposPropiedades daoTipoProp = new DAOTiposPropiedades();
+        ArrayList<TiposPropiedades> listaTipoPropi = new ArrayList<>();
+        listaTipoPropi = daoTipoProp.listTipos();
+        request.setAttribute("listaTiposPropiedades", listaTipoPropi);
         
-        DAOBienesInmuebles daoBienesInmuebles = new DAOBienesInmuebles();
+        DAODepartamentos daoDep= new DAODepartamentos();
+        ArrayList<Departamentos>listaDep=new ArrayList();
+        listaDep=daoDep.list();
+        request.setAttribute("listarDepartamentos", listaDep);
         
-        ArrayList<BienesInmuebles> listaBienesInmuebles = new ArrayList<>();
-        listaBienesInmuebles = daoBienesInmuebles.listBienes();
-       
-       
-        request.setAttribute("listaBienesInmuebles", listaBienesInmuebles);
+        DAOMunicipios daoMun= new DAOMunicipios();
+        ArrayList<Municipios>listaMun=new ArrayList();
+        listaMun=daoMun.list();
+        request.setAttribute("listarMunicipios", listaMun);
         
+        DAOZonas daoZona= new DAOZonas();
+        ArrayList<Zonas>listaZonas=new ArrayList();
+        listaZonas=daoZona.listZonas();
+        request.setAttribute("listarZonas", listaZonas);
+                
         request.getRequestDispatcher(listar).forward(request, response);
-        
-        
-        
-        
+
     }
 
     /**
