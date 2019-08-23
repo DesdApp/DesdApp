@@ -5,7 +5,10 @@
  */
 package dao;
 
-import modelo.Clientes;
+import java.util.ArrayList;
+import modelo.Corredores;
+
+
 
 /**
  *
@@ -14,9 +17,18 @@ import modelo.Clientes;
 public class PruebaInicio {
 
     public static void main(String[] args) {
-        DAOClientes clin = new DAOClientes();
-        Clientes cl = new Clientes(0, 0, "Estela", "estel23", "estel23");
+        ArrayList<Corredores> listar = new ArrayList<>();
+        Corredores c = new Corredores();
+        DAOCorredores dao = new DAOCorredores();
+        listar = dao.lista(2);
+        for (Corredores corredores : listar) {
+            System.out.println(corredores.toString());
+        }
         
-        System.out.println(clin.validar(cl));
+        
+//        DAOClientes clin = new DAOClientes();
+//        Clientes cl = new Clientes(0, 0, "Estela", "estel23", "estel23");
+//        
+//        System.out.println(clin.validar(cl));
     }
 }
