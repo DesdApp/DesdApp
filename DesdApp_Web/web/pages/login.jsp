@@ -53,11 +53,10 @@ and open the template in the editor.
                     </div>
 
 
+                    
                     <input class="btn primary btn-lg btn-block text-light" type="submit" name="accion"
                            value="Ingresar">
-                    <hr>
-                    <button type="submit" name="accionGoogle" value="Iniciar" class="btn red btn-lg btn-block text-light">G+
-                        Iniciar sesión con Google</button>
+                    
 
                 </form>
 
@@ -77,14 +76,14 @@ and open the template in the editor.
                 
                 <% }%>
             </div>
-                -->
+               
                 <!-- Final de formulario de inicio -->
             </div>
         </div>
 
         <div class="row d-flex justify-content-center">
             <h5>¿No tienes una cuenta?
-                <a href="../Controlador?accion=add">Registrarme</a>
+                <a href="Controlador?accion=add">Registrarme</a>
             </h5>
         </div>
 

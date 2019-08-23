@@ -77,10 +77,8 @@
 
     </div>
 
-    <div class="row d-flex justify-content-center mx-auto">
-
-        <!-- Breadcrumb -->
-        <div class="col-md-12 col-sm-12">
+     <!-- Breadcrumb -->
+        <div class="row col-offset-4 col-md-6 col-sm-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg">
                     <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
@@ -88,19 +86,22 @@
                 </ol>
             </nav>
         </div>
+     
+    <div class="row justify-content-center mx-auto">
+
 
         <!-- Inmuebles -->
-        <div class="col-md-4 mr-1">
-            <div class="row d-flex justify-content-between">
+        <div class="col-md-11 mr-4">
+            <div>
 
                 <!--Card1-->
-                <div class="col-offset-4 col-md-3 float-left">
+                <div class="col-3 col-md-3 float-left">
                     <div class="cd card mt-3" style="width: 18rem;">
                         <img src="../img/c1.jpg" width="100%" height="220" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-medium">Casa Venta</h5>
-                            <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
-                            <a href="inmueble.jsp" class="btn primary text-light ">Detalles</a>
+                            <h5 class="card-title text-medium" name="txttitulo">Casa Venta</h5>
+                            <p class="card-text text-muted text-small" name="txtDirec">KM.13 RUTA AL SALVADOR</p>
+                            <a class="btn primary text-light" href="ControladorInmueble?accion=see">Detalles</a>
                         </div>
                         <div class="card" style="width: 18rem;">
                             <div class="card-header text-small">
@@ -109,92 +110,14 @@
                         </div>
                     </div>
                 </div>
-
-                <!--Card2-->
-                <div class="col-offset-4 col-md-3 float-left">
-                    <div class="cd card mt-3" style="width: 18rem;">
-                        <img src="../img/c2.jpg" width="100%" height="220" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-medium">Casa Venta</h5>
-                            <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
-                            <a href="#" class="btn primary text-light ">Detalles</a>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-header text-small">
-                                Lic. Angela Vega
-                            </div>
-                        </div>
-                    </div>
-                </div>
+     
             </div>
-
-            <div class="row d-flex justify-content-between">
-
-                <!--Card1-->
-                <div class="col-offset-4 float-left">
-                    <div class="cd card mt-3" style="width: 18rem;">
-                        <img src="../img/c1.jpg" width="100%" height="220" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-medium">Casa Venta</h5>
-                            <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
-                            <a href="#" class="btn primary text-light ">Detalles</a>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-header text-small">
-                                Lic. Angela Vega
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Card2-->
-                <div class="col-offset-4 float-left">
-                    <div class="cd card mt-3" style="width: 18rem;">
-                        <img src="../img/c2.jpg" width="100%" height="220" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-medium">Casa Venta</h5>
-                            <p class="card-text text-muted text-small">KM.13 RUTA AL SALVADOR</p>
-                            <a href="#" class="btn primary text-light ">Detalles</a>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-header text-small">
-                                Lic. Angela Vega
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Paginacion -->
-            <div class="col-12 d-flex justify-content-center my-5">
-
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-
-        <!-- Aside derecho -->
-        <div class="col-md-3 col-sm-12">
-            <aside>
+            <div>
+                <aside>
 
                 <!-- Filtros -->
-                <div class="row bg-white d-flex justify-content-between p-3 mb-5">
-                    <form class="col-md-12">
+                <div class="bg-white d-flex justify-content-between p-3 mb-5">
+                    <form class="col-md-4">
                         <h5>Filtros de busqueda</h5>
                         <div class="form-group row">
                             <input class="form-control" type="text" placeholder="Ingrese zona, sector, ciudad o cod. de inmueble">
@@ -273,7 +196,32 @@
                 </div>
 
             </aside>
+            </div>
+
+            <!-- Paginacion -->
+            <div class=" row col-md-12">
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+
+       
 
     </div>
 </body>

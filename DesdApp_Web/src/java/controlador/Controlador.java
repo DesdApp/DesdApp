@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
 import java.sql.Date;
+import javafx.scene.control.Alert;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,9 +28,13 @@ public class Controlador extends HttpServlet {
     String equipo = "pages/nosotros.jsp";
     String oficina = "pages/oficinas.jsp";
     String index = "index.jsp";
+    String mg = "";
     Personas p = new Personas();
+    Clientes c = new Clientes();
     DAOPersonas daoP = new DAOPersonas();
     DAOClientes daoC = new DAOClientes();
+    String cont = null;
+        
 
     String user = null;
     String pass = null;
@@ -44,6 +49,7 @@ public class Controlador extends HttpServlet {
          * @param request servlet request
          * @param response servlet response
          * @throws ServletException if a servlet-specific error occurs
+         * 
          * @throws IOException if an I/O error occurs
          */
         out.println("User: " + user + "pass" + pass);
@@ -77,7 +83,7 @@ public class Controlador extends HttpServlet {
              String direccion = request.getParameter("txtDireccion");
              int cel = Integer.parseInt(request.getParameter("txtCel"));
              int tel = Integer.parseInt(request.getParameter("txtTel"));
-             String correo = request.getParameter("txtUsser");
+             String correo = request.getParameter("emailAddress");
              //Date fechaNac = Date.valueOf("txtFechaNac");
             // p.setPersonaId(id);
             Date fechaNac = Date.valueOf(request.getParameter("txtFechaNac"));
@@ -94,17 +100,28 @@ public class Controlador extends HttpServlet {
              p.setCorreo(correo);
              p.setFechaNacimiento(fechaNac);
              System.out.println(p.toString());
-             daoP.insert(p);
+             int personaIdValor = daoP.insert(p);
+             System.out.println("Ultimo Ingresado" + personaIdValor);
              
-             if (p == null) {
-             out.println("<script type=\"text/javascript\">");
-             out.println("alert('Los campos no pueden estar vacios');");
-             acceso = registrase;
-          }else{
-             acceso = index;
-         }
-        }
-         
+             c.setPersonaId(personaIdValor);
+             c.setNombreTitular(nombre);
+             c.setUser(request.getParameter("usser"));
+             c.setPassword(request.getParameter("txtContra"));
+             System.out.println(c.toString());
+             daoC.insertCliente(c);
+             
+             String pass = request.getParameter("");
+             c.setUser(user);
+             c.setPassword(pass);
+             if (personaIdValor==0){
+              response.sendRedirect("pages/registrase.jsp?m=1");
+              acceso = "pages/registrase.jsp?m=1";
+              
+             }else{
+              acceso = index;
+             }
+            
+        } 
          
         
         RequestDispatcher pages = request.getRequestDispatcher(acceso);
@@ -132,7 +149,7 @@ public class Controlador extends HttpServlet {
 
         if (resultado == 1) {
             System.out.println("Llegue al 1");
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("pages/ejemploInicio.jsp");
         } else {
             response.sendRedirect("pages/login.jsp?error=1");
 
