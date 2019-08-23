@@ -9,8 +9,8 @@
         <servlet-class>controlador.Controlador2</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Inmueble</servlet-name>
-        <servlet-class>controlador.Inmueble</servlet-class>
+        <servlet-name>ControladorInmueble</servlet-name>
+        <servlet-class>controlador.ControladorInmueble</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Suscribirse</servlet-name>
@@ -29,8 +29,8 @@
         <url-pattern>/Controlador2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Inmueble</servlet-name>
-        <url-pattern>/Inmueble</url-pattern>
+        <servlet-name>ControladorInmueble</servlet-name>
+        <url-pattern>/ControladorInmueble</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Suscribirse</servlet-name>
