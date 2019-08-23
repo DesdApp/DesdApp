@@ -1,24 +1,20 @@
 
 package controlador;
 
-import dao.DAOBienesInmuebles;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.BienesInmuebles;
 
 /**
  *
  * @author User
  */
-public class Inmueble extends HttpServlet {
-    String inmueble = "pages/inmuebles.jsp";
-    DAOBienesInmuebles daobien = new DAOBienesInmuebles();
-    BienesInmuebles  bien = new BienesInmuebles();
+public class ControladorInmueble extends HttpServlet {
     
+    String detalle = "pages/detalleInmueble.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,7 +30,7 @@ public class Inmueble extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
+            
         }
     }
 
@@ -51,16 +47,24 @@ public class Inmueble extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-    String acceso="";
-    String action = request.getParameter(acceso);
-        if (action.equalsIgnoreCase("bien")) {
-         daobien.listBienes();
-         acceso = inmueble;
+        String acceso="";
+        String action = request.getParameter("accion");
+        System.out.println("Action:" + action);
+        if (action.equalsIgnoreCase("see")) {
+        acceso = detalle;
+            
         }
-    
+        
     }
 
-    
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
