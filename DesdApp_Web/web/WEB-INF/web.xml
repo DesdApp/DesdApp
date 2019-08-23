@@ -12,6 +12,14 @@
         <servlet-name>Inmueble</servlet-name>
         <servlet-class>controlador.Inmueble</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Suscribirse</servlet-name>
+        <servlet-class>controlador.Suscribirse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregarProp</servlet-name>
+        <servlet-class>controlador.agregarProp</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Controlador</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>Inmueble</servlet-name>
         <url-pattern>/Inmueble</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Suscribirse</servlet-name>
+        <url-pattern>/Suscribirse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarProp</servlet-name>
+        <url-pattern>/agregarProp</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
