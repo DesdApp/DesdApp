@@ -57,31 +57,37 @@ public class DAOPersonas implements interfaces.InterfacePersona {
 
     //insertar persona
     @Override
-    public String insert(Personas per) {
+    public int insert(Personas per) {
+        int personaIdValor = 0;
         try {
             cn.conectar();
             //Entro
-            sql = "INSERT INTO personas VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            sql = "INSERT INTO personas(nombre,apellido,tipo_documento_id,no_documento,nit,direccion,celular,telefono,correo,fecha_nacimiento) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             exe = cn.getconexionDB().prepareStatement(sql);
-            exe.setInt(1, per.getPersonaId());
-            exe.setString(2, per.getNombre());
-            exe.setString(3, per.getApellido());
-            exe.setByte(4, per.getTipoDocumentoId());
-            exe.setString(5, per.getNoDocumento());
-            exe.setString(6, per.getNit());
-            exe.setString(7, per.getDireccion());
-            exe.setInt(8, per.getCelular());
-            exe.setInt(9, per.getTelefono());
-            exe.setString(10, per.getCorreo());
-            exe.setDate(11, per.getFechaNacimiento());
+            //exe.setInt(1, per.getPersonaId());
+            exe.setString(1, per.getNombre());
+            exe.setString(2, per.getApellido());
+            exe.setByte(3, per.getTipoDocumentoId());
+            exe.setString(4, per.getNoDocumento());
+            exe.setString(5, per.getNit());
+            exe.setString(6, per.getDireccion());
+            exe.setInt(7, per.getCelular());
+            exe.setInt(8, per.getTelefono());
+            exe.setString(9, per.getCorreo());
+            exe.setDate(10, per.getFechaNacimiento());
 
             ////Realizamos la consulta y actualizamos la base de datos
             cont = exe.executeUpdate();
 
-            if (cont == 0) {
-                msg = null;
+            if (cont == 1) {
+                sql = "SELECT LAST_INSERT_ID() as ultimo_ingresado from personas";
+                exe = cn.getconexionDB().prepareStatement(sql);
+                rs = exe.executeQuery();
+                rs.next();
+                personaIdValor = rs.getInt("ultimo_ingresado");
+                System.out.println("DAO INSERTAR PERSONA:"+personaIdValor);
             } else {
-                msg = "Registro agregado con éxito";
+                personaIdValor = 0;
             }
 
         } catch (SQLException e) {
@@ -90,7 +96,7 @@ public class DAOPersonas implements interfaces.InterfacePersona {
         } finally {
             cn.desconectar(); //Desconecta la base de datos
         }
-        return msg; //Valor de retorno
+        return personaIdValor; //Valor de retorno
     }
 
     //Modificar Personas

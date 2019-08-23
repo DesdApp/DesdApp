@@ -10,5 +10,6 @@ public interface InterfaceClientes {
     public String updateClientes(Clientes cliente);
     public Clientes selectcliente(int codigo);
     public int validar(Clientes clin);
+    public String insertpassword(Clientes cliente);
     public ArrayList<Clientes> listclientes();
 }

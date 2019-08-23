@@ -530,12 +530,12 @@
         <div class="col-xl-4">
             <h4 class="text-light mt-5">Suscribete a nuestro Blog</h4>
 
-            <form>
+            <form action="Suscribirse" method="POST">
                 <div class="form-row align-items-center mt-4">
                     <div class="col-6">
                         <h9 class="text-light">Nombre</h9>
                         <label class="sr-only text-light" for="inlineFormInput">Name</label>
-                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Username">
+                        <input type="text" class="form-control mb-2" id="inlineFormInput" name="txtUser" placeholder="Username">
                     </div>
                     <div class="col-6">
                         <h9 class="text-light">Email</h9>
@@ -544,7 +544,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">@</div>
                             </div>
-                            <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Email">
+                            <input type="email" class="form-control" id="inlineFormInputGroup" name="txtEmail" placeholder="Email">
                         </div>
                     </div>
                     <div class="col-auto">
