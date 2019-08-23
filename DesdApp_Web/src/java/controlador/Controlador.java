@@ -101,7 +101,7 @@ public class Controlador extends HttpServlet {
              p.setCorreo(correo);
              p.setFechaNacimiento(fechaNac);
              System.out.println(p.toString());
-             mg = daoP.insert(p);
+            // mg = daoP.insert(p);
              
              if (mg.equals(null)){
               response.sendRedirect("pages/registrase.jsp?m=1");

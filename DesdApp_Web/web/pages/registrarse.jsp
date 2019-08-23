@@ -64,11 +64,18 @@ and open the template in the editor.
                             Please choose a unique and valid username.
                           </div>
                         </div>
-                      </div>
+                      </div><label for="usserName">UsserName</label>
+                        <div class="input-group">
+                            <input class="form-control" type="text" name="usser" required  id="usserName" placeholder="Correo" aria-describedby="validationTooltipUsernamePrepend" required>
+                          <div class="invalid-tooltip">
+                            Please choose a unique and valid username.
+                          </div>
+                        </div>
+                        
                       <div class="col-md-6 mb-3">
                         <label for="password">Contraseña</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" min="12" max="120" step="1" patter="pattern="\d+" name="txtContra" id="contra" placeholder="contraseñia" aria-describedby="validationTooltipUsernamePrepend" pattern=".{6,}"  required>
+                            <input type="password" class="form-control" min="12" max="120" step="1"  name="txtContra" id="contra" placeholder="contraseñia" aria-describedby="validationTooltipUsernamePrepend" pattern=".{6,}"  required>
                           <div class="invalid-tooltip">
                             Please choose a unique and valid username.
                           </div>

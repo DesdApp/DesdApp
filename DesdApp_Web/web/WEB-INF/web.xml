@@ -4,41 +4,87 @@
         <servlet-name>Controlador</servlet-name>
         <servlet-class>controlador.Controlador</servlet-class>
     </servlet>
+    
     <servlet>
-        <servlet-name>Inmueble</servlet-name>
-        <servlet-class>controlador.Inmueble</servlet-class>
+        <servlet-name>ControladorIndex</servlet-name>
+        <servlet-class>controlador.ControladorIndex</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>InicioClientesControlador</servlet-name>
-        <servlet-class>controlador.InicioClientesControlador</servlet-class>
+        <servlet-name>ControladorInmueble</servlet-name>
+        <servlet-class>controlador.ControladorInmueble</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorLogin</servlet-name>
         <servlet-class>controlador.ControladorLogin</servlet-class>
     </servlet>
+    
     <servlet>
-        <servlet-name>ControladorIndex</servlet-name>
-        <servlet-class>controlador.ControladorIndex</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Inmueble</servlet-name>
-        <url-pattern>/Inmueble</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>InicioClientesControlador</servlet-name>
-        <url-pattern>/InicioClientesControlador</url-pattern>
+        <servlet-class>controlador.InicioClientesControlador</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>Inmueble</servlet-name>
+        <servlet-class>controlador.Inmueble</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletCorredor</servlet-name>
+        <servlet-class>controlador.ServletCorredor</servlet-class>
+    </servlet>
+    
+    
+    <servlet>
+        <servlet-name>Suscribirse</servlet-name>
+        <servlet-class>controlador.Suscribirse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregarProp</servlet-name>
+        <servlet-class>controlador.agregarProp</servlet-class>
+        
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Controlador</servlet-name>
+        <url-pattern>/Controlador</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ControladorIndex</servlet-name>
+        <url-pattern>/ControladorIndex</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ControladorInmueble</servlet-name>
+        <url-pattern>/ControladorInmueble</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControladorLogin</servlet-name>
         <url-pattern>/ControladorLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Controlador</servlet-name>
-        <url-pattern>/Controlador</url-pattern>
+        <servlet-name>InicioClientesControlador</servlet-name>
+        <url-pattern>/InicioClientesControlador</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet-mapping>
+        <servlet-name>Inmueble</servlet-name>
+        <url-pattern>/Inmueble</url-pattern>
+    </servlet-mapping>
+    
+      <servlet-mapping>
+
+        <servlet-name>ServletCorredor</servlet-name>
+        <url-pattern>/ServletCorredor</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>Suscribirse</servlet-name>
+        <url-pattern>/Suscribirse</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControladorIndex</servlet-name>
-        <url-pattern>/ControladorIndex</url-pattern>
+        <servlet-name>agregarProp</servlet-name>
+        <url-pattern>/agregarProp</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -52,7 +52,7 @@
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Quienes somos</a>
                         <div class="dropdown-menu transparente">
-                            <a class="dropdown-item" href="pages/nosotros.jsp">Nuestro Equipo</a>
+                            <a class="dropdown-item" href="Controlador?accion=equipo">Nuestro Equipo</a>
                             <a class="dropdown-item" href="Controlador?accion=oficina">Oficinas</a>
                         </div>
                     </li>
@@ -61,16 +61,15 @@
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Inmuebles</a>
                         <div class="dropdown-menu transparente">
-                            <a class="dropdown-item" href="Inmueble?accion=bien">Apartamentos</a>
-                            <a class="dropdown-item" href="Controlador?accion=apartos">Apartamentos</a>
-                            <a class="dropdown-item" href="Controlador?accion=bodegas">Bodegas</a>
-                            <a class="dropdown-item" href="Controlador?accion=casas">Casas</a>
-                            <a class="dropdown-item" href="Controlador?accion=edificios">Edificios</a>
-                            <a class="dropdown-item" href="Controlador?accion=fincas">Fincas</a>
-                            <a class="dropdown-item" href="Controlador?accion=locales">Locales</a>
-                            <a class="dropdown-item" href="Controlador?accion=ofisinas">Oficinas</a>
-                            <a class="dropdown-item" href="Controlador?accion=proyectos">Proyectos</a>
-                            <a class="dropdown-item" href="Controlador?accion=terreno">Terrenos</a>
+                            <a class="dropdown-item" href="">Apartamentos</a>
+                            <a class="dropdown-item" href="#">Bodegas</a>
+                            <a class="dropdown-item" href="#">Casas</a>
+                            <a class="dropdown-item" href="#">Edificios</a>
+                            <a class="dropdown-item" href="#">Fincas</a>
+                            <a class="dropdown-item" href="#">Locales</a>
+                            <a class="dropdown-item" href="#">Oficinas</a>
+                            <a class="dropdown-item" href="#">Proyectos</a>
+                            <a class="dropdown-item" href="#">Terrenos</a>
                         </div>
                     </li>
 
@@ -78,7 +77,7 @@
                         <a class="nav-link" href="">Contáctenos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ControladorIndex?accion=inicio">Iniciar Sesión/Registrarse</a>
+                        <a class="nav-link" href="Controlador?accion=registrar">Iniciar Sesión/Registrarse</a>
                     </li>
                     <li>
                 </ul>
@@ -530,12 +529,12 @@
         <div class="col-xl-4">
             <h4 class="text-light mt-5">Suscribete a nuestro Blog</h4>
 
-            <form action="Suscribirse" method="POST">
+            <form>
                 <div class="form-row align-items-center mt-4">
                     <div class="col-6">
                         <h9 class="text-light">Nombre</h9>
                         <label class="sr-only text-light" for="inlineFormInput">Name</label>
-                        <input type="text" class="form-control mb-2" id="inlineFormInput" name="txtUser" placeholder="Username">
+                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Username">
                     </div>
                     <div class="col-6">
                         <h9 class="text-light">Email</h9>
@@ -544,7 +543,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">@</div>
                             </div>
-                            <input type="email" class="form-control" id="inlineFormInputGroup" name="txtEmail" placeholder="Email">
+                            <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Email">
                         </div>
                     </div>
                     <div class="col-auto">
