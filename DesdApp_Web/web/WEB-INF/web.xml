@@ -5,14 +5,10 @@
         <servlet-class>controlador.Controlador</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Controlador2</servlet-name>
-        <servlet-class>controlador.Controlador2</servlet-class>
-    </servlet>
-    <servlet>
 <<<<<<< HEAD
         <servlet-name>ServletCorredor</servlet-name>
         <servlet-class>controlador.ServletCorredor</servlet-class>
-=======
+        =======
         <servlet-name>ControladorInmueble</servlet-name>
         <servlet-class>controlador.ControladorInmueble</servlet-class>
     </servlet>
@@ -23,21 +19,17 @@
     <servlet>
         <servlet-name>agregarProp</servlet-name>
         <servlet-class>controlador.agregarProp</servlet-class>
->>>>>>> a8b9925650bb60c83fde91379c364fe23a3d5bc5
+        >>>>>>> a8b9925650bb60c83fde91379c364fe23a3d5bc5
     </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Controlador</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Controlador2</servlet-name>
-        <url-pattern>/Controlador2</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
 <<<<<<< HEAD
         <servlet-name>ServletCorredor</servlet-name>
         <url-pattern>/ServletCorredor</url-pattern>
-=======
+        =======
         <servlet-name>ControladorInmueble</servlet-name>
         <url-pattern>/ControladorInmueble</url-pattern>
     </servlet-mapping>
@@ -48,7 +40,7 @@
     <servlet-mapping>
         <servlet-name>agregarProp</servlet-name>
         <url-pattern>/agregarProp</url-pattern>
->>>>>>> a8b9925650bb60c83fde91379c364fe23a3d5bc5
+        >>>>>>> a8b9925650bb60c83fde91379c364fe23a3d5bc5
     </servlet-mapping>
     <session-config>
         <session-timeout>

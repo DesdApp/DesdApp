@@ -76,7 +76,7 @@ public class Suscribirse extends HttpServlet {
         sub.setNombre(user);
         sub.setCorreo(email);
         dao.insertSuscriptor(sub);
-        response.sendRedirect("/index.jsp");
+        response.sendRedirect("web/index.jsp");
     }
 
     /**
