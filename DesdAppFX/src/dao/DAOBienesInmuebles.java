@@ -28,7 +28,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
          */
         try {
             cx.conectar();  // Realizamos la conexion con la base de datos
-            sql = "INSERT INTO bienes_inmuebles VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
+            sql = "INSERT INTO bienes_inmuebles VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
             execute = cx.getconexionDB().prepareStatement(sql); // Asignamos la consulta al PreparedStatement
             execute.setString(1, bien.getInmuebleId());    // Asignamos valores a la consulta
             execute.setInt(2, bien.getTipoPropiedadId());
@@ -46,7 +46,8 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             execute.setInt(14, bien.getPrecioMinVenta());
             execute.setInt(15, bien.getPrecioSugerido());
             execute.setInt(16, bien.getPrecioReal());
-            execute.setInt(17, bien.getCodEmpleado());
+            execute.setInt(17, bien.getImageId());
+            execute.setInt(18, bien.getCodEmpleado());
             execute.executeUpdate();    // Realizamos la consulta y actualizamos la base de datos
             msg = "Registro almacenado con exito";  // Escribimos un mensaje de que la consulta se realizo con exito
         } catch (SQLException e) {
@@ -98,11 +99,11 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             cx.conectar();
             sql = "UPDATE bienes_inmuebles SET tipo_propiedad_id = ?, estado_id = ?, "
                     + "estado_neg_id = ?, cliente_id = ?, direccion = ?, zona_id = ?, "
-                    + "metros_cuadrados = ?, descripcion_metros = ?, cant_cuartos = ? , "
+                    + "metro_cuadrados = ?, descripcion_metros = ?, cant_cuartos = ? , "
                     + "cant_niveles = ?, sotanos = ?, elevadores = ?, precio_min_venta = ?, "
-                    + "precio_sugerido = ?, precio_real = ?, cod_empleado = ? WHERE inmueble_id = ?";
+                    + "precio_sugerido = ?, precio_real = ?, image_id=?, cod_empleado = ? WHERE inmueble_id = ?";
             execute = cx.getconexionDB().prepareStatement(sql);
-            execute.setString(17, bien.getInmuebleId());    // Asignamos valores a la consulta
+            execute.setString(18, bien.getInmuebleId());    // Asignamos valores a la consulta
             execute.setInt(1, bien.getTipoPropiedadId());
             execute.setInt(2, bien.getEstadoId());
             execute.setInt(3, bien.getEstadoNegId());
@@ -118,7 +119,8 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             execute.setInt(13, bien.getPrecioMinVenta());
             execute.setInt(14, bien.getPrecioSugerido());
             execute.setInt(15, bien.getPrecioReal());
-            execute.setInt(16, bien.getCodEmpleado());
+            execute.setInt(16, bien.getImageId());
+            execute.setInt(17, bien.getCodEmpleado());
             execute.executeUpdate();
             msg = "Registro actualizado con exito";
         } catch (SQLException e) {
@@ -160,7 +162,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             bien.setClienteId(rs.getInt("cliente_id"));
             bien.setDireccion(rs.getString("direccion"));
             bien.setZonaId(rs.getInt("zona_id"));
-            bien.setMetrosCuadrados(rs.getString("metros_cuadrados"));
+            bien.setMetrosCuadrados(rs.getString("metro_cuadrados"));
             bien.setDescripcionMetros(rs.getString("descripcion_metros"));
             bien.setCantCuartos(rs.getInt("cant_cuartos"));
             bien.setCantNiveles(rs.getInt("cant_niveles"));
@@ -169,6 +171,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             bien.setPrecioMinVenta(rs.getInt("precio_min_venta"));
             bien.setPrecioSugerido(rs.getInt("precio_sugerido"));
             bien.setPrecioReal(rs.getInt("precio_real"));
+            bien.setImageId(rs.getInt("image_id"));
             bien.setCodEmpleado(rs.getInt("cod_empleado"));
             rs.close();
         } catch (SQLException e) {
@@ -200,7 +203,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
                 bien.setClienteId(rs.getInt("cliente_id"));
                 bien.setDireccion(rs.getString("direccion"));
                 bien.setZonaId(rs.getInt("zona_id"));
-                bien.setMetrosCuadrados(rs.getString("metros_cuadrados"));
+                bien.setMetrosCuadrados(rs.getString("metro_cuadrados"));
                 bien.setDescripcionMetros(rs.getString("descripcion_metros"));
                 bien.setCantCuartos(rs.getInt("cant_cuartos"));
                 bien.setCantNiveles(rs.getInt("cant_niveles"));
@@ -209,6 +212,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
                 bien.setPrecioMinVenta(rs.getInt("precio_min_venta"));
                 bien.setPrecioSugerido(rs.getInt("precio_sugerido"));
                 bien.setPrecioReal(rs.getInt("precio_real"));
+                bien.setImageId(rs.getInt("image_id"));
                 bien.setCodEmpleado(rs.getInt("cod_empleado"));
                 list.add(bien); // Se agregan los registros al ArrayList
             }

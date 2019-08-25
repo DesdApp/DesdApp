@@ -89,7 +89,7 @@
                                                       <Label prefHeight="37.0" prefWidth="220.0" text="Correo" GridPane.rowIndex="9" />
                                                       <Label prefHeight="37.0" prefWidth="220.0" text="Fecha de Nacimiento" GridPane.rowIndex="10" />
                                                       <JFXButton fx:id="btnInsertPersona" onAction="#insertPersona" prefHeight="44.0" prefWidth="286.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                                                      <JFXButton fx:id="btNuevo" buttonType="RAISED" onAction="#nuevo" prefHeight="44.0" prefWidth="286.0" text="Nuevo" textAlignment="CENTER" GridPane.rowIndex="11">
+                                                      <JFXButton fx:id="btNuevo" buttonType="RAISED" onAction="#limpiarP" prefHeight="44.0" prefWidth="286.0" text="Nuevo" textAlignment="CENTER" GridPane.rowIndex="11">
                                                          <effect>
                                                             <DropShadow />
                                                          </effect>
@@ -144,16 +144,17 @@
                                                       <Label text="Contraseña" GridPane.rowIndex="7" />
                                                       <Label text="Foto de Empleado" GridPane.rowIndex="8" />
                                                       <Label text="Estado de Empleado" GridPane.rowIndex="9" />
-                                                      <JFXTextField prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" />
-                                                      <JFXTextField prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                      <JFXTextField prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                      <JFXTextField prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                                      <JFXTextField prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                      <JFXButton prefHeight="45.0" prefWidth="200.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                                                      <JFXComboBox prefHeight="46.0" prefWidth="238.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                      <JFXComboBox prefHeight="47.0" prefWidth="238.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                                                      <JFXDatePicker prefHeight="42.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                      <JFXDatePicker prefHeight="47.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                      <JFXTextField fx:id="codEmpleado" prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                                                      <JFXTextField fx:id="idPersonaE" prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <JFXTextField fx:id="puestoE" prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                      <JFXTextField fx:id="userEmp" prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                      <JFXTextField fx:id="passwordEmp" prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                      <JFXButton fx:id="btnInsertEmpleado" onAction="#insertEmpleado" prefHeight="45.0" prefWidth="200.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                      <JFXComboBox fx:id="tipoUsr" prefHeight="46.0" prefWidth="238.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <JFXComboBox fx:id="estEmp" prefHeight="47.0" prefWidth="238.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                      <JFXDatePicker fx:id="fechaInicio" prefHeight="42.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                      <JFXDatePicker fx:id="fechaFinalizacion" prefHeight="47.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                      <JFXButton fx:id="btnNuevoE" onAction="#limpiarE" text="Nuevo" GridPane.rowIndex="10" />
                                                    </children>
                                                 </GridPane>
                                                 <Separator layoutX="508.0" orientation="VERTICAL" prefHeight="1000.0" prefWidth="1.0" />
@@ -183,12 +184,13 @@
                                                       <Label text="Nombre de Titular" GridPane.rowIndex="2" />
                                                       <Label text="Usuario" GridPane.rowIndex="3" />
                                                       <Label text="Contraseña" GridPane.rowIndex="4" />
-                                                      <JFXButton prefHeight="25.0" prefWidth="225.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                      <JFXTextField prefHeight="64.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                      <JFXTextField prefHeight="67.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                      <JFXTextField prefHeight="68.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                      <JFXTextField prefHeight="66.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                      <JFXTextField prefHeight="67.0" prefWidth="225.0" GridPane.columnIndex="1" />
+                                                      <JFXButton fx:id="btnInsertCliente" onAction="#agregarCliente" prefHeight="25.0" prefWidth="225.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                      <JFXTextField fx:id="passwordCliente" prefHeight="64.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                      <JFXTextField fx:id="userCliente" prefHeight="67.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                      <JFXTextField fx:id="nombreTitular" prefHeight="68.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <JFXTextField fx:id="idPersonaC" prefHeight="66.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <JFXTextField fx:id="idCliente" prefHeight="67.0" prefWidth="225.0" GridPane.columnIndex="1" />
+                                                      <JFXButton fx:id="btnNuevoC" onAction="#LimpiarC" text="Nuevo" GridPane.rowIndex="5" />
                                                    </children>
                                                 </GridPane>
                                                 <Separator layoutX="495.0" layoutY="8.0" orientation="VERTICAL" prefHeight="1000.0" prefWidth="1.0" />
@@ -244,27 +246,28 @@
                                                       <Label text="Precio del Cliente" GridPane.rowIndex="16" />
                                                       <Label text="Imagenes de la Propiedad" GridPane.rowIndex="17" />
                                                       <Label text="Codigo de Empleado" GridPane.rowIndex="18" />
-                                                      <JFXComboBox prefHeight="25.0" prefWidth="189.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                      <JFXComboBox prefHeight="25.0" prefWidth="191.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                      <JFXComboBox prefHeight="25.0" prefWidth="192.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                      <JFXTextField GridPane.columnIndex="1" />
-                                                      <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                                                      <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                                                      <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                                                      <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="12" />
-                                                      <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="13" />
-                                                      <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="14" />
-                                                      <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="15" />
-                                                      <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="16" />
-                                                      <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="18" />
-                                                      <JFXTextArea GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                      <JFXTextArea GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                                                      <JFXComboBox prefHeight="25.0" prefWidth="167.0" promptText="Region" GridPane.rowIndex="6" />
-                                                      <JFXComboBox prefHeight="25.0" prefWidth="168.0" promptText="Departamento" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                                      <JFXComboBox prefHeight="25.0" prefWidth="164.0" promptText="Municipio" GridPane.rowIndex="7" />
-                                                      <JFXComboBox prefHeight="25.0" prefWidth="167.0" promptText="Zona" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                      <JFXButton prefHeight="25.0" prefWidth="199.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="19" />
-                                                      <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                      <JFXComboBox fx:id="estadoProp" prefHeight="25.0" prefWidth="189.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <JFXComboBox fx:id="estadoNegPro" prefHeight="25.0" prefWidth="191.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                      <JFXComboBox fx:id="tipoPropiedad" prefHeight="25.0" prefWidth="192.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <JFXTextField fx:id="codPropiedad" GridPane.columnIndex="1" />
+                                                      <JFXTextField fx:id="metros2" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                      <JFXTextField fx:id="cantCuartos" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                      <JFXTextField fx:id="cantNiveles" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                                      <JFXTextField fx:id="sotanos" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                                      <JFXTextField fx:id="elevadores" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                                                      <JFXTextField fx:id="precioMin" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                                                      <JFXTextField fx:id="precioSug" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                                                      <JFXTextField fx:id="precioCliente" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                                                      <JFXTextField fx:id="codEmpPro" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                                                      <JFXTextArea fx:id="direcPro" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                      <JFXTextArea fx:id="descrip2" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                      <JFXComboBox fx:id="Region" prefHeight="25.0" prefWidth="167.0" promptText="Region" GridPane.rowIndex="6" />
+                                                      <JFXComboBox fx:id="Departa" prefHeight="25.0" prefWidth="168.0" promptText="Departamento" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                      <JFXComboBox fx:id="Muni" prefHeight="25.0" prefWidth="164.0" promptText="Municipio" GridPane.rowIndex="7" />
+                                                      <JFXComboBox fx:id="Zona" prefHeight="25.0" prefWidth="167.0" promptText="Zona" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                      <JFXButton fx:id="btnIsertPropi" onAction="#agregarPropiedad" prefHeight="25.0" prefWidth="199.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+                                                      <JFXTextField fx:id="codCliPro" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                      <JFXButton fx:id="btnNuevoPro" onAction="#limpiarPro" text="Nuevo" GridPane.rowIndex="19" />
                                                    </children>
                                                 </GridPane>
                                                 <Separator layoutX="432.0" orientation="VERTICAL" prefHeight="1000.0" prefWidth="1.0" />
