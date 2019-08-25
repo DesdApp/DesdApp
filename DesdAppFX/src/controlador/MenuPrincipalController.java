@@ -15,12 +15,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 //Importacion de DAO's
 import java.sql.Date;
-import dao.DAOPersonas;//se importa dao de persona para utilizacion
+import dao.DAOPersonas;
 import dao.DAOBienesInmuebles;
 import dao.DAOClientes;
 import dao.DAOEmpleados;
 //Importacion de Modelos
-import modelo.Personas;//solo se hace para pruebas
+import modelo.Personas;
 import modelo.Empleados;
 import modelo.Clientes;
 import modelo.BienesInmuebles;
@@ -45,7 +45,8 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML
     private BorderPane bp;
-
+    
+    //<editor-fold defaultstate="collapsed" desc="Componentes Persona">
     //Componentes de Persona
     @FXML
     private Button btInsertPersona;
@@ -73,8 +74,12 @@ public class MenuPrincipalController implements Initializable {
     private TextField correoPersona;
     @FXML
     private DatePicker fechaNacimientoPer;
+//</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="Componentes Cliente">
     //Componentes de Cliente
+    @FXML
+    private Button btnInsertCliente;
     @FXML
     private TextField idCliente;
     @FXML
@@ -85,8 +90,12 @@ public class MenuPrincipalController implements Initializable {
     private TextField userCliente;
     @FXML
     private TextField passwordCliente;
+//</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="Componentes Empleado">
     //Componentes de Empleado
+    @FXML
+    private Button btnInsertEmpleado;
     @FXML
     private TextField codEmpleado;
     @FXML
@@ -106,7 +115,9 @@ public class MenuPrincipalController implements Initializable {
     //@FXML este tiene que ser para el de image
     @FXML
     private ComboBox estEmp;
+//</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="Componentes de Propiedad">
     //Componnetes de Propiedad
     @FXML
     private TextField codPropiedad;
@@ -149,8 +160,9 @@ public class MenuPrincipalController implements Initializable {
     //@FXML este tiene que ser para insertar imagen
     @FXML
     private TextField codEmpPro;
+//</editor-fold>
 
-    //
+   
     @Override
 
     public void initialize(URL url, ResourceBundle rb) {
@@ -161,7 +173,8 @@ public class MenuPrincipalController implements Initializable {
 
         //ComboBox 
     }
-
+    //<editor-fold defaultstate="collapsed" desc="Metodos para Limpiar">
+    
     //Se limpian las cajas de texto
     public void limpiarPersona() {
         idPersona.setText("");
@@ -222,7 +235,12 @@ public class MenuPrincipalController implements Initializable {
         codEmpPro.setText("");
     }
 
-    //Agergar Persona
+//</editor-fold>
+    
+    
+    //<editor-fold defaultstate="collapsed" desc="Metodos de Agregar">
+    
+        //Agergar Persona
     public void agregarPersona() {
         p.setPersonaId(0);
         p.setNombre(nombrePersona.getText().trim());
@@ -289,7 +307,8 @@ public class MenuPrincipalController implements Initializable {
         daob.insertBien(b);
         System.out.println("Se agrego Propiedad con Exito");
     }
-
+//</editor-fold>
+    
     @FXML //Insert de persona
     void insertPersona(ActionEvent evt) {
         agregarPersona();
@@ -301,17 +320,22 @@ public class MenuPrincipalController implements Initializable {
     void nuevo(ActionEvent evt) {
         limpiarPersona();
     }
-    
+
     @FXML //Insert de Cliente
-    void insertCliente(ActionEvent evt){
+    void insertCliente(ActionEvent evt) {
         agregarCliente();
         System.out.println("Funcion agregar Cliente");
     }
-    
+
     @FXML //Insert de Empleado
-    void insertEmpleado(ActionEvent evt){
+    void insertEmpleado(ActionEvent evt) {
         agregarEmpleado();
         System.out.println("Funciona agregar Empleado");
     }
-    
+
+    @FXML //Insert de Propiedad
+    void insertPropiedad(ActionEvent evt) {
+        agregarPropiedad();
+        System.out.println("Funciona agregar Propiedad");
+    }
 }
