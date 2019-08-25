@@ -5,24 +5,22 @@
  */
 package controlador;
 
-import dao.DAOSuscriptores;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Suscriptores;
 
 /**
  *
- * @author emersonR
+ * @author javam2019
  */
-public class Suscribirse extends HttpServlet {
+public class ControladorIndex extends HttpServlet {
 
-    Suscriptores sub;
-    DAOSuscriptores dao = new DAOSuscriptores();
-    
+    String inicio = "pages/login.jsp";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,10 +32,7 @@ public class Suscribirse extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<h1>CONTROLADOR</h1>");
-        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +47,19 @@ public class Suscribirse extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        String acceso = "";
+        String action = request.getParameter("accion");
+        out.println(acceso);
+                
+        if (action.equalsIgnoreCase("inicio")) {
+            System.out.println(action);
+            acceso=inicio;
+            response.sendRedirect(acceso);
+        }
+        
+        
+
     }
 
     /**
@@ -67,16 +74,6 @@ public class Suscribirse extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        System.out.println("SUSCRIBIRSE");
-        String user = request.getParameter("txtUser");
-        String email = request.getParameter("txtEmail");
-        
-        sub = new Suscriptores();
-        sub.setNombre(user);
-        sub.setCorreo(email);
-        dao.insertSuscriptor(sub);
-        response.sendRedirect("web/index.jsp");
     }
 
     /**

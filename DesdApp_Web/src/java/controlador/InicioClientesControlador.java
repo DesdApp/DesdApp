@@ -5,24 +5,32 @@
  */
 package controlador;
 
-import dao.DAOSuscriptores;
+import dao.DAODepartamentos;
+import dao.DAOMunicipios;
+import dao.DAOTiposPropiedades;
+import dao.DAOVentaRenta;
+import dao.DAOZonas;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Suscriptores;
+import modelo.Departamentos;
+import modelo.Municipios;
+import modelo.TiposPropiedades;
+import modelo.VentaRenta;
+import modelo.Zonas;
 
 /**
  *
- * @author emersonR
+ * @author javam2019
  */
-public class Suscribirse extends HttpServlet {
+public class InicioClientesControlador extends HttpServlet {
 
-    Suscriptores sub;
-    DAOSuscriptores dao = new DAOSuscriptores();
-    
+    String listar = "pages/inicioClientes_2.jsp";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,7 +44,8 @@ public class Suscribirse extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println("<h1>CONTROLADOR</h1>");
+            /* TODO output your page here. You may use following sample code. */
+
         }
     }
 
@@ -52,7 +61,35 @@ public class Suscribirse extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+
+        DAOVentaRenta dao = new DAOVentaRenta();
+        ArrayList<VentaRenta> listaVentaRenta = new ArrayList<>();
+        listaVentaRenta = dao.ListEstados();
+        request.setAttribute("listaVentaRenta", listaVentaRenta);
+
+        DAOTiposPropiedades daoTipoProp = new DAOTiposPropiedades();
+        ArrayList<TiposPropiedades> listaTipoPropi = new ArrayList<>();
+        listaTipoPropi = daoTipoProp.listTipos();
+        request.setAttribute("listaTiposPropiedades", listaTipoPropi);
+        
+        DAODepartamentos daoDep= new DAODepartamentos();
+        ArrayList<Departamentos>listaDep=new ArrayList();
+        listaDep=daoDep.list();
+        request.setAttribute("listarDepartamentos", listaDep);
+        
+        DAOMunicipios daoMun= new DAOMunicipios();
+        ArrayList<Municipios>listaMun=new ArrayList();
+        listaMun=daoMun.list();
+        request.setAttribute("listarMunicipios", listaMun);
+        
+        DAOZonas daoZona= new DAOZonas();
+        ArrayList<Zonas>listaZonas=new ArrayList();
+        listaZonas=daoZona.listZonas();
+        request.setAttribute("listarZonas", listaZonas);
+                
+        request.getRequestDispatcher(listar).forward(request, response);
+
     }
 
     /**
@@ -67,16 +104,6 @@ public class Suscribirse extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        System.out.println("SUSCRIBIRSE");
-        String user = request.getParameter("txtUser");
-        String email = request.getParameter("txtEmail");
-        
-        sub = new Suscriptores();
-        sub.setNombre(user);
-        sub.setCorreo(email);
-        dao.insertSuscriptor(sub);
-        response.sendRedirect("web/index.jsp");
     }
 
     /**

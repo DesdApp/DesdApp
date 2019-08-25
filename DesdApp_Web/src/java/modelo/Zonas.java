@@ -3,16 +3,16 @@ package modelo;
 public class Zonas {
 
 //    Atributos
-    private byte zonaId;
+    private int zonaId;
     private String nombre;
     private int muniId;
 
     //<editor-fold defaultstate="collapsed" desc="Metodos set y get">
-    public byte getZonaId() {
+    public int getZonaId() {
         return zonaId;
     }
 
-    public void setZonaId(byte zonaId) {
+    public void setZonaId(int zonaId) {
         this.zonaId = zonaId;
     }
 

@@ -1,18 +1,21 @@
 package controlador;
 
 import com.sun.java.swing.plaf.windows.resources.windows;
+import dao.DAOBienesInmuebles;
 import dao.DAOClientes;
 import dao.DAOPersonas;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
 import java.sql.Date;
+import java.util.ArrayList;
 import javafx.scene.control.Alert;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.BienesInmuebles;
 import modelo.Clientes;
 import modelo.Personas;
 
@@ -21,7 +24,8 @@ import modelo.Personas;
  * @author User
  */
 public class Controlador extends HttpServlet {
-
+    
+    String inmuebles = "pages/inmuebles.jsp";
     String registrado = "pages/registroexito.jsp";
     String add = "pages/login.jsp";
     String registrase = "pages/registrarse.jsp";
@@ -34,8 +38,6 @@ public class Controlador extends HttpServlet {
     DAOPersonas daoP = new DAOPersonas();
     DAOClientes daoC = new DAOClientes();
     String cont = null;
-        
-
     String user = null;
     String pass = null;
 
@@ -49,7 +51,6 @@ public class Controlador extends HttpServlet {
          * @param request servlet request
          * @param response servlet response
          * @throws ServletException if a servlet-specific error occurs
-         * 
          * @throws IOException if an I/O error occurs
          */
         out.println("User: " + user + "pass" + pass);
@@ -58,6 +59,7 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         
         String acceso="";
          String action = request.getParameter("accion");
@@ -73,6 +75,7 @@ public class Controlador extends HttpServlet {
          }else if(action.equalsIgnoreCase("index")){
             acceso=index;
          }
+        //Registrase
          else if (action.equalsIgnoreCase("Registrarme")) {
              //int id = Integer.parseInt(request.getParameter("txtidPer"));
              String nombre = request.getParameter("txtNombre");
@@ -120,6 +123,9 @@ public class Controlador extends HttpServlet {
              }else{
               acceso = index;
              }
+        //Inmuebles    
+        }else if(action.equalsIgnoreCase("bien")){
+            acceso = inmuebles;
             
         } 
          

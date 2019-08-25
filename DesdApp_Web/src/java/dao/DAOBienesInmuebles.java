@@ -36,7 +36,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             execute.setByte(4, bien.getEstadoNegId());
             execute.setInt(5, bien.getClienteId());
             execute.setString(6, bien.getDireccion());
-            execute.setByte(7, bien.getZonaId());
+            execute.setInt(7, bien.getZonaId());
             execute.setString(8, bien.getMetrosCuadrados());
             execute.setString(9, bien.getDescripcionMetros());
             execute.setByte(10, bien.getCantCuartos());
@@ -108,7 +108,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             execute.setByte(3, bien.getEstadoNegId());
             execute.setInt(4, bien.getClienteId());
             execute.setString(5, bien.getDireccion());
-            execute.setByte(6, bien.getZonaId());
+            execute.setInt(6, bien.getZonaId());
             execute.setString(7, bien.getMetrosCuadrados());
             execute.setString(8, bien.getDescripcionMetros());
             execute.setByte(9, bien.getCantCuartos());
@@ -159,7 +159,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             bien.setEstadoNegId(rs.getByte("estado_neg_id"));
             bien.setClienteId(rs.getInt("cliente_id"));
             bien.setDireccion(rs.getString("direccion"));
-            bien.setZonaId(rs.getByte("zona_id"));
+            bien.setZonaId(rs.getInt("zona_id"));
             bien.setMetrosCuadrados(rs.getString("metros_cuadrados"));
             bien.setDescripcionMetros(rs.getString("descripcion_metros"));
             bien.setCantCuartos(rs.getByte("cant_cuartos"));
@@ -200,7 +200,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
                 bien.setClienteId(rs.getInt("cliente_id"));
                 bien.setDireccion(rs.getString("direccion"));
                 bien.setZonaId(rs.getByte("zona_id"));
-                bien.setMetrosCuadrados(rs.getString("metro_cuadrados"));
+                bien.setMetrosCuadrados(rs.getString("metros_cuadrados"));
                 bien.setDescripcionMetros(rs.getString("descripcion_metros"));
                 bien.setCantCuartos(rs.getByte("cant_cuartos"));
                 bien.setCantNiveles(rs.getByte("cant_niveles"));
@@ -219,6 +219,37 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             cx.desconectar();
         }
         return list;
+    }
+
+    @Override
+    public ArrayList<BienesInmuebles> listView(String prop) {
+        ArrayList<BienesInmuebles> viewList = new ArrayList();
+        BienesInmuebles b;
+        
+        try {
+            cx.conectar();
+            sql="SELECT * FROM view_inmueble where tipopropiedad=?";
+            execute = cx.getconexionDB().prepareStatement(sql);
+            execute.setString(1, prop);
+            rs = execute.executeQuery();
+            
+            while(rs.next()){
+                b = new BienesInmuebles();
+                b.setTipoPropiedadId(rs.getByte("tipopropiedad"));
+                b.setEstadoNegId(rs.getByte("ventarenta"));
+                b.setDireccion(rs.getString("direccion"));
+                b.setZonaId(rs.getInt("zona"));
+                b.setPrecioSugerido(rs.getInt("precio_sugerido"));
+                viewList.add(b);
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("error en daolistar: "+ e.getMessage());
+        }
+        finally{
+            cx.desconectar();
+        }
+        return viewList;
     }
 
 }

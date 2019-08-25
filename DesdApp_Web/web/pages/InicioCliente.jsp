@@ -52,7 +52,7 @@
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Quienes somos</a>
                         <div class="dropdown-menu transparente">
-                            <a class="dropdown-item" href="pages/nosotros.jsp">Nuestro Equipo</a>
+                            <a class="dropdown-item" href="Controlador?accion=equipo">Nuestro Equipo</a>
                             <a class="dropdown-item" href="Controlador?accion=oficina">Oficinas</a>
                         </div>
                     </li>
@@ -61,15 +61,15 @@
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Inmuebles</a>
                         <div class="dropdown-menu transparente">
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Apartamentos</a>             
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Bodegas">Bodegas</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Casas">Casas</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Edificios</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Fincas</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Locales</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Oficinas</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Proyectos</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Terrenos</a>
+                            <a class="dropdown-item" href="">Apartamentos</a>
+                            <a class="dropdown-item" href="#">Bodegas</a>
+                            <a class="dropdown-item" href="#">Casas</a>
+                            <a class="dropdown-item" href="#">Edificios</a>
+                            <a class="dropdown-item" href="#">Fincas</a>
+                            <a class="dropdown-item" href="#">Locales</a>
+                            <a class="dropdown-item" href="#">Oficinas</a>
+                            <a class="dropdown-item" href="#">Proyectos</a>
+                            <a class="dropdown-item" href="#">Terrenos</a>
                         </div>
                     </li>
 
@@ -353,7 +353,7 @@
     <div class="negro" style="height: 30px"></div>
     <div class="verdoso">
         
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel2">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -510,9 +510,9 @@
         <div class="col-xl-4">
             <h4 class="text-light mt-5">Bienes Raices Guatemala</h4>
             <p class="text-light">
-                Empresa lider en venta,renta, compra venta,
+                Empresa lider en ventar,renta, compra venta,
                 alquiler.
-                Contamos con la mejor asesoria inmobiliaria.
+                Contamos con la mejor asesoramiento inmobiliario
             </p>
         </div>
 
@@ -520,8 +520,8 @@
             <h4 class="text-light mt-5">Contactenos</h4>
             <p class="text-light">
                 Zona 10 48-95 interiores de nook
-                BienesRaices@gmail.com <br>
-                (502)5057-0814 | (502)5176-4966
+                BienesRaices@gmail.com
+                502+ 22334455
 
             </p>
         </div>
@@ -534,12 +534,15 @@
                     <div class="col-6">
                         <h9 class="text-light">Nombre</h9>
                         <label class="sr-only text-light" for="inlineFormInput">Name</label>
-                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Name">
+                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Username">
                     </div>
                     <div class="col-6">
                         <h9 class="text-light">Email</h9>
                         <label class="sr-only" for="inlineFormInputGroup">Email</label>
                         <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">@</div>
+                            </div>
                             <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Email">
                         </div>
                     </div>
@@ -550,7 +553,7 @@
             </form>
 
         </div>
-    </div>
+
 
 
 </body>

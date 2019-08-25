@@ -35,7 +35,7 @@ and open the template in the editor.
                 <% String error = (String) request.getParameter("error");
                 %>
 
-                <form action="../Controlador" method="POST">
+                <form action="../ControladorLogin" method="POST">
                     <div class="form-group">
                         <input type="text" name="txtUser" class="form-control mt-4"
                                placeholder="Usuario">

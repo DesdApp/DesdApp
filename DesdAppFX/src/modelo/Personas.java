@@ -9,7 +9,7 @@ public class Personas {
     private int personaId;
     private String nombre;
     private String apellido;
-    private byte tipoDocumentoId;
+    private int tipoDocumentoId;
     private String noDocumento;
     private String nit;
     private String direccion;
@@ -19,7 +19,7 @@ public class Personas {
     private Date fechaNacimiento;
 
 //    Constructores
-    public Personas(int personaId, String nombre, String apellido, byte tipoDocumentoId, String noDocumento, String nit, String direccion, int celular, int telefono, String correo, Date fechaNac) {
+    public Personas(int personaId, String nombre, String apellido, int tipoDocumentoId, String noDocumento, String nit, String direccion, int celular, int telefono, String correo, Date fechaNac) {
         this.personaId = personaId;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -61,11 +61,11 @@ public class Personas {
         this.apellido = apellido;
     }
 
-    public byte getTipoDocumentoId() {
+    public int getTipoDocumentoId() {
         return tipoDocumentoId;
     }
 
-    public void setTipoDocumentoId(byte tipoDocumentoId) {
+    public void setTipoDocumentoId(int tipoDocumentoId) {
         this.tipoDocumentoId = tipoDocumentoId;
     }
 
