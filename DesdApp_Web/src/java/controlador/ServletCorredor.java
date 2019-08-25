@@ -5,19 +5,23 @@
  */
 package controlador;
 
+import dao.DAOCorredores;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Corredores;
 
 /**
  *
- * @author javam2019
+ * @author Stephanie María
  */
-public class Controlador2 extends HttpServlet {
-
+public class ServletCorredor extends HttpServlet {
+    String cards = "pages/perfilcorredor.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,10 +39,10 @@ public class Controlador2 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Controlador2</title>");            
+            out.println("<title>Servlet ServletCorredor</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Controlador2 at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ServletCorredor at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,7 +60,17 @@ public class Controlador2 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        
+        String acceso=cards;
+        
+        ArrayList<Corredores> listaCorredores = new ArrayList<>();
+        DAOCorredores daoCorredores = new DAOCorredores();
+        listaCorredores = daoCorredores.lista(2);
+        
+        request.setAttribute("listaCorredores", listaCorredores);
+        RequestDispatcher vista=request.getRequestDispatcher(acceso);
+        vista.forward(request, response);
     }
 
     /**

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-08-2019 a las 20:42:30
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.3
+-- Tiempo de generación: 23-08-2019 a las 19:46:06
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.0.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,6 +45,7 @@ CREATE TABLE `bienes_inmuebles` (
   `precio_min_venta` int(10) NOT NULL,
   `precio_sugerido` int(10) NOT NULL,
   `precio_real` int(10) NOT NULL,
+  `image_id` int(10) NOT NULL,
   `cod_empleado` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -52,27 +53,27 @@ CREATE TABLE `bienes_inmuebles` (
 -- Volcado de datos para la tabla `bienes_inmuebles`
 --
 
-INSERT INTO `bienes_inmuebles` (`inmueble_id`, `tipo_propiedad_id`, `estado_id`, `estado_neg_id`, `cliente_id`, `direccion`, `zona_id`, `metro_cuadrados`, `descripcion_metros`, `cant_cuartos`, `cant_niveles`, `sotanos`, `elevadores`, `precio_min_venta`, `precio_sugerido`, `precio_real`, `cod_empleado`) VALUES
-('1', 10, 1, 1, 5, '3ra. Avenida 13-04 ', 4, '125X50', '125 metros de ancho por 50 metros de largo', 1, 1, 0, 0, 5700, 6000, 5600, 1),
-('10', 3, 1, 2, 14, '6ta. Calle 2-71 ', 5, '57X45', '57 metros de ancho por 41 metros de largo', 3, 1, 0, 0, 79158, 79458, 79058, 1),
-('11', 5, 1, 1, 15, '2da. Calle 11-67 ', 5, '96X453', '96 metros de ancho por 453 metros de largo', 2, 1, 0, 0, 4565940, 4566240, 4565840, 2),
-('12', 5, 4, 2, 16, '9na. Avenida 5-63 ', 3, '523X242', '523 metros de ancho por 242 metros de largo', 5, 2, 1, 0, 13289130, 13289430, 13289030, 5),
-('13', 3, 3, 2, 17, '31 calle 14-14 ', 14, '256X231', '256 metros de ancho por 231 metros de largo', 4, 1, 0, 0, 6445524, 6445824, 6445424, 4),
-('14', 3, 3, 1, 18, '8va. Avenida 17-36 ', 11, '12X31', '12 metros de ancho por 31 metros de largo', 6, 2, 0, 0, 86748, 87048, 86648, 3),
-('15', 2, 2, 1, 19, '3ra. Calle 23-20 ', 17, '123X123', '123 metros de ancho por 123 metros de largo', 4, 2, 0, 0, 680505, 680805, 680405, 2),
-('16', 6, 1, 1, 20, '20 calle 14-14 ', 14, '123X121', '123 metros de ancho por 121 metros de largo', 0, 3, 1, 1, 1562415, 1562715, 1562315, 1),
-('17', 3, 3, 1, 21, '1ra. Calle 4-42 ', 1, '31X21', '31 metros de ancho por 21 metros de largo', 4, 2, 0, 0, 196860, 197160, 196760, 5),
-('18', 4, 3, 2, 22, '6ta. Calle 6-53 ', 10, '234X123', '234 metros de ancho por 123 metros de largo', 10, 6, 2, 1, 3309630, 3309930, 3309530, 3),
-('19', 3, 1, 1, 23, '10ma. Calle 4-20 ', 11, '123X112', '123 metros de ancho por 112 metros de largo', 3, 1, 0, 0, 1138740, 1139040, 1138640, 2),
-('2', 2, 1, 2, 6, '7ma. Avenida 1-12 ', 10, '100X75', '100 metros de ancho por 75 metros de largo', 2, 1, 0, 0, 787500, 787500, 787400, 2),
-('20', 3, 1, 2, 24, '7ma. Calle 7-61', 18, '12X31', '12 metros de ancho por 31 metros de largo', 1, 1, 0, 0, 15696, 15996, 15596, 5),
-('3', 9, 1, 2, 7, '3ra. Calle 25-21 ', 10, '18X9', '18 metros de ancho por 9metros de largo', 3, 1, 0, 0, 3426, 3726, 3326, 5),
-('4', 3, 2, 1, 8, '1ra. Calle 20-12', 2, '300X250', '300 metros de ancho por 250 metros de largo', 2, 1, 0, 0, 5624700, 5625000, 5624600, 4),
-('5', 8, 2, 2, 9, '2da. Calle 03-75 ', 15, '1000X700', '1000 metros de ancho por 700 metros de largo', 30, 14, 3, 2, 15999700, 16000000, 15999600, 3),
-('6', 4, 2, 2, 10, '6ta. Avenida 25-21 ', 13, '30X20', '30 metros de ancho por 20 metros de largo', 5, 2, 0, 0, 6900, 7200, 6800, 1),
-('7', 7, 3, 1, 11, '1ra. Avenida 1-46 ', 5, '25X20', '25 metros de ancho por 20 metros de largo', 4, 2, 0, 0, 1700, 2000, 1600, 4),
-('8', 4, 4, 1, 12, '1ra. Calle 4-42 ', 1, '50X43', '50 metros de ancho por 43 metros de largo', 4, 2, 0, 0, 224450, 224750, 224350, 2),
-('9', 1, 1, 2, 13, '6ta. Calle 2-71 ', 5, '356X231', '356 metros de ancho por 231 metros de largo', 5, 2, 1, 0, 16446900, 16447200, 16446800, 5);
+INSERT INTO `bienes_inmuebles` (`inmueble_id`, `tipo_propiedad_id`, `estado_id`, `estado_neg_id`, `cliente_id`, `direccion`, `zona_id`, `metro_cuadrados`, `descripcion_metros`, `cant_cuartos`, `cant_niveles`, `sotanos`, `elevadores`, `precio_min_venta`, `precio_sugerido`, `precio_real`, `image_id`, `cod_empleado`) VALUES
+('1', 10, 1, 1, 5, '3ra. Avenida 13-04 ', 4, '125X50', '125 metros de ancho por 50 metros de largo', 1, 1, 0, 0, 5700, 6000, 5600, 6, 1),
+('10', 3, 1, 2, 14, '6ta. Calle 2-71 ', 5, '57X45', '57 metros de ancho por 41 metros de largo', 3, 1, 0, 0, 79158, 79458, 79058, 15, 1),
+('11', 5, 1, 1, 15, '2da. Calle 11-67 ', 5, '96X453', '96 metros de ancho por 453 metros de largo', 2, 1, 0, 0, 4565940, 4566240, 4565840, 16, 2),
+('12', 5, 4, 2, 16, '9na. Avenida 5-63 ', 3, '523X242', '523 metros de ancho por 242 metros de largo', 5, 2, 1, 0, 13289130, 13289430, 13289030, 17, 5),
+('13', 3, 3, 2, 17, '31 calle 14-14 ', 14, '256X231', '256 metros de ancho por 231 metros de largo', 4, 1, 0, 0, 6445524, 6445824, 6445424, 21, 4),
+('14', 3, 3, 1, 18, '8va. Avenida 17-36 ', 11, '12X31', '12 metros de ancho por 31 metros de largo', 6, 2, 0, 0, 86748, 87048, 86648, 18, 3),
+('15', 2, 2, 1, 19, '3ra. Calle 23-20 ', 17, '123X123', '123 metros de ancho por 123 metros de largo', 4, 2, 0, 0, 680505, 680805, 680405, 19, 2),
+('16', 6, 1, 1, 20, '20 calle 14-14 ', 14, '123X121', '123 metros de ancho por 121 metros de largo', 0, 3, 1, 1, 1562415, 1562715, 1562315, 20, 1),
+('17', 3, 3, 1, 21, '1ra. Calle 4-42 ', 1, '31X21', '31 metros de ancho por 21 metros de largo', 4, 2, 0, 0, 196860, 197160, 196760, 21, 5),
+('18', 4, 3, 2, 22, '6ta. Calle 6-53 ', 10, '234X123', '234 metros de ancho por 123 metros de largo', 10, 6, 2, 1, 3309630, 3309930, 3309530, 22, 3),
+('19', 3, 1, 1, 23, '10ma. Calle 4-20 ', 11, '123X112', '123 metros de ancho por 112 metros de largo', 3, 1, 0, 0, 1138740, 1139040, 1138640, 23, 2),
+('2', 2, 1, 2, 6, '7ma. Avenida 1-12 ', 10, '100X75', '100 metros de ancho por 75 metros de largo', 2, 1, 0, 0, 787500, 787500, 787400, 7, 2),
+('20', 3, 1, 2, 24, '7ma. Calle 7-61', 18, '12X31', '12 metros de ancho por 31 metros de largo', 1, 1, 0, 0, 15696, 15996, 15596, 24, 5),
+('3', 9, 1, 2, 7, '3ra. Calle 25-21 ', 10, '18X9', '18 metros de ancho por 9metros de largo', 3, 1, 0, 0, 3426, 3726, 3326, 8, 5),
+('4', 3, 2, 1, 8, '1ra. Calle 20-12', 2, '300X250', '300 metros de ancho por 250 metros de largo', 2, 1, 0, 0, 5624700, 5625000, 5624600, 9, 4),
+('5', 8, 2, 2, 9, '2da. Calle 03-75 ', 15, '1000X700', '1000 metros de ancho por 700 metros de largo', 30, 14, 3, 2, 15999700, 16000000, 15999600, 10, 3),
+('6', 4, 2, 2, 10, '6ta. Avenida 25-21 ', 13, '30X20', '30 metros de ancho por 20 metros de largo', 5, 2, 0, 0, 6900, 7200, 6800, 11, 1),
+('7', 7, 3, 1, 11, '1ra. Avenida 1-46 ', 5, '25X20', '25 metros de ancho por 20 metros de largo', 4, 2, 0, 0, 1700, 2000, 1600, 12, 4),
+('8', 4, 4, 1, 12, '1ra. Calle 4-42 ', 1, '50X43', '50 metros de ancho por 43 metros de largo', 4, 2, 0, 0, 224450, 224750, 224350, 13, 2),
+('9', 1, 1, 2, 13, '6ta. Calle 2-71 ', 5, '356X231', '356 metros de ancho por 231 metros de largo', 5, 2, 1, 0, 16446900, 16447200, 16446800, 14, 5);
 
 -- --------------------------------------------------------
 
@@ -178,6 +179,7 @@ CREATE TABLE `empleados` (
   `fecha_finalizacion` date DEFAULT NULL,
   `user` varchar(15) NOT NULL,
   `password` varchar(30) NOT NULL,
+  `image_id` int(10) NOT NULL,
   `estado_emp_id` tinyint(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -185,12 +187,12 @@ CREATE TABLE `empleados` (
 -- Volcado de datos para la tabla `empleados`
 --
 
-INSERT INTO `empleados` (`cod_empleado`, `persona_id`, `tipo_usuario_id`, `puesto`, `fecha_inicio`, `fecha_finalizacion`, `user`, `password`, `estado_emp_id`) VALUES
-(1, 2, 2, 'secretaria', '2014-03-20', '0000-00-00', 'ssosad1', '123', 1),
-(2, 3, 4, 'reportes', '2015-09-03', '0000-00-00', 'ptejadav1', '123', 1),
-(3, 4, 1, 'admin', '2010-01-06', '0000-00-00', 'czepedad1', '123', 1),
-(4, 5, 3, 'corredor', '2018-11-29', '0000-00-00', 'eriosk1', '123', 1),
-(5, 6, 3, 'corredor', '2016-02-09', '0000-00-00', 'evelasquez1', '123', 1);
+INSERT INTO `empleados` (`cod_empleado`, `persona_id`, `tipo_usuario_id`, `puesto`, `fecha_inicio`, `fecha_finalizacion`, `user`, `password`, `image_id`, `estado_emp_id`) VALUES
+(1, 2, 2, 'secretaria', '2014-03-20', '0000-00-00', 'ssosad1', '123', 1, 1),
+(2, 3, 4, 'reportes', '2015-09-03', '0000-00-00', 'ptejadav1', '123', 2, 1),
+(3, 4, 1, 'admin', '2010-01-06', '0000-00-00', 'a', 'a', 3, 1),
+(4, 5, 3, 'corredor', '2018-11-29', '0000-00-00', 'eriosk1', '123', 4, 1),
+(5, 6, 3, 'corredor', '2016-02-09', '0000-00-00', 'evelasquez1', '123', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -232,6 +234,47 @@ INSERT INTO `estado_bien_inmueble` (`estado_id`, `nombre`) VALUES
 (2, 'Vendido'),
 (3, 'En Proceso'),
 (4, 'No definido');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `image_url`
+--
+
+CREATE TABLE `image_url` (
+  `image_id` int(10) NOT NULL,
+  `url` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `image_url`
+--
+
+INSERT INTO `image_url` (`image_id`, `url`) VALUES
+(1, '1'),
+(2, '1'),
+(3, '1'),
+(4, '1'),
+(5, '1'),
+(6, '1'),
+(7, '1'),
+(8, '1'),
+(9, '1'),
+(10, '1'),
+(11, '1'),
+(12, '1'),
+(13, '1'),
+(14, '1'),
+(15, '1'),
+(16, '1'),
+(17, '1'),
+(18, '1'),
+(19, '1'),
+(20, '1'),
+(21, '1'),
+(22, '1'),
+(23, '1'),
+(24, '1');
 
 -- --------------------------------------------------------
 
@@ -1516,7 +1559,8 @@ ALTER TABLE `bienes_inmuebles`
   ADD KEY `cod_empleado` (`cod_empleado`),
   ADD KEY `zona_id` (`zona_id`),
   ADD KEY `estado_id` (`estado_id`),
-  ADD KEY `estado_neg_id` (`estado_neg_id`);
+  ADD KEY `estado_neg_id` (`estado_neg_id`),
+  ADD KEY `image_id` (`image_id`);
 
 --
 -- Indices de la tabla `clientes`
@@ -1541,7 +1585,8 @@ ALTER TABLE `empleados`
   ADD UNIQUE KEY `user` (`user`,`password`),
   ADD KEY `persona_id` (`persona_id`),
   ADD KEY `tipo_usuario_id` (`tipo_usuario_id`,`estado_emp_id`),
-  ADD KEY `estado_emp_id` (`estado_emp_id`);
+  ADD KEY `estado_emp_id` (`estado_emp_id`),
+  ADD KEY `image_id` (`image_id`);
 
 --
 -- Indices de la tabla `estados_empleados`
@@ -1554,6 +1599,12 @@ ALTER TABLE `estados_empleados`
 --
 ALTER TABLE `estado_bien_inmueble`
   ADD PRIMARY KEY (`estado_id`);
+
+--
+-- Indices de la tabla `image_url`
+--
+ALTER TABLE `image_url`
+  ADD PRIMARY KEY (`image_id`);
 
 --
 -- Indices de la tabla `municipios`
@@ -1624,6 +1675,12 @@ ALTER TABLE `clientes`
   MODIFY `cliente_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
+-- AUTO_INCREMENT de la tabla `image_url`
+--
+ALTER TABLE `image_url`
+  MODIFY `image_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
@@ -1648,7 +1705,8 @@ ALTER TABLE `bienes_inmuebles`
   ADD CONSTRAINT `bienes_inmuebles_ibfk_3` FOREIGN KEY (`tipo_propiedad_id`) REFERENCES `tipos_propiedades` (`tipo_propiedad_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bienes_inmuebles_ibfk_5` FOREIGN KEY (`estado_id`) REFERENCES `estado_bien_inmueble` (`estado_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bienes_inmuebles_ibfk_6` FOREIGN KEY (`estado_neg_id`) REFERENCES `venta_renta` (`estado_neg_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `bienes_inmuebles_ibfk_7` FOREIGN KEY (`zona_id`) REFERENCES `zonas` (`zona_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `bienes_inmuebles_ibfk_7` FOREIGN KEY (`zona_id`) REFERENCES `zonas` (`zona_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bienes_inmuebles_ibfk_8` FOREIGN KEY (`image_id`) REFERENCES `image_url` (`image_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `clientes`
@@ -1668,7 +1726,8 @@ ALTER TABLE `departamentos`
 ALTER TABLE `empleados`
   ADD CONSTRAINT `empleados_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`persona_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `empleados_ibfk_2` FOREIGN KEY (`estado_emp_id`) REFERENCES `estados_empleados` (`estado_emp_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `empleados_ibfk_3` FOREIGN KEY (`tipo_usuario_id`) REFERENCES `tipos_usuarios` (`tipo_usuario_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `empleados_ibfk_3` FOREIGN KEY (`tipo_usuario_id`) REFERENCES `tipos_usuarios` (`tipo_usuario_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `empleados_ibfk_4` FOREIGN KEY (`image_id`) REFERENCES `image_url` (`image_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `municipios`
