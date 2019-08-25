@@ -31,10 +31,6 @@
         <servlet-name>Inmueble</servlet-name>
         <servlet-class>controlador.Inmueble</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ServletCorredor</servlet-name>
-        <servlet-class>controlador.ServletCorredor</servlet-class>
-    </servlet>
     
     
     <servlet>
