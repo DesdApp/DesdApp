@@ -5,7 +5,7 @@
  */
 package controlador;
 
-import dao.DAOCorredores;
+import dao.DAONosotros;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,14 +14,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Corredores;
+import modelo.Nosotros;
 
 /**
  *
  * @author Stephanie María
  */
-public class ServletCorredor extends HttpServlet {
-    String cards = "pages/perfilcorredor.jsp";
+public class ServletNosotros extends HttpServlet {
+    String nosotros = "pages/nosotros.jsp";
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,10 +40,10 @@ public class ServletCorredor extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletCorredor</title>");            
+            out.println("<title>Servlet ServletNosotros</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletCorredor at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ServletNosotros at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,19 +62,17 @@ public class ServletCorredor extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String acceso=nosotros;
         
-        String acceso=cards;
+        ArrayList<Nosotros> listaNosotros = new ArrayList<>();
+        DAONosotros daoNosotros = new DAONosotros();
+        listaNosotros = daoNosotros.list();
         
-        ArrayList<Corredores> listaCorredores = new ArrayList<>();
-        DAOCorredores daoCorredores = new DAOCorredores();
-        listaCorredores = daoCorredores.lista(3);
-        
-        request.setAttribute("listaCorredores", listaCorredores);
+        request.setAttribute("listaNosotros", listaNosotros);
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
         vista.forward(request, response);
     }
 
-      
     /**
      * Handles the HTTP <code>POST</code> method.
      *

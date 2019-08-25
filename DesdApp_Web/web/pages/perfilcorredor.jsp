@@ -38,7 +38,7 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="../pages/index.jsp">Inicio</a>
+                                <a class="nav-link" href="pages/index.jsp">Inicio</a>
                             </li>
 
                             <!--B1-->
@@ -46,8 +46,8 @@
                                 <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="true" aria-expanded="false">Quienes somos</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="../pages/nosotros.jsp">Nuestro Equipo</a>
-                                    <a class="dropdown-item" href="../pages/oficinas.jsp">Oficinas</a>
+                                    <a class="dropdown-item" href="nosotros.jsp">Nuestro Equipo</a>
+                                    <a class="dropdown-item" href="oficinas.jsp">Oficinas</a>
                                 </div>
                             </li>
                             <!--B2-->
@@ -71,7 +71,7 @@
                                 <a class="nav-link" href="">Contáctenos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Iniciar Sesión</a>
+                                <a class="nav-link" href="pages/registrarse.jsp">Iniciar Sesión</a>
                             </li>
                         </ul>
                     </div>
@@ -89,7 +89,7 @@
                 Corredores datos = new Corredores();
                 datos = list.get(0);
                 %>
-                -->
+          
                 <!-- Imagen e informacion de contacto -->
                 <div class="col-12 col-md-8 mt-4">
                     <div class="card mb-3">
@@ -100,10 +100,10 @@
                             <div class="col-md-9">
                                 <div class="card-body">
                                     <h2 class="card-title"><%= datos.getNombre_corredor() %></h2>
-                                    <p class="text-medium card-text"><%= datos.getCod_emp() %></p>
-                                    <p class="text-medium card-text">Nombre completo</p>
-                                    <p class="text-medium card-text">Telefono</p>
-                                    <p class="text-medium card-text">Correo</p>
+                                    <p class="text-medium card-text">Código de empleado: <%= datos.getCod_emp() %></p>
+                                    <p class="text-medium card-text">Oficina: <%= datos.getCel() %></p>
+                                    <p class="text-medium card-text">Móvil: <%= datos.getTel() %></p>
+                                    <p class="text-medium card-text">Email: <%= datos.getCorreo() %></p>
                                 </div>
                             </div>
                         </div>
@@ -126,9 +126,8 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h4 class="card-title"><%= elem.getTipo_prop()%></h4>
-                                <h5><%= elem.getDireccion()%></h5>
-                                <h5><%= elem.getZona()%></h5>
-                                <h5><%= elem.getPrecio_s()%></h5>
+                                <h5><%= elem.getDireccion() + elem.getZona() %></h5>
+                                <h5>Precio: <%= elem.getPrecio_s()%></h5>
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                             </div>
                         </div>
