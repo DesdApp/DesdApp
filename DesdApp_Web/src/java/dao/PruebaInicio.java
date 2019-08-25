@@ -5,8 +5,9 @@
  */
 package dao;
 
-import modelo.Clientes;
-
+import java.util.ArrayList;
+import modelo.BienesInmuebles;
+import dao.DAOBienesInmuebles;
 /**
  *
  * @author javam2019
@@ -14,9 +15,14 @@ import modelo.Clientes;
 public class PruebaInicio {
 
     public static void main(String[] args) {
-        DAOClientes clin = new DAOClientes();
-        Clientes cl = new Clientes(0, 0, "Estela", "estel23", "estel23");
+        ArrayList<BienesInmuebles> list = new ArrayList<>();
+        BienesInmuebles bien = new BienesInmuebles();
+        DAOBienesInmuebles dao = new DAOBienesInmuebles();
         
-        System.out.println(clin.validar(cl));
+        list = dao.listView("Casas");
+        for (BienesInmuebles bienesInmuebles : list) {
+            System.out.println(bienesInmuebles.toString());
+        }
+        
     }
 }
