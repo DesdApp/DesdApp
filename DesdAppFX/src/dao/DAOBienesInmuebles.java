@@ -31,18 +31,18 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             sql = "INSERT INTO bienes_inmuebles VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
             execute = cx.getconexionDB().prepareStatement(sql); // Asignamos la consulta al PreparedStatement
             execute.setString(1, bien.getInmuebleId());    // Asignamos valores a la consulta
-            execute.setByte(2, bien.getTipoPropiedadId());
-            execute.setByte(3, bien.getEstadoId());
-            execute.setByte(4, bien.getEstadoNegId());
+            execute.setInt(2, bien.getTipoPropiedadId());
+            execute.setInt(3, bien.getEstadoId());
+            execute.setInt(4, bien.getEstadoNegId());
             execute.setInt(5, bien.getClienteId());
             execute.setString(6, bien.getDireccion());
-            execute.setByte(7, bien.getZonaId());
+            execute.setInt(7, bien.getZonaId());
             execute.setString(8, bien.getMetrosCuadrados());
             execute.setString(9, bien.getDescripcionMetros());
-            execute.setByte(10, bien.getCantCuartos());
-            execute.setByte(11, bien.getCantNiveles());
-            execute.setByte(12, bien.getSotanos());
-            execute.setByte(13, bien.getElevadores());
+            execute.setInt(10, bien.getCantCuartos());
+            execute.setInt(11, bien.getCantNiveles());
+            execute.setInt(12, bien.getSotanos());
+            execute.setInt(13, bien.getElevadores());
             execute.setInt(14, bien.getPrecioMinVenta());
             execute.setInt(15, bien.getPrecioSugerido());
             execute.setInt(16, bien.getPrecioReal());
@@ -73,7 +73,7 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             sql = "DELETE FROM bienes_inmuebles WHERE inmueble_id = ?";
             execute = cx.getconexionDB().prepareStatement(sql);
             execute.setInt(1, codigo);
-            byte contDel = (byte) execute.executeUpdate(); // La variable contDel verifica que el registro existe
+            int contDel = execute.executeUpdate(); // La variable contDel verifica que el registro existe
             if (contDel == 0) { // Verificamos si el registro existe
                 msg = "El registro no existe";  // escribimos un ensaje de que el registro no existe
             } else {
@@ -103,18 +103,18 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
                     + "precio_sugerido = ?, precio_real = ?, cod_empleado = ? WHERE inmueble_id = ?";
             execute = cx.getconexionDB().prepareStatement(sql);
             execute.setString(17, bien.getInmuebleId());    // Asignamos valores a la consulta
-            execute.setByte(1, bien.getTipoPropiedadId());
-            execute.setByte(2, bien.getEstadoId());
-            execute.setByte(3, bien.getEstadoNegId());
+            execute.setInt(1, bien.getTipoPropiedadId());
+            execute.setInt(2, bien.getEstadoId());
+            execute.setInt(3, bien.getEstadoNegId());
             execute.setInt(4, bien.getClienteId());
             execute.setString(5, bien.getDireccion());
-            execute.setByte(6, bien.getZonaId());
+            execute.setInt(6, bien.getZonaId());
             execute.setString(7, bien.getMetrosCuadrados());
             execute.setString(8, bien.getDescripcionMetros());
-            execute.setByte(9, bien.getCantCuartos());
-            execute.setByte(10, bien.getCantNiveles());
-            execute.setByte(11, bien.getSotanos());
-            execute.setByte(12, bien.getElevadores());
+            execute.setInt(9, bien.getCantCuartos());
+            execute.setInt(10, bien.getCantNiveles());
+            execute.setInt(11, bien.getSotanos());
+            execute.setInt(12, bien.getElevadores());
             execute.setInt(13, bien.getPrecioMinVenta());
             execute.setInt(14, bien.getPrecioSugerido());
             execute.setInt(15, bien.getPrecioReal());
@@ -154,18 +154,18 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
 
             rs.next();  // Se pasa al  siguiente registro. En este caso el primero
             bien.setInmuebleId(rs.getString("inmueble_id"));
-            bien.setTipoPropiedadId(rs.getByte("tipo_propiedad_id"));
-            bien.setEstadoId(rs.getByte("estado_id"));
-            bien.setEstadoNegId(rs.getByte("estado_neg_id"));
+            bien.setTipoPropiedadId(rs.getInt("tipo_propiedad_id"));
+            bien.setEstadoId(rs.getInt("estado_id"));
+            bien.setEstadoNegId(rs.getInt("estado_neg_id"));
             bien.setClienteId(rs.getInt("cliente_id"));
             bien.setDireccion(rs.getString("direccion"));
-            bien.setZonaId(rs.getByte("zona_id"));
+            bien.setZonaId(rs.getInt("zona_id"));
             bien.setMetrosCuadrados(rs.getString("metros_cuadrados"));
             bien.setDescripcionMetros(rs.getString("descripcion_metros"));
-            bien.setCantCuartos(rs.getByte("cant_cuartos"));
-            bien.setCantNiveles(rs.getByte("cant_niveles"));
-            bien.setSotanos(rs.getByte("sotanos"));
-            bien.setElevadores(rs.getByte("elevadores"));
+            bien.setCantCuartos(rs.getInt("cant_cuartos"));
+            bien.setCantNiveles(rs.getInt("cant_niveles"));
+            bien.setSotanos(rs.getInt("sotanos"));
+            bien.setElevadores(rs.getInt("elevadores"));
             bien.setPrecioMinVenta(rs.getInt("precio_min_venta"));
             bien.setPrecioSugerido(rs.getInt("precio_sugerido"));
             bien.setPrecioReal(rs.getInt("precio_real"));
@@ -194,18 +194,18 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
             while (rs.next()) { // Verifica que hayan mas registros
                 bien = new BienesInmuebles();    // Cada vez que pase a un registro nuevo crea un objeto Bienes
                 bien.setInmuebleId(rs.getString("inmueble_id"));
-                bien.setTipoPropiedadId(rs.getByte("tipo_propiedad_id"));
-                bien.setEstadoId(rs.getByte("estado_id"));
-                bien.setEstadoNegId(rs.getByte("estado_neg_id"));
+                bien.setTipoPropiedadId(rs.getInt("tipo_propiedad_id"));
+                bien.setEstadoId(rs.getInt("estado_id"));
+                bien.setEstadoNegId(rs.getInt("estado_neg_id"));
                 bien.setClienteId(rs.getInt("cliente_id"));
                 bien.setDireccion(rs.getString("direccion"));
-                bien.setZonaId(rs.getByte("zona_id"));
+                bien.setZonaId(rs.getInt("zona_id"));
                 bien.setMetrosCuadrados(rs.getString("metros_cuadrados"));
                 bien.setDescripcionMetros(rs.getString("descripcion_metros"));
-                bien.setCantCuartos(rs.getByte("cant_cuartos"));
-                bien.setCantNiveles(rs.getByte("cant_niveles"));
-                bien.setSotanos(rs.getByte("sotanos"));
-                bien.setElevadores(rs.getByte("elevadores"));
+                bien.setCantCuartos(rs.getInt("cant_cuartos"));
+                bien.setCantNiveles(rs.getInt("cant_niveles"));
+                bien.setSotanos(rs.getInt("sotanos"));
+                bien.setElevadores(rs.getInt("elevadores"));
                 bien.setPrecioMinVenta(rs.getInt("precio_min_venta"));
                 bien.setPrecioSugerido(rs.getInt("precio_sugerido"));
                 bien.setPrecioReal(rs.getInt("precio_real"));

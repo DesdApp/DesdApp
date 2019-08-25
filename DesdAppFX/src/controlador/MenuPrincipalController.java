@@ -7,23 +7,46 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import dao.DAOPersonas;//se importa dao de persona para utilizacion
-import java.sql.Date;
-import modelo.Personas;//solo se hace para pruebas
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+//Importacion de DAO's
+import java.sql.Date;
+import dao.DAOPersonas;//se importa dao de persona para utilizacion
+import dao.DAOBienesInmuebles;
+import dao.DAOClientes;
+import dao.DAOEmpleados;
+//Importacion de Modelos
+import modelo.Personas;//solo se hace para pruebas
+import modelo.Empleados;
+import modelo.Clientes;
+import modelo.BienesInmuebles;
 
 public class MenuPrincipalController implements Initializable {
 
+    //DAO y Modelo de Persona
     DAOPersonas daop = new DAOPersonas();
     Personas p = new Personas();
-    
+
+    //DAO y Modelo de Cliente
+    DAOClientes daoc = new DAOClientes();
+    Clientes c = new Clientes();
+
+    //DAO y Modelo de Empleado
+    DAOEmpleados daoe = new DAOEmpleados();
+    Empleados e = new Empleados();
+
+    //DAO y Modelo de Propiedad
+    DAOBienesInmuebles daob = new DAOBienesInmuebles();
+    BienesInmuebles b = new BienesInmuebles();
+
     @FXML
     private BorderPane bp;
+
+    //Componentes de Persona
     @FXML
     private Button btInsertPersona;
     @FXML
@@ -51,33 +74,156 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private DatePicker fechaNacimientoPer;
 
+    //Componentes de Cliente
+    @FXML
+    private TextField idCliente;
+    @FXML
+    private TextField idPersonaC;
+    @FXML
+    private TextField nombreTitular;
+    @FXML
+    private TextField userCliente;
+    @FXML
+    private TextField passwordCliente;
 
+    //Componentes de Empleado
+    @FXML
+    private TextField codEmpleado;
+    @FXML
+    private TextField idPersonaE;
+    @FXML
+    private ComboBox tipoUsr;
+    @FXML
+    private TextField puestoE;
+    @FXML
+    private DatePicker fechaInicio;
+    @FXML
+    private DatePicker fechaFinalizacion;
+    @FXML
+    private TextField userEmp;
+    @FXML
+    private TextField passwordEmp;
+    //@FXML este tiene que ser para el de image
+    @FXML
+    private ComboBox estEmp;
 
+    //Componnetes de Propiedad
+    @FXML
+    private TextField codPropiedad;
+    @FXML
+    private ComboBox tipoPropiedad;
+    @FXML
+    private ComboBox estadoProp;
+    @FXML
+    private ComboBox estadoNegPro;
+    @FXML
+    private TextField codCliPro;
+    @FXML
+    private TextArea direcPro;
+    @FXML
+    private ComboBox Region;
+    @FXML
+    private ComboBox Departa;
+    @FXML
+    private ComboBox Muni;
+    @FXML
+    private ComboBox Zona;
+    @FXML
+    private TextField metros2;
+    @FXML
+    private TextArea descrip2;
+    @FXML
+    private TextField cantCuartos;
+    @FXML
+    private TextField cantNiveles;
+    @FXML
+    private TextField sotanos;
+    @FXML
+    private TextField elevadores;
+    @FXML
+    private TextField precioMin;
+    @FXML
+    private TextField precioSug;
+    @FXML
+    private TextField precioCliente;
+    //@FXML este tiene que ser para insertar imagen
+    @FXML
+    private TextField codEmpPro;
+
+    //
     @Override
+
     public void initialize(URL url, ResourceBundle rb) {
+        //ComboBox Tipo de Doc
         String[] textos = {"DPI", "Pasaporte"};
         ObservableList<String> lista = FXCollections.observableArrayList(textos);
         tipoDocPersona.setItems(lista);
+
+        //ComboBox 
     }
 
     //Se limpian las cajas de texto
-        public void limpiar(){
-            idPersona.setText("");
-            nombrePersona.setText("");
-            apellidoPersona.setText("");
-            tipoDocPersona.setSelectionModel(null);
-            noDocPersona.setText("");
-            nitPersona.setText("");
-            direcPersona.setText("");
-            celularPersona.setText("");
-            telefonoPersona.setText("");
-            correoPersona.setText("");
-            fechaNacimientoPer.setValue(null);
-            System.out.println("Se limpio con exito");
-        }
-        
-    //agergar Persona
-        public void agregarPersona() {
+    public void limpiarPersona() {
+        idPersona.setText("");
+        nombrePersona.setText("");
+        apellidoPersona.setText("");
+        tipoDocPersona.setSelectionModel(null);
+        noDocPersona.setText("");
+        nitPersona.setText("");
+        direcPersona.setText("");
+        celularPersona.setText("");
+        telefonoPersona.setText("");
+        correoPersona.setText("");
+        fechaNacimientoPer.setValue(null);
+        System.out.println("Se limpio con exito Persona");
+    }
+
+    public void limpiarCliente() {
+        idCliente.setText("");
+        idPersonaC.setText("");
+        nombreTitular.setText("");
+        userCliente.setText("");
+        passwordCliente.setText("");
+        System.out.println("Se limpio con Exito cliente");
+    }
+
+    public void limpiarEmp() {
+        codEmpleado.setText("");
+        idPersonaE.setText("");
+        tipoUsr.setSelectionModel(null);
+        puestoE.setText("");
+        fechaInicio.setValue(null);
+        fechaFinalizacion.setValue(null);
+        userEmp.setText("");
+        passwordEmp.setText("");
+        estEmp.setSelectionModel(null);
+    }
+
+    public void limpiarPropi() {
+        codPropiedad.setText("");
+        tipoPropiedad.setSelectionModel(null);
+        estadoProp.setSelectionModel(null);
+        estadoNegPro.setSelectionModel(null);
+        codCliPro.setText("");
+        direcPro.setText("");
+        Region.setSelectionModel(null);
+        Departa.setSelectionModel(null);
+        Muni.setSelectionModel(null);
+        Zona.setSelectionModel(null);
+        metros2.setText("");
+        descrip2.setText("");
+        cantCuartos.setText("");
+        cantNiveles.setText("");
+        sotanos.setText("");
+        elevadores.setText("");
+        precioMin.setText("");
+        precioSug.setText("");
+        precioCliente.setText("");
+        codEmpPro.setText("");
+    }
+
+    //Agergar Persona
+    public void agregarPersona() {
         p.setPersonaId(0);
         p.setNombre(nombrePersona.getText().trim());
         p.setApellido(apellidoPersona.getText().trim());
@@ -90,21 +236,82 @@ public class MenuPrincipalController implements Initializable {
         p.setCorreo(correoPersona.getText().trim());
         p.setFechaNacimiento(Date.valueOf(fechaNacimientoPer.getValue()));
         daop.insert(p);
-        System.out.println("Se ejecuto la insercion");
-            
+        System.out.println("Se agrego con extio Persona");
+
     }
-    
-    
-    
-    
-    @FXML
+
+    //Agregar Cliente
+    public void agregarCliente() {
+        c.setClienteId(Integer.parseInt(idCliente.getText().trim()));
+        c.setPersonaId(Integer.parseInt(idPersonaC.getText().trim()));
+        c.setNombreTitular(nombreTitular.getText().trim());
+        c.setUser(userCliente.getText().trim());
+        c.setPassword(passwordCliente.getText().trim());
+        daoc.insertCliente(c);
+        System.out.println("Se agregao con exito Cliente");
+    }
+
+    //Agregar Empleado
+    public void agregarEmpleado() {
+        e.setEmpleadoId(Integer.parseInt(codEmpleado.getText().trim()));
+        e.setPersonaId(Integer.parseInt(idPersonaE.getText().trim()));
+        e.setTipoUsuarioId(tipoUsr.getSelectionModel().getSelectedIndex());
+        e.setPuesto(puestoE.getText().trim());
+        e.setFechaInicio(Date.valueOf(fechaInicio.getValue()));
+        e.setFechaFinalizacion(Date.valueOf(fechaFinalizacion.getValue()));
+        e.setUser(userEmp.getText().trim());
+        e.setPassword(passwordEmp.getText().trim());
+        e.setEstadoEmpleadoId(estEmp.getSelectionModel().getSelectedIndex());
+        daoe.insert(e);
+        System.out.println("se agrego con exito empleado");
+
+    }
+
+    //Agregar Propiedad
+    public void agregarPropiedad() {
+        b.setInmuebleId(codPropiedad.getText().trim());
+        b.setTipoPropiedadId(tipoPropiedad.getSelectionModel().getSelectedIndex());
+        b.setEstadoId(estadoProp.getSelectionModel().getSelectedIndex());
+        b.setEstadoNegId(estadoNegPro.getSelectionModel().getSelectedIndex());
+        b.setClienteId(Integer.parseInt(codCliPro.getText().trim()));
+        b.setDireccion(direcPro.getText().trim());
+        b.setZonaId(Zona.getSelectionModel().getSelectedIndex());
+        b.setMetrosCuadrados(metros2.getText().trim());
+        b.setDescripcionMetros(descrip2.getText().trim());
+        b.setCantCuartos(Integer.parseInt(cantCuartos.getText().trim()));
+        b.setCantNiveles(Integer.parseInt(cantNiveles.getText().trim()));
+        b.setSotanos(Integer.parseInt(sotanos.getText().trim()));
+        b.setElevadores(Integer.parseInt(elevadores.getText().trim()));
+        b.setPrecioMinVenta(Integer.parseInt(precioMin.getText().trim()));
+        b.setPrecioSugerido(Integer.parseInt(precioSug.getText().trim()));
+        b.setPrecioReal(Integer.parseInt(precioCliente.getText().trim()));
+        b.setCodEmpleado(Integer.parseInt(codEmpPro.getText().trim()));
+        daob.insertBien(b);
+        System.out.println("Se agrego Propiedad con Exito");
+    }
+
+    @FXML //Insert de persona
     void insertPersona(ActionEvent evt) {
         agregarPersona();
+        System.out.println("Fuciono agregar Persona");
         //limpiar();
     }
-    
-    @FXML
-    void nuevo(ActionEvent evt){
-        limpiar();
+
+    @FXML//Limpiar general
+    void nuevo(ActionEvent evt) {
+        limpiarPersona();
     }
+    
+    @FXML //Insert de Cliente
+    void insertCliente(ActionEvent evt){
+        agregarCliente();
+        System.out.println("Funcion agregar Cliente");
+    }
+    
+    @FXML //Insert de Empleado
+    void insertEmpleado(ActionEvent evt){
+        agregarEmpleado();
+        System.out.println("Funciona agregar Empleado");
+    }
+    
 }
