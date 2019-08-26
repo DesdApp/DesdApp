@@ -203,19 +203,19 @@
                     </div>
                     <div class="modal-body">
 
-                        <form>
+                        <form action="${pageContext.request.contextPath}/InicioClientesControlador" method="POST" class="needs-validation mt-5" novalidate="">
                             <div>
                                 <label for="exampleFormControlInput1">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" >
+                                <input type="text" class="form-control" name="txtNombre" id="nombre" >
                                 <label for="exampleFormControlInput1">Apellido</label>
-                                <input type="text" class="form-control" id="apellido"> 
+                                <input type="text" class="form-control" name="txtApellido" id="apellido"> 
                                 <label for="exampleFormControlInput1">Email</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"><br>
-                                <select class="custom-select custom-select-sm">
+                                <input type="email" class="form-control" name="txtEmail" id="exampleFormControlInput1" placeholder="name@example.com"><br>
+                                <select name="txtTipo" class="custom-select custom-select-sm">
                                     <!--Cargar lista de Documentos-->
                                     <% for (TiposDocumentos doc : listaDoc) {
                                     %>
-                                    <option selected value="<%= doc.getIdTipoDoc()%>"><%= doc.getNombre()%></option>
+                                    <option  selected value="<%= doc.getIdTipoDoc()%>"><%= doc.getNombre()%></option>
                                     <%
                                         }
                                     %>
@@ -224,7 +224,7 @@
                                 </select>
                                 <div>
                                     <label for="exampleFormControlInput1">NO. Documento</label>
-                                    <input type="text" class="form-control" id="documento" >
+                                    <input type="text" class="form-control" name="txtDoc" id="documento" >
                                     <div class="invalid-tooltip">
                                         Por favor proporcione un documento valido.
                                     </div>

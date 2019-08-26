@@ -14,6 +14,7 @@ import dao.DAOVentaRenta;
 import dao.DAOZonas;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Departamentos;
 import modelo.Municipios;
+import modelo.Personas;
 import modelo.TiposDocumentos;
 import modelo.TiposPropiedades;
 import modelo.VentaRenta;
@@ -33,6 +35,9 @@ import modelo.Zonas;
 public class InicioClientesControlador extends HttpServlet {
 
     String listar = "pages/inicioClientes_2.jsp";
+    
+    Personas perso;
+    DAOPersonas daoper= new DAOPersonas();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -112,6 +117,20 @@ public class InicioClientesControlador extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        perso.setNombre(request.getParameter("txtNombre"));
+        perso.setApellido(request.getParameter("txtApellido"));
+        perso.setCorreo(request.getParameter("txtEmail"));
+        perso.setTipoDocumentoId(Byte.parseByte("txtTipo"));
+        perso.setNoDocumento(request.getParameter("txtDoc"));
+        perso.setFechaNacimiento(Date.valueOf(request.getParameter("txtFechaNac")));
+        perso.setCelular(Integer.parseInt(request.getParameter("txtCel")));
+        perso.setTelefono(Integer.parseInt(request.getParameter("txtTel")));
+        perso.setDireccion(request.getParameter("txtDireccion"));
+        perso.setNit(request.getParameter("txtNit"));
+        
+        daoper.update(perso);
+        
     }
 
     /**
