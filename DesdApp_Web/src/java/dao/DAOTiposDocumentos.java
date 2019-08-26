@@ -90,7 +90,7 @@ public class DAOTiposDocumentos implements interfaces.InterfaceTiposDocumentos {
                 //Cada vez que pase a un registro nuevo crea un objeto tipo tipos.
                 tipos = new TiposDocumentos();
                 tipos.setIdTipoDoc(result.getByte("tipo_documento_id"));
-                tipos.setNombre(result.getString("nombre_documento"));
+                tipos.setNombre(result.getString("nombre_documeto"));
 
                 list.add(tipos);
             }

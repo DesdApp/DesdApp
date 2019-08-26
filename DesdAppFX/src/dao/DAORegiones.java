@@ -165,9 +165,9 @@ public class DAORegiones implements interfaces.InterfaceRegion {
             while (result.next()) {
                 //Cada vez que pase a un registro nuevo crea un objeto Regiones
                 regiones = new Regiones();
-                regiones.setRegionId(result.getInt("region_id"));
+                //regiones.setRegionId(result.getInt("region_id"));
                 regiones.setNombre(result.getString("nombre"));
-                regiones.setDescripcion(result.getString("descripcion"));
+                //regiones.setDescripcion(result.getString("descripcion"));
                 //Se agregan los registros a un ArrayList
                 list.add(regiones);
 

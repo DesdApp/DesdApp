@@ -34,4 +34,9 @@ public class TiposPropiedades {
         this.nombre = nombre;
     }
 //</editor-fold>
+    
+    @Override
+    public String toString(){
+        return nombre; 
+    }
 }

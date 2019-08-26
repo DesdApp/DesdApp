@@ -49,7 +49,7 @@ public class Departamentos {
 
     @Override
     public String toString() {
-        return "Departamentos " + "deptoId=" + deptoId + ", nombre=" + nombre + ", regionId=" + regionId ;
+        return nombre ;
     }
     
     

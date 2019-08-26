@@ -19,10 +19,11 @@ public class BienesInmuebles {
     private int precioMinVenta;
     private int precioSugerido;
     private int precioReal;
+    private int imageId;
     private int codEmpleado;
 
     //Constructor
-    public BienesInmuebles(String inmuebleId, int tipoPropiedadId, int estadoId, int estadoNegId, int clienteId, String direccion, int zonaId, String metrosCuadrados, String descripcionMetros, int cantCuartos, int cantNiveles, int sotanos, int elevadores, int precioMinVenta, int precioSugerido, int precioReal, int codEmpleado) {
+    public BienesInmuebles(String inmuebleId, int tipoPropiedadId, int estadoId, int estadoNegId, int clienteId, String direccion, int zonaId, String metrosCuadrados, String descripcionMetros, int cantCuartos, int cantNiveles, int sotanos, int elevadores, int precioMinVenta, int precioSugerido, int precioReal, int imageId, int codEmpleado) {
         this.inmuebleId = inmuebleId;
         this.tipoPropiedadId = tipoPropiedadId;
         this.estadoId = estadoId;
@@ -39,6 +40,7 @@ public class BienesInmuebles {
         this.precioMinVenta = precioMinVenta;
         this.precioSugerido = precioSugerido;
         this.precioReal = precioReal;
+        this.imageId = imageId;
         this.codEmpleado = codEmpleado;
     }
 
@@ -174,6 +176,14 @@ public class BienesInmuebles {
         this.precioReal = precioReal;
     }
 
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
     public int getCodEmpleado() {
         return codEmpleado;
     }
@@ -181,5 +191,7 @@ public class BienesInmuebles {
     public void setCodEmpleado(int codEmpleado) {
         this.codEmpleado = codEmpleado;
     }
+
 //</editor-fold>
+    
 }

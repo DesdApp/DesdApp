@@ -5,30 +5,31 @@
         <group>
             <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/MenuPrincipalController.java</file>
             <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/resources/menuprincipal.css</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/LoginLogicaAcceso.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/ContorladorLogin.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/ConexionDB.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/main/ExeFXMain.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/vista/menuprincipal/MenuPrincipal.fxml</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/MenuPrincipalController.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/resources/menuprincipal.css</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/LoginLogicaAcceso.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/ContorladorLogin.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/ConexionDB.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/main/ExeFXMain.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/vista/menuprincipal/MenuPrincipal.fxml</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/emersonR/Documents/CursoProgramacion/Intecap/DesdApp/DesdAppFX/src/modelo/BienesInmuebles.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/MenuPrincipalController.java</file>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/resources/menuprincipal.css</file>
             <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/ContorladorLogin.java</file>
             <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/vista/menuprincipal/MenuPrincipal.fxml</file>
             <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOPersonas.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/MenuPrincipalController.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/resources/menuprincipal.css</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOBienesInmuebles.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/vista/menuprincipal/MenuPrincipal.fxml</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/vista/menuprincipal/MenuPrincipal.fxml</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOBienesInmuebles.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/resources/menuprincipal.css</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/MenuPrincipalController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/MenuPrincipalController.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/modelo/Zonas.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/modelo/Clientes.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOTiposPropiedades.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOBienesInmuebles.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/DAOZonas.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/modelo/TiposPropiedades.java</file>
+            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/interfaces/InterfaceBienes.java</file>
         </group>
     </open-files>
 </project-private>
