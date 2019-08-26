@@ -5,21 +5,24 @@
  */
 package controlador;
 
+import dao.DAONosotros;
 import java.io.IOException;
-import static java.lang.System.out;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Nosotros;
 
 /**
  *
- * @author javam2019
+ * @author Stephanie María
  */
-public class ControladorIndex extends HttpServlet {
-
-    String inicio = "pages/login.jsp";
-
+public class ServletNosotros extends HttpServlet {
+    String nosotros = "pages/nosotros.jsp";
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,7 +34,19 @@ public class ControladorIndex extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ServletNosotros</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ServletNosotros at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -46,19 +61,16 @@ public class ControladorIndex extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        String acceso = "";
-        String action = request.getParameter("accion");
-        out.println(acceso);
-                
-        if (action.equalsIgnoreCase("inicio")) {
-            System.out.println(action);
-            acceso=inicio;
-            response.sendRedirect(acceso);
-        }
         
+        String acceso=nosotros;
         
-
+        ArrayList<Nosotros> listaNosotros = new ArrayList<>();
+        DAONosotros daoNosotros = new DAONosotros();
+        listaNosotros = daoNosotros.list();
+        
+        request.setAttribute("listaNosotros", listaNosotros);
+        RequestDispatcher vista=request.getRequestDispatcher(acceso);
+        vista.forward(request, response);
     }
 
     /**

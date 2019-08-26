@@ -66,13 +66,14 @@ public class ServletCorredor extends HttpServlet {
         
         ArrayList<Corredores> listaCorredores = new ArrayList<>();
         DAOCorredores daoCorredores = new DAOCorredores();
-        listaCorredores = daoCorredores.lista(2);
+        listaCorredores = daoCorredores.lista(3);
         
         request.setAttribute("listaCorredores", listaCorredores);
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
         vista.forward(request, response);
     }
 
+      
     /**
      * Handles the HTTP <code>POST</code> method.
      *

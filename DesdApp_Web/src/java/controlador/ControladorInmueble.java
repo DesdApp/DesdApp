@@ -1,12 +1,16 @@
 
 package controlador;
 
+import dao.DAOBienesInmuebles;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.BienesInmuebles;
 
 /**
  *
@@ -14,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ControladorInmueble extends HttpServlet {
     
-    String detalle = "pages/detalleInmueble.jsp";
+    String bien = "pages/inmuebles.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -47,13 +51,20 @@ public class ControladorInmueble extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String acceso="";
-        String action = request.getParameter("accion");
-        System.out.println("Action:" + action);
-        if (action.equalsIgnoreCase("see")) {
-        acceso = detalle;
-            
-        }
+        String acceso=bien;
+        String accion = request.getParameter("accion");
+       
+        
+        ArrayList<BienesInmuebles> listaInmuebles = new ArrayList<>();
+        DAOBienesInmuebles daoIn = new DAOBienesInmuebles();
+        listaInmuebles = daoIn.listView(accion);
+
+         request.setAttribute("listaInmuebles", listaInmuebles);
+         RequestDispatcher vista = request.getRequestDispatcher(acceso);
+         vista.forward(request, response);
+         
+      
+       
         
     }
 

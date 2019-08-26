@@ -37,7 +37,7 @@ public class DAOPersonas implements interfaces.InterfacePersona {
             persona.setPersonaId(rs.getInt("persona_id"));
             persona.setApellido(rs.getString("nombre"));
             persona.setNombre(rs.getString("apellido"));
-            persona.setTipoDocumentoId(rs.getByte("tipo_documento_id"));
+            persona.setTipoDocumentoId(rs.getInt("tipo_documento_id"));
             persona.setNoDocumento(rs.getString("no_documento"));
             persona.setNit(rs.getString("nit"));
             persona.setDireccion(rs.getString("direccion"));
@@ -65,14 +65,14 @@ public class DAOPersonas implements interfaces.InterfacePersona {
             exe.setInt(1, per.getPersonaId());
             exe.setString(2, per.getNombre());
             exe.setString(3, per.getApellido());
-            exe.setByte(4, per.getTipoDocumentoId());
+            exe.setInt(4, per.getTipoDocumentoId());
             exe.setString(5, per.getNoDocumento());
             exe.setString(6, per.getNit());
             exe.setString(7, per.getDireccion());
-            exe.setInt(5, per.getCelular());
-            exe.setInt(6, per.getTelefono());
-            exe.setString(7, per.getCorreo());
-            exe.setDate(8, per.getFechaNacimiento());
+            exe.setInt(8, per.getCelular());
+            exe.setInt(9, per.getTelefono());
+            exe.setString(10, per.getCorreo());
+            exe.setDate(11, per.getFechaNacimiento());
 
             ////Realizamos la consulta y actualizamos la base de datos
             cont = exe.executeUpdate();
@@ -107,7 +107,7 @@ public class DAOPersonas implements interfaces.InterfacePersona {
             exe.setInt(11, per.getPersonaId());
             exe.setString(1, per.getNombre());
             exe.setString(2, per.getApellido());
-            exe.setByte(3, per.getTipoDocumentoId());
+            exe.setInt(3, per.getTipoDocumentoId());
             exe.setString(4, per.getNoDocumento());
             exe.setString(5, per.getNit());
             exe.setString(6, per.getDireccion());
@@ -178,7 +178,7 @@ public class DAOPersonas implements interfaces.InterfacePersona {
                 persona.setPersonaId(rs.getInt("persona_id"));
                 persona.setApellido(rs.getString("nombre"));
                 persona.setNombre(rs.getString("apellido"));
-                persona.setTipoDocumentoId(rs.getByte("tipo_documento_id"));
+                persona.setTipoDocumentoId(rs.getInt("tipo_documento_id"));
                 persona.setNoDocumento(rs.getString("no_documento"));
                 persona.setNit(rs.getString("nit"));
                 persona.setDireccion(rs.getString("direccion"));

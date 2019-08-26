@@ -3,35 +3,46 @@ package modelo;
 import java.sql.Date;
 
 public class Empleados {
-
-    private int personaId;
+    
     private int empleadoId;
+    private int personaId;
+    private int tipoUsuarioId;
     private String puesto;
     private Date fechaInicio;
     private Date fechaFinalizacion;
-    private double sueldo;
     private String user;
     private String password;
-    private int tipoUsuarioId;
+    private int imageId;
     private int estadoEmpleadoId;
 
-    public Empleados(int personaId, int empleadoId, String puesto, Date fechaInicio, Date fechaFinalizacion, double sueldo, String user, String password, int tipoUsuarioId, int estadoEmpleadoId) {
-        this.personaId = personaId;
+    //Contructor
+    public Empleados(int empleadoId, int personaId, int tipoUsuarioId, String puesto, Date fechaInicio, Date fechaFinalizacion, String user, String password, int imageId, int estadoEmpleadoId) {
         this.empleadoId = empleadoId;
+        this.personaId = personaId;
+        this.tipoUsuarioId = tipoUsuarioId;
         this.puesto = puesto;
         this.fechaInicio = fechaInicio;
         this.fechaFinalizacion = fechaFinalizacion;
-        this.sueldo = sueldo;
         this.user = user;
         this.password = password;
-        this.tipoUsuarioId = tipoUsuarioId;
+        this.imageId = imageId;
         this.estadoEmpleadoId = estadoEmpleadoId;
     }
 
+    //Constructor vacio
     public Empleados() {
     }
+    
     //<editor-flod defaultstate="collapsed" desc="Metodos de acceso SET & GET">
-   
+
+    public int getEmpleadoId() {
+        return empleadoId;
+    }
+
+    public void setEmpleadoId(int empleadoId) {
+        this.empleadoId = empleadoId;
+    }
+
     public int getPersonaId() {
         return personaId;
     }
@@ -40,12 +51,12 @@ public class Empleados {
         this.personaId = personaId;
     }
 
-    public int getEmpleadoId() {
-        return empleadoId;
+    public int getTipoUsuarioId() {
+        return tipoUsuarioId;
     }
 
-    public void setEmpleadoId(int empleadoId) {
-        this.empleadoId = empleadoId;
+    public void setTipoUsuarioId(int tipoUsuarioId) {
+        this.tipoUsuarioId = tipoUsuarioId;
     }
 
     public String getPuesto() {
@@ -68,16 +79,8 @@ public class Empleados {
         return fechaFinalizacion;
     }
 
-    public void setFechaFinalizacion(Date fechFinalizacion) {
-        this.fechaFinalizacion = fechFinalizacion;
-    }
-
-    public double getSueldo() {
-        return sueldo;
-    }
-
-    public void setSueldo(double sueldo) {
-        this.sueldo = sueldo;
+    public void setFechaFinalizacion(Date fechaFinalizacion) {
+        this.fechaFinalizacion = fechaFinalizacion;
     }
 
     public String getUser() {
@@ -96,12 +99,12 @@ public class Empleados {
         this.password = password;
     }
 
-    public int getTipoUsuarioId() {
-        return tipoUsuarioId;
+    public int getImageId() {
+        return imageId;
     }
 
-    public void setTipoUsuarioId(int tipoUsuarioId) {
-        this.tipoUsuarioId = tipoUsuarioId;
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 
     public int getEstadoEmpleadoId() {
@@ -111,12 +114,15 @@ public class Empleados {
     public void setEstadoEmpleadoId(int estadoEmpleadoId) {
         this.estadoEmpleadoId = estadoEmpleadoId;
     }
+   
+   
     //</>editor-fold>
 
     @Override
     public String toString() {
-        return "Empleado{" + "personaId=" + personaId + ", empleadoId=" + empleadoId + ", puesto=" + puesto + ", fechaInicio=" + fechaInicio + ", fechaFinalizacion=" + fechaFinalizacion + ", sueldo=" + sueldo + ", user=" + user + ", password=" + password + ", tipoUsuarioId=" + tipoUsuarioId + ", estadoEmpleadoId=" + estadoEmpleadoId + '}';
+        return "Empleado{" + "empleadoId=" + empleadoId + ", personaId=" + personaId + ", tipoUsuarioId=" + tipoUsuarioId + ", puesto=" + puesto +  ", fechaInicio=" + fechaInicio + ", fechaFinalizacion=" + fechaFinalizacion + ", user=" + user + ", password=" + password + ", imageId=" + imageId  + ", estadoEmpleadoId=" + estadoEmpleadoId + '}';
     }
+    
     
     
 }

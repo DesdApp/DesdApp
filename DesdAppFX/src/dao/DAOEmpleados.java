@@ -26,15 +26,15 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
             cn.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO empleados VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
             execute = cn.getconexionDB().prepareStatement(sql); // Asignamos la consulta al PreparedStatement
-            execute.setInt(1, empleado.getPersonaId());
-            execute.setInt(2, empleado.getEmpleadoId());
-            execute.setString(3, empleado.getPuesto());
-            execute.setDate(4, empleado.getFechaInicio());
-            execute.setDate(5, empleado.getFechaFinalizacion());
-            execute.setDouble(6, empleado.getSueldo());
+            execute.setInt(1, empleado.getEmpleadoId());
+            execute.setInt(2, empleado.getPersonaId());
+            execute.setInt(3, empleado.getTipoUsuarioId());
+            execute.setString(4, empleado.getPuesto());
+            execute.setDate(5, empleado.getFechaInicio());
+            execute.setDate(6, empleado.getFechaFinalizacion());
             execute.setString(7, empleado.getUser());
             execute.setString(8, empleado.getPassword());
-            execute.setInt(9, empleado.getTipoUsuarioId());
+            execute.setInt(9, empleado.getImageId());
             execute.setInt(10, empleado.getEstadoEmpleadoId());
             execute.executeUpdate();    // Realizamos la consulta y actualizamos la base de datos
             msg = "Registro almacenado con exito";  // Escribimos un mensaje de que la consulta se realizo con exito
@@ -57,7 +57,7 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
             sql = "DELETE FROM empleados WHERE empleado_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
             execute.setInt(1, codigo);
-            byte contDEL = (byte) execute.executeUpdate();
+            int contDEL = execute.executeUpdate();
             if (contDEL == 0) {
                 msg = "El registro no existe";
             } else {
@@ -76,17 +76,18 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
     public String update(Empleados empleado) {
         try {
             cn.conectar();
-            sql = "UPDATE empleados SET puesto = ?, fecha_inicio = ?, fecha_finalizacion = ?, sueldo = ?, user = ?, password = ?, tipo_usuario_id = ?, estado_empleado_id = ? WHERE empleado_id = ?";
+            sql = "UPDATE empleados SET persona_id=?, tipo_usario_id=?, puesto=?, fecha_inicio=?, fecha_finalizacion=?, user=?, password=?, image_id=?, estado_emp_id=? WHERE empleado_id = ?";
             execute = cn.getconexionDB().prepareStatement(sql);
-            execute.setInt(9, empleado.getEmpleadoId());
-            execute.setString(1, empleado.getPuesto());
-            execute.setDate(2, empleado.getFechaInicio());
-            execute.setDate(3, empleado.getFechaFinalizacion());
-            execute.setDouble(4, empleado.getSueldo());
-            execute.setString(5, empleado.getUser());
-            execute.setString(6, empleado.getPassword());
-            execute.setInt(7, empleado.getTipoUsuarioId());
-            execute.setInt(8, empleado.getEstadoEmpleadoId());
+            execute.setInt(10, empleado.getEmpleadoId());
+            execute.setInt(1, empleado.getPersonaId());
+            execute.setInt(2, empleado.getTipoUsuarioId());
+            execute.setString(3, empleado.getPuesto());
+            execute.setDate(4, empleado.getFechaInicio());
+            execute.setDate(5, empleado.getFechaFinalizacion());
+            execute.setString(6, empleado.getUser());
+            execute.setString(7, empleado.getPassword());
+            execute.setInt(8, empleado.getImageId());
+            execute.setInt(9, empleado.getEstadoEmpleadoId());
             execute.executeUpdate();
             msg = "Registro actualizado";
         } catch (SQLException e) {
@@ -111,13 +112,14 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
 
             rs.next();
             empleados.setEmpleadoId(rs.getInt("empleado_id"));
+            empleados.setPersonaId(rs.getInt("persona_id"));
+            empleados.setTipoUsuarioId(rs.getInt("tipo_usuario_id"));
             empleados.setPuesto(rs.getString("puesto"));
             empleados.setFechaInicio(rs.getDate("fecha_inicio"));
             empleados.setFechaFinalizacion(rs.getDate("fecha_finalizacion"));
-            empleados.setSueldo(rs.getInt("sueldo"));
             empleados.setUser(rs.getString("user"));
             empleados.setPassword(rs.getString("password"));
-            empleados.setTipoUsuarioId(rs.getInt("tipo_usuario_id"));
+            empleados.setImageId(rs.getInt("image_id"));
             empleados.setEstadoEmpleadoId(rs.getInt("estado_empleado_id"));
             rs.close();
         } catch (SQLException e) {
@@ -139,15 +141,15 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
             rs = execute.executeQuery();
             while (rs.next()) {
                 empleados = new Empleados();
-                empleados.setPersonaId(rs.getInt("persona_id"));
                 empleados.setEmpleadoId(rs.getInt("empleado_id"));
+                empleados.setPersonaId(rs.getInt("persona_id"));
+                empleados.setTipoUsuarioId(rs.getInt("tipo_usuario_id"));
                 empleados.setPuesto(rs.getString("puesto"));
                 empleados.setFechaInicio(rs.getDate("fecha_inicio"));
                 empleados.setFechaFinalizacion(rs.getDate("fecha_finalizacion"));
-                empleados.setSueldo(rs.getDouble("sueldo"));
                 empleados.setUser(rs.getString("user"));
                 empleados.setPassword(rs.getString("password"));
-                empleados.setTipoUsuarioId(rs.getInt("tipo_usuario_id"));
+                empleados.setImageId(rs.getInt("image_id"));
                 empleados.setEstadoEmpleadoId(rs.getInt("estado_empleado_id"));
                 list.add(empleados);
             }
@@ -157,6 +159,6 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
             cn.desconectar();
         }
         return list;
-          }
+    }
 
 }

@@ -4,25 +4,26 @@ public class BienesInmuebles {
 
     // Atributos
     private String inmuebleId;
-    private byte tipoPropiedadId;
-    private byte estadoId;
-    private byte estadoNegId;
+    private int tipoPropiedadId;
+    private int estadoId;
+    private int estadoNegId;
     private int clienteId;
     private String direccion;
-    private byte zonaId;
+    private int zonaId;
     private String metrosCuadrados;
     private String descripcionMetros;
-    private byte cantCuartos;
-    private byte cantNiveles;
-    private byte sotanos;
-    private byte elevadores;
+    private int cantCuartos;
+    private int cantNiveles;
+    private int sotanos;
+    private int elevadores;
     private int precioMinVenta;
     private int precioSugerido;
     private int precioReal;
+    private int imageId;
     private int codEmpleado;
 
     //Constructor
-    public BienesInmuebles(String inmuebleId, byte tipoPropiedadId, byte estadoId, byte estadoNegId, int clienteId, String direccion, byte zonaId, String metrosCuadrados, String descripcionMetros, byte cantCuartos, byte cantNiveles, byte sotanos, byte elevadores, int precioMinVenta, int precioSugerido, int precioReal, int codEmpleado) {
+    public BienesInmuebles(String inmuebleId, int tipoPropiedadId, int estadoId, int estadoNegId, int clienteId, String direccion, int zonaId, String metrosCuadrados, String descripcionMetros, int cantCuartos, int cantNiveles, int sotanos, int elevadores, int precioMinVenta, int precioSugerido, int precioReal, int imageId, int codEmpleado) {
         this.inmuebleId = inmuebleId;
         this.tipoPropiedadId = tipoPropiedadId;
         this.estadoId = estadoId;
@@ -39,6 +40,7 @@ public class BienesInmuebles {
         this.precioMinVenta = precioMinVenta;
         this.precioSugerido = precioSugerido;
         this.precioReal = precioReal;
+        this.imageId = imageId;
         this.codEmpleado = codEmpleado;
     }
 
@@ -54,27 +56,27 @@ public class BienesInmuebles {
         this.inmuebleId = inmuebleId;
     }
 
-    public byte getTipoPropiedadId() {
+    public int getTipoPropiedadId() {
         return tipoPropiedadId;
     }
 
-    public void setTipoPropiedadId(byte tipoPropiedadId) {
+    public void setTipoPropiedadId(int tipoPropiedadId) {
         this.tipoPropiedadId = tipoPropiedadId;
     }
 
-    public byte getEstadoId() {
+    public int getEstadoId() {
         return estadoId;
     }
 
-    public void setEstadoId(byte estadoId) {
+    public void setEstadoId(int estadoId) {
         this.estadoId = estadoId;
     }
 
-    public byte getEstadoNegId() {
+    public int getEstadoNegId() {
         return estadoNegId;
     }
 
-    public void setEstadoNegId(byte estadoNegId) {
+    public void setEstadoNegId(int estadoNegId) {
         this.estadoNegId = estadoNegId;
     }
 
@@ -94,11 +96,11 @@ public class BienesInmuebles {
         this.direccion = direccion;
     }
 
-    public byte getZonaId() {
+    public int getZonaId() {
         return zonaId;
     }
 
-    public void setZonaId(byte zonaId) {
+    public void setZonaId(int zonaId) {
         this.zonaId = zonaId;
     }
 
@@ -118,35 +120,35 @@ public class BienesInmuebles {
         this.descripcionMetros = descripcionMetros;
     }
 
-    public byte getCantCuartos() {
+    public int getCantCuartos() {
         return cantCuartos;
     }
 
-    public void setCantCuartos(byte cantCuartos) {
+    public void setCantCuartos(int cantCuartos) {
         this.cantCuartos = cantCuartos;
     }
 
-    public byte getCantNiveles() {
+    public int getCantNiveles() {
         return cantNiveles;
     }
 
-    public void setCantNiveles(byte cantNiveles) {
+    public void setCantNiveles(int cantNiveles) {
         this.cantNiveles = cantNiveles;
     }
 
-    public byte getSotanos() {
+    public int getSotanos() {
         return sotanos;
     }
 
-    public void setSotanos(byte sotanos) {
+    public void setSotanos(int sotanos) {
         this.sotanos = sotanos;
     }
 
-    public byte getElevadores() {
+    public int getElevadores() {
         return elevadores;
     }
 
-    public void setElevadores(byte elevadores) {
+    public void setElevadores(int elevadores) {
         this.elevadores = elevadores;
     }
 
@@ -174,6 +176,14 @@ public class BienesInmuebles {
         this.precioReal = precioReal;
     }
 
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
     public int getCodEmpleado() {
         return codEmpleado;
     }
@@ -181,5 +191,6 @@ public class BienesInmuebles {
     public void setCodEmpleado(int codEmpleado) {
         this.codEmpleado = codEmpleado;
     }
-//</editor-fold>
 }
+
+//</editor-fold>

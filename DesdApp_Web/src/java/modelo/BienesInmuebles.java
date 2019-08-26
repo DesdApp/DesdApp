@@ -9,7 +9,7 @@ public class BienesInmuebles {
     private byte estadoNegId;
     private int clienteId;
     private String direccion;
-    private byte zonaId;
+    private int zonaId;
     private String metrosCuadrados;
     private String descripcionMetros;
     private byte cantCuartos;
@@ -22,7 +22,7 @@ public class BienesInmuebles {
     private int codEmpleado;
 
     //Constructor
-    public BienesInmuebles(String inmuebleId, byte tipoPropiedadId, byte estadoId, byte estadoNegId, int clienteId, String direccion, byte zonaId, String metrosCuadrados, String descripcionMetros, byte cantCuartos, byte cantNiveles, byte sotanos, byte elevadores, int precioMinVenta, int precioSugerido, int precioReal, int codEmpleado) {
+    public BienesInmuebles(String inmuebleId, byte tipoPropiedadId, byte estadoId, byte estadoNegId, int clienteId, String direccion, int zonaId, String metrosCuadrados, String descripcionMetros, byte cantCuartos, byte cantNiveles, byte sotanos, byte elevadores, int precioMinVenta, int precioSugerido, int precioReal, int codEmpleado) {
         this.inmuebleId = inmuebleId;
         this.tipoPropiedadId = tipoPropiedadId;
         this.estadoId = estadoId;
@@ -44,6 +44,13 @@ public class BienesInmuebles {
 
     public BienesInmuebles() {
     }
+
+    @Override
+    public String toString() {
+        return "BienesInmuebles{" + "inmuebleId=" + inmuebleId + ", tipoPropiedadId=" + tipoPropiedadId + ", estadoId=" + estadoId + ", estadoNegId=" + estadoNegId + ", clienteId=" + clienteId + ", direccion=" + direccion + ", zonaId=" + zonaId + ", metrosCuadrados=" + metrosCuadrados + ", descripcionMetros=" + descripcionMetros + ", cantCuartos=" + cantCuartos + ", cantNiveles=" + cantNiveles + ", sotanos=" + sotanos + ", elevadores=" + elevadores + ", precioMinVenta=" + precioMinVenta + ", precioSugerido=" + precioSugerido + ", precioReal=" + precioReal + ", codEmpleado=" + codEmpleado + '}';
+    }
+    
+    
 
     //<editor-fold defaultstate="collapsed" desc="Metodos set y get">
     public String getInmuebleId() {
@@ -94,11 +101,11 @@ public class BienesInmuebles {
         this.direccion = direccion;
     }
 
-    public byte getZonaId() {
+    public int getZonaId() {
         return zonaId;
     }
 
-    public void setZonaId(byte zonaId) {
+    public void setZonaId(int zonaId) {
         this.zonaId = zonaId;
     }
 

@@ -6,10 +6,8 @@
 package dao;
 
 import java.util.ArrayList;
-import modelo.Corredores;
-
-
-
+import modelo.BienesInmuebles;
+import dao.DAOBienesInmuebles;
 /**
  *
  * @author javam2019
@@ -17,18 +15,14 @@ import modelo.Corredores;
 public class PruebaInicio {
 
     public static void main(String[] args) {
-        ArrayList<Corredores> listar = new ArrayList<>();
-        Corredores c = new Corredores();
-        DAOCorredores dao = new DAOCorredores();
-        listar = dao.lista(2);
-        for (Corredores corredores : listar) {
-            System.out.println(corredores.toString());
+        ArrayList<BienesInmuebles> list = new ArrayList<>();
+        BienesInmuebles bien = new BienesInmuebles();
+        DAOBienesInmuebles dao = new DAOBienesInmuebles();
+        
+        list = dao.listView("Casas");
+        for (BienesInmuebles bienesInmuebles : list) {
+            System.out.println(bienesInmuebles.toString());
         }
         
-        
-//        DAOClientes clin = new DAOClientes();
-//        Clientes cl = new Clientes(0, 0, "Estela", "estel23", "estel23");
-//        
-//        System.out.println(clin.validar(cl));
     }
 }

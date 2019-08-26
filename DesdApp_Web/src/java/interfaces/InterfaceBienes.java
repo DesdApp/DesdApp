@@ -16,5 +16,7 @@ public interface InterfaceBienes {
     
     public ArrayList<BienesInmuebles> listBienes();
     
+    public ArrayList<BienesInmuebles> listView(String prop);
+    
    
 }
