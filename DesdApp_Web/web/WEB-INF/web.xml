@@ -31,10 +31,6 @@
         <servlet-name>Inmueble</servlet-name>
         <servlet-class>controlador.Inmueble</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ServletCorredor</servlet-name>
-        <servlet-class>controlador.ServletCorredor</servlet-class>
-    </servlet>
     
     
     <servlet>
@@ -81,12 +77,6 @@
     <servlet-mapping>
         <servlet-name>Inmueble</servlet-name>
         <url-pattern>/Inmueble</url-pattern>
-    </servlet-mapping>
-    
-      <servlet-mapping>
-
-        <servlet-name>ServletCorredor</servlet-name>
-        <url-pattern>/ServletCorredor</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>
