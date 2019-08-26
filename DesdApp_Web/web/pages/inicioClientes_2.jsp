@@ -4,6 +4,7 @@
     Author     : User
 --%>
 
+<%@page import="modelo.TiposDocumentos"%>
 <%@page import="modelo.Zonas"%>
 <%@page import="modelo.Municipios"%>
 <%@page import="modelo.Departamentos"%>
@@ -20,6 +21,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
         <title>Inicio Clientes</title>
 
         <!-- Bootstrap Stylesheet -->
@@ -38,6 +40,7 @@
             ArrayList<Departamentos> listaDep = (ArrayList) request.getAttribute("listarDepartamentos");
             ArrayList<Municipios> listaMuni = (ArrayList) request.getAttribute("listarMunicipios");
             ArrayList<Zonas> listaZona = (ArrayList) request.getAttribute("listarZonas");
+            ArrayList<TiposDocumentos> listaDoc = (ArrayList) request.getAttribute("listarDocumentos");
 
 
         %>
@@ -167,6 +170,7 @@
                         <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#"><img src="../img/persona.png" height="80" width="80"></a>
                             <a class="dropdown-item" href="#">Usuario</a>
+
                             <!--Boton para modificar los datos de usuario-->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
                                 Modificar
@@ -184,6 +188,7 @@
             </div>
         </nav>
         <!-- Fin de la barra de navegacion -->
+        
         <!-- Modal para la modificacion de datos-->
         <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
@@ -207,31 +212,42 @@
                                 <label for="exampleFormControlInput1">Email</label>
                                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"><br>
                                 <select class="custom-select custom-select-sm">
-                                    <!--Cargar lista de Venta Renta-->S
+                                    <!--Cargar lista de Documentos-->
+                                    <% for (TiposDocumentos doc : listaDoc) {
+                                    %>
+                                    <option selected value="<%= doc.getIdTipoDoc()%>"><%= doc.getNombre()%></option>
+                                    <%
+                                        }
+                                    %>
                                     <option selected>Tipo Documento</option>
+
                                 </select>
                                 <div>
                                     <label for="exampleFormControlInput1">NO. Documento</label>
                                     <input type="text" class="form-control" id="documento" >
+                                    <div class="invalid-tooltip">
+                                        Por favor proporcione un documento valido.
+                                    </div>
                                 </div>
                                 <label for="fechaNac">Fecha Nacimiento</label>
                                 <input type="date" class="form-control" name="txtFechaNac" id="fechaNac" placeholder="01/01/1990" required>
                                 <div class="invalid-tooltip">
-                                    Please provide a valid city.
+                                    Por favor proporcione una ciudad valida
+
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="cel">Celular</label>
                                         <input type="number" class="form-control" name="txtCel" id="cel"  required>
                                         <div class="invalid-tooltip">
-                                            Please provide a valid state.
+                                            Por favor proporcione una No. celular valido.
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="tel">Telefono</label>
                                         <input type="number" class="form-control" name="txtTel" id="tel"  required>
                                         <div class="invalid-tooltip">
-                                            Please provide a valid zip.
+                                            Por favor proporcione un No. Telefono valido.
                                         </div>
                                     </div>
                                 </div>
@@ -242,15 +258,15 @@
                                         <label for="direccion">Dirección</label>
                                         <input type="text" class="form-control" name="txtDireccion" id="direccion" required>
                                         <div class="invalid-tooltip">
-                                            Please provide a valid city.
+                                            Por favor proporcione una Direccion valida
                                         </div>
                                     </div>
 
                                     <div class="col-md-3 mb-3">
-                                        <label for="nit">nit</label>
+                                        <label for="nit">Nit</label>
                                         <input type="text" class="form-control" name="txtNit" id="nit"  required>
                                         <div class="invalid-tooltip">
-                                            Please provide a valid zip.
+                                            Por favor proporcione un Nit valido.
                                         </div>
                                     </div>
                                 </div>
@@ -261,7 +277,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                        <button type="button" class="btn btn-primary" >Guardar Cambios</button>
                     </div>
                 </div>
             </div>
