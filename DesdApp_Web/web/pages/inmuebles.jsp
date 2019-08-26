@@ -1,3 +1,4 @@
+<%@page import="modelo.VistaBien"%>
 <%@page import="modelo.BienesInmuebles"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,6 +12,7 @@
         <link rel="stylesheet" href="css/inmueblesStyle.css" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <script src="https://kit.fontawesome.com/9161675d14.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -74,18 +76,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Controlador?accion=registrar">Iniciar Sesión/Registrarse</a>
                         </li>
-                        <li>
                     </ul>
                 </div>
+         
 
         </form>
         <div class="row mt-5">
 
              <%
-                ArrayList<BienesInmuebles> list = (ArrayList) request.getAttribute("listaInmuebles");
+                ArrayList<VistaBien> list = (ArrayList) request.getAttribute("listaInmuebles");
                 int filas = 0;
-                for (BienesInmuebles in : list) {
-
+                for (VistaBien in : list) {
 
                 %>
             <!--Card-->
@@ -94,11 +95,15 @@
                 <div class="card mx-auto mb-4">
                     <img src="img/c1.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><%= in.getTipoPropiedadId()+"  " + in.getEstadoId() %></h5>
-                        <p class="card-text"><%= in.getDireccion()+in.getZonaId() %></p>
-                        <p class="card-text"><%= in.getPrecioSugerido() %></p>
-                        <a href="#" class="btn colorBt text-light "></a>
-                        <p class="card-text mt-2"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <div class="row">
+                        <h5 class="card-title text-left col-7"><%= in.getTipoProp() + " " +in.getVentaRenta() %></h5> <h5 class="card-tile text-right "><%= "US$" + in.getPrecioSug() %></h5>
+                        </div>
+                        <p class="card-text"><%= in.getZona() +", "+"Guatemala "+", "+in.getDep() %></p>
+                        <div class="row mx-auto">
+                            <p class="card-text "><i class="fas fa-bed"></i><%=" " + in.getHabitacion() + ("&nbsp")+("&nbsp")+("&nbsp")+("&nbsp") %></p><i class="fas fa-arrows-alt"></i><p class="card-text"><%= in.getMetrosC()%></p>
+                        </div>
+                        <a href="" class="btn colorBt text-light ">Detalle</a>
+                        <p class="card-text mt-2 align-middle"><small class="text-muted align-middle"><i class="fas fa-user"></i></small><%=("&nbsp")+("&nbsp")+ in.getNomemple()%></p>
                     </div>
                 </div>
             </div>
@@ -117,7 +122,7 @@
                         <form class="col-md-12">
                             <h5>Filtros de busqueda</h5>
                             <div class="form-group row">
-                                <input class="form-control" type="text" placeholder="Ingrese zona, sector, ciudad o cod. de inmueble">
+                                <input class="form-control" type="text" placeholder="Ingrese zona, sector, ciudad o cod. de inmueble">      
                             </div>
 
                             <div class="form-group row d-flex justify-content-between">
@@ -184,6 +189,7 @@
                         <div class="col-12 mb-3">
                             <h5>Filtros por tipo de operacion</h5>
                         </div>
+                        
                         <div class="col-12 mb-3">
                             <a href="">Renta</a>
                         </div>

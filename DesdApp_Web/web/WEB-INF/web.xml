@@ -4,7 +4,6 @@
         <servlet-name>Controlador</servlet-name>
         <servlet-class>controlador.Controlador</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>ControladorIndex</servlet-name>
         <servlet-class>controlador.ControladorIndex</servlet-class>
@@ -21,18 +20,10 @@
         <servlet-name>ControladorLogin</servlet-name>
         <servlet-class>controlador.ControladorLogin</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>InicioClientesControlador</servlet-name>
         <servlet-class>controlador.InicioClientesControlador</servlet-class>
     </servlet>
-    
-    <servlet>
-        <servlet-name>Inmueble</servlet-name>
-        <servlet-class>controlador.Inmueble</servlet-class>
-    </servlet>
-    
-    
     <servlet>
         <servlet-name>Suscribirse</servlet-name>
         <servlet-class>controlador.Suscribirse</servlet-class>
@@ -45,17 +36,18 @@
         <servlet-name>ServletNosotros</servlet-name>
         <servlet-class>controlador.ServletNosotros</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>FiltrarInmueble</servlet-name>
+        <servlet-class>controlador.FiltrarInmueble</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Controlador</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>ControladorIndex</servlet-name>
         <url-pattern>/ControladorIndex</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>ServletCorredor</servlet-name>
         <url-pattern>/ServletCorredor</url-pattern>
@@ -72,19 +64,10 @@
         <servlet-name>InicioClientesControlador</servlet-name>
         <url-pattern>/InicioClientesControlador</url-pattern>
     </servlet-mapping>
-    
-    
     <servlet-mapping>
-        <servlet-name>Inmueble</servlet-name>
-        <url-pattern>/Inmueble</url-pattern>
-    </servlet-mapping>
-    
-      <servlet-mapping>
-
         <servlet-name>ServletCorredor</servlet-name>
         <url-pattern>/ServletCorredor</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>Suscribirse</servlet-name>
         <url-pattern>/Suscribirse</url-pattern>
@@ -96,6 +79,10 @@
     <servlet-mapping>
         <servlet-name>ServletNosotros</servlet-name>
         <url-pattern>/ServletNosotros</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FiltrarInmueble</servlet-name>
+        <url-pattern>/FiltrarInmueble</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -20,11 +20,10 @@ import modelo.Personas;
 public class Controlador extends HttpServlet {
     
     String inmuebles = "pages/inmuebles.jsp";
-    String registrado = "pages/registroexito.jsp";
     String add = "pages/login.jsp";
     String registrase = "pages/registrarse.jsp";
     String equipo = "pages/nosotros.jsp";
-    String oficina = "pages/oficinas.jsp";
+    String oficina = "pages/nuestraoficina.jsp";
     String index = "index.jsp";
     String mg = "";
     Personas p = new Personas();
@@ -55,7 +54,7 @@ public class Controlador extends HttpServlet {
             throws ServletException, IOException {
         
         
-        String acceso="";
+         String acceso="";
          String action = request.getParameter("accion");
          System.out.println("Accion:" + action);
          if (action.equalsIgnoreCase("registrar")) {
@@ -107,21 +106,15 @@ public class Controlador extends HttpServlet {
              System.out.println(c.toString());
              daoC.insertCliente(c);
              
-             String pass = request.getParameter("");
+             String password = request.getParameter("");
              c.setUser(user);
-             c.setPassword(pass);
+             c.setPassword(password);
              if (personaIdValor==0){
-              response.sendRedirect("pages/registrase.jsp?m=1");
-              acceso = "pages/registrase.jsp?m=1";
-              
+             acceso=registrase;
              }else{
               acceso = index;
              }
-        //Inmuebles    
-        }else if(action.equalsIgnoreCase("bien")){
-            acceso = inmuebles;
-            
-        } 
+         }
          
         
         RequestDispatcher pages = request.getRequestDispatcher(acceso);

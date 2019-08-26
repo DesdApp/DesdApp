@@ -1,24 +1,19 @@
-
 package controlador;
 
-import dao.DAOBienesInmuebles;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.BienesInmuebles;
 
 /**
  *
  * @author User
  */
-public class Inmueble extends HttpServlet {
-    String inmueble = "pages/inmuebles.jsp";
-    DAOBienesInmuebles daobien = new DAOBienesInmuebles();
-    BienesInmuebles  bien = new BienesInmuebles();
+public class FiltrarInmueble extends HttpServlet {
     
+    String buscar = "inmuebles.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,7 +29,15 @@ public class Inmueble extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet FiltrarInmueble</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet FiltrarInmueble at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -50,17 +53,14 @@ public class Inmueble extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+     
+        String acceso = buscar;
+        String action = request.getParameter("acction");
         
-    String acceso="";
-    String action = request.getParameter(acceso);
-        if (action.equalsIgnoreCase("bien")) {
-         daobien.listBienes();
-         acceso = inmueble;
-        }
-    
+        
     }
 
-    
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

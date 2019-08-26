@@ -2,11 +2,35 @@ package modelo;
 
 public class VistaBien {
 
+    //Atributos de clase VistaBien
     String tipoProp;
     String ventaRenta;
-    String direc;
+    int habitacion;
     String zona;
+    String dep;
+    String metrosC;
     int  precioSug;
+    int codemple;
+    String nomemple;
+
+    //Constructores
+    public VistaBien(String tipoProp, String ventaRenta, int habitacion, String zona,String dep, String metrosC, int precioSug, int codemple, String nomemple) {
+        this.tipoProp = tipoProp;
+        this.ventaRenta = ventaRenta;
+        this.habitacion = habitacion;
+        this.zona = zona;
+        this.dep = dep;
+        this.metrosC = metrosC;
+        this.precioSug = precioSug;
+        this.codemple = codemple;
+        this.nomemple = nomemple;
+    }
+    //Constructor vacio
+    public VistaBien(){
+        
+    }
+
+    //<editor-fold defaultstate="collapsed" desc="Getter and Setter">
 
     public String getTipoProp() {
         return tipoProp;
@@ -24,12 +48,12 @@ public class VistaBien {
         this.ventaRenta = ventaRenta;
     }
 
-    public String getDirec() {
-        return direc;
+    public int getHabitacion() {
+        return habitacion;
     }
 
-    public void setDirec(String direc) {
-        this.direc = direc;
+    public void setHabitacion(int habitacion) {
+        this.habitacion = habitacion;
     }
 
     public String getZona() {
@@ -40,6 +64,22 @@ public class VistaBien {
         this.zona = zona;
     }
 
+    public String getDep() {
+        return dep;
+    }
+
+    public void setDep(String dep) {
+        this.dep = dep;
+    }
+
+    public String getMetrosC() {
+        return metrosC;
+    }
+
+    public void setMetrosC(String metrosC) {
+        this.metrosC = metrosC;
+    }
+
     public int getPrecioSug() {
         return precioSug;
     }
@@ -47,8 +87,34 @@ public class VistaBien {
     public void setPrecioSug(int precioSug) {
         this.precioSug = precioSug;
     }
+
+    public int getCodemple() {
+        return codemple;
+    }
+
+    public void setCodemple(int codemple) {
+        this.codemple = codemple;
+    }
+
+    public String getNomemple() {
+        return nomemple;
+    }
+
+    public void setNomemple(String nomemple) {
+        this.nomemple = nomemple;
+    }
+     
+
+//</editor-fold>
+
+    @Override
+    public String toString() {
+        return "VistaBien{" + "tipoProp=" + tipoProp + ", ventaRenta=" + ventaRenta + ", habitacion=" + habitacion + ", zona=" + zona + ", dep=" + dep + ", metrosC=" + metrosC + ", precioSug=" + precioSug + ", codemple=" + codemple + ", nomemple=" + nomemple + '}';
+    }
+
     
     
+ 
     
     
 }

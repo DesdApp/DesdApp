@@ -1,7 +1,7 @@
 
 package controlador;
 
-import dao.DAOBienesInmuebles;
+import dao.DAOVistaBienes;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.BienesInmuebles;
+import modelo.VistaBien;
 
 /**
  *
@@ -55,15 +55,13 @@ public class ControladorInmueble extends HttpServlet {
         String accion = request.getParameter("accion");
        
         
-        ArrayList<BienesInmuebles> listaInmuebles = new ArrayList<>();
-        DAOBienesInmuebles daoIn = new DAOBienesInmuebles();
-        listaInmuebles = daoIn.listView(accion);
+        ArrayList<VistaBien> listaInmuebles = new ArrayList<>();
+        DAOVistaBienes daoIn = new DAOVistaBienes();
+        listaInmuebles = daoIn.listview(accion);
 
          request.setAttribute("listaInmuebles", listaInmuebles);
          RequestDispatcher vista = request.getRequestDispatcher(acceso);
          vista.forward(request, response);
-         
-      
        
         
     }

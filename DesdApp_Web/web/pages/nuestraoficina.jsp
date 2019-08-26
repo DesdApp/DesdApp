@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/oficinas.css" type="text/css">
+    <link rel="stylesheet" href="css/oficinas.css" type="text/css">
     <title>Document</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
     <!--Barra de navegacion-->
 
         <div class="row mx-auto primary" style="justify-content: center; text-align: center; display: flex">
-            <div class="col-sm-3 col-md-1"><img src="../img/let.PNG" width="120px">
+            <div class="col-sm-3 col-md-1"><img src="img/let.PNG" width="120px">
 
             </div>
 
@@ -91,7 +91,7 @@
                     CORREO: BienesRaices@gmail.com<br>
                     PAGINA WEB: BienesRaicesGuatemala.com<br>
                  </p>   
-                 <img src="../img/office.jpg" class="img-fluid" >
+                 <img src="img/office.jpg" class="img-fluid" >
             </div>
 
             <div class="col-md-6 col-sm-6 mt-5 mb-5 mx-auto embed-responsive embed-responsive-16by9 ">

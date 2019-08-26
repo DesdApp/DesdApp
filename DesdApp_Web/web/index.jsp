@@ -52,7 +52,7 @@
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Quienes somos</a>
                         <div class="dropdown-menu transparente">
-                            <a class="dropdown-item" href="pages/nosotros.jsp">Nuestro Equipo</a>
+                            <a class="dropdown-item" href="">Nuestro Equipo</a>
                             <a class="dropdown-item" href="Controlador?accion=oficina">Oficinas</a>
                         </div>
                     </li>
@@ -64,12 +64,13 @@
                             <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Apartamentos</a>             
                             <a class="dropdown-item" href="ControladorInmueble?accion=Bodegas">Bodegas</a>
                             <a class="dropdown-item" href="ControladorInmueble?accion=Casas">Casas</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Edificios</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Fincas</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Locales</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Oficinas</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Proyectos</a>
-                            <a class="dropdown-item" href="ControladorInmueble?accion=Apartamentos">Terrenos</a>
+                            <a class="dropdown-item" href="ControladorInmueble?accion=Edificios">Edificios</a>
+                            <a class="dropdown-item" href="ControladorInmueble?accion=Fincas">Fincas</a>
+                            <a class="dropdown-item" href="ControladorInmueble?accion=Locales Comerciales">Locales</a>
+                            <a class="dropdown-item" href="ControladorInmueble?accion=Oficinas">Oficinas</a>
+                            <a class="dropdown-item" href="ControladorInmueble?accion=Terrenos">Terrenos</a>
+                            <a class="dropdown-item" href="ControladorInmueble?accion=Proyectos de Residenciales">Proyectos Residenciales</a>
+                            <a class="dropdown-item" href="ControladorInmueble?accion=Proyectos de Apartamentos">Proyectos de Apartamentos</a>
                         </div>
                     </li>
 
