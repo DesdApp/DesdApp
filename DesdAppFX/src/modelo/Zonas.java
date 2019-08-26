@@ -32,4 +32,8 @@ public class Zonas {
         this.muniId = muniId;
     }
 //</editor-fold>
+    @Override
+    public String toString(){
+        return nombre +" "+ muniId;
+    }
 }

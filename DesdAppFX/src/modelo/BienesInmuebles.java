@@ -191,6 +191,7 @@ public class BienesInmuebles {
     public void setCodEmpleado(int codEmpleado) {
         this.codEmpleado = codEmpleado;
     }
-}
 
 //</editor-fold>
+    
+}

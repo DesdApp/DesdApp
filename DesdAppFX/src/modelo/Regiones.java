@@ -48,7 +48,7 @@ public class Regiones {
 
     @Override
     public String toString() {
-        return "Regiones{" + "regionId=" + regionId + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+        return nombre;
     }
     
     
