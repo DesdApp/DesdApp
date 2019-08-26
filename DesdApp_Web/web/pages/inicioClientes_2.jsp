@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/inicioClientes.css">
-        <link rel="stylesheet" href="../js/inicioCli.js">
+        
         <!-- Bootstrap Stylesheet -->
 
     </head>
@@ -168,7 +168,7 @@
                             Cerrar Sesion
                         </a>
                         <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><img src="../img/persona.png" height="80" width="80"></a>
+                            <a class="dropdown-item" href="#"><img src="img/persona.png" height="80" width="80"></a>
                             <a class="dropdown-item" href="#">Usuario</a>
 
                             <!--Boton para modificar los datos de usuario-->
@@ -190,12 +190,14 @@
         <!-- Fin de la barra de navegacion -->
         
         <!-- Modal para la modificacion de datos-->
+        
         <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title"  id="exampleModalLabel">Modificar Datos</h5>
+                        
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
                             <span aria-hidden="true">&times;</span>
@@ -203,15 +205,15 @@
                     </div>
                     <div class="modal-body">
 
-                        <form action="${pageContext.request.contextPath}/InicioClientesControlador" method="POST" class="needs-validation mt-5" novalidate="">
+                        <form action="InicioClientesControlador" method="POST" class="needs-validation mt-5" novalidate="" id="datosClientes">
                             <div>
-                                <label for="exampleFormControlInput1">Nombre</label>
+                                <label for="nombre">Nombre</label>
                                 <input type="text" class="form-control" name="txtNombre" id="nombre" >
-                                <label for="exampleFormControlInput1">Apellido</label>
+                                <label for="apellido">Apellido</label>
                                 <input type="text" class="form-control" name="txtApellido" id="apellido"> 
-                                <label for="exampleFormControlInput1">Email</label>
-                                <input type="email" class="form-control" name="txtEmail" id="exampleFormControlInput1" placeholder="name@example.com"><br>
-                                <select name="txtTipo" class="custom-select custom-select-sm">
+                                <label for="txtEmail">Email</label>
+                                <input type="email" class="form-control" name="txtEmail" id="txtEmail" placeholder="name@example.com"><br>
+                                <select name="txtTipo" class="custom-select custom-select-sm" >
                                     <!--Cargar lista de Documentos-->
                                     <% for (TiposDocumentos doc : listaDoc) {
                                     %>
@@ -223,7 +225,7 @@
 
                                 </select>
                                 <div>
-                                    <label for="exampleFormControlInput1">NO. Documento</label>
+                                    <label for="documento">NO. Documento</label>
                                     <input type="text" class="form-control" name="txtDoc" id="documento" >
                                     <div class="invalid-tooltip">
                                         Por favor proporcione un documento valido.
@@ -272,12 +274,13 @@
                                 </div>
 
                             </div>
-                        </form>
+                                    <input type="hidden" id="accion" name="accion" value="modificar">
+                      </form>
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" >Guardar Cambios</button>
+                        <button type="submit" class="btn btn-primary" form="datosClientes" name="enviar" id="enviar">Guardar Cambios</button>
                     </div>
                 </div>
             </div>
@@ -308,6 +311,7 @@
                 integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
         <!-- Bootstrap Js -->
+        <script src="js/inicioCli.js"></script>
 
     </body>
 

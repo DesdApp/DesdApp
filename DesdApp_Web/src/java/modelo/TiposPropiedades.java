@@ -1,5 +1,10 @@
 package modelo;
-
+/**
+ * Esta Clase declara los metodos Get, Set, y
+ * Atributos para la clase TiposPropiedades, 
+ * Inicializa los contructores vacio y Lleno.
+ * @author carolina
+ */
 public class TiposPropiedades {
 
     // Atributos

@@ -2,9 +2,9 @@
 package interfaces;
 
 import java.util.ArrayList;
-import modelo.VistaBien;
+import modelo.VistasBienes;
 
 public interface interfaceVistaBienes {
 
-public ArrayList<VistaBien>listview();  
+public ArrayList<VistasBienes>listview();  
 }
