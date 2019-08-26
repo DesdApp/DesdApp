@@ -48,7 +48,7 @@ public class Municipios {
 
     @Override
     public String toString() {
-        return "Municipios{" + "muniIdi=" + muniIdi + ", nombre=" + nombre + ", deptoId=" + deptoId + '}';
+        return nombre;
     }
     
     

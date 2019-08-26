@@ -23,6 +23,7 @@ import dao.DAODepartamentos;
 import dao.DAOEmpleados;
 import dao.DAOMunicipios;
 import dao.DAORegiones;
+import dao.DAOTiposPropiedades;
 import dao.DAOZonas;
 
 //Importacion de Modelos
@@ -34,6 +35,7 @@ import modelo.Regiones;
 import modelo.Departamentos;
 import modelo.Municipios;
 import modelo.Zonas;
+import modelo.TiposPropiedades;
 
 public class MenuPrincipalController implements Initializable {
 
@@ -57,6 +59,8 @@ public class MenuPrincipalController implements Initializable {
     DAORegiones daoR = new DAORegiones();
     DAODepartamentos daoD = new DAODepartamentos();
     DAOMunicipios daoM = new DAOMunicipios();
+    
+    DAOTiposPropiedades daoTP = new DAOTiposPropiedades();
 
     @FXML
     private BorderPane bp;
@@ -163,9 +167,14 @@ public class MenuPrincipalController implements Initializable {
         estadoNegPro.setItems(listaTipoNeg);
 
         //ComboBox Tipo de propiedad
-        ArrayList<BienesInmuebles> listaTipoProp = new ArrayList();
-        listaTipoProp = daob.listBienes();
-        ObservableList<BienesInmuebles> listatp = FXCollections.observableArrayList(listaTipoProp);
+        //ArrayList<BienesInmuebles> listaTipoProp = new ArrayList();
+        //listaTipoProp = daob.listBienes();
+        //ObservableList<BienesInmuebles> listatp = FXCollections.observableArrayList(listaTipoProp);
+        //tipoPropiedad.setItems(listatp);
+        
+        ArrayList<TiposPropiedades> listaTipoProp = new ArrayList();
+        listaTipoProp = daoTP.listTipos();
+        ObservableList<TiposPropiedades> listatp = FXCollections.observableArrayList(listaTipoProp);
         tipoPropiedad.setItems(listatp);
         
         //ComboBox Zonas
