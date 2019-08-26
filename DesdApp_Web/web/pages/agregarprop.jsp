@@ -62,26 +62,53 @@
                             <a class="dropdown-item" href="#">Terrenos</a>
                         </div>
                     </li>
+                            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="">ContÃ¡ctenos</a>
-                    </li>
+                            <!--B1-->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Quienes somos</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="Controlador?accion=equipo">Nuestro Equipo</a>
+                                    <a class="dropdown-item" href="Controlador?accion=oficina">Oficinas</a>
+                                </div>
+                            </li>
+                            <!--B2-->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inmuebles</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="">Apartamentos</a>
+                                    <a class="dropdown-item" href="#">Bodegas</a>
+                                    <a class="dropdown-item" href="#">Casas</a>
+                                    <a class="dropdown-item" href="#">Edificios</a>
+                                    <a class="dropdown-item" href="#">Fincas</a>
+                                    <a class="dropdown-item" href="#">Locales</a>
+                                    <a class="dropdown-item" href="#">Oficinas</a>
+                                    <a class="dropdown-item" href="#">Proyectos</a>
+                                    <a class="dropdown-item" href="#">Terrenos</a>
+                                </div>
+                            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="Controlador?accion=registrar">Iniciar SesiÃ³n/Registrarse</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </form>
-    <!-- Final barra de navegacion -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="">ContÃ¡ctenos</a>
+                            </li>
 
-    <!-- Formulario para agregar propiedades -->
-    <div class="container-fluid p-5">
-        <div class="col border border-dark white p-3">
-            <form>
-                <div class="row form-group">
-                    <select class="form-control">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Controlador?accion=registrar">Iniciar SesiÃ³n/Registrarse</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </form>
+            <!-- Final barra de navegacion -->
+
+            <!-- Formulario para agregar propiedades -->
+            <div class="container-fluid d-flex justify-content-center p-5">
+                <div class="col-md-5 border border-dark rounded white m-3 p-3">
+                    <form>
+                        <!-- Tipo de propiedad -->
+                        <div class="row form-group">
+                            <select name="selTipoProp" class="form-control">
+                        <option selected disabled>Tipo de propiedad</option>
                         <option value="Apartamentos">Apartamentos</option>
                         <option value="Bodegas">Bodegas</option>
                         <option value="Casas">Casas</option>
@@ -93,33 +120,39 @@
                         <option value="Proyectos de Residenciales">Proyectos de Residenciales</option>
                         <option value="Proyectos de Apartamentos">Proyectos de Apartamentos</option>
                     </select>
-                </div>
-                <div class="row">
-                    <select class="form-control">
+                        </div>
+                        <!-- Estado negocio -->
+                        <div class="row form-group">
+                            <select class="form-control">
                         <option value="Venta">Venta</option>
                         <option value="Renta">Renta</option>
                     </select>
+                        </div>
+                        <!-- Direccion -->
+                        <div class="row form-group">
+                            <input type="text" name="txtDireccion" class="form-control">
+                        </div>
+                        <!-- Zona -->
+                        <div class="row">
+                            <input type="number" name="txtZona" max="30" min="0" aria-controls="false" class="form-control">
+                        </div>
+                        <div class="row"></div>
+                        <div class="row"></div>
+                        <div class="row"></div>
+                        <div class="row"></div>
+                    </form>
                 </div>
-                <div class="row">
-                    <input type="text" class="form-control">
-                </div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-            </form>
-        </div>
-        <div class="col border border-black white">
-            <form>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row">
-                    <input type="number" name="" id="" class="form-control">
+                <div class="col-md-5 border border-dark rounded white m-3 p-3">
+                    <form>
+                        <div class="row"></div>
+                        <div class="row"></div>
+                        <div class="row"></div>
+                        <div class="row"></div>
+                        <div class="row"></div>
+                        <div class="row"></div>
+                        <div class="row">
+                            <input type="number" name="" id="" class="form-control">
+                    </form>
                 </div>
             </form>
         </div>
