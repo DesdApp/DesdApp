@@ -63,6 +63,7 @@ public class ServletNosotros extends HttpServlet {
             throws ServletException, IOException {
         
         String acceso=nosotros;
+
         
         ArrayList<Nosotros> listaNosotros = new ArrayList<>();
         DAONosotros daoNosotros = new DAONosotros();
@@ -71,6 +72,7 @@ public class ServletNosotros extends HttpServlet {
         request.setAttribute("listaNosotros", listaNosotros);
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
         vista.forward(request, response);
+       
     }
 
     /**

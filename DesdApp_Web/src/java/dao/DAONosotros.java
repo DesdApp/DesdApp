@@ -9,6 +9,7 @@ import modelo.Nosotros;
 public class DAONosotros  implements InterfaceNosotros{
     ConexionDB conex = new ConexionDB();
     PreparedStatement execute;
+
     ResultSet rs;
     String sql;
 
@@ -41,5 +42,36 @@ public class DAONosotros  implements InterfaceNosotros{
         }
         return list;
     }
+
+    @Override
+    public ArrayList<Nosotros> lista() {
+        ArrayList<Nosotros> lista = new ArrayList<>();
+        Nosotros nos;
+        try {
+            conex.conectar();
+            sql = "SELECT * FROM view_corredores WHERE cod_empleado=?";
+            execute = conex.getconexionDB().prepareStatement(sql);
+            rs = execute.executeQuery();
+            
+            while (rs.next()){
+                nos = new Nosotros();
+                nos.setNombre(rs.getString("nombre"));
+                nos.setApellido(rs.getString("apellido"));
+                nos.setCorreo(rs.getString("correo"));
+                nos.setTel(rs.getInt("telefono"));
+                nos.setCel(rs.getInt("celular"));
+                nos.setCod_empleado(rs.getInt("cod_empleado"));
+                nos.setTipo_usuario_id(rs.getInt("tipo_usuario_id"));
+                lista.add(nos);                
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("Error en DAONosotros: " + e.getMessage());
+        }finally{
+            conex.desconectar();
+        }
+        return lista;
+    }
+    }
     
-}
+

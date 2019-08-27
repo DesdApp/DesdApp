@@ -5,18 +5,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Zonas;
-
+/**
+ * Esta clase es el objeto de acceso a datos para la clase Zonas.
+ * @author carolina
+ */
 public class DAOZonas implements interfaces.InterfaceZonas {
 
+   
+   
+    
 //    Instanciamos las clases
     ConexionDB cx = new ConexionDB();
     PreparedStatement execute;
     ResultSet rs;
 
 //    Atributos
-    String sql;
-    String msg;
+    String sql; //String sql se utiliza para escribir la consulta SQL
+    String msg; //msg es usado para mostrar un mensaje de como se realizo una consulta
 
+    /**
+     * Este metodo es para realizar la consulta de una Zonas
+     * en base a zonaId.
+     * @param zonaId Este Parametro es el zonaId del elemento que 
+     * deseamos buscar.
+     * @return  Retorna el objeto obtenido en nuestra consulta.
+     */
     @Override
     public Zonas selectZona(byte zonaId) {
         Zonas zona = new Zonas();
@@ -39,6 +52,11 @@ public class DAOZonas implements interfaces.InterfaceZonas {
         return zona;
     }
 
+    /**
+     * Este metodo es para obtener todos los registros de la base
+     * de datos correspondientes a la clase Zonas.
+     * @return  Este metodo retorna un ArrayList de tipo Zonas.
+     */
     @Override
     public ArrayList<Zonas> listZonas() {
         Zonas zonas;
