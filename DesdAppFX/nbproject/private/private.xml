@@ -7,9 +7,6 @@
         </group>
         <group>
             <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/MenuPrincipalController.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/MenuPrincipalController.java</file>
             <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/resources/StyleLogin.css</file>
             <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/modelo/Personas.java</file>
             <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/dao/testDAOPersona.java</file>
@@ -20,5 +17,6 @@
         <group>
             <file>file:/C:/Users/Ryzen5/Documents/GitHub/DesdApp/DesdAppFX/src/controlador/MenuPrincipalController.java</file>
         </group>
+        <group/>
     </open-files>
 </project-private>
