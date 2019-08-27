@@ -1,13 +1,35 @@
 package modelo;
-
-public class VistaBien {
-
+/**
+ * Esta Clase declara los metodos Get, Set, y
+ * Atributos para la clase VistasBienes, 
+ * Inicializa los contructores vacio y Lleno.
+ * @author carolina
+ */
+public class VistasBienes {
+//Attributos
     String tipoProp;
     String ventaRenta;
     String direc;
     String zona;
     int  precioSug;
+    
+    //Constructor Vacio
 
+    public VistasBienes() {
+    }
+    
+    //Constructor LLeno
+
+    public VistasBienes(String tipoProp, String ventaRenta, String direc, String zona, int precioSug) {
+        this.tipoProp = tipoProp;
+        this.ventaRenta = ventaRenta;
+        this.direc = direc;
+        this.zona = zona;
+        this.precioSug = precioSug;
+    }
+    
+    
+//Getter y Setters
     public String getTipoProp() {
         return tipoProp;
     }

@@ -79,12 +79,6 @@
         <url-pattern>/Inmueble</url-pattern>
     </servlet-mapping>
     
-      <servlet-mapping>
-
-        <servlet-name>ServletCorredor</servlet-name>
-        <url-pattern>/ServletCorredor</url-pattern>
-    </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>Suscribirse</servlet-name>
         <url-pattern>/Suscribirse</url-pattern>

@@ -17,9 +17,8 @@ public class DAOCorredores implements interfaces.corredoresInterface{
         Corredores cor;
         try {
             conex.conectar();
-            sql = "SELECT * FROM view_cardsmodi WHERE cod_empleado=?";
+            sql = "SELECT * FROM view_cardscorredores";
             execute = conex.getconexionDB().prepareStatement(sql);
-            execute.setInt(1, cod_emp);
             rs = execute.executeQuery();
             
             
@@ -31,6 +30,7 @@ public class DAOCorredores implements interfaces.corredoresInterface{
             cor.setCorreo(rs.getString("correo"));
             cor.setCod_emp(rs.getInt("cod_empleado"));
             cor.setTipo_prop(rs.getString("tipo_propiedad"));
+            cor.setTipo_usuario_id(rs.getInt("tipo_usuario"));
             cor.setDireccion(rs.getString("direccion"));
             cor.setPrecio_s(rs.getInt("precio"));
             cor.setZona(rs.getString("zona"));
