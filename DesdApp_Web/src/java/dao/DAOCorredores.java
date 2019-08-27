@@ -33,6 +33,7 @@ public class DAOCorredores implements interfaces.corredoresInterface{
             conex.conectar();
             sql = "SELECT * FROM view_cardscorredores";
             execute = conex.getconexionDB().prepareStatement(sql);
+            execute.setInt(1, cod_emp);
             rs = execute.executeQuery();
             
             
