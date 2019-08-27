@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 /**
  * Esta clase es el objeto de acceso a datos para la clase TiposUsuarios.
+ *
  * @author carolina
  */
 public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
@@ -20,10 +22,9 @@ public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
     String sql;
 
     /**
-     * Este metodo es para Ingresar un nuevo Registro de 
-     * TiposUsuarios
-     * @param tipo Este parametro es el tipo de objeto que
-     * deseamos Ingresar.
+     * Este metodo es para Ingresar un nuevo Registro de TiposUsuarios
+     *
+     * @param tipo Este parametro es el tipo de objeto que deseamos Ingresar.
      * @return Nos retorna la consulta en un mensaje.
      */
     @Override
@@ -50,11 +51,12 @@ public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
     }
 
     /**
-     * Este metodo es para realizar la Eliminacion de un TipoUsurio
-     * en base al codigo
-     * @param codigo Este parametro es el codigo del elemento que 
-     * vamos a Eliminar.
-     * @return  retorna el objeto obtenido de nuestra consulta.
+     * Este metodo es para realizar la Eliminacion de un TipoUsurio en base al
+     * codigo
+     *
+     * @param codigo Este parametro es el codigo del elemento que vamos a
+     * Eliminar.
+     * @return retorna el objeto obtenido de nuestra consulta.
      */
     @Override
     public String deleteTipoUsario(int codigo) {
@@ -85,10 +87,11 @@ public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
     }
 
     /**
-     * Este metodo es para realizar la modificacion de TiposUsuarios 
-     * en la base de datos.
+     * Este metodo es para realizar la modificacion de TiposUsuarios en la base
+     * de datos.
+     *
      * @param tipo Este parametro es el tio de elemento que deseamos modificar.
-     * @return  Retorna el objeto obtenido en nuestra consulta.
+     * @return Retorna el objeto obtenido en nuestra consulta.
      */
     @Override
     public String updateTipoUsario(TiposUsuarios tipo) {
@@ -118,11 +121,11 @@ public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
     }
 
     /**
-     * Este es para realizar la consulta de un TiposUsuarios
-     * en base al codigo.
-     * @param codigo Este parametro es el codigo del elemento que
-     * deseamos bucar.
-     * @return  Retorna el objeto obtenido en nuestra consulta.
+     * Este es para realizar la consulta de un TiposUsuarios en base al codigo.
+     *
+     * @param codigo Este parametro es el codigo del elemento que deseamos
+     * bucar.
+     * @return Retorna el objeto obtenido en nuestra consulta.
      */
     @Override
     public TiposUsuarios selectTipoUsuario(byte codigo) {
@@ -144,7 +147,7 @@ public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
             tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
             tipo.setNombre(rs.getString("nombre"));
             rs.close();
-            System.out.println("Se realizo el SELECT con exito" +rs);
+            System.out.println("Se realizo el SELECT con exito" + rs);
         } catch (SQLException e) {
             //Mensaje Por Consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
             System.out.println("Error en DAOTipoUsuario SELECT: " + e.getMessage());
@@ -155,11 +158,13 @@ public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
         //Tetorna la consulta en un un objeto tipo.
         return tipo;
     }
-/**
- * Este metodo es para obtener todos los registros de la base de datos
- * correspondientes a la clase TiposUsuarios.
- * @return  Este metodo retorna un ArrayList de TiposUsuarios.
- */
+
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase TiposUsuarios.
+     *
+     * @return Este metodo retorna un ArrayList de TiposUsuarios.
+     */
     @Override
     public ArrayList<TiposUsuarios> list() {
         //Crea un objeto tipo ArrayList
@@ -183,11 +188,10 @@ public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
                 tipo = new TiposUsuarios();
                 tipo.setTipoUsuarioId(rs.getByte("tipo_usuario_id"));
                 tipo.setNombre(rs.getString("nombre"));
-               
-                
+
                 list.add(tipo);
             }
-            
+
         } catch (SQLException e) {
             //Mensaje Por Consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
             System.out.println("Error en DAOTipoUsuario List: " + e.getMessage());

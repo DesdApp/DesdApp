@@ -12,6 +12,10 @@ import modelo.TiposDocumentos;
  * run // instancia de la ejecución
  * t // objeto de la clase TiposPagos
  */
+/**
+ * Esta clase es el objeto de acceso a datos para la clase TiposDocumentos.
+ * @author carolina
+ */
 public class DAOTiposDocumentos implements interfaces.InterfaceTiposDocumentos {//Implementacion de los metodos abstractos de la interfazTpDocumentos
 
     //Instancia de las clases
