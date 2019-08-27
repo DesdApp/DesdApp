@@ -1,7 +1,5 @@
 package modelo;
-
-
-public class Corredores{
+public class Corredores {
 
 
     private String nombre_corredor;
@@ -10,7 +8,6 @@ public class Corredores{
     private int cel;
     private String correo;
     private String tipo_prop;
-    private int tipo_usuario_id;
     private String direccion;
     private String zona;
     private int precio_s;
@@ -63,14 +60,6 @@ public class Corredores{
         this.tipo_prop = tipo_prop;
     }
 
-    public int getTipo_usuario_id() {
-        return tipo_usuario_id;
-    }
-
-    public void setTipo_usuario_id(int tipo_usuario_id) {
-        this.tipo_usuario_id = tipo_usuario_id;
-    }
-
     public String getDireccion() {
         return direccion;
     }
@@ -97,10 +86,8 @@ public class Corredores{
 
     @Override
     public String toString() {
-        return "Corredores{" + "nombre_corredor=" + nombre_corredor + ", cod_emp=" + cod_emp + ", tel=" + tel + ", cel=" + cel + ", correo=" + correo + ", tipo_prop=" + tipo_prop + ", tipo_usuario_id=" + tipo_usuario_id + ", direccion=" + direccion + ", zona=" + zona + ", precio_s=" + precio_s + '}';
+        return "Corredores{" + "nombre_corredor=" + nombre_corredor + ", cod_emp=" + cod_emp + ", tel=" + tel + ", cel=" + cel + ", correo=" + correo + ", tipo_prop=" + tipo_prop + ", direccion=" + direccion + ", zona=" + zona + ", precio_s=" + precio_s + '}';
     }
-
-    
     
     
 }

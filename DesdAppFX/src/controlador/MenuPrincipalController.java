@@ -25,14 +25,6 @@ import dao.DAOMunicipios;
 import dao.DAORegiones;
 import dao.DAOTiposPropiedades;
 import dao.DAOZonas;
-import java.io.File;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 
 //Importacion de Modelos
 import modelo.Personas;
@@ -72,20 +64,11 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML
     private BorderPane bp;
-    
-    
-    
-    //Test
-    @FXML private Button btnimage;
-    @FXML private ListView lvArchivos;
-    @FXML private Label lblNomreImage;
-    @FXML private ImageView foto;
 
     //<editor-fold defaultstate="collapsed" desc="Componentes Persona">
     //Componentes de Persona
     @FXML private Button btInsertPersona;
     @FXML private Button btNuevo;
-    @FXML private TableView<Personas> tablaPersona1;
     @FXML private TextField idPersona;
     @FXML private TextField nombrePersona;
     @FXML private TextField apellidoPersona;
@@ -152,17 +135,10 @@ public class MenuPrincipalController implements Initializable {
     //@FXML este tiene que ser para insertar imagen
     @FXML private TextField codEmpPro;
 //</editor-fold>
-    
-   @FXML private ObservableList<Personas> tablaPersona;
 
     @Override
+
     public void initialize(URL url, ResourceBundle rb) {
-        
-       //TableView Personas
-       ArrayList<Personas> tvP = new ArrayList();
-       tvP = daop.list();
-       tablaPersona = FXCollections.observableArrayList(tvP); 
-       tablaPersona1.setItems(tablaPersona);
 
         //ComboBox 
         //ComboBox Tipo de Doc
@@ -401,27 +377,5 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML void limpiarPro(ActionEvent evt) {
         limpiarPropi();
-    }
-    
-    //prueba
-    @FXML void archivos(ActionEvent evt){
-        FileChooser fc = new FileChooser();
-        File selectedFile = fc.showOpenDialog(null);
-        fc.getExtensionFilters().addAll( 
-        new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-        new FileChooser.ExtensionFilter("PNG", "*.png")
-                
-                );
-        
-        if(selectedFile != null){
-            lvArchivos.getItems().add(selectedFile.getAbsolutePath());
-            lblNomreImage.setText(selectedFile.getName());
-            System.out.println(selectedFile.getAbsolutePath());
-            Image ft = new Image(selectedFile.getAbsolutePath());
-            System.out.println(ft);
-            foto.setImage(ft);
-        }else{
-            System.out.println("No se adminte este tipo de archivos");
-        }
     }
 }

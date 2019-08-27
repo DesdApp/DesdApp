@@ -1,11 +1,5 @@
 package modelo;
 
-/**
- * Esta Clase declara los metodos Get, Set, y
- * Atributos para la clase VentaRenta, 
- * Inicializa los contructores vacio y Lleno.
- * @author carolina
- */
 public class VentaRenta {
     //Atributos
     private byte estadoNegId;
@@ -21,7 +15,6 @@ public class VentaRenta {
     public VentaRenta() {
     }
 
-    //Getter y Setter
     public byte getEstadoNegId() {
         return estadoNegId;
     }

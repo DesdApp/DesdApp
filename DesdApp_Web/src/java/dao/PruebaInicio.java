@@ -8,7 +8,6 @@ package dao;
 import java.util.ArrayList;
 import modelo.BienesInmuebles;
 import dao.DAOBienesInmuebles;
-import modelo.Zonas;
 /**
  *
  * @author javam2019
@@ -19,9 +18,6 @@ public class PruebaInicio {
         ArrayList<BienesInmuebles> list = new ArrayList<>();
         BienesInmuebles bien = new BienesInmuebles();
         DAOBienesInmuebles dao = new DAOBienesInmuebles();
-        Zonas zon= new Zonas();
-        
-        
         
         list = dao.listView("Casas");
         for (BienesInmuebles bienesInmuebles : list) {

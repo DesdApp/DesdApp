@@ -35,7 +35,7 @@ and open the template in the editor.
             <div id="div-login" class="col-6 p-5">
                 <h2>Registrarme</h2>
 
-                 <% String  m = (String) request.getParameter("m");
+                 <% String m = (String) request.getParameter("m");
                 %>
                 
                 <form action="${pageContext.request.contextPath}/Controlador" method="get" class="needs-validation mt-5" novalidate>

@@ -93,10 +93,10 @@
         <!--Grupo 1-->
         <div class="primary row">              
             <%
-                ArrayList<Nosotros> lista = (ArrayList) request.getAttribute("listaNosotros");
+                ArrayList<Nosotros> list = (ArrayList) request.getAttribute("listaNosotros");
                 int filas = 0;
-                for (Nosotros elem : lista) {
-                int cod_empleado = elem.getCod_empleado() ;
+                for (Nosotros elem : list) {
+
 
             %>
             <div class="col-6">
@@ -113,7 +113,7 @@
                                 <p class="text-medium card-text"><%= elem.getCorreo() %></p>
                                 <p class="text-medium card-text">Oficina: <%= elem.getCel()%></p>
                                 <p class="text-medium card-text">Móvil: <%= elem.getTel() %></p>
-                                <a href="ServletCorredor?accion=cards" class="btn btn-success">Detalles</a>
+                                <a href="pages/perfilcorredor.jsp" class="btn btn-success">Detalles</a>
                             </div>
                         </div>
                     </div>

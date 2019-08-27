@@ -84,7 +84,6 @@
             
             <!-- Informacion de contacto -->
             <div class="row d-flex justify-content-center style=width:220px;">
-                
                 <%
                 ArrayList<Corredores> list = (ArrayList) request.getAttribute("listaCorredores");
                 Corredores datos = new Corredores();

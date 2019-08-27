@@ -10,7 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.VistasBienes;
+import modelo.VistaBienes;
 
 /**
  *
@@ -55,7 +55,7 @@ public class ControladorInmueble extends HttpServlet {
         String accion = request.getParameter("accion");
        
         
-        ArrayList<VistasBienes> listaInmuebles = new ArrayList<>();
+        ArrayList<VistaBienes> listaInmuebles = new ArrayList<>();
         DAOVistaBienes daoIn = new DAOVistaBienes();
         listaInmuebles = daoIn.listview(accion);
 

@@ -4,7 +4,6 @@
     Author     : User
 --%>
 
-<%@page import="modelo.TiposDocumentos"%>
 <%@page import="modelo.Zonas"%>
 <%@page import="modelo.Municipios"%>
 <%@page import="modelo.Departamentos"%>
@@ -21,14 +20,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        
         <title>Inicio Clientes</title>
 
         <!-- Bootstrap Stylesheet -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/inicioClientes.css">
-        
+        <link rel="stylesheet" href="../js/inicioCli.js">
         <!-- Bootstrap Stylesheet -->
 
     </head>
@@ -40,7 +38,6 @@
             ArrayList<Departamentos> listaDep = (ArrayList) request.getAttribute("listarDepartamentos");
             ArrayList<Municipios> listaMuni = (ArrayList) request.getAttribute("listarMunicipios");
             ArrayList<Zonas> listaZona = (ArrayList) request.getAttribute("listarZonas");
-            ArrayList<TiposDocumentos> listaDoc = (ArrayList) request.getAttribute("listarDocumentos");
 
 
         %>
@@ -168,9 +165,8 @@
                             Cerrar Sesion
                         </a>
                         <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><img src="img/persona.png" height="80" width="80"></a>
+                            <a class="dropdown-item" href="#"><img src="../img/persona.png" height="80" width="80"></a>
                             <a class="dropdown-item" href="#">Usuario</a>
-
                             <!--Boton para modificar los datos de usuario-->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
                                 Modificar
@@ -188,16 +184,13 @@
             </div>
         </nav>
         <!-- Fin de la barra de navegacion -->
-        
         <!-- Modal para la modificacion de datos-->
-        
         <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title"  id="exampleModalLabel">Modificar Datos</h5>
-                        
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
                             <span aria-hidden="true">&times;</span>
@@ -205,51 +198,40 @@
                     </div>
                     <div class="modal-body">
 
-                        <form action="InicioClientesControlador" method="POST" class="needs-validation mt-5" novalidate="" id="datosClientes">
+                        <form>
                             <div>
-                                <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" name="txtNombre" id="nombre" >
-                                <label for="apellido">Apellido</label>
-                                <input type="text" class="form-control" name="txtApellido" id="apellido"> 
-                                <label for="txtEmail">Email</label>
-                                <input type="email" class="form-control" name="txtEmail" id="txtEmail" placeholder="name@example.com"><br>
-                                <select name="txtTipo" class="custom-select custom-select-sm" >
-                                    <!--Cargar lista de Documentos-->
-                                    <% for (TiposDocumentos doc : listaDoc) {
-                                    %>
-                                    <option  selected value="<%= doc.getIdTipoDoc()%>"><%= doc.getNombre()%></option>
-                                    <%
-                                        }
-                                    %>
+                                <label for="exampleFormControlInput1">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" >
+                                <label for="exampleFormControlInput1">Apellido</label>
+                                <input type="text" class="form-control" id="apellido"> 
+                                <label for="exampleFormControlInput1">Email</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"><br>
+                                <select class="custom-select custom-select-sm">
+                                    <!--Cargar lista de Venta Renta-->S
                                     <option selected>Tipo Documento</option>
-
                                 </select>
                                 <div>
-                                    <label for="documento">NO. Documento</label>
-                                    <input type="text" class="form-control" name="txtDoc" id="documento" >
-                                    <div class="invalid-tooltip">
-                                        Por favor proporcione un documento valido.
-                                    </div>
+                                    <label for="exampleFormControlInput1">NO. Documento</label>
+                                    <input type="text" class="form-control" id="documento" >
                                 </div>
                                 <label for="fechaNac">Fecha Nacimiento</label>
                                 <input type="date" class="form-control" name="txtFechaNac" id="fechaNac" placeholder="01/01/1990" required>
                                 <div class="invalid-tooltip">
-                                    Por favor proporcione una ciudad valida
-
+                                    Please provide a valid city.
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="cel">Celular</label>
                                         <input type="number" class="form-control" name="txtCel" id="cel"  required>
                                         <div class="invalid-tooltip">
-                                            Por favor proporcione una No. celular valido.
+                                            Please provide a valid state.
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="tel">Telefono</label>
                                         <input type="number" class="form-control" name="txtTel" id="tel"  required>
                                         <div class="invalid-tooltip">
-                                            Por favor proporcione un No. Telefono valido.
+                                            Please provide a valid zip.
                                         </div>
                                     </div>
                                 </div>
@@ -260,27 +242,26 @@
                                         <label for="direccion">Dirección</label>
                                         <input type="text" class="form-control" name="txtDireccion" id="direccion" required>
                                         <div class="invalid-tooltip">
-                                            Por favor proporcione una Direccion valida
+                                            Please provide a valid city.
                                         </div>
                                     </div>
 
                                     <div class="col-md-3 mb-3">
-                                        <label for="nit">Nit</label>
+                                        <label for="nit">nit</label>
                                         <input type="text" class="form-control" name="txtNit" id="nit"  required>
                                         <div class="invalid-tooltip">
-                                            Por favor proporcione un Nit valido.
+                                            Please provide a valid zip.
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                                    <input type="hidden" id="accion" name="accion" value="modificar">
-                      </form>
+                        </form>
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" form="datosClientes" name="enviar" id="enviar">Guardar Cambios Nuevos</button>
+                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
                     </div>
                 </div>
             </div>
@@ -311,7 +292,6 @@
                 integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
         <!-- Bootstrap Js -->
-        <script src="js/inicioCli.js"></script>
 
     </body>
 

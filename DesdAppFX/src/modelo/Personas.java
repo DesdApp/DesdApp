@@ -125,9 +125,4 @@ public class Personas {
         this.fechaNacimiento = fechaNacimiento;
     }
 //</editor-fold>
-
-    @Override
-    public String toString() {
-        return nombre;
-    }
 }
