@@ -90,7 +90,7 @@ public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
      * Este metodo es para realizar la modificacion de TiposUsuarios en la base
      * de datos.
      *
-     * @param tipo Este parametro es el tio de elemento que deseamos modificar.
+     * @param tipo Este parametro es el tipo de elemento que deseamos modificar.
      * @return Retorna el objeto obtenido en nuestra consulta.
      */
     @Override
@@ -121,10 +121,10 @@ public class DAOTiposUsuarios implements interfaces.InterfaceTiposUsuarios {
     }
 
     /**
-     * Este es para realizar la consulta de un TiposUsuarios en base al codigo.
+     * Este metodo es para realizar la consulta de un TiposUsuarios en base al codigo.
      *
      * @param codigo Este parametro es el codigo del elemento que deseamos
-     * bucar.
+     * buscar.
      * @return Retorna el objeto obtenido en nuestra consulta.
      */
     @Override
