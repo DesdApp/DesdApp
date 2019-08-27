@@ -93,10 +93,9 @@
         <!--Grupo 1-->
         <div class="primary row">              
             <%
-                ArrayList<Nosotros> lista = (ArrayList) request.getAttribute("listaNosotros");
+                ArrayList<Nosotros> list = (ArrayList) request.getAttribute("listaNosotros");
                 int filas = 0;
-                for (Nosotros elem : lista) {
-                int cod_empleado = elem.getCod_empleado() ;
+                for (Nosotros elem : list) {
 
             %>
             <div class="col-6">
