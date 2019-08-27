@@ -6,13 +6,26 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import modelo.Nosotros;
 
+/**
+ * Esta clase es el objeto de acceso a datos para la clase Nosotros.
+ *
+ * @author carolina
+ */
+
 public class DAONosotros  implements InterfaceNosotros{
+    //Instancia de las clases
     ConexionDB conex = new ConexionDB();
     PreparedStatement execute;
 
+    //Atributos
     ResultSet rs;
     String sql;
 
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos 
+     * correspondientes a la clase Nosotros.
+     * @return  Retorna una lista de los registros de la tabla que se pide en la consulta.
+     */
     @Override
     public ArrayList<Nosotros> list() {
         ArrayList<Nosotros> list = new ArrayList<>();
@@ -43,6 +56,12 @@ public class DAONosotros  implements InterfaceNosotros{
         return list;
     }
 
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondites a la clase Nosotros
+     * @return Retorna una lista de los registros de la tabla que se pide en la 
+     * consulta.
+     */
     @Override
     public ArrayList<Nosotros> lista() {
         ArrayList<Nosotros> lista = new ArrayList<>();
