@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : inicio
     Created on : Aug 2, 2019, 8:31:22 AM
     Author     : User
@@ -174,7 +174,7 @@
 
 
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Salir</a>
+                            <a class="dropdown-item" href="index.jsp">Salir</a>
                         </div>
                     </li>
                 </ul>
@@ -200,14 +200,20 @@
 
                         <form>
                             <div>
-                                <label for="exampleFormControlInput1">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" >
-                                <label for="exampleFormControlInput1">Apellido</label>
-                                <input type="text" class="form-control" id="apellido"> 
-                                <label for="exampleFormControlInput1">Email</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"><br>
-                                <select class="custom-select custom-select-sm">
-                                    <!--Cargar lista de Venta Renta-->S
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" name="txtNombre" id="nombre" >
+                                <label for="apellido">Apellido</label>
+                                <input type="text" class="form-control" name="txtApellido" id="apellido">
+                                <label for="txtEmail">Email</label>
+                                <input type="email" class="form-control" name="txtEmail" id="txtEmail" placeholder="name@example.com"><br>
+                                <select name="txtTipo" class="custom-select custom-select-sm" >
+                                    <!--Cargar lista de Documentos-->
+                                    <% for (TiposDocumentos doc : listaDoc) {
+                                    %>
+                                    <option  selected value="<%= doc.getIdTipoDoc()%>"><%= doc.getNombre()%></option>
+                                    <%
+                                        }
+                                    %>
                                     <option selected>Tipo Documento</option>
                                 </select>
                                 <div>
@@ -256,6 +262,7 @@
                                 </div>
 
                             </div>
+                            <input type="hidden" id="accion" name="accion" value="modificar">
                         </form>
 
                     </div>

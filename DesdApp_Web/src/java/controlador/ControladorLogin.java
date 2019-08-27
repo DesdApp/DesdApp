@@ -24,10 +24,6 @@ public class ControladorLogin extends HttpServlet {
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
      */
     DAOClientes daoC = new DAOClientes();
     String inicioC = "pages/inicioClientes_2.jsp";
@@ -78,7 +74,6 @@ public class ControladorLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
 
         String acceso = "";
         String action = request.getParameter("accion");
