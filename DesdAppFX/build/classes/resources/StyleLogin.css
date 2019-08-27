@@ -1,11 +1,6 @@
 /*color de fondo*/
 .background_app{
-    -fx-margin:0;
-    -fx-padding: 0;
-    -fx-font-family: sans-serif;
     -fx-background: #272819;
-    -fx-border-radius: 26;
-    -fx-background-radius: 26;
 }
 
 .lab{
@@ -13,6 +8,7 @@
     -fx-font: bold italic 15pt Arial;
     -fx-effect: dropshadow(one-pass-box, blue, 8, 0.0, 2, 0);
 }
+
 .box:focus{
     -fx-width: 350px;
     -fx-padding: 45px;
@@ -52,3 +48,10 @@
     -fx-height:35;
 }
 
+.comboBoxPrivilegios{
+    -fx-background-color: #07d6fa;
+}
+
+.ErrorLbl{
+    -fx-text-fill: rgba(255, 0, 0, 0.863);
+}

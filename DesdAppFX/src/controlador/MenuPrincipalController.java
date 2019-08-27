@@ -158,11 +158,11 @@ public class MenuPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-       //TableView Personas
-       ArrayList<Personas> tvP = new ArrayList();
-       tvP = daop.list();
-       tablaPersona = FXCollections.observableArrayList(tvP); 
-       tablaPersona1.setItems(tablaPersona);
+//       //TableView Personas
+//       ArrayList<Personas> tvP = new ArrayList();
+//       tvP = daop.list();
+//       tablaPersona = FXCollections.observableArrayList(tvP); 
+//       tablaPersona1.setItems(tablaPersona);
 
         //ComboBox 
         //ComboBox Tipo de Doc

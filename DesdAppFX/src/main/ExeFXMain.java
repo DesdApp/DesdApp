@@ -18,6 +18,7 @@ public class ExeFXMain extends Application {
             Scene scene = new Scene(root);
 
             primaryStage.setTitle("Inicio de Sesion DesdApp");
+            scene.getStylesheets().add("/vista/login/StyleLogin.css");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
