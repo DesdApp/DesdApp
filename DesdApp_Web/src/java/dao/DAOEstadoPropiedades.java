@@ -9,6 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.EstadosPropiedades;
+/**
+ * Esta clase es el objeto de acceso a datos para la clase EstadoPropiedades.
+ *
+ * @author carolina
+ */
 
 public class DAOEstadoPropiedades implements interfaces.InterfaceEstadosProp {
 
