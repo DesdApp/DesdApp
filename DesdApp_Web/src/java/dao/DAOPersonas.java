@@ -13,6 +13,12 @@ import java.util.ArrayList;
 *ejecutar// instancia de la ejecucion que contiene la base de datos
 *datoPerosona// Objeto de la clase Personas
  */
+/**
+ * Esta clase es el objeto de acceso a datos para la clase Personas.
+ *
+ * @author carolina
+ */
+
 public class DAOPersonas implements interfaces.InterfacePersona {
 
     private ConexionDB cn = new ConexionDB();
@@ -22,6 +28,14 @@ public class DAOPersonas implements interfaces.InterfacePersona {
     private String msg = "";
     private int cont = 0;
 
+    /**
+     * Este metodo es para realizar la consulta de una persona
+     * en base al id
+     * 
+     * @param id Este parametro es el id del elemento que deseamos
+     * buscar.
+     * @return  Retorna el objeto obtenido en nuestra consulta.
+     */
     @Override
     //Selecionar Personas.
     public Personas select(int id) {
@@ -55,7 +69,13 @@ public class DAOPersonas implements interfaces.InterfacePersona {
 //retorna datos tipo Personas
     }
 
-    //insertar persona
+    /**
+     * Este metodo es para ingresar un nuevo registro para la clase
+     * Personas
+     * @param per Este parametro es el tipo de objeto que deseamos Ingresar
+     * @return  Retorna un mensaje de confirmacion o error en caso de que el id
+     * se repita.
+     */
     @Override
     public int insert(Personas per) {
         int personaIdValor = 0;
@@ -99,7 +119,13 @@ public class DAOPersonas implements interfaces.InterfacePersona {
         return personaIdValor; //Valor de retorno
     }
 
-    //Modificar Personas
+    /**
+     * Este metodo es para realizar la modificacion de Personas en base a los
+     * datos.
+     * @param per Este parametro actualiza el registro que se llama por el id
+     * en la consulta.
+     * @return  Retorna un mensaje de confirmacion.
+     */
     @Override
     public String update(Personas per) {
         try {
@@ -141,7 +167,14 @@ public class DAOPersonas implements interfaces.InterfacePersona {
         return msg; //Este es nuestro valor de Retorno
     }
 
-    //Eliminar Personas
+    /**
+     * Este metodo es para realizar la Eliminacion de una Persona en 
+     * base al id.
+     * @param id Este parametro elimina el registro por medio del id
+     * ingresado.
+     * @return Retorna un mensaje de confirmacion o error en caso de que el registro
+     * no exista.
+     */
     @Override
     public String delete(int id) {
         try {
@@ -168,7 +201,12 @@ public class DAOPersonas implements interfaces.InterfacePersona {
         return msg; //Retorna nuestra variable mensaje
     }
 
-    //listar Personas por pedio de un ArrayList.
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase Personas.
+     * @return  Retorna un lista de los registros de la tabla que se pide
+     * en la consulta.
+     */
     @Override
     public ArrayList<Personas> list() {
         ArrayList<Personas> list = new ArrayList<>(); //creamos un objeto tipo Array list
