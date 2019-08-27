@@ -29,10 +29,8 @@ import java.io.File;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 
 //Importacion de Modelos
 import modelo.Personas;
@@ -67,104 +65,160 @@ public class MenuPrincipalController implements Initializable {
     DAORegiones daoR = new DAORegiones();
     DAODepartamentos daoD = new DAODepartamentos();
     DAOMunicipios daoM = new DAOMunicipios();
-    
+
     DAOTiposPropiedades daoTP = new DAOTiposPropiedades();
 
     @FXML
     private BorderPane bp;
-    
-    
-    
+
     //Test
-    @FXML private Button btnimage;
-    @FXML private ListView lvArchivos;
-    @FXML private Label lblNomreImage;
-    @FXML private ImageView foto;
+    @FXML
+    private Button btnimage;
+    @FXML
+    private ListView lvArchivos;
+    @FXML
+    private Label lblNomreImage;
+    @FXML
+    private ImageView foto;
 
     //<editor-fold defaultstate="collapsed" desc="Componentes Persona">
     //Componentes de Persona
-    @FXML private Button btInsertPersona;
-    @FXML private Button btNuevo;
-    @FXML private TableView<Personas> tablaPersona1;
-    @FXML private TextField idPersona;
-    @FXML private TextField nombrePersona;
-    @FXML private TextField apellidoPersona;
-    @FXML private ComboBox tipoDocPersona;
-    @FXML private TextField noDocPersona;
-    @FXML private TextField nitPersona;
-    @FXML private TextArea direcPersona;
-    @FXML private TextField celularPersona;
-    @FXML private TextField telefonoPersona;
-    @FXML private TextField correoPersona;
-    @FXML private DatePicker fechaNacimientoPer;
+    @FXML
+    private Button btInsertPersona;
+    @FXML
+    private Button btNuevo;
+    @FXML
+    private TableView<Personas> tablaPersona1;
+    @FXML
+    private TextField idPersona;
+    @FXML
+    private TextField nombrePersona;
+    @FXML
+    private TextField apellidoPersona;
+    @FXML
+    private ComboBox tipoDocPersona;
+    @FXML
+    private TextField noDocPersona;
+    @FXML
+    private TextField nitPersona;
+    @FXML
+    private TextArea direcPersona;
+    @FXML
+    private TextField celularPersona;
+    @FXML
+    private TextField telefonoPersona;
+    @FXML
+    private TextField correoPersona;
+    @FXML
+    private DatePicker fechaNacimientoPer;
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Componentes Cliente">
     //Componentes de Cliente
-    @FXML private Button btnInsertCliente;
-    @FXML private Button btnNuevoC;
-    @FXML private TextField idCliente;
-    @FXML private TextField idPersonaC;
-    @FXML private TextField nombreTitular;
-    @FXML private TextField userCliente;
-    @FXML private TextField passwordCliente;
+    @FXML
+    private Button btnInsertCliente;
+    @FXML
+    private Button btnNuevoC;
+    @FXML
+    private TextField idCliente;
+    @FXML
+    private TextField idPersonaC;
+    @FXML
+    private TextField nombreTitular;
+    @FXML
+    private TextField userCliente;
+    @FXML
+    private TextField passwordCliente;
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Componentes Empleado">
     //Componentes de Empleado
-    @FXML private Button btnInsertEmpleado;
-    @FXML private Button btNuevoE;
-    @FXML private TextField codEmpleado;
-    @FXML private TextField idPersonaE;
-    @FXML private ComboBox tipoUsr;
-    @FXML private TextField puestoE;
-    @FXML private DatePicker fechaInicio;
-    @FXML private DatePicker fechaFinalizacion;
-    @FXML private TextField userEmp;
-    @FXML private TextField passwordEmp;
+    @FXML
+    private Button btnInsertEmpleado;
+    @FXML
+    private Button btNuevoE;
+    @FXML
+    private TextField codEmpleado;
+    @FXML
+    private TextField idPersonaE;
+    @FXML
+    private ComboBox tipoUsr;
+    @FXML
+    private TextField puestoE;
+    @FXML
+    private DatePicker fechaInicio;
+    @FXML
+    private DatePicker fechaFinalizacion;
+    @FXML
+    private TextField userEmp;
+    @FXML
+    private TextField passwordEmp;
     //@FXML este tiene que ser para el de image
-    @FXML private ComboBox estEmp;
+    @FXML
+    private ComboBox estEmp;
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Componentes de Propiedad">
     //Componnetes de Propiedad
-    @FXML private Button btnIsertPropi;
-    @FXML private Button btnNuevoPro;
-    @FXML private TextField codPropiedad;
-    @FXML private ComboBox tipoPropiedad;
-    @FXML private ComboBox estadoProp;
-    @FXML private ComboBox estadoNegPro;
-    @FXML private TextField codCliPro;
-    @FXML private TextArea direcPro;
-    @FXML private ComboBox Region;
-    @FXML private ComboBox Departa;
-    @FXML private ComboBox Muni;
-    @FXML private ComboBox Zona;
-    @FXML private TextField metros2;
-    @FXML private TextArea descrip2;
-    @FXML private TextField cantCuartos;
-    @FXML private TextField cantNiveles;
-    @FXML private TextField sotanos;
-    @FXML private TextField elevadores;
-    @FXML private TextField precioMin;
-    @FXML private TextField precioSug;
-    @FXML  private TextField precioCliente;
+    @FXML
+    private Button btnIsertPropi;
+    @FXML
+    private Button btnNuevoPro;
+    @FXML
+    private TextField codPropiedad;
+    @FXML
+    private ComboBox tipoPropiedad;
+    @FXML
+    private ComboBox estadoProp;
+    @FXML
+    private ComboBox estadoNegPro;
+    @FXML
+    private TextField codCliPro;
+    @FXML
+    private TextArea direcPro;
+    @FXML
+    private ComboBox Region;
+    @FXML
+    private ComboBox Departa;
+    @FXML
+    private ComboBox Muni;
+    @FXML
+    private ComboBox Zona;
+    @FXML
+    private TextField metros2;
+    @FXML
+    private TextArea descrip2;
+    @FXML
+    private TextField cantCuartos;
+    @FXML
+    private TextField cantNiveles;
+    @FXML
+    private TextField sotanos;
+    @FXML
+    private TextField elevadores;
+    @FXML
+    private TextField precioMin;
+    @FXML
+    private TextField precioSug;
+    @FXML
+    private TextField precioCliente;
     //@FXML este tiene que ser para insertar imagen
-    @FXML private TextField codEmpPro;
+    @FXML
+    private TextField codEmpPro;
 //</editor-fold>
-    
-   @FXML private ObservableList<Personas> tablaPersona;
+
+    @FXML
+    private ObservableList<Personas> tablaPersona;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
 //       //TableView Personas
 //       ArrayList<Personas> tvP = new ArrayList();
 //       tvP = daop.list();
-//       tablaPersona = FXCollections.observableArrayList(tvP); 
+//       tablaPersona = FXCollections.observableArrayList(tvP);
 //       tablaPersona1.setItems(tablaPersona);
-
-        //ComboBox 
+        //ComboBox
         //ComboBox Tipo de Doc
         String[] textos = {"-- Selecionar --", "DPI", "Pasaporte"};
         ObservableList<String> lista = FXCollections.observableArrayList(textos);
@@ -195,36 +249,35 @@ public class MenuPrincipalController implements Initializable {
         //listaTipoProp = daob.listBienes();
         //ObservableList<BienesInmuebles> listatp = FXCollections.observableArrayList(listaTipoProp);
         //tipoPropiedad.setItems(listatp);
-        
         ArrayList<TiposPropiedades> listaTipoProp = new ArrayList();
         listaTipoProp = daoTP.listTipos();
         ObservableList<TiposPropiedades> listatp = FXCollections.observableArrayList(listaTipoProp);
         tipoPropiedad.setItems(listatp);
-        
+
         //ComboBox Zonas
         ArrayList<Zonas> listaZonas = new ArrayList();
         listaZonas = daoZ.listZonas();
         ObservableList<Zonas> listaZ = FXCollections.observableArrayList(listaZonas);
         Zona.setItems(listaZ);
-        
+
         //ComboBox Municipios
-        ArrayList<Municipios> listaMuni= new ArrayList();
+        ArrayList<Municipios> listaMuni = new ArrayList();
         listaMuni = daoM.list();
         ObservableList<Municipios> listaM = FXCollections.observableArrayList(listaMuni);
         Muni.setItems(listaM);
-        
+
         //ComboBox Departamentos
         ArrayList<Departamentos> listaDepart = new ArrayList();
         listaDepart = daoD.list();
-        ObservableList<Departamentos> listaD= FXCollections.observableArrayList(listaDepart);
+        ObservableList<Departamentos> listaD = FXCollections.observableArrayList(listaDepart);
         Departa.setItems(listaD);
-        
+
         //ComboBox Regiones
         ArrayList<Regiones> listaReg = new ArrayList();
         listaReg = daoR.list();
         ObservableList<Regiones> listR = FXCollections.observableArrayList(listaReg);
         Region.setItems(listR);
-        
+
     }
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para Limpiar">
@@ -291,7 +344,6 @@ public class MenuPrincipalController implements Initializable {
     }
 
 //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Metodos de Agregar">
     //Agergar Persona
     public void agregarPersona() {
@@ -366,61 +418,69 @@ public class MenuPrincipalController implements Initializable {
 //</editor-fold>
 
     //Fuciones de botones
-    @FXML void insertPersona(ActionEvent evt) {//Insert de persona
+    @FXML
+    void insertPersona(ActionEvent evt) {//Insert de persona
         agregarPersona();
         System.out.println("Fuciono agregar Persona");
     }
 
-    @FXML void insertCliente(ActionEvent evt) {//Insert de Cliente
+    @FXML
+    void insertCliente(ActionEvent evt) {//Insert de Cliente
         agregarCliente();
         System.out.println("Funcion agregar Cliente");
     }
 
-    @FXML void insertEmpleado(ActionEvent evt) {//Insert de Empleado
+    @FXML
+    void insertEmpleado(ActionEvent evt) {//Insert de Empleado
         agregarEmpleado();
         System.out.println("Funciona agregar Empleado");
     }
 
-    @FXML void insertPropiedad(ActionEvent evt) {//Insert de Propiedad
+    @FXML
+    void insertPropiedad(ActionEvent evt) {//Insert de Propiedad
         agregarPropiedad();
         System.out.println("Funciona agregar Propiedad");
     }
 
     //Botones Limpiar
-    @FXML void limpiarP(ActionEvent evt) {
+    @FXML
+    void limpiarP(ActionEvent evt) {
         limpiarPersona();
     }
 
-    @FXML void limpiarE(ActionEvent evt) {
+    @FXML
+    void limpiarE(ActionEvent evt) {
         limpiarEmp();
     }
 
-    @FXML void LimpiarC(ActionEvent evt) {
+    @FXML
+    void LimpiarC(ActionEvent evt) {
         limpiarCliente();
     }
 
-    @FXML void limpiarPro(ActionEvent evt) {
+    @FXML
+    void limpiarPro(ActionEvent evt) {
         limpiarPropi();
     }
-    
+
     //prueba
-    @FXML void archivos(ActionEvent evt){
+    @FXML
+    void archivos(ActionEvent evt) {
         FileChooser fc = new FileChooser();
         File selectedFile = fc.showOpenDialog(null);
-        fc.getExtensionFilters().addAll( 
-        new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-        new FileChooser.ExtensionFilter("PNG", "*.png")
-                
-                );
-        
-        if(selectedFile != null){
+        fc.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+        );
+
+        if (selectedFile != null) {
             lvArchivos.getItems().add(selectedFile.getAbsolutePath());
             lblNomreImage.setText(selectedFile.getName());
             System.out.println(selectedFile.getAbsolutePath());
-            Image ft = new Image(selectedFile.getAbsolutePath());
-            System.out.println(ft);
-            foto.setImage(ft);
-        }else{
+            //Image ft = new Image(selectedFile.getAbsolutePath());
+            //System.out.println(ft);
+            //foto.setImage(ft);
+        } else {
             System.out.println("No se adminte este tipo de archivos");
         }
     }
