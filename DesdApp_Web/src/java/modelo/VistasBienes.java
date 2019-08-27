@@ -1,6 +1,6 @@
 package modelo;
 
-public class VistaBien {
+public class VistasBienes {
 
     //Atributos de clase VistaBien
     String tipoProp;
@@ -14,7 +14,7 @@ public class VistaBien {
     String nomemple;
 
     //Constructores
-    public VistaBien(String tipoProp, String ventaRenta, int habitacion, String zona,String dep, String metrosC, int precioSug, int codemple, String nomemple) {
+    public VistasBienes(String tipoProp, String ventaRenta, int habitacion, String zona,String dep, String metrosC, int precioSug, int codemple, String nomemple) {
         this.tipoProp = tipoProp;
         this.ventaRenta = ventaRenta;
         this.habitacion = habitacion;
@@ -26,7 +26,7 @@ public class VistaBien {
         this.nomemple = nomemple;
     }
     //Constructor vacio
-    public VistaBien(){
+    public VistasBienes(){
         
     }
 

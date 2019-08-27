@@ -2,11 +2,11 @@
 package interfaces;
 
 import java.util.ArrayList;
-import modelo.VistaBien;
+import modelo.VistasBienes;
 
 public interface InterfaceVistaBienes {
 
     //Metodos Abstractos
-public ArrayList<VistaBien>listview(String prop);  
-public ArrayList<VistaBien>listVnRn(String vent);
+public ArrayList<VistasBienes>listview(String prop);  
+ public ArrayList<VistasBienes> listVnRn(String vent);
 }

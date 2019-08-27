@@ -4,7 +4,7 @@ import interfaces.InterfaceVistaBienes;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import modelo.VistaBien;
+import modelo.VistasBienes;
 
 //Se implementa las interface de VistaBienes
 public class DAOVistaBienes implements InterfaceVistaBienes{
@@ -18,9 +18,9 @@ public class DAOVistaBienes implements InterfaceVistaBienes{
     
     
     @Override
-    public ArrayList<VistaBien> listview(String prop) {
-        ArrayList<VistaBien> list = new ArrayList<>();//Se crea un objeto de tipo ArrayList para guardar el resultado de mi consulta
-        VistaBien vsBien;//Se crea un objeto de tipos VistaBien para ser usado en el bucle while
+    public ArrayList<VistasBienes> listview(String prop) {
+        ArrayList<VistasBienes> list = new ArrayList<>();//Se crea un objeto de tipo ArrayList para guardar el resultado de mi consulta
+        VistasBienes vsBien;//Se crea un objeto de tipos VistaBien para ser usado en el bucle while
       
         try {
             cx.conectar();//Se abrio la conexion
@@ -31,7 +31,7 @@ public class DAOVistaBienes implements InterfaceVistaBienes{
             rs = execute.executeQuery();//Se asigna la respuesta del sql al objeto de tipo ResultSet
             
             while(rs.next()){
-               vsBien = new VistaBien();//Se intancia el objeto vsBien
+               vsBien = new VistasBienes();//Se intancia el objeto vsBien
                vsBien.setTipoProp(rs.getString("tipopropiedad"));//Se asigna al objeto vsBien datos de la base de datos
                vsBien.setVentaRenta(rs.getString("ventarenta"));
                vsBien.setHabitacion(rs.getInt("habitaciones"));
@@ -55,9 +55,9 @@ public class DAOVistaBienes implements InterfaceVistaBienes{
     }
 
     @Override
-    public ArrayList<VistaBien> listVnRn(String vent) {
-     ArrayList<VistaBien> listVent = new ArrayList<>();//Se crea un objeto de tipo ArrayList para guardar el resultado de mi consulta
-        VistaBien vsBien;//Se crea un objeto de tipos VistaBien para ser usado en el bucle while
+    public ArrayList<VistasBienes> listVnRn(String vent) {
+     ArrayList<VistasBienes> listVent = new ArrayList<>();//Se crea un objeto de tipo ArrayList para guardar el resultado de mi consulta
+        VistasBienes vsBien;//Se crea un objeto de tipos VistaBien para ser usado en el bucle while
       
         try {
             cx.conectar();//Se abrio la conexion
@@ -68,7 +68,7 @@ public class DAOVistaBienes implements InterfaceVistaBienes{
             rs = execute.executeQuery();//Se asigna la respuesta del sql al objeto de tipo ResultSet
             
             while(rs.next()){
-               vsBien = new VistaBien();//Se intancia el objeto vsBien
+               vsBien = new VistasBienes();//Se intancia el objeto vsBien
                vsBien.setTipoProp(rs.getString("tipopropiedad"));//Se asigna al objeto vsBien datos de la base de datos
                vsBien.setVentaRenta(rs.getString("ventarenta"));
                vsBien.setHabitacion(rs.getInt("habitaciones"));
