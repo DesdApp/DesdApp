@@ -11,15 +11,29 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Empleados;
 
+/**
+ * Esta clase es el objeto de acceso a datos para la clase Empleados.
+ *
+ * @author carolina
+ */
 public class DAOEmpleados implements interfaces.InterfaceEmpleados {
 
+    //Instancia de clases
     ConexionDB cn = new ConexionDB();
     PreparedStatement execute;
     ResultSet rs;
 
+    //Atributos
     String msg;
     String sql;
 
+    /**
+     * Este metodo es para Ingresar un nuevo registro de Empleados
+     *
+     * @param empleado Este parametro es el tipo de objeto que deseamos Ingresar
+     * @return retorna un mensaje de confirmación o error en caso de que el id
+     * se repita
+     */
     @Override
     public String insert(Empleados empleado) {
         try {
@@ -50,6 +64,14 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
         return msg;
     }
 
+    /**
+     * Este metodo es para realizar la Eliminacion de un Empleados en
+     * base al codigo
+     *
+     * @param codigo elimina un registro por medio del id ingresado
+     * @return retorna un mensaje de confirmación o error en caso de que el
+     * registro no exista
+     */
     @Override
     public String delete(int codigo) {
         try {
@@ -72,6 +94,13 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
         return msg;
     }
 
+    /**
+     * Este metodo es para realizar la modificacion de Empleados en base a
+     * los datos.
+     *
+     * @param empleado actualizará el registro que se llama por el id en la consulta
+     * @return retornará un mensaje de confirmacion
+     */
     @Override
     public String update(Empleados empleado) {
         try {
@@ -98,6 +127,14 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
         return msg;
     }
 
+    /**
+     * Este metodo es para realizar la consulta de un Empleados en base
+     * al codigo
+     *
+     * @param codigo Este parametro es el codigo del elemento que deseamos
+     * buscar.
+     * @return Retorna el objeto obtenido en nuestra consulta.
+     */
     @Override
     public Empleados select(int codigo) {
         Empleados empleados = new Empleados();
@@ -128,6 +165,13 @@ public class DAOEmpleados implements interfaces.InterfaceEmpleados {
         return empleados;
     }
 
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase Empleados.
+     *
+     * @return retornará una lista de los registros de la tabla que se pide en
+     * la consulta
+     */
     @Override
     public ArrayList<Empleados> lits() {
         ArrayList<Empleados> list = new ArrayList<>();

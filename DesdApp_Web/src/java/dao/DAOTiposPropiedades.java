@@ -107,7 +107,7 @@ public class DAOTiposPropiedades implements interfaces.InterfaceTiposPropiedades
     }
 
     /**
-     * Este metodo es para realizar la modificacion de TiposUsuarios en base a
+     * Este metodo es para realizar la modificacion de TiposPropiedades en base a
      * los datos.
      *
      * @param tipo actualizará el registro que se llama por el id en la consulta

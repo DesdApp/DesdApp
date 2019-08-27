@@ -26,6 +26,13 @@ public class DAOEstadoPropiedades implements interfaces.InterfaceEstadosProp {
     String sql;
     String msg;
 
+    /**
+     * Este metodo es para Ingresar un nuevo registro de EstadosPropiedades
+     *
+     * @param estado Este parametro es el tipo de objeto que deseamos Ingresar
+     * @return retorna un mensaje de confirmación o error en caso de que el id
+     * se repita
+     */
     @Override
     public String insertEstado(EstadosPropiedades estado) {
         /*
@@ -56,6 +63,14 @@ public class DAOEstadoPropiedades implements interfaces.InterfaceEstadosProp {
         return msg;
     }
 
+    /**
+     * Este metodo es para realizar la Eliminacion de un EstadosPropiedades en
+     * base al codigo
+     *
+     * @param codigo elimina un registro por medio del id ingresado
+     * @return retorna un mensaje de confirmación o error en caso de que el
+     * registro no exista
+     */
     @Override
     public String deleteEstado(byte codigo) {
         /**
@@ -84,6 +99,13 @@ public class DAOEstadoPropiedades implements interfaces.InterfaceEstadosProp {
         return msg;
     }
 
+    /**
+     * Este metodo es para realizar la modificacion de EstadosUsuarios en base a
+     * los datos.
+     *
+     * @param estado actualizará el registro que se llama por el id en la consulta
+     * @return retornará un mensaje de confirmacion
+     */
     @Override
     public String updateEstado(EstadosPropiedades estado) {
         /**
@@ -105,10 +127,16 @@ public class DAOEstadoPropiedades implements interfaces.InterfaceEstadosProp {
         return msg;
     }
 
-    @Override
     /**
-     * @return el registro que se selecciono
+     * Este metodo es para realizar la consulta de un EstadosPropiedades en base
+     * al codigo
+     *
+     * @param codigo Este parametro es el codigo del elemento que deseamos
+     * buscar.
+     * @return Retorna el objeto obtenido en nuestra consulta.
      */
+    @Override
+    
     public EstadosPropiedades selectEstado(byte codigo) {
         /*
         * Se realiza la consulta para seleccionar un registro
@@ -136,10 +164,15 @@ public class DAOEstadoPropiedades implements interfaces.InterfaceEstadosProp {
         return estado;
     }
 
-    @Override
-    /**
-     * @return los registros de la tabla
+     /**
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase EstadosPropiedades.
+     *
+     * @return retornará una lista de los registros de la tabla que se pide en
+     * la consulta
      */
+    @Override
+    
     public ArrayList<EstadosPropiedades> listEstados() {
         EstadosPropiedades estados;
         ArrayList<EstadosPropiedades> list = new ArrayList<>();// Utilizamos un ArrayList para obtener todos los registros y almacenarlos
