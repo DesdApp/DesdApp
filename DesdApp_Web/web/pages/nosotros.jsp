@@ -97,7 +97,6 @@
                 int filas = 0;
                 for (Nosotros elem : list) {
 
-
             %>
             <div class="col-6">
                 <div class="card mb-2 mt-2 mx-auto" style="max-width: 540px;">

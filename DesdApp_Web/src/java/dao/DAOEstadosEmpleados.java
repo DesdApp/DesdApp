@@ -6,15 +6,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Esta clase es el objeto de acceso a datos para la clase EstadosEmpleados.
+ *
+ * @author carolina
+ */
 public class DAOEstadosEmpleados implements interfaces.InterfaceEstadosEmpleados {
 
+    //Instancias de clases
     ConexionDB cn = new ConexionDB();
     PreparedStatement execute;
     ResultSet rs;
 
+    //Declaracion de Atributos
     String msg;
     String sql;
 
+    /**
+     * Este metodo es para Ingresar un nuevo registro de EstadosEmpleados
+     *
+     * @param estadoEmp Este parametro es el tipo de objeto que deseamos Ingresar
+     * @return retorna un mensaje de confirmación o error en caso de que el id
+     * se repita
+     */
     @Override
     public String insert(EstadosEmpleados estadoEmp) {
         try {
@@ -37,6 +51,14 @@ public class DAOEstadosEmpleados implements interfaces.InterfaceEstadosEmpleados
         return msg;
     }
 
+    /**
+     * Este metodo es para realizar la Eliminacion de un EstadosEmpleados en
+     * base al codigo
+     *
+     * @param codigo elimina un registro por medio del id ingresado
+     * @return retorna un mensaje de confirmación o error en caso de que el
+     * registro no exista
+     */
     @Override
     public String delete(int codigo) {
         try {
@@ -59,6 +81,13 @@ public class DAOEstadosEmpleados implements interfaces.InterfaceEstadosEmpleados
         return msg;
     }
 
+    /**
+     * Este metodo es para realizar la modificacion de EstadosEmpleados en base a
+     * los datos.
+     *
+     * @param estadoEmp actualizará el registro que se llama por el id en la consulta
+     * @return retornará un mensaje de confirmacion
+     */
     @Override
     public String update(EstadosEmpleados estadoEmp) {
         try {
@@ -78,6 +107,14 @@ public class DAOEstadosEmpleados implements interfaces.InterfaceEstadosEmpleados
         return msg;
     }
 
+    /**
+     * Este metodo es para realizar la consulta de un EstadosEmpleados en base
+     * al codigo
+     *
+     * @param codigo Este parametro es el codigo del elemento que deseamos
+     * buscar.
+     * @return Retorna el objeto obtenido en nuestra consulta.
+     */
     @Override
     public EstadosEmpleados select(int codigo) {
         EstadosEmpleados estado = new EstadosEmpleados();
@@ -99,6 +136,13 @@ public class DAOEstadosEmpleados implements interfaces.InterfaceEstadosEmpleados
         return estado;
     }
 
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase EstadosEmpleados.
+     *
+     * @return retornará una lista de los registros de la tabla que se pide en
+     * la consulta
+     */
     @Override
     public ArrayList<EstadosEmpleados> list() {
         ArrayList<EstadosEmpleados> list = new ArrayList<>();

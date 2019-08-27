@@ -1,5 +1,11 @@
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase
+ * BienesInmuebles. Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
 public class BienesInmuebles {
 
     // Atributos
@@ -21,7 +27,7 @@ public class BienesInmuebles {
     private int precioReal;
     private int codEmpleado;
 
-    //Constructor
+    //Constructor con parametros
     public BienesInmuebles(String inmuebleId, byte tipoPropiedadId, byte estadoId, byte estadoNegId, int clienteId, String direccion, int zonaId, String metrosCuadrados, String descripcionMetros, byte cantCuartos, byte cantNiveles, byte sotanos, byte elevadores, int precioMinVenta, int precioSugerido, int precioReal, int codEmpleado) {
         this.inmuebleId = inmuebleId;
         this.tipoPropiedadId = tipoPropiedadId;
@@ -42,6 +48,7 @@ public class BienesInmuebles {
         this.codEmpleado = codEmpleado;
     }
 
+    // Contructor vacio
     public BienesInmuebles() {
     }
 
@@ -49,8 +56,6 @@ public class BienesInmuebles {
     public String toString() {
         return "BienesInmuebles{" + "inmuebleId=" + inmuebleId + ", tipoPropiedadId=" + tipoPropiedadId + ", estadoId=" + estadoId + ", estadoNegId=" + estadoNegId + ", clienteId=" + clienteId + ", direccion=" + direccion + ", zonaId=" + zonaId + ", metrosCuadrados=" + metrosCuadrados + ", descripcionMetros=" + descripcionMetros + ", cantCuartos=" + cantCuartos + ", cantNiveles=" + cantNiveles + ", sotanos=" + sotanos + ", elevadores=" + elevadores + ", precioMinVenta=" + precioMinVenta + ", precioSugerido=" + precioSugerido + ", precioReal=" + precioReal + ", codEmpleado=" + codEmpleado + '}';
     }
-    
-    
 
     //<editor-fold defaultstate="collapsed" desc="Metodos set y get">
     public String getInmuebleId() {

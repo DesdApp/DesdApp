@@ -12,14 +12,17 @@ public class Corredores {
     private String zona;
     private int precio_s;
 
+    // Constructor vacio
     public String getNombre_corredor() {
         return nombre_corredor;
     }
 
+    // Constructor con parametros
     public void setNombre_corredor(String nombre_corredor) {
         this.nombre_corredor = nombre_corredor;
     }
 
+    //<editor-fold defaultstate="collapsed" desc="Getters y Setters">
     public int getCod_emp() {
         return cod_emp;
     }
@@ -83,6 +86,7 @@ public class Corredores {
     public void setPrecio_s(int precio_s) {
         this.precio_s = precio_s;
     }
+//</editor-fold>
 
     @Override
     public String toString() {

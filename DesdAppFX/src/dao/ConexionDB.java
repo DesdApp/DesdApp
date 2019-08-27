@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Esta Clase es la conexion de a la base de datos.
+ * @author carolina
+ */
 public class ConexionDB {
 
     //atributos
@@ -12,6 +16,9 @@ public class ConexionDB {
     private static final String USER = "root";//esto de igual manera
     private static final String PASS = "";//y esto, si no lo han modificado dejen user y pass vacios
 
+    /**
+     * Este metodo conecta a la base de datos
+     */
     //Metodos
     //conectar a base de datos
     public void conectar() {
@@ -24,6 +31,9 @@ public class ConexionDB {
         }
     }
 
+    /**
+     * Este metodo Se desconecta a la base de datos
+     */
     //Desconectar de la base de datos
     public void desconectar() {
         if (conexionDB != null) {//Indicamos que si existe una conexion la cierre, de lo contario no hara nada
@@ -38,17 +48,25 @@ public class ConexionDB {
         }
     }
 
+    /**
+     * Metodo Get acceso para utilizar la conexion cuando se importe.
+     * @return Retorna la conexionDB
+     */
     //Setter and Getter
     //Los metodos de acceso, son utilizados para darle a todo nuestro programa la posibilidad de utilizar la conexion, siempre y cuando se importe.
     public Connection getconexionDB() {
         return conexionDB;
     }
 
+    /**
+     * Metodo Set Asigna valores
+     * @param conexionDB asigna el metodo conexionDB al metodo Connnection
+     */
     public void setconexionDB(Connection conexionDB) {
         this.conexionDB = conexionDB;//no hace nada
     }
 
-    void descxonectar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    void descxonectar() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
