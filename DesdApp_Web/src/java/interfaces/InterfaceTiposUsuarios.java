@@ -1,5 +1,11 @@
 package interfaces;
 
+/**
+ * Esta clase declara los Metodos abstractos para realizar las funciones CRUD a
+ * la clase TiposUsuarios.
+ *
+ * @author esteban
+ */
 import modelo.TiposUsuarios;
 import java.util.ArrayList;
 
@@ -13,5 +19,5 @@ public interface InterfaceTiposUsuarios {
 
     public TiposUsuarios selectTipoUsuario(byte codigo);
 
-    public ArrayList<TiposUsuarios>list();
+    public ArrayList<TiposUsuarios> list();
 }

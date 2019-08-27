@@ -1,6 +1,11 @@
-
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y  atributos para 
+ * la clase TiposDocumentos.
+ * Se inicializan los Constructores llenos y vacios.
+ * @author esteban
+ */
 
 public class TiposDocumentos {
  //Declaracion de Atributos para la clase TiposDocumentos
@@ -36,11 +41,4 @@ public class TiposDocumentos {
         this.nombre = nombre;
     }
 //</editor-fold>
-
-    @Override
-    public String toString() {
-        return "TiposDocumentos{" + "idTipoDoc=" + idTipoDoc + ", nombre=" + nombre + '}';
-    }
-
-    
 }

@@ -1,5 +1,12 @@
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase EstadosPropiedades.
+ * Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
+
 public class EstadosPropiedades {
 
     // Atributos

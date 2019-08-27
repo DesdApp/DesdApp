@@ -1,5 +1,11 @@
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase Clientes.
+ * Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
 public class Clientes {
 
     // Atributos
@@ -9,24 +15,22 @@ public class Clientes {
     private String user;
     private String password;
 
-    //Contructor de  atributos
+    //Contructor con parametros
     public Clientes(int clienteId, int personaId, String nombreTitular, String user, String password) {
         this.clienteId = clienteId;
         this.personaId = personaId;
         this.nombreTitular = nombreTitular;
         this.user = user;
         this.password = password;
+    }
 
+    // Constructor vacio
+    public Clientes() {
     }
 
     @Override
     public String toString() {
         return "Clientes{" + "clienteId=" + clienteId + ", personaId=" + personaId + ", nombreTitular=" + nombreTitular + ", user=" + user + ", password=" + password + '}';
-    }
-    
-    
-
-    public Clientes() {
     }
 
     //<editor-fold defaultstate="collapsed" desc="Metodos set y get">

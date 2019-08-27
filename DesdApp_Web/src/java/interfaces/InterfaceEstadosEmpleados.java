@@ -1,5 +1,11 @@
 package interfaces;
 
+/**
+ * Esta clase declara los Metodos abstractos para realizar las funciones CRUD a
+ * la clase EstadosEmpleados.
+ *
+ * @author esteban
+ */
 import modelo.EstadosEmpleados;
 import java.util.ArrayList;
 

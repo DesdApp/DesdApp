@@ -1,27 +1,31 @@
-
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase Municipios.
+ * Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
 //Modelo clase municipios
 public class Municipios {
+
     //Declaracion de Atributos 
     private int muniIdi;
     private String nombre;
     private int deptoId;
-    
+
     //Constructor Vacio
     public Municipios() {
     }
-    
-    //Constructor con Parametros
 
+    //Constructor con Parametros
     public Municipios(int muniIdi, String nombre, int deptoId) {
         this.muniIdi = muniIdi;
         this.nombre = nombre;
         this.deptoId = deptoId;
     }
-    
-    //Getters y Setteres
 
+    //<editor-fold defaultstate="collapsed" desc="Getters y Setters">
     public int getMuniIdi() {
         return muniIdi;
     }
@@ -45,11 +49,11 @@ public class Municipios {
     public void setDeptoId(int deptoId) {
         this.deptoId = deptoId;
     }
+//</editor-fold>
 
     @Override
     public String toString() {
         return "Municipios{" + "muniIdi=" + muniIdi + ", nombre=" + nombre + ", deptoId=" + deptoId + '}';
     }
-    
-    
+
 }

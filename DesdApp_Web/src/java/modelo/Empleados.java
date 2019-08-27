@@ -1,9 +1,16 @@
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase Empleados.
+ * Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
 import java.sql.Date;
 
 public class Empleados {
 
+//    Atributos
     private int personaId;
     private int empleadoId;
     private String puesto;
@@ -15,6 +22,7 @@ public class Empleados {
     private int tipoUsuarioId;
     private int estadoEmpleadoId;
 
+//    Constructor con parametros
     public Empleados(int personaId, int empleadoId, String puesto, Date fechaInicio, Date fechaFinalizacion, double sueldo, String user, String password, int tipoUsuarioId, int estadoEmpleadoId) {
         this.personaId = personaId;
         this.empleadoId = empleadoId;
@@ -28,10 +36,11 @@ public class Empleados {
         this.estadoEmpleadoId = estadoEmpleadoId;
     }
 
+//    Contructor vacio
     public Empleados() {
     }
-    //<editor-flod defaultstate="collapsed" desc="Metodos de acceso SET & GET">
-   
+
+    //<editor-fold defaultstate="collapsed" desc="Getters y Setters">
     public int getPersonaId() {
         return personaId;
     }
@@ -111,12 +120,11 @@ public class Empleados {
     public void setEstadoEmpleadoId(int estadoEmpleadoId) {
         this.estadoEmpleadoId = estadoEmpleadoId;
     }
-    //</>editor-fold>
+//</editor-fold>
 
     @Override
     public String toString() {
         return "Empleado{" + "personaId=" + personaId + ", empleadoId=" + empleadoId + ", puesto=" + puesto + ", fechaInicio=" + fechaInicio + ", fechaFinalizacion=" + fechaFinalizacion + ", sueldo=" + sueldo + ", user=" + user + ", password=" + password + ", tipoUsuarioId=" + tipoUsuarioId + ", estadoEmpleadoId=" + estadoEmpleadoId + '}';
     }
-    
-    
+
 }
