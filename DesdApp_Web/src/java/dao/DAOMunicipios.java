@@ -16,6 +16,10 @@ import java.util.ArrayList;
 *contMuni// verificar las sentencias if de cada metodo.
  */
 //implementacion de los metodos abstractos de la interfaz municipio
+/**
+ *Esta clase es el objeto de acceso a datos para la clase Municipos 
+ * @author carolina
+ */
 public class DAOMunicipios implements interfaces.InterfaceMunicipio {
 
     private ConexionDB cn = new ConexionDB();
@@ -25,9 +29,15 @@ public class DAOMunicipios implements interfaces.InterfaceMunicipio {
     private PreparedStatement ejecutar;
     private int contMuni = 0;
 
+    /**
+     * Este metodo es para Ingresar un nuevo registro de tipo Municipios
+     *
+     * @param muni Este parametro es el tipo de objeto que deseamos Ingresar
+     * @return retorna un mensaje de confirmación o error en caso de que el id
+     * se repita
+     */
     //Metodo para insertar Municipios
     @Override
-   
     public String insert(Municipios muni) {
         try {
             //Se conecta a la base de datos
@@ -60,6 +70,13 @@ public class DAOMunicipios implements interfaces.InterfaceMunicipio {
         return mensaje;
     }
 
+    /**
+     * Este metodo es para realizar la modificacion de Municipios en base a
+     * los datos.
+     *
+     * @param muni actualizará el registro que se llama por el id en la consulta
+     * @return retornará un mensaje de confirmacion
+     */
     //Metodo para Modificar Municipios
     @Override
     public String update(Municipios muni) {
@@ -94,6 +111,14 @@ public class DAOMunicipios implements interfaces.InterfaceMunicipio {
         return mensaje;
     }
 
+    /**
+     * Este metodo es para realizar la Eliminacion de un Municipio en
+     * base al id
+     *
+     * @param id elimina un registro por medio del id ingresado
+     * @return retorna un mensaje de confirmación o error en caso de que el
+     * registro no exista
+     */
     //Metodo para Eliminar Municipios
     @Override
     public String delete(int id) {
@@ -126,6 +151,14 @@ public class DAOMunicipios implements interfaces.InterfaceMunicipio {
         return mensaje;
     }
 
+    /**
+     * Este metodo es para realizar la consulta de un Municipio en base
+     * al id
+     *
+     * @param id Este parametro es el id del elemento que deseamos
+     * buscar.
+     * @return Retorna el objeto obtenido en nuestra consulta.
+     */
     //Metodos para Seleccionar municipios
     @Override
     public Municipios select(int id) {
@@ -158,6 +191,14 @@ public class DAOMunicipios implements interfaces.InterfaceMunicipio {
         return dato;
     }
 
+    
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase Municipios
+     *
+     * @return retornará una lista de los registros de la tabla que se pide en
+     * la consulta
+     */
     //Metodo para Listar Municipios.
     @Override
     public ArrayList<Municipios> list() {
