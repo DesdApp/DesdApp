@@ -3,15 +3,17 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 /**
  * Esta clase es la conexion a la base de datos
+ *
  * @author carolina
  */
 public class ConexionDB {
 
     //atributos
     private Connection conexionDB;
-    private static final String URL = "jdbc:mysql://127.0.0.1/java19_desdapp";//poner el enlace a la base de datos con respecto a su configuaracion
+    private static final String URL = "jdbc:mysql://127.0.0.1/desdapp";//poner el enlace a la base de datos con respecto a su configuaracion
     private static final String USER = "root";//esto de igual manera
     private static final String PASS = "";//y esto, si no lo han modificado dejen user y pass vacios
 
@@ -49,18 +51,20 @@ public class ConexionDB {
 
     //Setter and Getter
     /**
-     * Este es un metodo de acceso get 
-     * es utilizado para darle a nuestro programa la posibilidad
-     * de utilizar la conexion cuando se importe.
-     * @return  Retorna un objeto conexionDB.
+     * Este es un metodo de acceso get es utilizado para darle a nuestro
+     * programa la posibilidad de utilizar la conexion cuando se importe.
+     *
+     * @return Retorna un objeto conexionDB.
      */
     //Los metodos de acceso, son utilizados para darle a todo nuestro programa la posibilidad de utilizar la conexion, siempre y cuando se importe.
     public Connection getconexionDB() {
         return conexionDB;
     }
+
     /**
      * Este es un metodo de acceso Set
-     * @param conexionDB 
+     *
+     * @param conexionDB
      */
     public void setconexionDB(Connection conexionDB) {
         this.conexionDB = conexionDB;//no hace nada

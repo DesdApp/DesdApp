@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : inicio
     Created on : Aug 2, 2019, 8:31:22 AM
     Author     : User
@@ -21,14 +21,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        
+
         <title>Inicio Clientes</title>
 
         <!-- Bootstrap Stylesheet -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/inicioClientes.css">
-        
+
         <!-- Bootstrap Stylesheet -->
 
     </head>
@@ -178,7 +178,7 @@
 
 
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Salir</a>
+                            <a class="dropdown-item" href="index.jsp">Salir</a>
                         </div>
                     </li>
                 </ul>
@@ -188,16 +188,16 @@
             </div>
         </nav>
         <!-- Fin de la barra de navegacion -->
-        
+
         <!-- Modal para la modificacion de datos-->
-        
+
         <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title"  id="exampleModalLabel">Modificar Datos</h5>
-                        
+
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
                             <span aria-hidden="true">&times;</span>
@@ -210,7 +210,7 @@
                                 <label for="nombre">Nombre</label>
                                 <input type="text" class="form-control" name="txtNombre" id="nombre" >
                                 <label for="apellido">Apellido</label>
-                                <input type="text" class="form-control" name="txtApellido" id="apellido"> 
+                                <input type="text" class="form-control" name="txtApellido" id="apellido">
                                 <label for="txtEmail">Email</label>
                                 <input type="email" class="form-control" name="txtEmail" id="txtEmail" placeholder="name@example.com"><br>
                                 <select name="txtTipo" class="custom-select custom-select-sm" >
@@ -274,8 +274,8 @@
                                 </div>
 
                             </div>
-                                    <input type="hidden" id="accion" name="accion" value="modificar">
-                      </form>
+                            <input type="hidden" id="accion" name="accion" value="modificar">
+                        </form>
 
                     </div>
                     <div class="modal-footer">
