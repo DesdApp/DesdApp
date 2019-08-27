@@ -1,10 +1,16 @@
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase
+ * Registrarse. Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
 import java.sql.Date;
 
 public class Registrarse {
 
-   // Atributos
+    // Atributos
     private int personaId;
     private String nombre;
     private String apellido;
@@ -15,12 +21,10 @@ public class Registrarse {
     private int celular;
     private int telefono;
     private String correo;
-    private Date fechaNacimiento; 
+    private Date fechaNacimiento;
     private String password;
-    
-    
-//construtores
 
+//    Contructor con parametros
     public Registrarse(int personaId, String nombre, String apellido, byte tipoDocumentoId, String noDocumento, String nit, String direccion, int celular, int telefono, String correo, Date fechaNacimiento, String password) {
         this.personaId = personaId;
         this.nombre = nombre;
@@ -35,15 +39,13 @@ public class Registrarse {
         this.fechaNacimiento = fechaNacimiento;
         this.password = password;
     }
-    
-    public Registrarse(){
-        
+
+//    Constructor vacio
+    public Registrarse() {
+
     }
-    
-    
-    
-    
-//Metodos de acceso
+
+    //<editor-fold defaultstate="collapsed" desc="Getters y Setters">
     public int getPersonaId() {
         return personaId;
     }
@@ -139,6 +141,6 @@ public class Registrarse {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
+
+//</editor-fold>
 }

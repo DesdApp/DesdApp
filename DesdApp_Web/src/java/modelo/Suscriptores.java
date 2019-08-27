@@ -1,5 +1,12 @@
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y  atributos para 
+ * la clase Suscriptores.
+ * Se inicializan los Constructores llenos y vacios.
+ * @author esteban
+ */
+
 public class Suscriptores {
 
     // Atributos
@@ -7,10 +14,11 @@ public class Suscriptores {
     private String nombre;
     private String correo;
     
-//    Constructores
+//    Constructor vacio
     public Suscriptores() {
     }
 
+//    Constructor con parametros
     public Suscriptores(int suscriptorId, String nombre, String correo) {
         this.suscriptorId = suscriptorId;
         this.nombre = nombre;

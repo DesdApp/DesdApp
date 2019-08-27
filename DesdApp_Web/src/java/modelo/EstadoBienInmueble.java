@@ -1,21 +1,26 @@
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase
+ * EsstadoBienInmueble. Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
 public class EstadoBienInmueble {
 
     // Atributos
     private byte estadoId;
     private String nombre;
-    
-    //Construtor de atributos
 
+    //Construtor de atributos
     public EstadoBienInmueble(byte estadoPropiedadId, String nombre) {
         this.estadoId = estadoPropiedadId;
         this.nombre = nombre;
     }
-    
+
     //Construtor vacio
-    public EstadoBienInmueble(){
-        
+    public EstadoBienInmueble() {
+
     }
 
     //<editor-fold defaultstate="collapsed" desc="Metodos set y get">
@@ -40,6 +45,5 @@ public class EstadoBienInmueble {
     public String toString() {
         return "EstadosPropiedades{" + "estadoPropiedadId=" + estadoId + ", nombre=" + nombre + '}';
     }
-    
-    
+
 }
