@@ -3,7 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+/**
+ * Esta clase es la conexion a la base de datos
+ * @author carolina
+ */
 public class ConexionDB {
 
     //atributos
@@ -14,6 +17,9 @@ public class ConexionDB {
 
     //Metodos
     //conectar a base de datos
+    /**
+     * Este metodo conecta a la base de datos
+     */
     public void conectar() {
         try {
             Class.forName("com.mysql.jdbc.Driver");//se registra el Driver de conexion para mysql
@@ -25,6 +31,9 @@ public class ConexionDB {
     }
 
     //Desconectar de la base de datos
+    /**
+     * Este metodo desconecta de la base de datos
+     */
     public void desconectar() {
         if (conexionDB != null) {//Indicamos que si existe una conexion la cierre, de lo contario no hara nada
             try {
@@ -39,11 +48,20 @@ public class ConexionDB {
     }
 
     //Setter and Getter
+    /**
+     * Este es un metodo de acceso get 
+     * es utilizado para darle a nuestro programa la posibilidad
+     * de utilizar la conexion cuando se importe.
+     * @return  Retorna un objeto conexionDB.
+     */
     //Los metodos de acceso, son utilizados para darle a todo nuestro programa la posibilidad de utilizar la conexion, siempre y cuando se importe.
     public Connection getconexionDB() {
         return conexionDB;
     }
-
+    /**
+     * Este es un metodo de acceso Set
+     * @param conexionDB 
+     */
     public void setconexionDB(Connection conexionDB) {
         this.conexionDB = conexionDB;//no hace nada
     }

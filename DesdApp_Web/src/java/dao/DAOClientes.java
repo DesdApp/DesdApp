@@ -6,6 +6,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.Clientes;
 
+/**
+ * Esta clase es el objeto de acceso a datos para la clase Clientes.
+ *
+ * @author carolina
+ */
 public class DAOClientes implements interfaces.InterfaceClientes {
 
     // Instanciamos las clases
@@ -18,7 +23,7 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     String msg;
 
     /**
-     *
+     *Este metodo es para Ingresar un nuevo registro de Clientes
      * @param cliente ingresará un nuevo registro
      * @return retornará un mensaje de confirmación o error en caso de que el id
      * ya exista en otro registro
@@ -46,7 +51,8 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     }
 
     /**
-     *
+     *Este metodo es para realizar la Eliminacion de un Clientes en
+     * base al codigo.
      * @param codigo eliminará el registro por medio de la consulta con el id
      * especifico
      * @return retornará un mensaje de confirmación o error en caso de que el id
@@ -75,7 +81,8 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     }
 
     /**
-     *
+     * Este metodo es para realizar la modificacion de Clientes en base a
+     * los datos.
      * @param cliente actualizará los datos de un registro por el id
      * @return retorna mensaje de confirmacion
      */
@@ -103,7 +110,8 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     }
 
     /**
-     *
+     * Este metodo es para realizar la consulta de un Clientes en base
+     * al codigo
      * @param codigo se buscará un registro por su id
      * @return se mostrarán los datos del registro
      */
@@ -132,7 +140,8 @@ public class DAOClientes implements interfaces.InterfaceClientes {
     }
 
     /**
-     *
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase Clientes.
      * @return retornará una lista de los registros de la tabla que se pidió por
      * medio de la consulta
      */

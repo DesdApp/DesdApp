@@ -1,9 +1,14 @@
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase Corredores.
+ * Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
+public class Corredores {
 
-public class Corredores{
-
-
+    // Atributos
     private String nombre_corredor;
     private int cod_emp;
     private int tel;
@@ -15,14 +20,17 @@ public class Corredores{
     private String zona;
     private int precio_s;
 
+    // Constructor vacio
     public String getNombre_corredor() {
         return nombre_corredor;
     }
 
+    // Constructor con parametros
     public void setNombre_corredor(String nombre_corredor) {
         this.nombre_corredor = nombre_corredor;
     }
 
+    //<editor-fold defaultstate="collapsed" desc="Getters y Setters">
     public int getCod_emp() {
         return cod_emp;
     }
@@ -94,13 +102,11 @@ public class Corredores{
     public void setPrecio_s(int precio_s) {
         this.precio_s = precio_s;
     }
+//</editor-fold>
 
     @Override
     public String toString() {
         return "Corredores{" + "nombre_corredor=" + nombre_corredor + ", cod_emp=" + cod_emp + ", tel=" + tel + ", cel=" + cel + ", correo=" + correo + ", tipo_prop=" + tipo_prop + ", tipo_usuario_id=" + tipo_usuario_id + ", direccion=" + direccion + ", zona=" + zona + ", precio_s=" + precio_s + '}';
     }
 
-    
-    
-    
 }

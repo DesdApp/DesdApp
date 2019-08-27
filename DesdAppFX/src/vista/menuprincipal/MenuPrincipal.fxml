@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -10,8 +11,11 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -19,7 +23,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MenuPrincipalController">
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1820.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MenuPrincipalController">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
@@ -57,10 +61,10 @@
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../../resources/menuprincipal.css">
                                              <children>
-                                                <GridPane alignment="TOP_CENTER" layoutX="27.0" layoutY="23.0" maxHeight="800.0" maxWidth="573.0" minHeight="580.0" minWidth="573.0" prefHeight="615.0" prefWidth="573.0">
+                                                <GridPane alignment="TOP_CENTER" layoutX="27.0" layoutY="23.0" maxHeight="800.0" maxWidth="573.0" minHeight="580.0" minWidth="463.0" prefHeight="615.0" prefWidth="463.0">
                                                   <columnConstraints>
-                                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="233.0" />
-                                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="340.0" minWidth="10.0" prefWidth="340.0" />
+                                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="139.0" />
+                                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="324.0" />
                                                   </columnConstraints>
                                                   <rowConstraints>
                                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -74,6 +78,7 @@
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                   </rowConstraints>
                                                    <children>
@@ -105,9 +110,26 @@
                                                       <JFXTextArea fx:id="direcPersona" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                                       <JFXComboBox fx:id="tipoDocPersona" prefHeight="38.0" prefWidth="335.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                                       <JFXDatePicker fx:id="fechaNacimientoPer" prefHeight="40.0" prefWidth="333.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                      <JFXButton prefHeight="51.0" prefWidth="139.0" text="Eliminar" textAlignment="CENTER" GridPane.rowIndex="12" />
+                                                      <JFXButton prefHeight="40.0" prefWidth="324.0" text="Actualizar" GridPane.columnIndex="1" GridPane.rowIndex="12" />
                                                    </children>
                                                 </GridPane>
-                                                <Separator layoutX="616.0" orientation="VERTICAL" prefHeight="1000.0" prefWidth="1.0" />
+                                                <Separator layoutX="511.0" orientation="VERTICAL" prefHeight="1000.0" prefWidth="1.0" />
+                                                <TableView fx:id="tabaPersona" layoutX="517.0" layoutY="58.0" prefHeight="958.0" prefWidth="1401.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="75.0" text="ID" />
+                                                    <TableColumn prefWidth="75.0" text="Nombres" />
+                                                      <TableColumn prefWidth="75.0" text="Apellidos" />
+                                                      <TableColumn prefWidth="127.0" text="Tipo de Documuento" />
+                                                      <TableColumn prefWidth="118.0" text="No. de Documento" />
+                                                      <TableColumn prefWidth="75.0" text="NIT" />
+                                                      <TableColumn prefWidth="75.0" text="Direccion" />
+                                                      <TableColumn prefWidth="75.0" text="Celular" />
+                                                      <TableColumn prefWidth="75.0" text="Telefono" />
+                                                      <TableColumn prefWidth="75.0" text="Correo" />
+                                                      <TableColumn prefWidth="137.0" text="Fecha de Nacimiento" />
+                                                  </columns>
+                                                </TableView>
                                              </children></AnchorPane>
                                                     </content>
                                                 </Tab>
@@ -130,7 +152,9 @@
                                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                   </rowConstraints>
                                                    <children>
@@ -143,21 +167,48 @@
                                                       <Label text="Usuario" GridPane.rowIndex="6" />
                                                       <Label text="Contraseña" GridPane.rowIndex="7" />
                                                       <Label text="Foto de Empleado" GridPane.rowIndex="8" />
-                                                      <Label text="Estado de Empleado" GridPane.rowIndex="9" />
+                                                      <Label text="Estado de Empleado" GridPane.rowIndex="10" />
                                                       <JFXTextField fx:id="codEmpleado" prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" />
                                                       <JFXTextField fx:id="idPersonaE" prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                       <JFXTextField fx:id="puestoE" prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                                       <JFXTextField fx:id="userEmp" prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                                       <JFXTextField fx:id="passwordEmp" prefHeight="47.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                      <JFXButton fx:id="btnInsertEmpleado" onAction="#insertEmpleado" prefHeight="45.0" prefWidth="200.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                      <JFXButton fx:id="btnInsertEmpleado" onAction="#insertEmpleado" prefHeight="44.0" prefWidth="238.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="11" />
                                                       <JFXComboBox fx:id="tipoUsr" prefHeight="46.0" prefWidth="238.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                      <JFXComboBox fx:id="estEmp" prefHeight="47.0" prefWidth="238.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                      <JFXComboBox fx:id="estEmp" prefHeight="47.0" prefWidth="238.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                                                       <JFXDatePicker fx:id="fechaInicio" prefHeight="42.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                                       <JFXDatePicker fx:id="fechaFinalizacion" prefHeight="47.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                      <JFXButton fx:id="btnNuevoE" onAction="#limpiarE" text="Nuevo" GridPane.rowIndex="10" />
+                                                      <JFXButton fx:id="btnNuevoE" onAction="#limpiarE" text="Nuevo" GridPane.rowIndex="11" />
+                                                      <JFXButton fx:id="btnimage" onAction="#archivos" prefHeight="43.0" prefWidth="120.0" text="Agregar imagenes" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                      <Label fx:id="lblNomreImage" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                      <JFXButton prefHeight="58.0" prefWidth="185.0" text="Eliminar" GridPane.rowIndex="12" />
+                                                      <JFXButton prefHeight="43.0" prefWidth="238.0" text="Actualizar" GridPane.columnIndex="1" GridPane.rowIndex="12" />
                                                    </children>
                                                 </GridPane>
                                                 <Separator layoutX="508.0" orientation="VERTICAL" prefHeight="1000.0" prefWidth="1.0" />
+                                                <JFXListView fx:id="lvArchivos" layoutX="7.0" layoutY="763.0" prefHeight="58.0" prefWidth="493.0" />
+                                                <ScrollPane layoutX="514.0" layoutY="104.0" prefHeight="877.0" prefWidth="1404.0">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="874.0" prefWidth="1263.0">
+                                                         <children>
+                                                            <TableView prefHeight="860.0" prefWidth="1480.0">
+                                                              <columns>
+                                                                <TableColumn prefWidth="137.0" text="Codigo de Empleado" />
+                                                                <TableColumn prefWidth="85.0" text="ID Persona" />
+                                                                  <TableColumn prefWidth="93.0" text="Tipo de Usario" />
+                                                                  <TableColumn prefWidth="50.0" text="Puesto" />
+                                                                  <TableColumn prefWidth="92.0" text="Fecha de Inicio" />
+                                                                  <TableColumn prefWidth="138.0" text="Fecha de Finalizacion" />
+                                                                  <TableColumn prefWidth="43.0" text="User" />
+                                                                  <TableColumn prefWidth="75.0" text="Password" />
+                                                                  <TableColumn prefWidth="122.0" text="Foto de Empleado" />
+                                                                  <TableColumn prefWidth="128.0" text="Estado de Empleado" />
+                                                              </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </ScrollPane>
                                              </children></AnchorPane>
                                                     </content>
                                                 </Tab>
@@ -165,7 +216,7 @@
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <GridPane layoutX="14.0" layoutY="14.0" prefHeight="432.0" prefWidth="450.0">
+                                                <GridPane layoutX="14.0" layoutY="14.0" prefHeight="478.0" prefWidth="450.0">
                                                   <columnConstraints>
                                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -177,6 +228,7 @@
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                   </rowConstraints>
                                                    <children>
                                                       <Label text="Codigo de Cliente" />
@@ -191,9 +243,20 @@
                                                       <JFXTextField fx:id="idPersonaC" prefHeight="66.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                       <JFXTextField fx:id="idCliente" prefHeight="67.0" prefWidth="225.0" GridPane.columnIndex="1" />
                                                       <JFXButton fx:id="btnNuevoC" onAction="#LimpiarC" text="Nuevo" GridPane.rowIndex="5" />
+                                                      <JFXButton prefHeight="66.0" prefWidth="225.0" text="Eliminar" GridPane.rowIndex="6" />
+                                                      <JFXButton prefHeight="64.0" prefWidth="225.0" text="Actualizar" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                                    </children>
                                                 </GridPane>
                                                 <Separator layoutX="495.0" layoutY="8.0" orientation="VERTICAL" prefHeight="1000.0" prefWidth="1.0" />
+                                                <TableView layoutX="501.0" layoutY="86.0" prefHeight="890.0" prefWidth="1315.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="113.0" text="Codigo de Cliente" />
+                                                    <TableColumn prefWidth="75.0" text="ID Persona" />
+                                                      <TableColumn prefWidth="119.0" text="Nombre del Tiutlar" />
+                                                      <TableColumn minWidth="0.0" prefWidth="70.0" text="Usuario" />
+                                                      <TableColumn prefWidth="102.0" text="Contraseña" />
+                                                  </columns>
+                                                </TableView>
                                              </children></AnchorPane>
                                                     </content>
                                                 </Tab>
@@ -201,7 +264,7 @@
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <GridPane layoutX="14.0" layoutY="14.0" prefHeight="673.0" prefWidth="393.0">
+                                                <GridPane layoutX="14.0" layoutY="14.0" prefHeight="746.0" prefWidth="393.0">
                                                   <columnConstraints>
                                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -225,8 +288,10 @@
                                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                   </rowConstraints>
                                                    <children>
                                                       <Label text="ID Propiedad" />
@@ -245,7 +310,7 @@
                                                       <Label text="Precio Sugerido" GridPane.rowIndex="15" />
                                                       <Label text="Precio del Cliente" GridPane.rowIndex="16" />
                                                       <Label text="Imagenes de la Propiedad" GridPane.rowIndex="17" />
-                                                      <Label text="Codigo de Empleado" GridPane.rowIndex="18" />
+                                                      <Label text="Codigo de Empleado" GridPane.rowIndex="19" />
                                                       <JFXComboBox fx:id="estadoProp" prefHeight="25.0" prefWidth="189.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                                       <JFXComboBox fx:id="estadoNegPro" prefHeight="25.0" prefWidth="191.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                                       <JFXComboBox fx:id="tipoPropiedad" prefHeight="25.0" prefWidth="192.0" promptText="Seleccionar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -258,19 +323,43 @@
                                                       <JFXTextField fx:id="precioMin" GridPane.columnIndex="1" GridPane.rowIndex="14" />
                                                       <JFXTextField fx:id="precioSug" GridPane.columnIndex="1" GridPane.rowIndex="15" />
                                                       <JFXTextField fx:id="precioCliente" GridPane.columnIndex="1" GridPane.rowIndex="16" />
-                                                      <JFXTextField fx:id="codEmpPro" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                                                      <JFXTextField fx:id="codEmpPro" GridPane.columnIndex="1" GridPane.rowIndex="19" />
                                                       <JFXTextArea fx:id="direcPro" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                                       <JFXTextArea fx:id="descrip2" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                                                       <JFXComboBox fx:id="Region" prefHeight="25.0" prefWidth="167.0" promptText="Region" GridPane.rowIndex="6" />
                                                       <JFXComboBox fx:id="Departa" prefHeight="25.0" prefWidth="168.0" promptText="Departamento" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                                       <JFXComboBox fx:id="Muni" prefHeight="25.0" prefWidth="164.0" promptText="Municipio" GridPane.rowIndex="7" />
                                                       <JFXComboBox fx:id="Zona" prefHeight="25.0" prefWidth="167.0" promptText="Zona" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                      <JFXButton fx:id="btnIsertPropi" onAction="#agregarPropiedad" prefHeight="25.0" prefWidth="199.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+                                                      <JFXButton fx:id="btnIsertPropi" onAction="#agregarPropiedad" prefHeight="25.0" prefWidth="199.0" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="20" />
                                                       <JFXTextField fx:id="codCliPro" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                      <JFXButton fx:id="btnNuevoPro" onAction="#limpiarPro" text="Nuevo" GridPane.rowIndex="19" />
+                                                      <JFXButton fx:id="btnNuevoPro" onAction="#limpiarPro" text="Nuevo" GridPane.rowIndex="20" />
+                                                      <JFXButton prefHeight="25.0" prefWidth="195.0" text="Eliminar" GridPane.rowIndex="21" />
+                                                      <JFXButton prefHeight="25.0" prefWidth="190.0" text="Actualizar" GridPane.columnIndex="1" GridPane.rowIndex="21" />
                                                    </children>
                                                 </GridPane>
                                                 <Separator layoutX="432.0" orientation="VERTICAL" prefHeight="1000.0" prefWidth="1.0" />
+                                                <TableView layoutX="438.0" layoutY="92.0" prefHeight="885.0" prefWidth="1380.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="75.0" text="ID Propiedad" />
+                                                    <TableColumn prefWidth="75.0" text="Tipo de Propiedad" />
+                                                      <TableColumn prefWidth="75.0" text="Estado" />
+                                                      <TableColumn prefWidth="113.0" text="Tipo de Negocio" />
+                                                      <TableColumn prefWidth="79.0" text="ID Cliente" />
+                                                      <TableColumn prefWidth="63.0" text="Direccion" />
+                                                      <TableColumn prefWidth="45.0" text="Zona" />
+                                                      <TableColumn prefWidth="75.0" text="Metros Cuadrados" />
+                                                      <TableColumn prefWidth="75.0" text="Descripcion" />
+                                                      <TableColumn prefWidth="75.0" text="Cant. de Cuartos" />
+                                                      <TableColumn prefWidth="75.0" text="Cant. de Niveles" />
+                                                      <TableColumn prefWidth="75.0" text="Sotanos" />
+                                                      <TableColumn prefWidth="75.0" text="Elevadores" />
+                                                      <TableColumn prefWidth="75.0" text="Precio Min. Venta" />
+                                                      <TableColumn prefWidth="75.0" text="Precio Sugerido" />
+                                                      <TableColumn prefWidth="75.0" text="Precio Del Cliente" />
+                                                      <TableColumn prefWidth="75.0" text="Imagen" />
+                                                      <TableColumn prefWidth="75.0" text="Codigo de Empleado" />
+                                                  </columns>
+                                                </TableView>
                                              </children></AnchorPane>
                                                     </content>
                                                 </Tab>
@@ -284,12 +373,66 @@
                 </Tab>
                 <Tab text="Buscar">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="2.0" layoutY="4.0" prefHeight="1280.0" prefWidth="1980.0">
+                           <center>
+                              <JFXTabPane BorderPane.alignment="CENTER">
+                                 <tabs>
+                                    <Tab text="Buscar Persona">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      </content>
+                                    </Tab>
+                                    <Tab text="Buscar Cliente">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      </content>
+                                    </Tab>
+                                    <Tab text="Buscar Empleado">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      </content>
+                                    </Tab>
+                                    <Tab text="Buscar Propiedad">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      </content>
+                                    </Tab>
+                                 </tabs>
+                              </JFXTabPane>
+                           </center>
+                        </BorderPane>
+                     </children></AnchorPane>
                     </content>
                 </Tab>
                 <Tab text="Propiedades">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="1015.0" prefWidth="1815.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="ID Propiedad" />
+                              <TableColumn prefWidth="75.0" text="Tipo de Propiedad" />
+                              <TableColumn prefWidth="75.0" text="Estado" />
+                              <TableColumn prefWidth="113.0" text="Tipo de Negocio" />
+                              <TableColumn prefWidth="79.0" text="ID Cliente" />
+                              <TableColumn prefWidth="63.0" text="Direccion" />
+                              <TableColumn prefWidth="45.0" text="Zona" />
+                              <TableColumn prefWidth="75.0" text="Metros Cuadrados" />
+                              <TableColumn prefWidth="75.0" text="Descripcion" />
+                              <TableColumn prefWidth="75.0" text="Cant. de Cuartos" />
+                              <TableColumn prefWidth="75.0" text="Cant. de Niveles" />
+                              <TableColumn prefWidth="75.0" text="Sotanos" />
+                              <TableColumn prefWidth="75.0" text="Elevadores" />
+                              <TableColumn prefWidth="75.0" text="Precio Min. Venta" />
+                              <TableColumn prefWidth="75.0" text="Precio Sugerido" />
+                              <TableColumn prefWidth="75.0" text="Precio Del Cliente" />
+                              <TableColumn prefWidth="75.0" text="Imagen" />
+                              <TableColumn prefWidth="75.0" text="Codigo de Empleado" />
+                           </columns>
+                        </TableView>
+                     </children></AnchorPane>
                     </content>
                 </Tab>
             </tabs>

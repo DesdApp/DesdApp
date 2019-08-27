@@ -1,28 +1,30 @@
-
 package modelo;
 
-//Modelo Clase Departamentos
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase
+ * Departamentos. Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
 public class Departamentos {
-    //atributos privados de la clase departamentos
+
+    // Atributos
     private int deptoId;
     private String nombre;
     private int regionId;
-    
-    //Constructor vacio
 
+    // Constructor vacio
     public Departamentos() {
     }
-    
-   //constructor con parametros
 
+    // Constructor con parametros
     public Departamentos(int deptoId, String nombre, int regionId) {
         this.deptoId = deptoId;
         this.nombre = nombre;
         this.regionId = regionId;
     }
-    
-    //Getters and Setters
 
+    //<editor-fold defaultstate="collapsed" desc="Getters y Setters">
     public int getDeptoId() {
         return deptoId;
     }
@@ -46,11 +48,11 @@ public class Departamentos {
     public void setRegionId(int regionId) {
         this.regionId = regionId;
     }
+//</editor-fold>
 
     @Override
     public String toString() {
-        return "Departamentos " + "deptoId=" + deptoId + ", nombre=" + nombre + ", regionId=" + regionId ;
+        return "Departamentos " + "deptoId=" + deptoId + ", nombre=" + nombre + ", regionId=" + regionId;
     }
-    
-    
+
 }

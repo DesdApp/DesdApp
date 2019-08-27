@@ -14,6 +14,11 @@ import java.util.ArrayList;
 */
 
 //implementacion de los metodos abstractos de la interfaz Departamento
+/**
+ * Esta clase es el objeto de acceso a datos para la clase Departamentos.
+ *
+ * @author carolina
+ */
 public class DAODepartamentos implements interfaces.InterfaceDepartamento{
     private ConexionDB cn= new ConexionDB();
     private String sql="";
@@ -23,6 +28,13 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
     private int conDepto=0;
 
     //Insertar Departamentos
+    /**
+     * Este metodo es para Ingresar un nuevo registro de Departamentos
+     *
+     * @param depto Este parametro es el tipo de objeto que deseamos Ingresar
+     * @return retorna un mensaje de confirmación o error en caso de que el id
+     * se repita
+     */
     @Override
     public String insert(Departamentos depto) {
         try {
@@ -57,7 +69,13 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
         return mensaje;
         }
 
-    //Modificar Departamentos
+   /**
+     * Este metodo es para realizar la modificacion de Departamentos en base a
+     * los datos.
+     *
+     * @param depto actualizará el registro que se llama por el id en la consulta
+     * @return retornará un mensaje de confirmacion
+     */
     @Override
     public String update(Departamentos depto) {
         try {
@@ -80,7 +98,7 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
             }else {
                 mensaje="Se ha actualizado el registro correctamente";
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             //Mensaje de Error se utiliza para obtener un mensaje detallado del objeto Throwable
             mensaje="Error a modificar Deprtamentos";
             System.out.println("Error en DAODepartamentos UPDATE: " + e.getMessage());
@@ -92,7 +110,14 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
         return mensaje;
           }
 
-    //Eliminar Departamentos
+    /**
+     * Este metodo es para realizar la Eliminacion de un Departamentos en
+     * base al codigo
+     *
+     * @param id elimina un registro por medio del id ingresado
+     * @return retorna un mensaje de confirmación o error en caso de que el
+     * registro no exista
+     */
     @Override
     public String delete(int id) {
         try {
@@ -125,7 +150,14 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
         return mensaje;
        }
 
-    //Seleccionar Departamentos
+    /**
+     * Este metodo es para realizar la consulta de un Departamentos en base
+     * al codigo
+     *
+     * @param id Este parametro es el id del elemento que deseamos
+     * buscar.
+     * @return Retorna el objeto obtenido en nuestra consulta.
+     */
     @Override
     public Departamentos select(int id) {
         Departamentos dato = new Departamentos();
@@ -157,7 +189,13 @@ public class DAODepartamentos implements interfaces.InterfaceDepartamento{
         return dato;
         }
 
-    //Listar Departamentos
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase Departamentos.
+     *
+     * @return retornará una lista de los registros de la tabla que se pide en
+     * la consulta
+     */
     @Override
     public ArrayList<Departamentos> list() {
         //Crea un objeto tipo ArrayList

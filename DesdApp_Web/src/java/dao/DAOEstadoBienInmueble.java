@@ -10,6 +10,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.EstadoBienInmueble;
 
+/**
+ * Esta clase es el objeto de acceso a datos para la clase EstadoBienInmueble.
+ *
+ * @author carolina
+ */
+
 public class DAOEstadoBienInmueble implements interfaces.InterfaceEstadoBienInmueble {
 
     // Instanciamos los objetos
@@ -21,10 +27,16 @@ public class DAOEstadoBienInmueble implements interfaces.InterfaceEstadoBienInmu
     String sql;
     String msg;
 
-    @Override
     /**
-     * @return el registro que se selecciono
+     * Este metodo es para realizar la consulta de un EstadoBienInmueble en base
+     * al codigo
+     *
+     * @param codigo Este parametro es el codigo del elemento que deseamos
+     * buscar.
+     * @return Retorna el objeto obtenido en nuestra consulta.
      */
+    @Override
+    
     public EstadoBienInmueble selectEstado(byte codigo) {
         /*
         * Se realiza la consulta para seleccionar un registro
@@ -52,10 +64,15 @@ public class DAOEstadoBienInmueble implements interfaces.InterfaceEstadoBienInmu
         return estado;
     }
 
-    @Override
     /**
-     * @return los registros de la tabla
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase EstadoBienInmueble.
+     *
+     * @return retornará una lista de los registros de la tabla que se pide en
+     * la consulta
      */
+    @Override
+    
     public ArrayList<EstadoBienInmueble> listEstados() {
         EstadoBienInmueble estados;
         ArrayList<EstadoBienInmueble> list = new ArrayList<>();// Utilizamos un ArrayList para obtener todos los registros y almacenarlos

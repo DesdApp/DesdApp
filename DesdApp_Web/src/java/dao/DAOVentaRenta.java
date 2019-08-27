@@ -4,7 +4,6 @@
  */
 package dao;
 
-import modelo.BienesInmuebles;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,6 +21,13 @@ public class DAOVentaRenta implements interfaces.InterfaceVentaRenta {
     String sql;
     String msg;
 
+    /**
+     * Este metodo es para realizar la consulta de la clase 
+     * VentaRenta en base al codigo
+     * @param codigo Este parametro es el codigo del elemento que deseamos
+     * buscar.
+     * @return Retorna el objeto obtenido en nuestra consulta. 
+     */
     @Override
     public VentaRenta selectEstado(byte codigo) {
         /*
@@ -49,15 +55,25 @@ public class DAOVentaRenta implements interfaces.InterfaceVentaRenta {
         }
         return estado;
     }
-
+    
+    
+    /**
+     * Este metodo es para obtener todos los registros de la base de datos 
+     * correspondiente a la clase VentaRenta.
+     * @return  Este metodo retorna un ArrayList de tipo VentaRenta.
+     */
     @Override
     public ArrayList<VentaRenta> ListEstados() {
         VentaRenta estados;
         ArrayList<VentaRenta> list = new ArrayList<>();// Utilizamos un ArrayList para obtener todos los registros y almacenarlos
         try {
+            //Se conecta a la base de datos
             cx.conectar();
+            //Envia la consulta a la base de datos.
             sql = "SELECT * FROM venta_renta";
+            //Prepara la consulta en la base de datos
             execute = cx.getconexionDB().prepareStatement(sql);
+            //Realiza la consulta Muestra los datos en la base de datos
             rs = execute.executeQuery();
             while (rs.next()) {// Verifica que hayan mas registros
                 estados = new VentaRenta();// Cada vez que pase a un registro nuevo crea un objeto VentaRenta
@@ -66,10 +82,13 @@ public class DAOVentaRenta implements interfaces.InterfaceVentaRenta {
                 list.add(estados);// Se agregan los registros al ArrayList
             }
         } catch (SQLException e) {
+            //Mensaje por Consola de Error se utiliza para obtener un mensaje detallado del objeto Throwable
             System.out.println("Error en DAOVentaRenta LIST: " + e.getMessage());
         } finally {
+            //Se desconecta de la base de datos.
             cx.desconectar();
         }
+        //Retorna la visualizacion de la lista.
         return list;
     }
 

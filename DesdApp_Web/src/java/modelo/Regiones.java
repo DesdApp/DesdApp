@@ -1,15 +1,19 @@
-
 package modelo;
 
-//Modelo Region
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase Regiones.
+ * Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
 public class Regiones {
+
     //declaracion de Atributos
     private int regionId;
     private String nombre;
     private String descripcion;
-    
-    //Constructor vacio
 
+    //Constructor vacio
     public Regiones() {
     }
 
@@ -19,9 +23,8 @@ public class Regiones {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
-    
-    
-    //Declaracion de Getters y Setters
+
+    //<editor-fold defaultstate="collapsed" desc="Getters y Setters">
     public int getRegionId() {
         return regionId;
     }
@@ -46,11 +49,6 @@ public class Regiones {
         this.descripcion = descripcion;
     }
 
-    @Override
-    public String toString() {
-        return "Regiones{" + "regionId=" + regionId + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
-    }
-    
-    
-    
+//</editor-fold>
+
 }

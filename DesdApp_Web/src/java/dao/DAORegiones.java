@@ -13,6 +13,11 @@ import java.util.ArrayList;
 *ejecutar// instancia de la ejecucion que contiene la base de datos
 *datoRegion// Objeto de la clase Region
  */
+/**
+ * Esta clase es el objeto de acceso a datos para la clase Regiones.
+ *
+ * @author carolina
+ */
 public class DAORegiones implements interfaces.InterfaceRegion {
 
     private final ConexionDB cn = new ConexionDB();
@@ -22,13 +27,24 @@ public class DAORegiones implements interfaces.InterfaceRegion {
     private PreparedStatement ejecutar;
     private int contRegion=0;
 
-    //insertar Un nuevo Registro para Regiones
+    /**
+     * Este metodo es para ingresar un nuevo registro de tipo 
+     * Regiones
+     * @param region Este parametro es el tipo de objeto que deseamos
+     * Ingresar
+     * 
+     * @return Retorna la consulta en un mensaje. 
+     */
     @Override
     public String insert(Regiones region) {
         try {
+            //Se conecta a la base de datos
             cn.conectar();
+            //Envia la consulta en la base de datos.
             sql = "INSERT INTO regiones VALUES(?,?,?)";
+            //Prepara la consulta en la base de datos
             ejecutar = cn.getconexionDB().prepareStatement(sql);
+            //Ejecuta la consulta en la base de datos.
             ejecutar.setInt(1, region.getRegionId());
             ejecutar.setString(2, region.getNombre());
             ejecutar.setString(3, region.getDescripcion());
@@ -50,7 +66,15 @@ public class DAORegiones implements interfaces.InterfaceRegion {
         return mensaje;
     }
 
-    //Modificar Registro de Region
+
+    /**
+     * Este metodo es para realizar la modificacion de las Regines 
+     * en ase a los datos.
+     * @param region Actualizara el registro que se llama por el id en la 
+     * consulta 
+     * @return Retornara un mensaje de confirmaicon. 
+     * 
+     */
     @Override
     public String update(Regiones region) {
         try {
@@ -84,7 +108,14 @@ public class DAORegiones implements interfaces.InterfaceRegion {
         return mensaje;
     }
 
-    //Eliminar Regiones
+    /**
+     * Este metodo es para realizar la eliminacion de una Region en base 
+     * al id
+     * @param id Este parametro elimina un registro por medio del id ingresado
+     * 
+     * @return Retorna un mensaje de confirmacion o error en caso de que el registro 
+     * no exixta.
+     */
     @Override
     public String delete(int id) {
         try {
@@ -113,7 +144,12 @@ public class DAORegiones implements interfaces.InterfaceRegion {
         return mensaje;
     }
 
-    //seleccionar Region
+    /**
+     * Este metodo es para realizar la consulta de una Region en bse a la id
+     * @param id Este parametro es el codigo del elemento que 
+     * deseamos buscar.
+     * @return Retorna el objeto obtenido en nuestra consulta.
+     */
     @Override
     public Regiones select(int id) {
         Regiones datos = new Regiones();
@@ -145,7 +181,12 @@ public class DAORegiones implements interfaces.InterfaceRegion {
         return datos;
     }
 
-    //listar Region.
+    /**
+     * Este metodo es para obtener todos los registros de la base de
+     * datos correspondientes a la clase Regiones.
+     * @return  Retorna un lista de los registros de la tabla que se pide en
+     * la consulta.
+     */
     @Override
     public ArrayList<Regiones> list() {
         //Crea un objeto tipo ArrayList

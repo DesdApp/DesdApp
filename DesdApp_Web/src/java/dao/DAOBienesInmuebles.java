@@ -10,6 +10,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.BienesInmuebles;
 
+/**
+ * Esta clase es el objeto de acceso a datos para la clase BienesInmuebles.
+ *
+ * @author carolina
+ */
 public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
 
     // Instanciamos las clases
@@ -21,11 +26,16 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
     String msg;
     String sql;
 
+    /**
+     * Este metodo es para Ingresar un nuevo registro de BienesInmuebles
+     *
+     * @param bien Este parametro es el tipo de objeto que deseamos Ingresar
+     * @return retorna un mensaje de confirmación o error en caso de que el id
+     * se repita
+     */
     @Override
     public String insertBien(BienesInmuebles bien) {
-        /*
-        * Se realiza la consulta para agregar un registro a la tabla
-         */
+       
         try {
             cx.conectar();  // Realizamos la conexion con la base de datos
             sql = "INSERT INTO bienes_inmuebles VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Asignamos a la variable sql la consulta
@@ -60,14 +70,17 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
         }
         return msg;
     }
-
+ /**
+     * Este metodo es para realizar la Eliminacion de un BienesInmuebles en
+     * base al codigo
+     *
+     * @param codigo elimina un registro por medio del id ingresado
+     * @return retorna un mensaje de confirmación o error en caso de que el
+     * registro no exista
+     */
     @Override
     public String deleteBien(int codigo) {
-        /*
-        * Se realiza la consulta para borrar un registro de la tabla
-        * Nos conectamos a la base de datos, asignamos la consulta al PreparedStatement, asignamos los valores a la consulta
-        * y realizamos la consulta. Luego cerramos la conexion
-         */
+       
         try {
             cx.conectar();
             sql = "DELETE FROM bienes_inmuebles WHERE inmueble_id = ?";
@@ -89,6 +102,13 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
 
     }
 
+     /**
+     * Este metodo es para realizar la modificacion de BienesInmuebles en base a
+     * los datos.
+     *
+     * @param bien actualizará el registro que se llama por el id en la consulta
+     * @return retornará un mensaje de confirmacion
+     */
     @Override
     public String updateBien(BienesInmuebles bien) {
         /*
@@ -131,10 +151,16 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
 
     }
 
-    @Override
-    /**
-     * @return el registro que se selecciono
+     /**
+     * Este metodo es para realizar la consulta de un BienesInmuebles en base
+     * al codigo
+     *
+     * @param codigo Este parametro es el codigo del elemento que deseamos
+     * buscar.
+     * @return Retorna el objeto obtenido en nuestra consulta.
      */
+    @Override
+    
     public BienesInmuebles selectBien(int codigo) {
         /*
         * Se realiza la consulta para seleccionar un registro
@@ -179,10 +205,14 @@ public class DAOBienesInmuebles implements interfaces.InterfaceBienes {
         return bien;
     }
 
-    @Override
     /**
-     * @return los registros de la tabla
+     * Este metodo es para obtener todos los registros de la base de datos
+     * correspondientes a la clase BienesInmuebles.
+     *
+     * @return retornará una lista de los registros de la tabla que se pide en
+     * la consulta
      */
+    @Override
     public ArrayList<BienesInmuebles> listBienes() {
         ArrayList<BienesInmuebles> list = new ArrayList<>(); // Utilizamos un ArrayList para obtener todos los registros y almacenarlos
         BienesInmuebles bien;

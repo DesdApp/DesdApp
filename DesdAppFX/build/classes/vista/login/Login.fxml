@@ -8,10 +8,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="ap" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="480.0" styleClass="background_app" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContorladorLogin">
+<AnchorPane id="AnchorPane" fx:id="ap" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="480.0" styleClass="background_app" stylesheets="StyleLogin.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContorladorLogin">
    <children>
-      <Button fx:id="btnInicioSecion" layoutX="183.0" layoutY="311.0" mnemonicParsing="false" onAction="#iniciarSesion" text="Iniciar Sesion">
+      <Button fx:id="btnInicioSecion" layoutX="173.0" layoutY="324.0" mnemonicParsing="false" onAction="#iniciarSesion" text="Iniciar Sesion">
          <effect>
             <DropShadow />
          </effect>
@@ -19,10 +20,13 @@
             <String fx:value="button1" />
             <String fx:value="button1" />
          </styleClass></Button>
-      <PasswordField fx:id="txtPassword" layoutX="169.0" layoutY="223.0" promptText="Contraseña" styleClass="input" />
-      <TextField fx:id="txtUser" layoutX="168.0" layoutY="172.0" promptText="Usuario" styleClass="input" />
-      <Label fx:id="lblErrorSesion" layoutX="28.0" layoutY="275.0" prefHeight="17.0" prefWidth="421.0" />
-      <Label alignment="CENTER" layoutX="191.0" layoutY="64.0" text="Iniciar Secion" />
-      <ComboBox fx:id="listaP" layoutX="169.0" layoutY="117.0" prefWidth="150.0" promptText="Privilegios" visibleRowCount="5" />
+      <PasswordField fx:id="txtPassword" layoutX="163.0" layoutY="230.0" promptText="Contraseña" styleClass="input" />
+      <TextField fx:id="txtUser" layoutX="163.0" layoutY="171.0" promptText="Usuario" styleClass="input" />
+      <Label fx:id="lblErrorSesion" contentDisplay="CENTER" layoutX="13.0" layoutY="275.0" prefHeight="37.0" prefWidth="452.0" styleClass="ErrorLbl" textOverrun="CENTER_ELLIPSIS" />
+      <Label alignment="CENTER" layoutX="118.0" layoutY="50.0" text="Iniciar Sesion">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font></Label>
+      <ComboBox fx:id="listaP" layoutX="170.0" layoutY="116.0" prefWidth="150.0" promptText="Privilegios" styleClass="comboBoxPrivilegios" visibleRowCount="5" />
    </children>
 </AnchorPane>

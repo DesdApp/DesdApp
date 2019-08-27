@@ -1,5 +1,12 @@
 package modelo;
 
+/**
+ * Esta clase declara los Metodos Get, Set y atributos para la clase Personas.
+ * Se inicializan los Constructores llenos y vacios.
+ *
+ * @author esteban
+ */
+
 import java.sql.Date;
 //Modelo Clase Personas
 
@@ -18,7 +25,7 @@ public class Personas {
     private String correo;
     private Date fechaNacimiento;
 
-//    Constructores
+//    Constructor con parametros
     public Personas(int personaId, String nombre, String apellido, byte tipoDocumentoId, String noDocumento, String nit, String direccion, int celular, int telefono, String correo, Date fechaNac) {
         this.personaId = personaId;
         this.nombre = nombre;
@@ -33,14 +40,10 @@ public class Personas {
         this.fechaNacimiento = fechaNac;
     }
 
+//    Constructor vacio
     public Personas() {
     }
 
-    @Override
-    public String toString() {
-        return "Personas{" + "personaId=" + personaId + ", nombre=" + nombre + ", apellido=" + apellido + ", tipoDocumentoId=" + tipoDocumentoId + ", noDocumento=" + noDocumento + ", nit=" + nit + ", direccion=" + direccion + ", celular=" + celular + ", telefono=" + telefono + ", correo=" + correo + ", fechaNacimiento=" + fechaNacimiento + '}';
-    }
-    
 
     //<editor-fold defaultstate="collapsed" desc="Metodos set y get">
     public int getPersonaId() {
